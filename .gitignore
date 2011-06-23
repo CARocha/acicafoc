@@ -1,0 +1,13 @@
+settings_local.py
+nbproject/
+.project
+.pydevproject
+*.pyc
+*.html~
+*.py~
+*.js~
+*.css~
+*.db
+*.sql
+local_settings.py
+
