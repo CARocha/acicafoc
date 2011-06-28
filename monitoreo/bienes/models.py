@@ -5,7 +5,7 @@ from monitoreo.encuestas.models import *
 
 # Create your models here.
 
-# Indicador 153. Propiedades y Bienes
+# Indicador 13. Propiedades y Bienes
 
 CHOICE_AMBIENTE = ((1,"1"),
                    (2,"2"),
