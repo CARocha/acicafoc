@@ -29,6 +29,12 @@ CHOICE_SEXO = (
                     (2, 'Mujer')
               )
               
+CHOICE_OPCION = (
+                    (1, 'Si'),
+                    (2, 'No'),
+                    (3,'No utilizar')
+              )
+              
 CHOICE_ETNICO = (
                     (1, 'Miskito'),
                     (2, 'Mayagna'),
