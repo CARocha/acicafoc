@@ -20,10 +20,10 @@ class Seguridad(models.Model):
     ''' Modelo Seguridad alimentaria
     '''
     alimento = models.ForeignKey(Alimentos)
-    producen = models.IntegerField('Producen en la finca', choices=CHOICE_OPCION)
-    compran = models.IntegerField('Compran para completar la necesidad', choices=CHOICE_OPCION)
-    consumen = models.IntegerField('Consumen lo necesario en los meses de verano', choices=CHOICE_OPCION)
-    consumen_invierno = models.IntegerField('Consumen lo necesario en los meses de invierno', choices=CHOICE_OPCION)
+    producen = models.IntegerField('Producen en la finca', choices=CHOICE_OPCION, null=True, blank=True)
+    compran = models.IntegerField('Compran para completar la necesidad', choices=CHOICE_OPCION, null=True, blank=True)
+    consumen = models.IntegerField('Consumen lo necesario en los meses de verano', choices=CHOICE_OPCION, null=True, blank=True)
+    consumen_invierno = models.IntegerField('Consumen lo necesario en los meses de invierno', choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):

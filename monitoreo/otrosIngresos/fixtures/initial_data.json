@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "otrosIngresos.fuentes", "fields": {"nombre": "Salarios"}}, {"pk": 2, "model": "otrosIngresos.fuentes", "fields": {"nombre": "Negocios"}}, {"pk": 3, "model": "otrosIngresos.fuentes", "fields": {"nombre": "Remesas"}}, {"pk": 4, "model": "otrosIngresos.fuentes", "fields": {"nombre": "Alquiler"}}]

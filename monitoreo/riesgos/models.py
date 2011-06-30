@@ -39,7 +39,7 @@ class Vulnerable(models.Model):
     ''' 20 modelo vulnerable
     '''
     motivo = models.ForeignKey(Fenomeno)
-    respuesta = models.ManyToManyField(Graves, verbose_name="¿Cada cuanto hay daños graves en la finca?")
+    respuesta = models.ManyToManyField(Graves, verbose_name="¿Cada cuanto hay daños graves en la finca?", null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -59,8 +59,8 @@ class PreguntaRiesgo(models.Model):
 class Riesgos(models.Model):
     ''' 20 mitigacion de los riesgos
     '''
-    pregunta = models.ForeignKey(PreguntaRiesgo)
-    respuesta = models.IntegerField('Respuesta', choices=CHOICE_OPCION)
+    pregunta = models.ForeignKey(PreguntaRiesgo, null=True, blank=True)
+    respuesta = models.IntegerField('Respuesta', choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:

@@ -38,15 +38,15 @@ class OrganizacionGremial(models.Model):
     ''' 2. Organizacion Gremial
     '''
     socio = models.ManyToManyField(OrgGremiales,
-                                   verbose_name="Es socio/a de una organización gremial")
-    desde_socio = models.IntegerField('Desde cuando', choices=CHOICE_DESDE)
+                                   verbose_name="Es socio/a de una organización gremial", null=True, blank=True)
+    desde_socio = models.IntegerField('Desde cuando', choices=CHOICE_DESDE, null=True, blank=True)
     beneficio = models.ManyToManyField(BeneficiosObtenido,
-                                       verbose_name="¿Qué beneficios ha tenido por ser socio/a de la cooperativa, la asociación o empresa")
+                                       verbose_name="¿Qué beneficios ha tenido por ser socio/a de la cooperativa, la asociación o empresa", null=True, blank=True)
     miembro_gremial = models.IntegerField('Soy miembro de órgano gremial',
-                                          choices=CHOICE_MIEMBRO_GREMIAL)
+                                          choices=CHOICE_MIEMBRO_GREMIAL, null=True, blank=True)
     
     capacitacion = models.IntegerField('He recibido capacitación para desempeñar mi cargo',
-                                      choices=CHOICE_OPCION)
+                                      choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -84,15 +84,15 @@ class NombreOrganizacion(models.Model):
 class OrganizacionComunitaria(models.Model):
     ''' 2.1 Organizacion comunitarias
     '''
-    numero = models.IntegerField('¿Cuántas organizaciones están activas en la localidad o comunidad')
-    pertence = models.IntegerField('¿Pertenece a algunas organizaciones?', choices=CHOICE_OPCION)
-    cual_organizacion = models.ManyToManyField(OrgComunitarias, verbose_name="¿A cuál organización comunitaria pertenece?")
-    cual_beneficio = models.ManyToManyField(BeneficioOrgComunitaria, verbose_name="¿Cuáles son los beneficios de estar organizado")
-    cuantas = models.IntegerField('¿Cuántas organizaciones comunitarias han sido creadas o apoyadas por el proyecto')
+    numero = models.IntegerField('¿Cuántas organizaciones están activas en la localidad o comunidad', null=True, blank=True)
+    pertence = models.IntegerField('¿Pertenece a algunas organizaciones?', choices=CHOICE_OPCION, null=True, blank=True)
+    cual_organizacion = models.ManyToManyField(OrgComunitarias, verbose_name="¿A cuál organización comunitaria pertenece?", null=True, blank=True)
+    cual_beneficio = models.ManyToManyField(BeneficioOrgComunitaria, verbose_name="¿Cuáles son los beneficios de estar organizado", null=True, blank=True)
+    cuantas = models.IntegerField('¿Cuántas organizaciones comunitarias han sido creadas o apoyadas por el proyecto', null=True, blank=True)
     organizaciones = models.ManyToManyField(NombreOrganizacion, verbose_name="¿Como se llaman estas organizaciones?", null=True, blank=True)
-    pertence_org = models.IntegerField('¿Pertenece a algunas organizaciones?', choices=CHOICE_OPCION)
-    personas = models.IntegerField('¿Cuántas personas estan integradas en las organizaciones comunitarias apoyadas por el proyecto?')
-    involucradas = models.IntegerField('¿La organización comunitaria apoyada por el proyecto está involucrada en algún sub-proyecto?', choices=CHOICE_OPCION)
+    pertence_org = models.IntegerField('¿Pertenece a algunas organizaciones?', choices=CHOICE_OPCION, null=True, blank=True)
+    personas = models.IntegerField('¿Cuántas personas estan integradas en las organizaciones comunitarias apoyadas por el proyecto?', null=True, blank=True)
+    involucradas = models.IntegerField('¿La organización comunitaria apoyada por el proyecto está involucrada en algún sub-proyecto?', choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -121,8 +121,8 @@ CHOICE_DUENO = ((1,"Hombre"),
 class Tenencia(models.Model):
     ''' Modelo tipo de tenencia de la propiedad
     '''
-    parcela = models.IntegerField('Tipo de tenencia Parcela', choices=CHOICE_TENENCIA)
-    dueno = models.IntegerField('Documento legal de la propiedad, a nombre de quien', choices=CHOICE_DUENO)
+    parcela = models.IntegerField('Tipo de tenencia Parcela', choices=CHOICE_TENENCIA, null=True, blank=True)
+    dueno = models.IntegerField('Documento legal de la propiedad, a nombre de quien', choices=CHOICE_DUENO, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):

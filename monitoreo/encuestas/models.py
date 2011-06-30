@@ -16,7 +16,7 @@ class OrganizacionOCB(models.Model):
         return self.nombre
         
     class Meta:
-        verbose_name_plural = "Contrapartes Trocaire"
+        verbose_name_plural = "Organizaciones OCB"
         
 class Etnico(models.Model):
     nombre = models.CharField(max_length=200)
@@ -41,6 +41,14 @@ CHOICE_ETNICO = (
                     (3, 'Mestizo'),
                     (4, 'Afrodescendiente')
               )
+              
+CHOICE_MANEJA = ((1,"Hombre"),
+                 (2,"Mujer"),
+                 (3,"Ambos"),
+                 (4,"Hijos/as"),
+                 (5,'Hombre-Hijos'),
+                 (6,'Mujer-Hijos'),
+                 (7,'Todos'))
 
 class Encuesta(models.Model):
     ''' Modelo de encuesta principal
@@ -56,8 +64,8 @@ class Encuesta(models.Model):
 #    latitud = models.DecimalField('Latitud', max_digits=8, decimal_places=5, blank=True, null=True)
 #    longitud = models.DecimalField('Longitud', max_digits=8, decimal_places=5, blank=True, null=True) 
     sexo = models.IntegerField(choices=CHOICE_SEXO)
-    beneficiario = models.ManyToMany(OrganizacionOCB, verbose_name="Beneficiario/a de que OCB(organización comunitaria)", null=True, blank=True)
-    grupo = models.ForeignKey(choices=CHOICE_ETNICO, null=True, blank=True)
+    beneficiario = models.ManyToManyField(OrganizacionOCB, verbose_name="Beneficiario/a de que OCB(organización comunitaria)", null=True, blank=True)
+    grupo = models.IntegerField(choices=CHOICE_ETNICO, null=True, blank=True)
     usuario = models.ForeignKey(User)
     
     def __unicode__(self):

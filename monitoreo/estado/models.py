@@ -4,10 +4,10 @@ from django.db import models
 from monitoreo.encuestas.models import *
 
 class Vivero(models.Model):
-    vivero_cacao = models.IntegerField('¿Actualmente tiene vivero de cacao en la finca?', choices=CHOICE_OPCION)
-    edad_planta = models.FloatField('Cúal es la edad de las plantas de vivero')
-    plantas = models.FloatField('¿Cuántas plantas hay en el vivero?')
-    planta_injerto = models.FloatField('¿Cuántas plantas son injertadas?')
+    vivero_cacao = models.IntegerField('¿Actualmente tiene vivero de cacao en la finca?', choices=CHOICE_OPCION, null=True, blank=True)
+    edad_planta = models.FloatField('Cúal es la edad de las plantas de vivero', null=True, blank=True)
+    plantas = models.FloatField('¿Cuántas plantas hay en el vivero?', null=True, blank=True)
+    planta_injerto = models.FloatField('¿Cuántas plantas son injertadas?', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):
@@ -17,11 +17,11 @@ class Vivero(models.Model):
         verbose_name_plural = "Viveros"
         
 class PlantaDesarrolloMenos(models.Model):
-    cacao_desarrollo = models.IntegerField('¿Actualmente tiene plantas de cacao en desarrollo menos de un año?', choices=CHOICE_OPCION)
-    edad_planta = models.FloatField('Cúal es la edad de las plantas?')
-    area_sembrada = models.FloatField('¿Cuánta área está sembrada con cacao en desarrollo que tiene menos de un año?(Mz)')
-    plantas_finca = models.FloatField('¿Cuántas plantas de cacao en desarrollo menos de un año hay en la finca?')
-    planta_injerto = models.FloatField('¿Cuántas plantas de cacao en desarrollo menos de un año son injertadas?')
+    cacao_desarrollo = models.IntegerField('¿Actualmente tiene plantas de cacao en desarrollo menos de un año?', choices=CHOICE_OPCION, null=True, blank=True)
+    edad_planta = models.FloatField('Cúal es la edad de las plantas?', null=True, blank=True)
+    area_sembrada = models.FloatField('¿Cuánta área está sembrada con cacao en desarrollo que tiene menos de un año?(Mz)', null=True, blank=True)
+    plantas_finca = models.FloatField('¿Cuántas plantas de cacao en desarrollo menos de un año hay en la finca?', null=True, blank=True)
+    planta_injerto = models.FloatField('¿Cuántas plantas de cacao en desarrollo menos de un año son injertadas?', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):
@@ -31,11 +31,11 @@ class PlantaDesarrolloMenos(models.Model):
         verbose_name_plural = "Plantas en desarrollo menos de un año"
         
 class PlantaDesarrolloMas(models.Model):
-    cacao_desarrollo = models.IntegerField('¿Actualmente tiene plantas de cacao en desarrollo más de un año?', choices=CHOICE_OPCION)
-    edad_planta = models.FloatField('Cúal es la edad de las plantas?')
-    area_sembrada = models.FloatField('¿Cuánta área está sembrada con cacao en desarrollo que tiene más de un año?(Mz)')
-    plantas_finca = models.FloatField('¿Cuántas plantas de cacao en desarrollo más de un año hay en la finca?')
-    planta_injerto = models.FloatField('¿Cuántas plantas de cacao en desarrollo más de un año son injertadas?')
+    cacao_desarrollo = models.IntegerField('¿Actualmente tiene plantas de cacao en desarrollo más de un año?', choices=CHOICE_OPCION, null=True, blank=True)
+    edad_planta = models.FloatField('Cúal es la edad de las plantas?', null=True, blank=True)
+    area_sembrada = models.FloatField('¿Cuánta área está sembrada con cacao en desarrollo que tiene más de un año?(Mz)', null=True, blank=True)
+    plantas_finca = models.FloatField('¿Cuántas plantas de cacao en desarrollo más de un año hay en la finca?', null=True, blank=True)
+    planta_injerto = models.FloatField('¿Cuántas plantas de cacao en desarrollo más de un año son injertadas?', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):
@@ -45,15 +45,15 @@ class PlantaDesarrolloMas(models.Model):
         verbose_name_plural = "Plantas en desarrollo más de un año"
         
 class PlantaProduccion(models.Model):
-    plantas_cacao = models.IntegerField('¿Actualmente tiene plantas de cacao en producción?', choices=CHOICE_OPCION)
-    edad_planta = models.FloatField('Cúal es la edad de las plantas (en años)')
-    area_sembrada = models.FloatField('¿Cuánta área está sembrada con cacao en producción?(Mz)')
-    plantas_finca = models.FloatField('¿Cuántas plantas de cacao en producción hay en la finca?')
-    planta_injerto = models.FloatField('¿Cuántas plantas de cacao en producción son injertadas?')
-    total = models.FloatField('¿Cuál es la producción total de cacao en la finca?(qq granos seco)')
-    sin_fermentar = models.FloatField('¿Cuál es la producción de cacao sin fermentar en la finca?(qq granos seco)')
-    fermentado = models.FloatField('¿Cuál es la producción de cacao fermentado  convencional en la finca?(qq granos seco')
-    organico = models.FloatField('¿Cuál es la producción de cacao fermentado orgánico en la finca?(qq granos seco')
+    plantas_cacao = models.IntegerField('¿Actualmente tiene plantas de cacao en producción?', choices=CHOICE_OPCION, null=True, blank=True)
+    edad_planta = models.FloatField('Cúal es la edad de las plantas (en años)', null=True, blank=True)
+    area_sembrada = models.FloatField('¿Cuánta área está sembrada con cacao en producción?(Mz)', null=True, blank=True)
+    plantas_finca = models.FloatField('¿Cuántas plantas de cacao en producción hay en la finca?', null=True, blank=True)
+    planta_injerto = models.FloatField('¿Cuántas plantas de cacao en producción son injertadas?', null=True, blank=True)
+    total = models.FloatField('¿Cuál es la producción total de cacao en la finca?(qq granos seco)', null=True, blank=True)
+    sin_fermentar = models.FloatField('¿Cuál es la producción de cacao sin fermentar en la finca?(qq granos seco)', null=True, blank=True)
+    fermentado = models.FloatField('¿Cuál es la producción de cacao fermentado  convencional en la finca?(qq granos seco', null=True, blank=True)
+    organico = models.FloatField('¿Cuál es la producción de cacao fermentado orgánico en la finca?(qq granos seco', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
         
     def __unicode__(self):
@@ -63,9 +63,9 @@ class PlantaProduccion(models.Model):
         verbose_name_plural = "Plantas en producción"    
         
 class PlantaElite(models.Model):    
-    elite = models.IntegerField('¿Actualmente tiene plantas élites seleccionadas en la finca?')
-    edad_planta = models.FloatField('Cuál es la edad de las plantas élite?(en años)')
-    cuantas = models.FloatField('¿Cuántas plantas élites de cacao hay en la finca?')
+    elite = models.IntegerField('¿Actualmente tiene plantas élites seleccionadas en la finca?', null=True, blank=True)
+    edad_planta = models.FloatField('Cuál es la edad de las plantas élite?(en años)', null=True, blank=True)
+    cuantas = models.FloatField('¿Cuántas plantas élites de cacao hay en la finca?', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):
@@ -75,8 +75,8 @@ class PlantaElite(models.Model):
         verbose_name_plural = "Plantas élite de cacao"
         
 class Costo(models.Model):
-    mantenimiento_area = models.FloatField('En total, ¿Cuánto gasta usted en año para el mantenimiento del área de cacao? (C$)')
-    mantenimiento_finca = models.FloatField('En total, ¿Cuánto gasta usted en año para el mantenimiento de la finca? (C$)') 
+    mantenimiento_area = models.FloatField('En total, ¿Cuánto gasta usted en año para el mantenimiento del área de cacao? (C$)', null=True, blank=True)
+    mantenimiento_finca = models.FloatField('En total, ¿Cuánto gasta usted en año para el mantenimiento de la finca? (C$)', null=True, blank=True) 
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -89,8 +89,8 @@ class Practicas(models.Model):
         return self.nombre
         
 class ViveroPractica(models.Model):
-    practica = models.ForeignKey(Practicas, verbose_name="Prácticas")
-    respuesta = models.IntegerField(choices=CHOICE_OPCION)
+    practica = models.ForeignKey(Practicas, verbose_name="Prácticas", null=True, blank=True)
+    respuesta = models.IntegerField(choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -103,8 +103,8 @@ class PracticaEtapa(models.Model):
         return self.nombre
                 
 class PracticaFertilizacion(models.Model):
-    practica = models.ForeignKey(PracticaEtapa, verbose_name="Prácticas")
-    respuesta = models.IntegerField(choices=CHOICE_OPCION)
+    practica = models.ForeignKey(PracticaEtapa, verbose_name="Prácticas", null=True, blank=True)
+    respuesta = models.IntegerField(choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -117,8 +117,8 @@ class PracticaFitosanitaria(models.Model):
         return self.nombre
         
 class PracticaManejoFitosanitario(models.Model):
-    practica = models.ForeignKey(PracticaFitosanitaria, verbose_name="Prácticas")
-    respuesta = models.IntegerField(choices=CHOICE_OPCION)
+    practica = models.ForeignKey(PracticaFitosanitaria, verbose_name="Prácticas", null=True, blank=True)
+    respuesta = models.IntegerField(choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -131,8 +131,8 @@ class PracticaProductivo(models.Model):
         return self.nombre
         
 class PracticaManejoProductivo(models.Model):
-    practica = models.ForeignKey(PracticaProductivo, verbose_name="Prácticas")
-    respuesta = models.IntegerField(choices=CHOICE_OPCION)
+    practica = models.ForeignKey(PracticaProductivo, verbose_name="Prácticas", null=True, blank=True)
+    respuesta = models.IntegerField(choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -145,8 +145,8 @@ class PracticaGenetico(models.Model):
         return self.nombre
         
 class PracticaMejoramientoGenetico(models.Model):
-    practica = models.ForeignKey(PracticaGenetico, verbose_name="Prácticas")
-    respuesta = models.IntegerField(choices=CHOICE_OPCION)
+    practica = models.ForeignKey(PracticaGenetico, verbose_name="Prácticas", null=True, blank=True)
+    respuesta = models.IntegerField(choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -159,8 +159,8 @@ class PracticaPostcosecha(models.Model):
         return self.nombre
         
 class PracticaManejoPostcosecha(models.Model):
-    practica = models.ForeignKey(PracticaPostcosecha, verbose_name="Prácticas")
-    respuesta = models.IntegerField(choices=CHOICE_OPCION)
+    practica = models.ForeignKey(PracticaPostcosecha, verbose_name="Prácticas", null=True, blank=True)
+    respuesta = models.IntegerField(choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -179,10 +179,10 @@ CHOICE_SECADO = (
                         (4,"Mayor de 7%")
                       )        
 class Niveles(models.Model):
-    nivel_fermentacion = models.IntegerField('Nivel de fermentación que maneja y aplica', choices=CHOICE_FERMENTACION)
-    nivel_secado = models.IntegerField('Nivel de humedad que maneja en el secado', choices=CHOICE_SECADO)
-    centro_acopio = models.IntegerField('¿Hay algún centro de acopio de cacao en la comunidad, comarca, zona o municipio al cual usted entregue su cacao?', choices=CHOICE_OPCION)
-    socio = models.IntegerField('¿Si usted es socio, asociado o miembro de algún centro de acopio de cacao', choices=CHOICE_OPCION)
+    nivel_fermentacion = models.IntegerField('Nivel de fermentación que maneja y aplica', choices=CHOICE_FERMENTACION, null=True, blank=True)
+    nivel_secado = models.IntegerField('Nivel de humedad que maneja en el secado', choices=CHOICE_SECADO, null=True, blank=True)
+    centro_acopio = models.IntegerField('¿Hay algún centro de acopio de cacao en la comunidad, comarca, zona o municipio al cual usted entregue su cacao?', choices=CHOICE_OPCION, null=True, blank=True)
+    socio = models.IntegerField('¿Si usted es socio, asociado o miembro de algún centro de acopio de cacao', choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:

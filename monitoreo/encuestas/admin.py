@@ -1,6 +1,8 @@
 # -*- coding: UTF-8 -*-
 
 from django.contrib import admin
+from django.contrib.auth.models import User
+
 from monitoreo.encuestas.models import *
 from monitoreo.agroecologico.models import *
 from monitoreo.animales.models import *
@@ -54,8 +56,7 @@ admin.site.register(Fuente)
 class OrganizacionGremialInline(admin.TabularInline):
     model = OrganizacionGremial
     fields = ['socio', 'desde_socio','beneficio', 'miembro_gremial', 
-              'desde_miembro', 'capacitacion','desde_capacitacion',
-              'miembro_junta', 'asumir_cargo']
+              'capacitacion']
     extra = 1
     max_num = 1
     can_delete = False
@@ -66,7 +67,8 @@ admin.site.register(BeneficiosObtenido)
 class OrganizacionComunitariaInline(admin.TabularInline):
     model = OrganizacionComunitaria
     fields = ['numero', 'pertence', 'cual_organizacion', 
-              'cual_beneficio', 'no_organizado']
+              'cual_beneficio','cuantas','organizaciones',
+              'pertence_org','personas','involucradas']
     extra = 1
     max_num = 1
     can_delete = False
@@ -230,31 +232,37 @@ admin.site.register(PreguntaRiesgo)
 class ViveroInline(admin.TabularInline):
     model = Vivero
     extra = 1
+    max_num = 1
     can_delete = False
     
 class PlantaDesarrolloMenosInline(admin.TabularInline):
     model = PlantaDesarrolloMenos
     extra = 1
+    max_num = 1
     can_delete = False
     
 class PlantaDesarrolloMasInline(admin.TabularInline):
     model = PlantaDesarrolloMas
     extra = 1
+    max_num = 1
     can_delete = False
     
 class PlantaProduccionInline(admin.TabularInline):
     model = PlantaProduccion
     extra = 1
+    max_num = 1
     can_delete = False
     
 class PlantaEliteInline(admin.TabularInline):
     model = PlantaElite
     extra = 1
+    max_num = 1
     can_delete = False
     
 class CostoInline(admin.TabularInline):
     model = Costo
     extra = 1
+    max_num = 1
     can_delete = False
     
 admin.site.register(Practicas)
@@ -302,10 +310,11 @@ class PracticaManejoPostcosechaInline(admin.TabularInline):
 class NivelesInline(admin.TabularInline):
     model = Niveles
     extra = 1
+    max_num = 1
     can_delete = False
     
 #comercializacion
-class ComercializacionInline(models.Model):
+class ComercializacionInline(admin.TabularInline):
     model = Comercializacion
     extra = 1
     can_delete = False
@@ -328,6 +337,24 @@ class CapacitacionSocialInline(admin.TabularInline):
     
 admin.site.register(Social)
 
+#Genero
+class ParticipacionInline(admin.TabularInline):
+    model = Participacion
+    extra = 1
+    max_num = 1
+    can_delete = False
+    
+class MujerOrganizacionInline(admin.TabularInline):
+    model = MujerOrganizacion
+    extra = 1
+    max_num = 1
+    can_delete = False
+    
+admin.site.register(TipoOrganizacion)
+admin.site.register(ActividadFinca)
+admin.site.register(ActividadHogar)
+#-------------------------------------------------------------------------------
+
 class EncuestaAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.usuario = request.user
@@ -342,26 +369,29 @@ class EncuestaAdmin(admin.ModelAdmin):
     save_on_top = True
     actions_on_top = True
     exclude = ('usuario',)
-    inlines = [EducacionInline, SaludInline, EnergiaInline, CocinaInline,
-               AguaInline, OrganizacionGremialInline, OrganizacionComunitariaInline,
-               TenenciaInline, UsoTierraInline,
-               ReforestacionInline, AnimalesFincaInline, CultivosFincaInline,
-               OpcionesManejoInline, SemillaInline, SueloInline, ManejoSueloInline,
-               IngresoFamiliarInline, OtrosIngresosInline, TipoCasaInline,
-               DetalleCasaInline, PropiedadesInline, HerramientasInline,
-               TransporteInline, SeguridadInline,
-               VulnerableInline, RiesgosInline,ViveroInline,PlantaDesarrolloMenosInline,
-               PlantaDesarrolloMasInline,PlantaProduccionInline,PlantaEliteInline,
-               CostoInline,ViveroPracticaInline,PracticaFertilizacionInline,
+    inlines = [EducacionInline,EnergiaInline,CocinaInline,AguaInline, 
+               OrganizacionGremialInline,OrganizacionComunitariaInline,
+               TenenciaInline,UsoTierraInline,ReforestacionInline, 
+               AnimalesFincaInline,CultivosFincaInline,OpcionesManejoInline, 
+               SueloInline,ManejoSueloInline,IngresoFamiliarInline, 
+               OtrosIngresosInline,TipoCasaInline,DetalleCasaInline, 
+               PropiedadesInline,HerramientasInline,TransporteInline, 
+               SeguridadInline,VulnerableInline,RiesgosInline,ViveroInline,
+               PlantaDesarrolloMenosInline,PlantaDesarrolloMasInline,
+               PlantaProduccionInline,PlantaEliteInline,CostoInline,
+               ViveroPracticaInline,PracticaFertilizacionInline,
                PracticaManejoFitosanitarioInline,PracticaManejoProductivoInline,
                PracticaMejoramientoGeneticoInline,PracticaManejoPostcosechaInline,
                NivelesInline,ComercializacionInline,CapacitacionTecnicaInline,
-               CapacitacionSocialInline,
+               CapacitacionSocialInline,ParticipacionInline,MujerOrganizacionInline
               ]
-    list_display = ('nombre')
+    list_display = ('entrevistado',)
     list_filter = ['comunidad']
-    search_fields = ['nombre']
+    search_fields = ['entrevistado']
     date_hierarchy = 'fecha'
                
 admin.site.register(Encuesta, EncuestaAdmin)
+admin.site.register(Recolector)
+admin.site.register(OrganizacionOCB)
+admin.site.register(Etnico)
 #-------------------------------------------------------------------------------

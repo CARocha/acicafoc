@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-from monitoreo.simas.models import *
+from monitoreo.encuestas.models import *
 
 # Create your models here.
 
@@ -58,22 +58,22 @@ class Suelo(models.Model):
     ''' 12.1 - Caracterización de terreno
     '''
     textura = models.ManyToManyField(Textura,
-                                     verbose_name="¿Cúal es el tipo de textura del suelo?")
+                                     verbose_name="¿Cúal es el tipo de textura del suelo?", null=True, blank=True)
     profundidad = models.ManyToManyField(Profundidad,
-                                         verbose_name="¿Cúal es la profundidad del suelo?")
+                                         verbose_name="¿Cúal es la profundidad del suelo?", null=True, blank=True)
     lombrices = models.ManyToManyField(Densidad,
                                        verbose_name="¿Cómo es la presencia de lombrice en el suelo?",
-                                       related_name="lombrices")
+                                       related_name="lombrices", null=True, blank=True)
     densidad = models.ManyToManyField(Densidad,
                                       verbose_name="¿Cómo es la densidad de raiz en la capa productiva de suelo?",
-                                      related_name="densidad")
+                                      related_name="densidad", null=True, blank=True)
     pendiente = models.ManyToManyField(Pendiente,
-                                       verbose_name="¿Cúal es la pendiente del terrreno?")
+                                       verbose_name="¿Cúal es la pendiente del terrreno?", null=True, blank=True)
     drenaje = models.ManyToManyField(Drenaje,
-                                     verbose_name="¿Cómo es el drenaje del suelo?")
+                                     verbose_name="¿Cómo es el drenaje del suelo?", null=True, blank=True)
     materia = models.ManyToManyField(Densidad,
                                      verbose_name="Cómo en el contenido de materia orgánica",
-                                     related_name="materia")
+                                     related_name="materia", null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -120,13 +120,13 @@ class Conservacion(models.Model):
 class ManejoSuelo(models.Model):
     ''' 12.2 Manejo de suelo
     '''
-    preparan = models.ManyToManyField(Preparar, verbose_name="¿Cómo preparan sus terrenos?")
+    preparan = models.ManyToManyField(Preparar, verbose_name="¿Cómo preparan sus terrenos?", null=True, blank=True)
     traccion = models.ManyToManyField(Traccion,
-                                      verbose_name="¿Qué tipo de traccion utiliza para la preparación del suelo?")
-    analisis = models.IntegerField('¿Realiza análisis de fertilidad del suelo', choices=CHOICE_OPCION)
-    fertilizacion = models.ManyToManyField(Fertilizacion, verbose_name="¿Qué tipo de fertilización realiza?")
-    practica = models.IntegerField('¿Realiza práctica de conservación de suelo', choices=CHOICE_OPCION)
-    obra = models.ManyToManyField(Conservacion, verbose_name="¿Qué tipo de obra de conservación de suelo?")
+                                      verbose_name="¿Qué tipo de traccion utiliza para la preparación del suelo?", null=True, blank=True)
+    analisis = models.IntegerField('¿Realiza análisis de fertilidad del suelo', choices=CHOICE_OPCION, null=True, blank=True)
+    fertilizacion = models.ManyToManyField(Fertilizacion, verbose_name="¿Qué tipo de fertilización realiza?", null=True, blank=True)
+    practica = models.IntegerField('¿Realiza práctica de conservación de suelo', choices=CHOICE_OPCION, null=True, blank=True)
+    obra = models.ManyToManyField(Conservacion, verbose_name="¿Qué tipo de obra de conservación de suelo?", null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:

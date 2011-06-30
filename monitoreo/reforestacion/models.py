@@ -20,7 +20,7 @@ class Reforestacion(models.Model):
     ''' reforestacion
     '''
     reforestacion = models.ForeignKey(Actividad, verbose_name="Actividades de reforestación")
-    respuesta = models.IntegerField(choices=CHOICE_OPCION)
+    respuesta = models.IntegerField(choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):

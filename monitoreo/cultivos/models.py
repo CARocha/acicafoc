@@ -19,11 +19,11 @@ class CultivosFinca(models.Model):
     ''' indicador cultivos en la finca
     '''
     cultivos = models.ForeignKey(Cultivos)
-    area =  models.FloatField('Área/Mz')
-    total = models.FloatField('Total producción por año')
-    consumo = models.FloatField('Consumo por año')
-    venta_libre = models.FloatField('Venta libre por año')
-    venta_organizada = models.FloatField('Venta organizada por año')
+    area =  models.FloatField('Área/Mz', null=True, blank=True)
+    total = models.FloatField('Total producción por año', null=True, blank=True)
+    consumo = models.FloatField('Consumo por año', null=True, blank=True)
+    venta_libre = models.FloatField('Venta libre por año', null=True, blank=True)
+    venta_organizada = models.FloatField('Venta organizada por año', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):

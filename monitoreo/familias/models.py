@@ -18,14 +18,14 @@ class Educacion(models.Model):
     ''' 1.1 - composicion y educacion
     '''
     sexo = models.IntegerField(choices=CHOICE_EDUCACION)
-    total = models.IntegerField('Número total')
-    no_leer = models.IntegerField('No sabe leer y escribir')
-    p_incompleta = models.IntegerField('Primaria incompleta')
-    p_completa = models.IntegerField('Primaria completa')
-    s_incompleta = models.IntegerField('Secundaria incompleta')
-    bachiller = models.IntegerField()
-    universitario = models.IntegerField()
-    f_comunidad = models.IntegerField('Viven fuera de la comunidad')
+    total = models.IntegerField('Número total', null=True, blank=True)
+    no_leer = models.IntegerField('No sabe leer y escribir', null=True, blank=True)
+    p_incompleta = models.IntegerField('Primaria incompleta', null=True, blank=True)
+    p_completa = models.IntegerField('Primaria completa', null=True, blank=True)
+    s_incompleta = models.IntegerField('Secundaria incompleta', null=True, blank=True)
+    bachiller = models.IntegerField(null=True, blank=True)
+    universitario = models.IntegerField(null=True, blank=True)
+    f_comunidad = models.IntegerField('Viven fuera de la comunidad', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):
@@ -47,8 +47,8 @@ class PreguntaEnergia(models.Model):
 class Energia(models.Model):
     ''' 1.3 energia
     '''
-    pregunta = models.ForeignKey(PreguntaEnergia)
-    respuesta = models.IntegerField(choices=CHOICE_OPCION)
+    pregunta = models.ForeignKey(PreguntaEnergia, null=True, blank=True)
+    respuesta = models.IntegerField(choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
@@ -83,7 +83,7 @@ class Fuente(models.Model):
 class Agua(models.Model):
     ''' 1.4 Agua de consumo
     '''
-    fuente = models.ManyToManyField(Fuente, verbose_name="Fuente de consumo de agua")
+    fuente = models.ManyToManyField(Fuente, verbose_name="Fuente de consumo de agua", null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:

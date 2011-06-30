@@ -19,8 +19,8 @@ class Uso(models.Model):
 class UsoTierra(models.Model):
     ''' Uso de tierra
     '''
-    tierra = models.ForeignKey(Uso, verbose_name="Uso de Tierra")
-    area = models.FloatField('Área en Mz')
+    tierra = models.ForeignKey(Uso, verbose_name="Uso de Tierra", null=True, blank=True)
+    area = models.FloatField('Área en Mz', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):

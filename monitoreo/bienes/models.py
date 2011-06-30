@@ -42,9 +42,9 @@ class Techo(models.Model):
 class TipoCasa(models.Model):
     '''Modelo tipos de casa
     '''
-    tipo = models.ManyToManyField(Casa, verbose_name='Tipo de la casa')
-    piso = models.ManyToManyField(Piso, verbose_name="Piso")
-    techo = models.ManyToManyField(Techo, verbose_name="Techo")
+    tipo = models.ManyToManyField(Casa, verbose_name='Tipo de la casa', null=True, blank=True)
+    piso = models.ManyToManyField(Piso, verbose_name="Piso", null=True, blank=True)
+    techo = models.ManyToManyField(Techo, verbose_name="Techo", null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     def __unicode__(self):
@@ -123,7 +123,7 @@ class NombreHerramienta(models.Model):
 class Herramientas(models.Model):
     '''Modelo herramientas
     '''
-    herramienta = models.ForeignKey(NombreHerramienta)
+    herramienta = models.ForeignKey(NombreHerramienta, null=True, blank=True)
     numero = models.IntegerField(null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
 
@@ -147,7 +147,7 @@ class NombreTransporte(models.Model):
 class Transporte(models.Model):
     '''Modelo transporte
     '''
-    transporte = models.ForeignKey(NombreTransporte)
+    transporte = models.ForeignKey(NombreTransporte, null=True, blank=True)
     numero = models.IntegerField(null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     

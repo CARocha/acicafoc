@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-from monitoreo.simas.models import *
+from monitoreo.encuestas.models import *
 
 # Create your models here.
 
@@ -25,10 +25,10 @@ CHOICE_NIVEL_CONOCIMIENTO = ((1,'Nada'),
 class OpcionesManejo(models.Model):
     ''' opciones de manejo agroecologico
     '''
-    uso = models.ForeignKey(ManejoAgro, verbose_name="Uso de opciones de manejo agroecologico")
-    nivel = models.IntegerField('Nivel de conocimiento', choices=CHOICE_NIVEL_CONOCIMIENTO)
-    menor_escala = models.IntegerField('Han experimentado en pequeña escala', choices=CHOICE_OPCION)
-    mayor_escala = models.IntegerField('Han experimentado en mayor escala', choices=CHOICE_OPCION)
+    uso = models.ForeignKey(ManejoAgro, verbose_name="Uso de opciones de manejo agroecologico", null=True, blank=True)
+    nivel = models.IntegerField('Nivel de conocimiento', choices=CHOICE_NIVEL_CONOCIMIENTO, null=True, blank=True)
+    menor_escala = models.IntegerField('Han experimentado en pequeña escala', choices=CHOICE_OPCION, null=True, blank=True)
+    mayor_escala = models.IntegerField('Han experimentado en mayor escala', choices=CHOICE_OPCION, null=True, blank=True)
     volumen = models.FloatField('¿Qué área, número o volumen')
     encuesta = models.ForeignKey(Encuesta)
     

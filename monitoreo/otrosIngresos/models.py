@@ -29,7 +29,7 @@ class OtrosIngresos(models.Model):
     '''Otros ingresos
     '''
     fuente = models.ForeignKey(Fuentes)
-    tipo = models.ForeignKey(TipoTrabajo)
+    tipo = models.ForeignKey(TipoTrabajo, null=True, blank=True)
     meses = models.IntegerField('# Meses',null=True, blank=True)
     ingreso = models.IntegerField('Ingreso por mes',null=True, blank=True)
     tiene_ingreso = models.IntegerField(choices=CHOICE_MANEJA,null=True, blank=True)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
-from monitoreo.simas.models import *
+from monitoreo.encuestas.models import *
 
 # Create your models here.
 
