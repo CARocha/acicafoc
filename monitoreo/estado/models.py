@@ -63,7 +63,7 @@ class PlantaProduccion(models.Model):
         verbose_name_plural = "Plantas en producción"    
         
 class PlantaElite(models.Model):    
-    elite = models.IntegerField('¿Actualmente tiene plantas élites seleccionadas en la finca?', null=True, blank=True)
+    elite = models.IntegerField('¿Actualmente tiene plantas élites seleccionadas en la finca?',choices=CHOICE_OPCION, null=True, blank=True)
     edad_planta = models.FloatField('Cuál es la edad de las plantas élite?(en años)', null=True, blank=True)
     cuantas = models.FloatField('¿Cuántas plantas élites de cacao hay en la finca?', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)

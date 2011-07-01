@@ -154,6 +154,8 @@ admin.site.register(Conservacion)
 #Ingreso familiar
 class IngresoFamiliarInline(admin.TabularInline):
     model = IngresoFamiliar
+#    fields = ['rubros','cantidad','consumida','precio',
+#              'quien_vendio','maneja_negocio']
     extra = 1
     can_delete = False
 
@@ -183,6 +185,11 @@ class DetalleCasaInline(admin.TabularInline):
     
 class PropiedadesInline(admin.TabularInline):
     model = Propiedades
+    extra = 1
+    can_delete = False
+    
+class InfraestructuraInline(admin.TabularInline):
+    model = Infraestructura
     extra = 1
     can_delete = False
     
@@ -375,7 +382,8 @@ class EncuestaAdmin(admin.ModelAdmin):
                AnimalesFincaInline,CultivosFincaInline,OpcionesManejoInline, 
                SueloInline,ManejoSueloInline,IngresoFamiliarInline, 
                OtrosIngresosInline,TipoCasaInline,DetalleCasaInline, 
-               PropiedadesInline,HerramientasInline,TransporteInline, 
+               PropiedadesInline,InfraestructuraInline,
+               HerramientasInline,TransporteInline, 
                SeguridadInline,VulnerableInline,RiesgosInline,ViveroInline,
                PlantaDesarrolloMenosInline,PlantaDesarrolloMasInline,
                PlantaProduccionInline,PlantaEliteInline,CostoInline,
