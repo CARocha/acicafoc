@@ -32,7 +32,7 @@ class Participacion(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Participación de la mujer en las actividades del hogar y la finca"
+        verbose_name_plural = "25.1-Participación de la mujer en las actividades del hogar y la finca"
 
 class TipoOrganizacion(models.Model):
     nombre = models.CharField(max_length=200)
@@ -52,4 +52,4 @@ class MujerOrganizacion(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta: 
-        verbose_name_plural = "Participación de la mujer en la organización"
+        verbose_name_plural = "25.2-Participación de la mujer en la organización"

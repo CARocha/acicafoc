@@ -25,5 +25,8 @@ class UsoTierra(models.Model):
     
     def __unicode__(self):
         return u'%s' % self.tierra.nombre
+        
+    class Meta:
+        verbose_name_plural = "5-Uso de tierra"
 
 #-------------------------------------------------------------------------------

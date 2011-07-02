@@ -30,6 +30,6 @@ class CultivosFinca(models.Model):
         return u'%s' % self.cultivos.nombre
     
     class Meta:
-        verbose_name_plural = "Cultivos en la finca"
+        verbose_name_plural = "8-Cultivos en la finca"
 
 #-------------------------------------------------------------------------------

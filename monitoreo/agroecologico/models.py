@@ -36,6 +36,6 @@ class OpcionesManejo(models.Model):
         return u'%s' % self.uso.nombre
     
     class Meta:
-        verbose_name_plural = "Opciones de manejo"
+        verbose_name_plural = "9-Opciones de manejo agroecologico"
 
 #-------------------------------------------------------------------------------

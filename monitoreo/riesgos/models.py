@@ -43,7 +43,7 @@ class Vulnerable(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Vulnerable"
+        verbose_name_plural = "15- ¿Cuáles son los riesgos que hace la finca vulnerable?"
         
 # Indicador 16. Mitigación de riesgos
 
@@ -64,5 +64,5 @@ class Riesgos(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Riesgos"
+        verbose_name_plural = "16- Mitigación de los riesgos"
 #-------------------------------------------------------------------------------

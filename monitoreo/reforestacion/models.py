@@ -27,6 +27,6 @@ class Reforestacion(models.Model):
         return u'%s' % self.reforestacion.nombre
     
     class Meta:
-        verbose_name_plural = "Reforestacion (periodo de referencia último ciclo de 12 meses)"
+        verbose_name_plural = "6-Reforestacion (periodo de referencia último ciclo de 12 meses)"
 
 #-------------------------------------------------------------------------------

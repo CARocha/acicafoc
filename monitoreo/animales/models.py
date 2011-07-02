@@ -41,5 +41,5 @@ class AnimalesFinca(models.Model):
         return u'%s' % self.animales.nombre
     
     class Meta:
-        verbose_name_plural = "Animales en la finca"
+        verbose_name_plural = "7-Animales en la finca y producción"
 #-------------------------------------------------------------------------------

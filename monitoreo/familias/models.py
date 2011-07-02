@@ -32,7 +32,7 @@ class Educacion(models.Model):
         return u'%s' % self.get_sexo_display()
         
     class Meta:
-        verbose_name_plural = "Educacion"
+        verbose_name_plural = "1.1-Composición y Educacion"
 #-------------------------------------------------------------------------------
 
 class PreguntaEnergia(models.Model):
@@ -45,14 +45,14 @@ class PreguntaEnergia(models.Model):
         verbose_name_plural = "Pregunta sobre energia"
         
 class Energia(models.Model):
-    ''' 1.3 energia
+    ''' 1.2 energia
     '''
     pregunta = models.ForeignKey(PreguntaEnergia, null=True, blank=True)
     respuesta = models.IntegerField(choices=CHOICE_OPCION, null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Energia"
+        verbose_name_plural = "1.2-Energia"
         
 class TipoCocina(models.Model):
     nombre = models.CharField(max_length=200)
@@ -81,11 +81,11 @@ class Fuente(models.Model):
         verbose_name_plural = "Fuentes de consumo de agua"
 
 class Agua(models.Model):
-    ''' 1.4 Agua de consumo
+    ''' 1.3 Agua de consumo
     '''
     fuente = models.ManyToManyField(Fuente, verbose_name="Fuente de consumo de agua", null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Agua"
+        verbose_name_plural = "1.3-Agua de consumo"
 #-------------------------------------------------------------------------------

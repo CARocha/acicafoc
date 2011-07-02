@@ -34,7 +34,7 @@ class Comercializacion(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Comercialización de cacao"
+        verbose_name_plural = "22-Comercialización de cacao"
         
 class Tecnica(models.Model):
     nombre = models.CharField(max_length=200)
@@ -54,7 +54,7 @@ class CapacitacionTecnica(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Capacitaciones técnicas recibidas"
+        verbose_name_plural = "23-Capacitaciones técnica recibidas"
         
 class Social(models.Model):
     nombre = models.CharField(max_length=200)
@@ -68,4 +68,4 @@ class CapacitacionSocial(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Capacitaciones en temas social recibidas"    
+        verbose_name_plural = "24-Capacitaciones en tema social recibidas"    

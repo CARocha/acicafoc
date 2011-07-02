@@ -14,7 +14,7 @@ class Vivero(models.Model):
         return str(self.vivero_cacao)
         
     class Meta:
-        verbose_name_plural = "Viveros"
+        verbose_name_plural = "17.1-Vivero"
         
 class PlantaDesarrolloMenos(models.Model):
     cacao_desarrollo = models.IntegerField('¿Actualmente tiene plantas de cacao en desarrollo menos de un año?', choices=CHOICE_OPCION, null=True, blank=True)
@@ -28,7 +28,7 @@ class PlantaDesarrolloMenos(models.Model):
         return str(self.cacao_desarrollo)
         
     class Meta:
-        verbose_name_plural = "Plantas en desarrollo menos de un año"
+        verbose_name_plural = "17.2-Plantas en desarrollo menos de un año"
         
 class PlantaDesarrolloMas(models.Model):
     cacao_desarrollo = models.IntegerField('¿Actualmente tiene plantas de cacao en desarrollo más de un año?', choices=CHOICE_OPCION, null=True, blank=True)
@@ -42,7 +42,7 @@ class PlantaDesarrolloMas(models.Model):
         return str(self.cacao_desarrollo)
         
     class Meta:
-        verbose_name_plural = "Plantas en desarrollo más de un año"
+        verbose_name_plural = "17.3-Plantas en desarrollo más de un año"
         
 class PlantaProduccion(models.Model):
     plantas_cacao = models.IntegerField('¿Actualmente tiene plantas de cacao en producción?', choices=CHOICE_OPCION, null=True, blank=True)
@@ -60,7 +60,7 @@ class PlantaProduccion(models.Model):
         return str(self.plantas_cacao)
 
     class Meta:
-        verbose_name_plural = "Plantas en producción"    
+        verbose_name_plural = "17.4-Plantas en producción"    
         
 class PlantaElite(models.Model):    
     elite = models.IntegerField('¿Actualmente tiene plantas élites seleccionadas en la finca?',choices=CHOICE_OPCION, null=True, blank=True)
@@ -72,7 +72,7 @@ class PlantaElite(models.Model):
         return str(self.elite)
 
     class Meta:
-        verbose_name_plural = "Plantas élite de cacao"
+        verbose_name_plural = "17.5-Plantas élite de cacao"
         
 class Costo(models.Model):
     mantenimiento_area = models.FloatField('En total, ¿Cuánto gasta usted en año para el mantenimiento del área de cacao? (C$)', null=True, blank=True)
@@ -80,7 +80,7 @@ class Costo(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Costo de producción"
+        verbose_name_plural = "17.6-Costo de producción"
 
 class Practicas(models.Model):
     nombre = models.CharField(max_length=200)

@@ -30,5 +30,5 @@ class Seguridad(models.Model):
         return u'%s' % self.alimento.nombre
     
     class Meta:
-        verbose_name_plural = "Seguridad"
+        verbose_name_plural = "14-Seguridad alimentaria"
 

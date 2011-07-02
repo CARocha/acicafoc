@@ -51,7 +51,7 @@ class TipoCasa(models.Model):
         return u'%s' % self.get_tipo_display()
 
     class Meta:
-        verbose_name_plural = "Tipos de Casas"
+        verbose_name_plural = "13.1-Vivienda"
 
 
 class DetalleCasa(models.Model):
@@ -66,7 +66,7 @@ class DetalleCasa(models.Model):
         return u'%s' % str(self.tamano)
 
     class Meta:
-        verbose_name_plural = "Detalle casa"
+        verbose_name_plural = "Detalles de casa"
 
 class Equipos(models.Model):
     nombre = models.CharField(max_length=100)
@@ -97,7 +97,7 @@ class Propiedades(models.Model):
         return u'%s' % self.equipo.nombre
     
     class Meta:
-        verbose_name_plural = "Propiedades"
+        verbose_name_plural = "13.2 Equipos"
         
         
 class Infraestructura(models.Model):
@@ -109,7 +109,7 @@ class Infraestructura(models.Model):
         return u'%s' % self.infraestructura.nombre
     
     class Meta:
-        verbose_name_plural = "Infraestructuras"
+        verbose_name_plural = "Infraestructura"
 
 class NombreHerramienta(models.Model):
     nombre = models.CharField(max_length=100)
@@ -131,7 +131,7 @@ class Herramientas(models.Model):
         return self.herramienta.nombre
 
     class Meta:
-        verbose_name_plural = "Herramientas"
+        verbose_name_plural = "13.3-Herramientas"
 
 
 class NombreTransporte(models.Model):
@@ -155,5 +155,5 @@ class Transporte(models.Model):
         return u'%s' % self.transporte.nombre
     
     class Meta:
-        verbose_name_plural = "Transporte"
+        verbose_name_plural = "Medio de transporte"
 #-------------------------------------------------------------------------------

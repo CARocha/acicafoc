@@ -50,7 +50,7 @@ class OrganizacionGremial(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Organizacion Gremial"
+        verbose_name_plural = "2.1-Organizacion gremial"
 
 # 2.1 Organización comunitaria
 
@@ -96,7 +96,7 @@ class OrganizacionComunitaria(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Organizacion Comunitaria"
+        verbose_name_plural = "2.2-Organizacion comunitaria"
         
 #-------------------------------------------------------------------------------
 #Indicador 3 y 4 son demaciado pequeños para crear un app para ellos
@@ -127,3 +127,6 @@ class Tenencia(models.Model):
     
     def __unicode__(self):
         return u'%s' % self.get_parcela_display()
+        
+    class Meta:
+        verbose_name_plural = "3 y 4 Tenencia y Documento legal"

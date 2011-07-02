@@ -77,7 +77,7 @@ class Suelo(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Suelo"
+        verbose_name_plural = "10.1-Caracterización de terreno de cacao"
 
 # 12.2 Manejo de suelo
 
@@ -130,6 +130,6 @@ class ManejoSuelo(models.Model):
     encuesta = models.ForeignKey(Encuesta)
     
     class Meta:
-        verbose_name_plural = "Manejo de Suelo"
+        verbose_name_plural = "10.2-Manejo de Suelo"
 
 #-------------------------------------------------------------------------------

@@ -39,5 +39,5 @@ class OtrosIngresos(models.Model):
         return u'%s' % self.fuente.nombre
     
     class Meta:
-        verbose_name_plural = "Otros Ingresos"
+        verbose_name_plural = "12-Otros ingresos"
 #-------------------------------------------------------------------------------

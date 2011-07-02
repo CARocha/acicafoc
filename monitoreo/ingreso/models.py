@@ -46,6 +46,6 @@ class IngresoFamiliar(models.Model):
         return u'%s' % self.rubro.nombre
     
     class Meta:
-        verbose_name_plural = "Ingreso Familiar"
+        verbose_name_plural = "11- Ingreso familiar. Venta de rubros (período de referencia último ciclo de 12 meses)"
 
 #-------------------------------------------------------------------------------
