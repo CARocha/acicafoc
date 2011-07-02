@@ -33,6 +33,7 @@ class EnergiaInline(admin.TabularInline):
     model = Energia
     extra = 1
     max_num = 6
+    can_delete = False
     
 admin.site.register(PreguntaEnergia)
 
@@ -154,8 +155,8 @@ admin.site.register(Conservacion)
 #Ingreso familiar
 class IngresoFamiliarInline(admin.TabularInline):
     model = IngresoFamiliar
-#    fields = ['rubros','cantidad','consumida','precio',
-#              'quien_vendio','maneja_negocio']
+    fields = ['rubro','consumida','cantidad','precio',
+              'quien_vendio','maneja_negocio']
     extra = 1
     can_delete = False
 
@@ -347,6 +348,7 @@ admin.site.register(Social)
 #Genero
 class ParticipacionInline(admin.TabularInline):
     model = Participacion
+    fields = ['principal','actividad_finca','ingreso','decision','proporcion']
     extra = 1
     max_num = 1
     can_delete = False
