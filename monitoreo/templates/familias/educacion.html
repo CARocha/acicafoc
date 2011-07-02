@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load unslugify %}
+
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Familia
+</div>
+<div class="indicadores">
+	{% include "nav_familia.html" %}
+</div>
+{% endblock %}
+
+{% block contenido %}
+<div class="contenido">
+	<div class="subindicador">Indicador: EDUCACIÓN</div>
+    <table style="width:100%;">        
+        <thead>
+            <tr>
+                <th></th>
+                <th>Número total</th>
+                <th>No sabe leer</th>
+                <th>Primaria incompleta</th>
+                <th>Primaria completa</th>
+                <th>Secundaria incompleta</th>
+                <th>Bachiller</th>
+                <th>Universitario</th>
+                <th>Vive fuera de la comunidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for fila in tabla_educacion%}
+            <tr>
+                {%for celda in fila %}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

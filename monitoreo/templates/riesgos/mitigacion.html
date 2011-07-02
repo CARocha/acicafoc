@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+{%load unslugify %}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Riesgos
+</div>
+<div class="indicadores">
+	{% include "nav_riesgos.html" %}
+</div>
+{% endblock %}
+{%block extra_header%}
+<script type="text/javascript">
+
+</script>
+{%endblock%}
+{% block contenido %}
+
+<div class="cuerpo">
+    <table style="width:100%;">
+        <caption>Mitigación de los Riesgos</caption>
+        <thead>
+            <tr>
+                <th>Preguntas</th>
+                <th>Número</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in tabla.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.mitigacion|floatformat}}</td>
+                <td>{{value.por_mitigacion|floatformat}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

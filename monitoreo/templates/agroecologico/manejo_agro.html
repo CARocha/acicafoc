@@ -1,0 +1,69 @@
+{% extends "base.html"%}
+{%load unslugify %}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Opciones de manejo agro.
+</div>
+{% endblock %}
+
+{% block contenido %}
+
+<div class="cuerpo">
+    <table style="width:100%;">
+        <caption>Nivel de conocimiento</caption>
+        <thead>
+            <tr>
+                <th>uso de manejo agro.</th>
+                <th>Nada</th>
+                <th>%</th>
+                <th>Poco</th>
+                <th>%</th>
+                <th>Algo</th>
+                <th>%</th>
+                <th>Bastante</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in tabla.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.nada|floatformat}}</td>
+                <td>{{value.por_nada|floatformat}}</td>
+                <td>{{value.poco|floatformat}}</td>
+                <td>{{value.por_poco|floatformat}}</td>
+                <td>{{value.algo|floatformat}}</td>
+                <td>{{value.por_algo|floatformat}}</td>
+                <td>{{value.bastante|floatformat}}</td>
+                <td>{{value.por_bastante|floatformat}}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <br></br>
+     <table style="width:100%;">
+        <caption>Ha experimentado</caption>
+        <thead>
+            <tr>
+                <th>uso de manejo agro.</th>
+                <th>Menor escala (Si)</th>
+                <th>%</th>
+                <th>Mayor escala (Si)</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in tabla_escala.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.menor_escala|floatformat}}</td>     
+                <td>{{value.por_menor_escala|floatformat}}</td>
+                <td>{{value.mayor_escala|floatformat}}</td>
+                <td>{{value.por_mayor_escala|floatformat}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <br></br><br></br>
+</div>
+{% endblock %}

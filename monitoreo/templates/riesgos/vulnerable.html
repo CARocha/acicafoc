@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{%load unslugify %}
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Riesgos
+</div>
+<div class="indicadores">
+	{% include "nav_riesgos.html" %}
+</div>
+{% endblock %}
+
+{% block contenido %}
+<div class="cuerpo">
+    <table>
+        <caption>Vulnerabilidades de las fincas</caption>
+        <thead>
+            <tr>
+                <th>Fenomeno</th>
+                <th>Causa</th>
+                <th>Frecuencia</th>
+                <th>%</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            {%for a in lista2%}
+               
+            <tr>
+                <td>{{a.1|unslugify}}</td>
+                <td>{{a.0|unslugify}}</td>
+                <td>{{a.2|floatformat}}</td>
+                <td>{{a.3|floatformat}}</td>
+           
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <br></br><br></br>
+</div>
+    
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{%load unslugify %}
+
+{% block barra %}
+<div class="selectos_seleccion titulo">
+	Familia
+</div>
+<div class="indicadores">
+	{% include "nav_familia.html" %}
+</div>
+{% endblock %}
+
+{% block contenido %}
+<div class="contenido">
+    <table style="width:100%;">
+        <caption>Energía Eléctrica</caption>
+        <thead>
+            <tr>
+                <th>Fuente</th>
+                <th>Frecuencia</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in tabla%}
+            <tr>
+                {%for celda in fila%}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        <tbody>
+    </table>
+</div>
+
+{% endblock %}

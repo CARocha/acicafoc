@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+
+{% block contenido %}
+<br>
+<h1>Datos Generales de todas las encuestas</h1>
+</br>
+<table style="width:100%;">
+        <caption>Número de personas en {{numero}} Familias entrevistadas</caption>
+        <thead>
+            <tr>
+                <th>sexo</th>
+                <th>numeros</th>
+                <th>Porcentaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for fila in escolaridad%}
+            <tr>
+                {%for celda in fila %}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    
+        <img src="{{grafo_url}}" alt="Escolaridades" title="Escolaridades">
+<br></br>
+<table style="width:100%;">
+        <caption>Departamentos entrevistados</caption>
+        <thead>
+            <tr>
+                <th>Departamentos</th>
+                <th>numeros</th>
+                <th>Porcentaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for fila in depart%}
+            <tr>
+                {%for celda in fila %}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <img src="{{grafo_depart}}" alt="Departamentos Entrevistados" title="Departamentos Entrevistados">
+<br></br>
+<table style="width:100%;">
+        <caption>Municipio entrevistados</caption>
+        <thead>
+            <tr>
+                <th>Municipios</th>
+                <th>numeros</th>
+                <th>Porcentaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for fila in munis%}
+            <tr>
+                {%for celda in fila %}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <img src="{{grafo_munis}}" alt="Municipios Entrevistados" title="Municipios Entrevistados">
+<br></br>
+
+
+{% endblock %}
