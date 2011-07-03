@@ -47,8 +47,8 @@ class TipoCasa(models.Model):
     techo = models.ManyToManyField(Techo, verbose_name="Techo", null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
-    def __unicode__(self):
-        return u'%s' % self.get_tipo_display()
+#    def __unicode__(self):
+#        return u'%s' % self.get_tipo_display()
 
     class Meta:
         verbose_name_plural = "13.1-Vivienda"
