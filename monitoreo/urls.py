@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import *
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from os import path as os_path
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -14,6 +15,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    (r'^$', 'monitoreo.encuestas.views.index'),
+    (r'^', include('monitoreo.encuestas.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
