@@ -1,0 +1,382 @@
+/* Reset */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote,
+a, font, img, ul, li {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body{
+	background: #b3b49c;
+	font-family: "Trebuchet MS", sans-serif;
+	margin: 0;
+	padding: 0;
+}
+img{
+	border: none;
+}
+a{
+	outline: none;
+}
+.clean{
+	clear: both;
+}
+#header{
+	height: 108px;		
+}
+#header .titulo{
+	float: left;
+}
+#header .titulo{	
+	margin-top: 30px;
+	font-family: 'Georgia', sans-serif;	
+}
+#header .titulo a{
+	color: #000;
+	font-size: 25px;
+	display: block;
+	background: url(/archivos/imagen/new/gpae_name_logo.png) no-repeat right;
+	padding-right: 112px;
+	padding-top: 2px; 
+}
+.wrapper{
+	width: 960px;
+	margin: 0 auto;
+}
+a{
+	text-decoration: none;
+}
+.entrar_link{
+	float: right;	
+}
+.entrar_link a{
+	color: #555753;
+	font-size: 12px;
+}
+.entrar_link a:hover{
+	text-decoration: underline;
+}
+.gpae-logo{
+	float: right;
+	margin-top: 11px;
+	margin-right: -76px;	
+}
+#filtros{
+	background-color: #972a1f;
+}
+.filtros_seleccion{
+	float: left;
+	width: 180px;
+	font-size: 17px;
+	color: #000;
+	font-weight: bold;
+	padding-top: 40px;
+	padding-left: 20px;
+	padding-bottom: 20px;	
+}
+.filtros_seleccion span{
+	color: #f1cd8b;
+	font-size: 14px;
+	font-weight: normal;
+}
+.filtros_seleccion .paso1{	
+	float: left;
+	height: 50px;	
+	background: url(/archivos/imagen/paso1.png) no-repeat;
+	width: 35px;
+}
+.filtros_disponibles{
+	float: left;
+	padding-left: 25px;
+	border-left: 1px solid;
+	width: 734px;
+	margin-top: -10px;	
+	padding-top: 15px;
+}
+.formulario_consulta .form_widget{
+	float: left;
+	background: url(/archivos/imagen/select-back.jpg) repeat-x;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;		
+}
+.form_widget select{
+	height: 21px;
+	border: 1px #ad9b82 solid;
+	background-color: #fff;
+	color: #595042;
+	font-family: 'Georgia', sans-serif;
+}
+.columna_uno{
+	float: left;
+	width: 120px;	
+}
+.columna_uno select{
+	width: 70px;
+}
+.columna_dos, 
+.columna_tres, 
+.columna_cuatro{
+	float: left;
+	width: 200px;
+}
+.columna_dos select, 
+.columna_tres select, 
+.columna_cuatro select{
+	width: 158px;
+}
+input[type='submit'].consultar{
+	text-indent: -9999px;
+	background: url(/archivos/imagen/consultar-boton.png) no-repeat;
+	width: 186px;
+	height: 30px;
+	border: none;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+input[type='submit'].consultar:hover{
+	background-position: 0 -30px;
+}
+#selectos{
+	background-color: #91a83c;	
+}
+.selectos_seleccion{
+	float: left;
+	width: 300px;
+	font-size: 17px;
+	color: #000;
+	font-weight: bold;
+	padding-left: 20px;
+	background-color: #7b8e33;
+	padding-top: 5px;			
+}
+.selectos_seleccion span{
+	color: #f1cd8b;
+	font-size: 14px;
+	font-weight: normal;
+}
+.selectos_seleccion .paso2{	
+	float: left;
+	margin-top: 5px;	
+	height: 40px;	
+	background: url(/archivos/imagen/paso2.png) no-repeat;
+	width: 35px;
+}
+.footer{
+	margin-top: 5px;
+	background: #595a44 url(/archivos/imagen/new/footer_bg.jpg) repeat-x bottom;
+	height: 120px;
+	padding-top: 20px;
+	font-size: 13px;	
+}
+.footer img{
+	float: right;
+	margin-right: 720px;
+	margin-top: -25px;
+}
+.errorlist{
+	padding: 0;
+	margin: 0;
+	color: #fff;
+	list-style: none;
+	font-size: 11px;
+	margin-top: 5px;
+}
+#selectos{	
+	position: relative;
+}
+#selectos .titulo{	
+	width: 180px;
+	height: 40px;		
+}
+.indicadores{
+	float: left;
+}
+#contenedor_igual a{
+	background: url(/archivos/imagen/pestana_back.png) repeat-x;
+	font-size: 13px;
+	color: #4c4d3a;
+	display: block;
+	float: left;	
+	margin-left: 10px;
+	border-top: 1px #68852c solid;
+	border-left: 1px #68852c solid;
+	border-right: 1px #68852c solid;	
+	height: 26px;
+	padding: 0px 5px;
+	line-height: 25px;
+	 border-top-right-radius: 5px;
+	border-top-left-radius: 5px; 
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-topleft: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	position:relative; 
+	top: 18px;	
+}
+#contenedor_igual a:hover{
+	color: #000;
+}
+.sidebar{
+	float: left;
+	padding-left: 20px;
+	padding-top: 15px;
+	background: #e7e7e3;
+	width: 180px;	
+}
+.sidebar .grafo{
+	position: relative;
+	display: block;
+	width: 169px;
+	font-weight: bold;
+	padding: 5px;
+	color: #b13326;
+	border-top: 1px #a7a7a7 solid;
+	border-left: 1px #a7a7a7 solid;
+	border-bottom: 1px #a7a7a7 solid;
+	margin-top: 5px;	
+	font-size: 11px;	
+}
+.sidebar .grafo:hover{
+	color: #631d16;
+	border-top: 1px #333 solid;
+	border-left: 1px #333 solid;
+	border-bottom: 1px #333 solid;
+}	
+.cuerpo{
+	float: left;
+	width: 760px;
+}
+.contenido{
+	background-color: #fff;
+}
+caption {    
+    text-align: left;    
+    font-size: 20px;
+	color: #8c8f3d;
+	font-family: Georgia, sans-serif;
+	padding-left: 15px;
+	padding-top: 5px;
+}
+
+th{
+    font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    color: #333;
+    border-right: 1px solid #ded3ba;
+    border-bottom: 1px solid #ded3ba;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight:bold;
+    padding: 10px 5px 4px 12px;
+    background:url(/archivos/imagen/bg_header.png) repeat-x;
+    vertical-align:middle;
+
+}
+td {
+    font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    border-right: 1px solid #E0DDD2;
+    border-bottom: 1px solid #E0DDD2;
+    padding: 6px 12px 6px 12px;
+    color: #696969;
+    background: #FFFFFF;
+}
+.subindicador{	
+	font-size: 20px;
+	color: #8c8f3d;
+	font-family: Georgia, sans-serif;
+	padding-left: 15px;
+	padding-top: 5px;
+}
+#grafo{
+	margin-bottom: 15px;
+	margin-top: 20px;
+	margin-left: 80px;	
+}
+#contenedor_indicadores{
+	padding-bottom: 10px;
+}
+#contenedor_indicadores a{
+	display: block;
+	float: left;
+	width: 150px;
+	height: 146px;
+	text-indent: -9999px;
+	margin: 15px 20px 0px;	
+}
+#contenedor_indicadores a:hover{
+	background-position: -150px 0px;
+}
+.manejo_sprite{
+	background: url(/archivos/imagen/new/manejo_sprite.jpg) no-repeat;
+}
+.animales_sprite{
+	background: url(/archivos/imagen/new/animales_sprite.jpg) no-repeat;
+}
+.ahorro_sprite{
+	background: url(/archivos/imagen/new/ahorro_sprite.jpg) no-repeat;
+}
+.cultivos_sprite{
+	background: url(/archivos/imagen/new/cultivos_sprite.jpg) no-repeat;
+}
+.familia_sprite{
+	background: url(/archivos/imagen/new/familia_sprite.jpg) no-repeat;
+}
+.organizacion_sprite{
+	background: url(/archivos/imagen/new/organizacion_sprite.jpg) no-repeat;
+}
+.semilla_sprite{
+	background: url(/archivos/imagen/new/semilla_sprite.jpg) no-repeat;
+}
+.tierra_sprite{
+	background: url(/archivos/imagen/new/tierra_sprite.jpg) no-repeat;
+}
+.suelo_sprite{
+	background: url(/archivos/imagen/new/suelo_sprite.jpg) no-repeat;
+}
+.seguridad_sprite{
+	background: url(/archivos/imagen/new/seguridad_sprite.jpg) no-repeat;
+}
+.bienes_sprite{
+	background: url(/archivos/imagen/new/bienes_sprite.jpg) no-repeat;
+}
+.ingresos_sprite{
+	background: url(/archivos/imagen/new/ingresos_sprite.jpg) no-repeat;
+}
+.riesgos_sprite{
+	background: url(/archivos/imagen/new/riesgos_sprite.jpg) no-repeat;
+}
+.datos_aux{
+	color: #fff;
+	font-size: 12px;
+	padding: 6px;
+}
+.datos_aux a{
+	color: #fff;
+	font-size: 12px;
+}
+.datos_aux a:hover{
+	text-decoration: underline;
+}
+.cambiar_consulta{
+	font-size: 13px;
+	float: left;
+	font-weight: bold;
+}
+.datos_aux .enlaces{
+	float: left;
+	margin-right: 5px;
+}
+.datos_aux .valores{
+	float: left;
+}
+
+
+	
