@@ -1,18 +1,24 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 {% load unslugify %}
-
+{%block extra_header%}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".educacion").addClass("activa");
+    });
+    </script>
+{%endblock%}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Familia
-</div>
 <div class="indicadores">
 	{% include "nav_familia.html" %}
 </div>
 {% endblock %}
 
-{% block contenido %}
-<div class="contenido">
-	<div class="subindicador">Indicador: EDUCACIÓN</div>
+{% block content %}
+
+{% include "filtros.html" %}
+
+<div class="contenido fulltabla">
+	<div class="subindicador">FAMILIA &raquo; Educación<a href="#" class="exportar"></a></div>
     <table style="width:100%;">        
         <thead>
             <tr>
@@ -38,5 +44,6 @@
         </tbody>
     </table>
 </div>
+<div class="clean"></div>
 {% endblock %}
 
