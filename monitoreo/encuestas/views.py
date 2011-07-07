@@ -957,6 +957,99 @@ def mitigariesgos(request):
                               'num_familias':num_familia},
                                context_instance=RequestContext(request)) 
 #-------------------------------------------------------------------------------
+@session_required
+def plantaciones(request):
+    #********variables globales****************
+    a = _queryset_filtrado(request)
+    num_familia = a.count()
+    
+    #Lista de los viveros
+    vivero = []
+    for viver in Vivero.objects.all():
+        #cuantos tiene
+        conteo = a.filter(vivero__vivero_cacao = 1).count()
+        frecuencia = saca_porcentajes(conteo,num_familia)
+        #numero de plantas
+        total_planta = a.aggregate(total_planta=Sum('vivero__plantas'))['total_planta']
+        promedio_planta = total_planta / conteo
+        #numero de plantas injertadas
+        n_injertada = a.aggregate(n_injertada=Sum('vivero__planta_injerto'))['n_injertada']
+        promedio_injerto = n_injertada / conteo
+        vivero = (conteo,frecuencia,'---','---',total_planta,promedio_planta,n_injertada,
+                  promedio_injerto)
+        
+    planta_menos = []
+    for menos in PlantaDesarrolloMenos.objects.all():
+        #cuantos tiene
+        conteo = a.filter(plantadesarrollomenos__cacao_desarrollo = 1).count()
+        frecuencia = saca_porcentajes(conteo,num_familia)
+        #areas
+        area_total = a.aggregate(area_total=Sum('plantadesarrollomenos__area_sembrada'))['area_total']
+        promedio_area = area_total / conteo
+        #numero de plantas
+        total_planta = a.aggregate(total_planta=Sum('plantadesarrollomenos__plantas_finca'))['total_planta']
+        promedio_planta = total_planta / conteo
+        #numero de plantas injertadas
+        n_injertada = a.aggregate(n_injertada=Sum('plantadesarrollomenos__planta_injerto'))['n_injertada']
+        promedio_injerto = n_injertada / conteo
+        planta_menos = (conteo,frecuencia,area_total,promedio_area,total_planta,
+                        promedio_planta,n_injertada,promedio_injerto)
+                        
+    planta_mas = []
+    for menos in PlantaDesarrolloMenos.objects.all():
+        #cuantos tiene
+        conteo = a.filter(plantadesarrollomenos__cacao_desarrollo = 1).count()
+        frecuencia = saca_porcentajes(conteo,num_familia)
+        #areas
+        area_total = a.aggregate(area_total=Sum('plantadesarrollomas__area_sembrada'))['area_total']
+        promedio_area = area_total / conteo
+        #numero de plantas
+        total_planta = a.aggregate(total_planta=Sum('plantadesarrollomas__plantas_finca'))['total_planta']
+        promedio_planta = total_planta / conteo
+        #numero de plantas injertadas
+        n_injertada = a.aggregate(n_injertada=Sum('plantadesarrollomas__planta_injerto'))['n_injertada']
+        promedio_injerto = n_injertada / conteo
+        planta_mas = (conteo,frecuencia,area_total,promedio_area,total_planta,
+                        promedio_planta,n_injertada,promedio_injerto)
+                        
+    planta_produccion = []
+    for menos in PlantaDesarrolloMenos.objects.all():
+        #cuantos tiene
+        conteo = a.filter(plantaproduccion__plantas_cacao = 1).count()
+        frecuencia = saca_porcentajes(conteo,num_familia)
+        #areas
+        area_total = a.aggregate(area_total=Sum('plantaproduccion__area_sembrada'))['area_total']
+        promedio_area = area_total / conteo
+        #numero de plantas
+        total_planta = a.aggregate(total_planta=Sum('plantaproduccion__plantas_finca'))['total_planta']
+        promedio_planta = total_planta / conteo
+        #numero de plantas injertadas
+        n_injertada = a.aggregate(n_injertada=Sum('plantaproduccion__planta_injerto'))['n_injertada']
+        promedio_injerto = n_injertada / conteo
+        planta_produccion = (conteo,frecuencia,area_total,promedio_area,total_planta,
+                        promedio_planta,n_injertada,promedio_injerto)
+                        
+    planta_elite = []
+    for elite in PlantaElite.objects.all():
+        #cuantos tiene
+        conteo = a.filter(plantaelite__elite = 1).count()
+        frecuencia = saca_porcentajes(conteo,num_familia)
+        #numero de plantas
+        total_planta = a.aggregate(total_planta=Sum('plantaelite__cuantas'))['total_planta']
+        promedio_planta = total_planta / conteo
+        planta_elite = (conteo,frecuencia,'---','---',total_planta,promedio_planta,
+                        '---','---')
+    
+    #esto es la parte de elite produccion
+    total_produccion                        
+            
+                                
+    return render_to_response('estado/plantaciones.html',{'vivero':vivero,
+                              'num_familias':num_familia,'planta_menos':planta_menos,
+                              'planta_mas':planta_mas,'planta_produccion':planta_produccion,
+                              'planta_elite':planta_elite},
+                               context_instance=RequestContext(request))  
+#-------------------------------------------------------------------------------
 #Los puntos en el mapa
 
 def obtener_lista(request):
@@ -1062,7 +1155,8 @@ VALID_VIEWS = {
         'opcionesmanejo': opcionesmanejo,
         'seguridad': seguridad_alimentaria,
         'general': generales,           
-        #me quedo tuani el caminito :)
+        #17.x plantaciones
+        'vivero': plantaciones, 
             }
         
 # Vistas para obtener los municipios, comunidades, etc..

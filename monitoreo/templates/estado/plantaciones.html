@@ -1,0 +1,57 @@
+{{vivero}}
+<br>
+{{planta_menos}}
+<br>
+{{planta_mas}}
+<br>
+{{planta_produccion}}
+<br>
+{{planta_elite}}
+
+<table border="1">
+<caption>Tamaño de las plantaciones</caption>
+ <thead>
+    <tr>
+        <th></th>
+        <th colspan="2">¿Cuántos tienen?</th>
+        <th colspan="2">Área</th>
+        <th colspan="2">Número de plantas</th>
+        <th colspan="2">Número de plantas injertadas</th>
+    </tr>
+    <tr>
+        <th></th>
+        <th>Frecuencia</th>
+        <th>%</th>
+        <th>Total</th>
+        <th>Promedio</th>
+        <th>Total</th>
+        <th>Promedio</th>
+        <th>Total</th>
+        <th>Promedio</th>
+    </tr>
+ </thead>
+    <tr>
+        <td>Viveros</td>
+        {%for dato in vivero%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+    <tr>
+        <td>Plantas en desarrollo menos 1 año</td>
+        {%for dato in planta_menos%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+    <tr>
+        <td>Plantas en desarrollo más 1 año</td>
+        {%for dato in planta_mas%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+    <tr>
+        <td>Plantas élite de cacao</td>
+        {%for dato in planta_elite%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+</table>
