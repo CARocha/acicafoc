@@ -211,7 +211,7 @@ ul, li{margin:0; padding:0; list-style:none;}
 .menu_body li a:hover{}
 
 #filtros{
-	background-color: #972a1f;
+	background: url(../img/filtrofondo.jpg) repeat-x;
 }
 .filtros_seleccion{
 	float: left;
@@ -224,27 +224,26 @@ ul, li{margin:0; padding:0; list-style:none;}
 	padding-bottom: 20px;	
 }
 .filtros_seleccion span{
-	color: #f1cd8b;
+	color: #fff;
 	font-size: 14px;
 	font-weight: normal;
 }
 .filtros_seleccion .paso1{	
 	float: left;
 	height: 50px;	
-	background: url(/archivos/imagen/paso1.png) no-repeat;
+	background: url(../img/paso1.png) no-repeat;
 	width: 35px;
 }
 .filtros_disponibles{
 	float: left;
 	padding-left: 25px;
-	border-left: 1px solid;
+	border-left:#a96923 1px solid;
 	width: 734px;
-	margin-top: -10px;	
 	padding-top: 15px;
 }
 .formulario_consulta .form_widget{
 	float: left;
-	background: url(/archivos/imagen/select-back.jpg) repeat-x;
+	background: #d49111;
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-top: 5px;
@@ -278,9 +277,9 @@ ul, li{margin:0; padding:0; list-style:none;}
 }
 input[type='submit'].consultar{
 	text-indent: -9999px;
-	background: url(/archivos/imagen/consultar-boton.png) no-repeat;
-	width: 186px;
-	height: 30px;
+	background: url(../img/consultar-boton.png) no-repeat;
+	width: 185px;
+	height: 29px;
 	border: none;
 	margin-top: 10px;
 	margin-bottom: 5px;
@@ -293,16 +292,16 @@ input[type='submit'].consultar:hover{
 }
 .selectos_seleccion{
 	float: left;
-	width: 300px;
+    width:1080px;
 	font-size: 17px;
 	color: #000;
 	font-weight: bold;
 	padding-left: 20px;
-	background-color: #7b8e33;
-	padding-top: 5px;			
+	padding-top: 5px;
+    border-bottom:#f38700 solid 1px;		
 }
 .selectos_seleccion span{
-	color: #f1cd8b;
+	color: #F38700;
 	font-size: 14px;
 	font-weight: normal;
 }
@@ -310,7 +309,7 @@ input[type='submit'].consultar:hover{
 	float: left;
 	margin-top: 5px;	
 	height: 40px;	
-	background: url(/archivos/imagen/paso2.png) no-repeat;
+	background: url(../img/paso2.png) no-repeat;
 	width: 35px;
 }
 .footer{
@@ -447,18 +446,42 @@ td {
 	margin-left: 80px;	
 }
 #contenedor_indicadores{
-	padding-bottom: 10px;
+	border-bottom:#e3e3e3 2px solid;
+    padding-left:200px;
+    background-position:bottom left;
+    margin-top:30px;
+    height:60px;
+}
+
+.familiagroup{
+    background:url(../img/familiagroup.jpg) no-repeat;
+}
+
+.ingresogroup{
+    background:url(../img/ingresogroup.jpg) no-repeat;
+}
+
+.suelogroup{
+    background:url(../img/suelogroup.jpg) no-repeat;
 }
 #contenedor_indicadores a{
 	display: block;
 	float: left;
-	width: 150px;
-	height: 146px;
-	text-indent: -9999px;
-	margin: 15px 20px 0px;	
+    padding:8px 14px;
+    color:#555753;
+	margin: 8px;
+    border:#d7d7d7 1px solid;
+    background:url(../img/fondobotonindicador.png) repeat-x;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+  text-shadow: 0px 1px 0px #fff;
+  -moz-text-shadow: 0px 1px 0px #fff;
+  -webkit-text-shadow: 0px 1px 0px #fff;
 }
 #contenedor_indicadores a:hover{
-	background-position: -150px 0px;
+    background:url(../img/fondobotonindicador2.png) repeat-x;
+
 }
 .manejo_sprite{
 	background: url(/archivos/imagen/new/manejo_sprite.jpg) no-repeat;
