@@ -1,19 +1,25 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 {%load unslugify %}
-
+{%block extra_header%}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".luz").addClass("activa");
+    });
+    </script>
+{%endblock%}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Familia
-</div>
 <div class="indicadores">
 	{% include "nav_familia.html" %}
 </div>
 {% endblock %}
 
-{% block contenido %}
-<div class="contenido">
+{% block content%}
+
+{% include "filtros.html" %}
+
+<div class="contenido fulltabla">
+	<div class="subindicador">FAMILIA &raquo; Energía Eléctrica<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Energía Eléctrica</caption>
         <thead>
             <tr>
                 <th>Fuente</th>
@@ -32,5 +38,5 @@
         <tbody>
     </table>
 </div>
-
+<div class="clean"></div>
 {% endblock %}

@@ -210,6 +210,45 @@ ul, li{margin:0; padding:0; list-style:none;}
 .menu_body li a{color:#445058; text-decoration:none; padding:10px; display:block;z-index:10; font-size:12px;}
 .menu_body li a:hover{}
 
+.exportar{
+    display:block;
+    float:right;
+    width:90px;
+    height:27px;
+    background:url(../img/exportar.jpg) no-repeat;
+    background-position:top;
+}
+.exportar:hover{
+    background-position:bottom;
+}
+
+#filtroslaterales{
+    float:right;
+    width:120px;
+    height:100%;
+    border-left:#cacaca 1px dotted;
+}
+.nombrefiltro{
+    background:#e0f0f6;
+    height:20px;
+    font-size:13px;
+    font-weight:bold;
+    padding-left:4px;
+}
+
+.filtrovalor{
+    font-size:13px;
+    padding-left:4px;
+    border-bottom:#eeeeec solid 1px;
+}
+.fulltabla{
+    width:975px;
+    float:left;
+}
+.mediatabla{
+    width:420px;
+    float:left;
+}
 #filtros{
 	background: url(../img/filtrofondo.jpg) repeat-x;
 }
@@ -342,56 +381,66 @@ input[type='submit'].consultar:hover{
 .indicadores{
 	float: left;
 }
+
+#contenedor_igual{
+    float:left;
+    width:1000px;
+    height:32px;
+    margin-top:21px;
+}
+
 #contenedor_igual a{
-	background: url(/archivos/imagen/pestana_back.png) repeat-x;
-	font-size: 13px;
-	color: #4c4d3a;
+	background: url(../img/tab2.png) repeat-x;
+	font-size: 16px;
+    font-weight:bold;
+	color: #828282;
+    line-height:32px;
 	display: block;
 	float: left;	
 	margin-left: 10px;
-	border-top: 1px #68852c solid;
-	border-left: 1px #68852c solid;
-	border-right: 1px #68852c solid;	
-	height: 26px;
-	padding: 0px 5px;
-	line-height: 25px;
-	 border-top-right-radius: 5px;
-	border-top-left-radius: 5px; 
-	-moz-border-radius-topright: 5px;
-	-moz-border-radius-topleft: 5px;
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	position:relative; 
-	top: 18px;	
+	height: 32px;
+    padding:0px 10px;
+	 border-top-right-radius: 4px;
+	border-top-left-radius: 4px; 
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-topleft: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+
+}
+
+.activa{
+	color: #fff !important;
+	background: url(../img/tab1.png) repeat-x !important; 
 }
 #contenedor_igual a:hover{
-	color: #000;
+	color: #fff;
+	background: url(../img/tab1.png) repeat-x;
 }
 .sidebar{
-	float: left;
-	padding-left: 20px;
-	padding-top: 15px;
-	background: #e7e7e3;
-	width: 180px;	
+	float: right;
+	width: 550px;
+    border-left:#cacaca 1px dotted;
+    height:450px;
 }
 .sidebar .grafo{
-	position: relative;
 	display: block;
-	width: 169px;
-	font-weight: bold;
-	padding: 5px;
-	color: #b13326;
-	border-top: 1px #a7a7a7 solid;
-	border-left: 1px #a7a7a7 solid;
-	border-bottom: 1px #a7a7a7 solid;
-	margin-top: 5px;	
-	font-size: 11px;	
+	float: left;
+    padding:8px 14px;
+    color:#555753;
+	margin: 4px;
+    border:#d7d7d7 1px solid;
+    font-size:12px;
+    background:url(../img/fondobotonindicador.png) repeat-x;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+  text-shadow: 0px 1px 0px #fff;
+  -moz-text-shadow: 0px 1px 0px #fff;
+  -webkit-text-shadow: 0px 1px 0px #fff;
 }
 .sidebar .grafo:hover{
-	color: #631d16;
-	border-top: 1px #333 solid;
-	border-left: 1px #333 solid;
-	border-bottom: 1px #333 solid;
+    background:url(../img/fondobotonindicador2.png) repeat-x;
 }	
 .cuerpo{
 	float: left;
@@ -421,7 +470,7 @@ th{
     text-align: left;
     font-weight:bold;
     padding: 10px 5px 4px 12px;
-    background:url(/archivos/imagen/bg_header.png) repeat-x;
+    background:url(../img/bg_header.png) repeat-x;
     vertical-align:middle;
 
 }
@@ -434,11 +483,12 @@ td {
     background: #FFFFFF;
 }
 .subindicador{	
-	font-size: 20px;
-	color: #8c8f3d;
-	font-family: Georgia, sans-serif;
+	font-size: 18px;
+	color: #e27c29;
+    font-weight:bold;
 	padding-left: 15px;
-	padding-top: 5px;
+	padding-top: 10px;
+    margin-bottom:5px;
 }
 #grafo{
 	margin-bottom: 15px;

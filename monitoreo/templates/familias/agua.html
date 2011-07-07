@@ -1,15 +1,5 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 {%load unslugify %}
-
-{% block barra %}
-<div class="selectos_seleccion titulo">
-	Familia
-</div>
-<div class="indicadores">
-	{% include "nav_familia.html" %}
-</div>
-{% endblock %}
-
 {%block extra_header%}
 <script type="text/javascript">
     //si activo es 0 el html interno esta vacio
@@ -32,22 +22,32 @@
     }
 </script>
 {%endblock%}
-{% block contenido %}
-<div class="sidebar">   
-   <h1>Gráficos</h1>
-   <a id="grafico1" href="#" onCLick="disp(1)" class="grafo">Disponibilidad en Río</a>
-   <a id="grafico2" href="#" onCLick="disp(2)" class="grafo">Disponibilidad en Ojo de Agua</a>
-   <a id="grafico3" href="#" onCLick="disp(3)" class="grafo">Disponibilidad en Pozo Comunitario</a>
-   <a id="grafico4" href="#" onCLick="disp(4)" class="grafo">Disponibilidad en Pozo Propio</a>
-   <a id="grafico5" href="#" onCLick="disp(5)" class="grafo">Disponibilidad en Agua comunitaria</a>
-   <a id="grafico6" href="#" onCLick="disp(6)" class="grafo">Disponibilidad en Agua en casa</a>    
-    <div class="separador"></div>
+{% block barra %}
+
+<div class="indicadores">
+	{% include "nav_familia.html" %}
 </div>
-<div class="cuerpo">
-	<div id="grafo"></div>
-	<div>
+{% endblock %}
+
+{% block content %}
+
+{% include "filtros.html" %}
+
+<div class="sidebar">   
+   <div class="subindicador">GRAFICOS</div>
+   <a id="grafico1" href="#" onCLick="disp(1)" class="grafo">Río</a>
+   <a id="grafico2" href="#" onCLick="disp(2)" class="grafo">Ojo de Agua</a>
+   <a id="grafico3" href="#" onCLick="disp(3)" class="grafo">Pozo Comunitario</a>
+   <a id="grafico4" href="#" onCLick="disp(4)" class="grafo">Pozo Propio</a>
+   <a id="grafico5" href="#" onCLick="disp(5)" class="grafo">Agua comunitaria</a>
+   <a id="grafico6" href="#" onCLick="disp(6)" class="grafo">Agua en casa</a>    
+    <div class="separador"></div>
+    <div id="grafo"></div>
+</div>
+<div class="contenido mediatabla">
+
+    <div class="subindicador">FAMILIA &raquo; Agua de consumo<a href="#" class="exportar"></a></div>
 		<table style="width:100%;">
-			<caption>Agua de consumo</caption>
 			<thead>
 				<tr>
 					<th>Fuente</th>
@@ -66,8 +66,10 @@
 	</div>
 	<div class="clean"></div>
 </div>
+<div class="clean"></div>
 <script type="text/javascript">
 	$(document).ready(function() {
+        $(".agua").addClass("activa");
 		$("#grafico1").click(function() {
 			$("#grafico1").addClass('enlace_seleccionado');
 			$("#grafico2").removeClass('enlace_seleccionado');
