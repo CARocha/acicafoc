@@ -1,15 +1,17 @@
-{% extends "base.html"%}
+{% extends "basenueva.html"%}
 {%load unslugify %}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Organización
-</div>
 <div class="indicadores">
 	{% include "nav_org.html" %}
 </div>
 {% endblock %}
 
 {%block extra_header%}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".gremial").addClass("activa");
+    });
+</script>
 <script type="text/javascript">
     var activo = 0; 
     function click_callback(id){
@@ -23,37 +25,35 @@
             }
         });
     }
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.grafo').click(function(){
+        $('.grafo').each(function(){
+            $(this).removeClass('grafohover');
         });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-        });
-
+        $(this).addClass('grafohover');
     });
+});
 </script>
 {%endblock%}
 
-{%block contenido%}
-
+{%block content%}
+{% include "filtros.html" %}
 <div class="sidebar">
 
-        <h1>Gráficos </h1>
+        <div class="subindicador">Gráficos<a href="#" class="exportar"></a></div>
         <a id="grafico1" href="#" onCLick="onCLick=click_callback('beneficiorganizado')" class="grafo">¿Beneficios de estar organizado</a>
         <a id="grafico2" href="#" onCLick="click_callback('norganizado')"class="grafo" >¿Porque no esta organizado?</a>
         <a id="grafico2" href="#" onCLick="click_callback('comunitario')" class="grafo">¿Organización comunitaria?</a>
 </div>
 
-<div class="cuerpo">
+<div class="contenido mediatabla">
 
 <div id="grafo"></div>
-
+<div class="subindicador">ORGANIZACIÓN &raquo; ¿Cuántas organizaciones están activas en la localidad o comunidad?<a href="#" class="exportar"></a></div>
 <table style="width:100%;">
-        <caption>¿Cuántas organizaciones están activas en la localidad o comunidad?</caption>
+        <caption></caption>
         <thead>
             <tr>
                 <th>Organizaciones</th>
@@ -79,9 +79,9 @@
     </table>
 
 
-
+<div class="subindicador">ORGANIZACIÓN &raquo; ¿Pertenece a algunas organizaciones?<a href="#" class="exportar"></a></div>
 <table style="width:100%;">
-        <caption>¿Pertenece a algunas organizaciones?</caption>
+        <caption></caption>
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -107,4 +107,5 @@
        </tbody>
     </table>
 </div>
+<div class="clean"></div>
 {% endblock %}

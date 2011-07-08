@@ -441,6 +441,9 @@ input[type='submit'].consultar:hover{
 }
 .sidebar .grafo:hover{
     background:url(../img/fondobotonindicador2.png) repeat-x;
+}
+.grafohover{
+    background:url(../img/fondobotonindicador2.png) repeat-x!important;
 }	
 .cuerpo{
 	float: left;
