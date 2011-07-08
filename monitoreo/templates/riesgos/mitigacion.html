@@ -1,23 +1,25 @@
-{% extends "base.html"%}
+{% extends "basenueva.html"%}
 {%load unslugify %}
+{%block extra_header%}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".mitigariesgos").addClass("activa");
+    });
+    </script>
+{%endblock%}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Riesgos
-</div>
 <div class="indicadores">
 	{% include "nav_riesgos.html" %}
 </div>
 {% endblock %}
-{%block extra_header%}
-<script type="text/javascript">
 
-</script>
-{%endblock%}
-{% block contenido %}
+{% block content %}
 
-<div class="cuerpo">
+{% include "filtros.html" %}
+<div class="contenido fulltabla">
+<div class="subindicador">RIESGO &raquo; Mitigación de los Riesgos<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Mitigación de los Riesgos</caption>
+        <caption></caption>
         <thead>
             <tr>
                 <th>Preguntas</th>
@@ -36,4 +38,5 @@
         </tbody>
     </table>
 </div>
+<div class="clean"></div>
 {% endblock %}
