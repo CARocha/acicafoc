@@ -1,15 +1,13 @@
-{% extends "base.html"%}
+{% extends "basenueva.html"%}
 {%load unslugify %}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Seguridad Alimentaria
-</div>
 {%endblock%}
-{% block contenido %}
-
-<div class="cuerpo">
+{% block content %}
+{% include "filtros.html" %}
+<div class="contenido fulltabla">
+<div class="subindicador">La Seguridad Alimentaria<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>La Seguridad Alimentaria</caption>
+
         <thead>
             <tr>
                 <th>ALIMENTOS</th>
@@ -42,5 +40,5 @@
         </tbody>
     </table>
 </div>
-
+<div class="clean"></div>
 {% endblock %}
