@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{%block contenido%}
+
+{{lista_hogar}}<br>
+{{lista_finca}}
+
+<table>
+        <caption>Participación de la mujer en las actividades del hogar</span></caption>
+        <thead>
+            <tr>
+                <th>Actividades</th>
+                <th>Frecuencia</th>
+                <th>Porcentajes(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in lista_hogar.items %}
+            <tr>
+                <td>{{key}}</td>
+                {%for i in value%}
+                    <td>{{i}}</td>    
+                {%endfor%}
+           {%endfor%}
+        </tbody>
+</table>
+
+<table>
+        <caption>Participación de la mujer en las actividades en la finca</span></caption>
+        <thead>
+            <tr>
+                <th>Actividades</th>
+                <th>Frecuencia</th>
+                <th>Porcentajes(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in lista_finca.items %}
+            <tr>
+                <td>{{key}}</td>
+                {%for i in value%}
+                    <td>{{i}}</td>    
+                {%endfor%}
+           {%endfor%}
+        </tbody>
+</table>
+numero de mujeres = {{num_familia}}<br>
+tiene ingreso = {{tiene_ingreso}}<br>
+ingreso promedio = {{promedio_mujer}}
+{%endblock%}

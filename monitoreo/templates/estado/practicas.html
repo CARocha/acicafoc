@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{{dicc1}}<br>
+{{dicc2}}<br>
+{{dicc3}}<br>
+{{dicc4}}<br>
+{{dicc5}}<br>
+{{dicc6}}<br>
+{%block contenido%}
+<table>
+        <caption>Vivero practicas</span></caption>
+        <thead>
+            <tr>
+                <th>Prácticas</th>
+                <th>Frecuencia</th>
+                <th>porcentajes(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in dicc1 %}
+            <tr>
+                <td>{{key}}</td>
+                {%for i in value%}
+                    <td>{{i|floatformat}}</td>    
+                {%endfor%}
+           {%endfor%}
+        </tbody>
+</table>
+<table>
+        <caption>Práctica de fertilización</span></caption>
+        <thead>
+            <tr>
+                <th>Prácticas</th>
+                <th>Frecuencia</th>
+                <th>porcentajes(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in dicc2 %}
+            <tr>
+                <td>{{key}}</td>
+                {%for i in value%}
+                    <td>{{i|floatformat}}</td>    
+                {%endfor%}
+           {%endfor%}
+        </tbody>
+</table>
+<table>
+        <caption>Prácticas de manejo fitosanitario</span></caption>
+        <thead>
+            <tr>
+                <th>Prácticas</th>
+                <th>Frecuencia</th>
+                <th>porcentajes(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in dicc3 %}
+            <tr>
+                <td>{{key}}</td>
+                {%for i in value%}
+                    <td>{{i|floatformat}}</td>    
+                {%endfor%}
+           {%endfor%}
+        </tbody>
+</table>
+<table>
+        <caption>Prácticas de manejo productivo</span></caption>
+        <thead>
+            <tr>
+                <th>Prácticas</th>
+                <th>Frecuencia</th>
+                <th>porcentajes(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in dicc4 %}
+            <tr>
+                <td>{{key}}</td>
+                {%for i in value%}
+                    <td>{{i|floatformat}}</td>    
+                {%endfor%}
+           {%endfor%}
+        </tbody>
+</table>
+<table>
+        <caption>Prácticas de mejoramiento genético de la plantación</span></caption>
+        <thead>
+            <tr>
+                <th>Prácticas</th>
+                <th>Frecuencia</th>
+                <th>porcentajes(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in dicc5 %}
+            <tr>
+                <td>{{key}}</td>
+                {%for i in value%}
+                    <td>{{i|floatformat}}</td>    
+                {%endfor%}
+           {%endfor%}
+        </tbody>
+</table>
+<table>
+        <caption>Prácticas de manejo postcosecha y beneficiado</span></caption>
+        <thead>
+            <tr>
+                <th>Prácticas</th>
+                <th>Frecuencia</th>
+                <th>porcentajes(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in dicc6 %}
+            <tr>
+                <td>{{key}}</td>
+                {%for i in value%}
+                    <td>{{i|floatformat}}</td>    
+                {%endfor%}
+           {%endfor%}
+        </tbody>
+</table>
+{%endblock%}
