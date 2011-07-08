@@ -197,7 +197,7 @@ a{
 }
 
 ul, li{margin:0; padding:0; list-style:none;}
-.menu_head{margin:5px 0px 2px 8px; border:#909ba2 1px solid;padding:4px;}
+.menu_head{margin:5px 0px 2px 8px; border:#909ba2 1px solid;padding:4px;cursor: pointer;}
 .menu_head:hover{border:#5aa7d8 1px solid;}}
 
 .nuevaconsulta{margin:3px 5px 0px 4px; float:right;}
