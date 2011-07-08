@@ -16,10 +16,8 @@
                 activo = 0;
             }            
         });        
-    }
-    function disp(id){
-        click_callback('/grafo/agua-disponibilidad/', id);        
-    }
+    }      
+
 </script>
 <script type="text/javascript">
 $(document).ready(function () {
@@ -28,6 +26,7 @@ $(document).ready(function () {
             $(this).removeClass('grafohover');
         });
         $(this).addClass('grafohover');
+        click_callback('/grafo/agua-disponibilidad/', $(this).attr('id'));
     });
 });
 </script>
@@ -45,12 +44,12 @@ $(document).ready(function () {
 
 <div class="sidebar">   
    <div class="subindicador">GRAFICOS</div>
-   <a id="grafico1" href="#" class="grafo">Río</a>
-   <a id="grafico2" href="#" class="grafo">Ojo de Agua</a>
-   <a id="grafico3" href="#"  class="grafo">Pozo Comunitario</a>
-   <a id="grafico4" href="#" class="grafo">Pozo Propio</a>
-   <a id="grafico5" href="#" class="grafo">Agua comunitaria</a>
-   <a id="grafico6" href="#"  class="grafo">Agua en casa</a>    
+   <a id="1" href="#" class="grafo">Río</a>
+   <a id="2" href="#" class="grafo">Ojo de Agua</a>
+   <a id="3" href="#"  class="grafo">Pozo Comunitario</a>
+   <a id="4" href="#" class="grafo">Pozo Propio</a>
+   <a id="5" href="#" class="grafo">Agua comunitaria</a>
+   <a id="6" href="#"  class="grafo">Agua en casa</a>    
     <div class="separador"></div>
     <div id="grafo"></div>
 </div>
