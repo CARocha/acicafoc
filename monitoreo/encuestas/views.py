@@ -32,8 +32,8 @@ from monitoreo.tierra.models import *
 from monitoreo.lugar.models import *
 
 
-#from utils import grafos
-#from utils import *
+from utils import grafos
+from utils import *
 
 # Create your views here.
 
