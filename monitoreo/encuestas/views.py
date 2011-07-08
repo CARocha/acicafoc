@@ -272,6 +272,74 @@ def agua(request):
                               {'tabla':tabla, 'num_familias': consulta.count()},
                               context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
+#GRAFICOS
+@session_required
+def organizacion_grafos(request, tipo):
+    '''grafos de organizacion
+       tipo puede ser: beneficio, miembro'''
+    consulta = _queryset_filtrado(request)
+    
+    data = [] 
+    legends = []
+    if tipo == 'beneficio':
+        for opcion in BeneficiosObtenido.objects.all():
+            data.append(consulta.filter(organizaciongremial__beneficio=opcion).count())
+            legends.append(opcion.nombre)
+        return grafos.make_graph(data, legends, 
+                '¿Qué beneficios ha tenido por ser socio/a de la cooperativa, la asociación o empresa', return_json = True,
+                type = grafos.PIE_CHART_3D)
+    elif tipo == 'miembro':
+        for opcion in SerMiembro.objects.all():
+            data.append(consulta.filter(organizaciongremial__beneficio=opcion).count())
+            legends.append(opcion.nombre)
+        return grafos.make_graph(data, legends, 
+                'Porque soy o quiero ser miembro de la junta directiva o las comisiones', return_json = True,
+                type = grafos.PIE_CHART_3D)
+    elif tipo == 'estructura':
+        for opcion in CHOICE_OPCION:
+            data.append(consulta.filter(organizaciongremial__asumir_cargo=opcion[0]).count())
+            legends.append(opcion[1])
+        return grafos.make_graph(data, legends, 
+                'Si no es miembro de ninguna estructura ¿estaria interesado en asumir cargos?', return_json = True,
+                type = grafos.PIE_CHART_3D)
+    elif tipo == 'beneficiorganizado':
+        for opcion in BeneficioOrgComunitaria.objects.all():
+            data.append(consulta.filter(organizacioncomunitaria__cual_beneficio=opcion).count())
+            legends.append(opcion.nombre)
+        return grafos.make_graph(data, legends, 
+                '¿Cuáles son los beneficios de estar organizado', return_json = True,
+                type = grafos.PIE_CHART_3D)
+    elif tipo == 'norganizado':
+        for opcion in NoOrganizado.objects.all():
+            data.append(consulta.filter(organizacioncomunitaria__no_organizado=opcion).count())
+            legends.append(opcion.nombre)
+        return grafos.make_graph(data, legends, 
+                '¿Porqué no esta organizado?', return_json = True,
+                type = grafos.PIE_CHART_3D)
+    elif tipo == 'comunitario':
+        for opcion in OrgComunitarias.objects.all():
+            data.append(consulta.filter(organizacioncomunitaria__cual_organizacion=opcion).count())
+            legends.append(opcion.nombre)
+        return grafos.make_graph(data, legends, 
+                '¿A cual organizacion comunitaria pertenece', return_json = True,
+                type = grafos.PIE_CHART_3D)
+    else:
+        raise Http404
+            
+@session_required
+def agua_grafos_disponibilidad(request, tipo):
+    '''Tipo: numero del 1 al 6 en CHOICE_FUENTE_AGUA'''
+    consulta = _queryset_filtrado(request)
+    data = [] 
+    legends = []
+    tipo = get_object_or_404(Fuente, id = int(tipo)) 
+    for opcion in Disponibilidad.objects.all():
+        data.append(consulta.filter(agua__disponible=opcion, agua__fuente = tipo).count())
+        legends.append(opcion.nombre)
+    titulo = 'Disponibilidad del agua en %s' % tipo.nombre 
+    return grafos.make_graph(data, legends, 
+            titulo, return_json = True,
+            type = grafos.PIE_CHART_3D)
 #Tabla Organizacion Gremial
 @session_required
 def gremial(request):
@@ -1211,18 +1279,18 @@ def generos(request):
     #actividad del hogar
     lista_hogar = {}
     for i in ActividadHogar.objects.all():
-        conteo = a.filter(participacion__principal=i, sexo=2).count()
+        conteo = a.filter(sexo=2, participacion__principal=i).count()
         porcentaje = round(saca_porcentajes(conteo,mujer),2)
         lista_hogar[i.nombre]= (conteo,porcentaje)
         
     lista_finca = {}
     for b in ActividadFinca.objects.all():
-        conteo = a.filter(participacion__actividad_finca=b, sexo=2).count()
+        conteo = a.filter(sexo=2, participacion__actividad_finca=b).count()
         porcentaje = round(saca_porcentajes(conteo,mujer),2)
         lista_finca[b.nombre]= (conteo,porcentaje)
         
     #numero de mujeres tiene ingreso
-    conteo_mujer = a.filter(participacion__ingreso__gt=0,sexo=2).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
+    conteo_mujer = a.filter(sexo=2, participacion__ingreso__gt=0).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
     tiene_ingreso = round(saca_porcentajes(conteo_mujer,mujer))
     ingreso_mujer = a.filter(sexo=2).aggregate(ingreso_mujer=Sum('participacion__ingreso'))['ingreso_mujer']
 #    promedio_mujer = ingreso_mujer / conteo_mujer
