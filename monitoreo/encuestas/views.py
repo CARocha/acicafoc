@@ -85,7 +85,7 @@ def _queryset_filtrado(request):
         for key in unvalid_keys:
             del params[key]
         
-        return Encuesta.objects.filter(**params)        
+        return Encuesta.objects.filter(**params)
 
 #-------------------------------------------------------------------------------
 
