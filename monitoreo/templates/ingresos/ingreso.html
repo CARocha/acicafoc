@@ -1,9 +1,6 @@
-{% extends "base.html"%}
+{% extends "basenueva.html"%}
 {% load humanize %}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Ingreso
-</div>
 {% endblock %}
 {%load unslugify %}
 {% block extra_header %}
@@ -20,28 +17,10 @@
             }
         });
     }
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-        });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico3").click(function(){
-            $("#grafico3").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-        });
-    });
 </script>
 {% endblock %}
-{%block contenido%}
+{%block content%}
+{% include "filtros.html" %}
     <div class="sidebar">
         
             <h1>Gráficos ingresos</h1>
@@ -54,12 +33,12 @@
             <a href="#" id="grafico6" onCLick="click_callback('remesa')"class="grafo">Tipos Remesas</a>
             <a href="#" id="grafico7" onCLick="click_callback('alquiler')"class="grafo">Tipo alquiler</a>
             <a href="#" id="grafico8" onCLick="click_callback('aportar')"class="grafo">Persona aportar en la finca</a>
-   
+       <div id="grafo"></div>
     </div>
- <div class="cuerpo">
-    <div id="grafo"></div>
+ <div class="contenido mediatabla">
+<div class="subindicador">INGRESO  &raquo; Los Ingresos familiares <a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Los Ingresos familiares</caption>
+        <caption></caption>
         <thead>
             <tr>
                 <th>RUBROS</th>
@@ -92,9 +71,9 @@
         </tr>
 
     </table>
-    <br><br>
+    <br><div class="subindicador">INGRESO  &raquo; Los Otros Ingresos familiares <a href="#" class="exportar"></a></div><br>
     <table style="width:100%;">
-        <caption>Los Otros Ingresos familiares</caption>
+        <caption></caption>
         <thead>
             <tr>
                 <th>FUENTES</th>
@@ -123,7 +102,8 @@
             <th>{{respuesta.ingreso_otro|intcomma}}</th>
         </tr>
     </table style="width:100%;">
-    <br><br>
+    <br>
+<div class="subindicador">INGRESO  &raquo; Ingreso Bruto <a href="#" class="exportar"></a></div>
     <table>
         <tr colspan="2">
             <th>INGRESO BRUTO</th>
@@ -131,6 +111,7 @@
             <th>{{respuesta.brutoo|intcomma}}</th>
         </tr>
     </table>
+    <div class="subindicador">INGRESO  &raquo; Ingreso Neto <a href="#" class="exportar"></a></div>
     <table style="width:100%;">
         <tr colspan="2">
             <th>INGRESO NETO</th>
@@ -139,5 +120,6 @@
         </tr>
     </table>
 </div>
+<div class="clean"></div>
 
 {%endblock%}
