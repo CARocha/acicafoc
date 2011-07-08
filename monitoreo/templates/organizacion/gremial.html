@@ -1,15 +1,17 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 {%load unslugify %}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Organización
-</div>
 <div class="indicadores">
 	{% include "nav_org.html" %}
 </div>
 {% endblock %}
 
 {%block extra_header%}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".comunitaria").addClass("activa");
+    });
+</script>
 <script type="text/javascript">
     var activo = 0; 
     function click_callback(id){
@@ -23,37 +25,34 @@
             }
         });
     }
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.grafo').click(function(){
+        $('.grafo').each(function(){
+            $(this).removeClass('grafohover');
         });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-        });
-
+        $(this).addClass('grafohover');
     });
+});
 </script>
 {%endblock%}
 
-{% block contenido %}
-
+{% block content %}
+{% include "filtros.html" %}
 <div class="sidebar">
     
-        <h1>Gráficos</h1>
+        <div class="subindicador">Gráficos</a></div>
         <a id="grafico1" href="#" onCLick="onCLick=click_callback('miembro')" class="grafo">¿Porque soy o quiero ser miembro?</a>
         <a id="grafico2" href="#" onCLick="click_callback('beneficio')" class="grafo">Beneficio de ser Socio/a</a>
         <a id="grafico3" href="#" onCLick="click_callback('estructura')" class="grafo">Interesado en asumir cargo?</a>
  
 </div> 
-
-<div class="cuerpo">
+<div id="grafo"></div>
+<div class="contenido mediatabla">
  
-    <div id="grafo"></div>
+<div class="subindicador">Es socio/a de organización Gremial <a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Es socio/a de organización Gremial</caption>
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -78,10 +77,9 @@
        
        <tbody>
     </table>
-    
-    
-     <table>
-        <caption>Desde cuando socios</caption>
+<br>
+<div class="subindicador">Desde cuando socios <a href="#" class="exportar"></a></div>
+     <table  width="100%">
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -106,9 +104,9 @@
        
        </tbody>
     </table>
-    
-     <table>
-        <caption>Soy miembro de órgano gremial</caption>
+<br>
+<div class="subindicador">Soy miembro de órgano gremials<a href="#" class="exportar"></a></div>
+     <table  width="100%">
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -133,10 +131,9 @@
        
        </tbody>
     </table>
-
-
-<table>
-        <caption>Desde cuando miembro</caption>
+<br>
+<div class="subindicador">Desde cuando miembro <a href="#" class="exportar"></a></div>
+<table width="100%">
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -161,10 +158,9 @@
        
        </tbody>
     </table>
-    
-    
-    <table>
-        <caption>He recibido capacitación para desempeñar mi cargo</caption>
+<br>
+<div class="subindicador">He recibido capacitación para desempeñar mi cargo <a href="#" class="exportar"></a></div>
+    <table  width="100%">
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -191,4 +187,5 @@
     </table>
 
 </div>
+<div class="clean"></div>
 {% endblock %}
