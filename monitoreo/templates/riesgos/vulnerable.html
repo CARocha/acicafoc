@@ -1,18 +1,23 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 {%load unslugify %}
+{%block extra_header%}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".vulnerable").addClass("activa");
+    });
+    </script>
+{%endblock%}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Riesgos
-</div>
 <div class="indicadores">
 	{% include "nav_riesgos.html" %}
 </div>
 {% endblock %}
+{% block content %}
 
-{% block contenido %}
-<div class="cuerpo">
-    <table>
-        <caption>Vulnerabilidades de las fincas</caption>
+{% include "filtros.html" %}
+<div class="contenido fulltabla">
+	<div class="subindicador">RIESGO &raquo; Vulnerabilidades de las fincas<a href="#" class="exportar"></a></div>
+    <table width="100%">
         <thead>
             <tr>
                 <th>Fenomeno</th>
@@ -37,5 +42,5 @@
     </table>
     <br></br><br></br>
 </div>
-    
+<div class="clean"></div>
 {% endblock %}

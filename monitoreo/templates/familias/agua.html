@@ -2,6 +2,11 @@
 {%load unslugify %}
 {%block extra_header%}
 <script type="text/javascript">
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".agua").addClass("activa");
+    });
+    </script>
     //si activo es 0 el html interno esta vacio
     //caso si activo es otro num sustituir grafico
     //si activo es el mismo id, esconder grafico
