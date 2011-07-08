@@ -1,14 +1,7 @@
-{{vivero}}
-<br>
-{{planta_menos}}
-<br>
-{{planta_mas}}
-<br>
-{{planta_produccion}}
-<br>
-{{planta_elite}}
+{% extends "base.html" %}
 
-<table border="1">
+{%block contenido%}
+<table>
 <caption>Tamaño de las plantaciones</caption>
  <thead>
     <tr>
@@ -49,9 +42,88 @@
         {%endfor%}
     </tr>
     <tr>
+        <td>Plantas en producción</td>
+        {%for dato in planta_produccion%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+    <tr>
         <td>Plantas élite de cacao</td>
         {%for dato in planta_elite%}
         <td>{{dato}}</td>
         {%endfor%}
     </tr>
 </table>
+{{lista_produccion}}
+
+<table>
+<caption>Producción</caption>
+ <thead>
+    <tr>
+        <th></th>
+        <th>Frecuencia</th>
+        <th>%</th>
+        <th>Producción total(qq seco)</th>
+        <th>Promedio(qq seco)</th>
+        <th>% producción</th>
+    </tr>
+ </thead>
+    <tr>
+        <td>total</td>
+        {%for dato in lista_total%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+    <tr>
+        <td>Sin fermentar</td>
+        {%for dato in lista_sin_fermentar%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+    <tr>
+        <td>Fermentado convencional</td>
+        {%for dato in lista_fermentado%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+    <tr>
+        <td>Fermentado organico</td>
+        {%for dato in lista_organico%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+</table>
+productividad (qq/mz) = {{productividad}}
+
+<table>
+<caption>Costo de producción</caption>
+ <thead>
+    <tr>
+        <th></th>
+        <th>Frecuencia</th>
+        <th>Total</th>
+        <th>Promedio</th>
+    </tr>
+ </thead>
+    <tr>
+        <td>Gasto anual de cacao</td>
+        {%for dato in costo_area%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+    <tr>
+        <td>Gasto anual finca</td>
+        {%for dato in costo_finca%}
+        <td>{{dato}}</td>
+        {%endfor%}
+    </tr>
+    <tr>
+        <td>% de Gasto de cacao</td>
+        <td>---</td>
+        <td>{{porcentaje_cacao}}</td>
+        <td>---</td>
+    </tr>
+</table>
+costo de mantenimiento cacao/mz = 
+{{mantenimiento_cacao}}
+{%endblock%}

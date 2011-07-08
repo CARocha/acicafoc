@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{%block contenido%}
+
+<table>
+        <caption>Comercializacion</span></caption>
+        <thead>
+            <tr>
+                <th>Productos</th>
+                <th>unidad</th>
+                <th>Frecuencia</th>
+                <th>Porcentajes(%)</th>
+                <th>Volumen auto-consumo</th>
+                <th>Volumen venta</th>
+                <th>Precio</th>
+                <th>Ingreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in lista_producto.items %}
+            <tr>
+                <td>{{key}}</td>
+                {%for i in value%}
+                    <td>{{i}}</td>    
+                {%endfor%}
+           {%endfor%}
+        </tbody>
+</table>
+<br></br>
+{% with tabla=dicc2 titulo='Capacitaciones técnicas recibidas' primer_td='Acciones' colspan=7 titulo_combinado='¿Quiénes de la familia de usted han recibido capacitaciones técnicas en los últimos 2 años' percent=1 %}
+{% include "comercializacion/tabla_generica.html" %}
+{% endwith %}
+<br></br>
+{% with tabla=dicc1 titulo='Capacitaciones en tema social recibidas' primer_td='Acciones' colspan=7 titulo_combinado='¿Quiénes de la familia de usted han recibido capacitaciones en temas sociales en los ultimos 2 años' percent=1 %}
+{% include "comercializacion/tabla_generica.html" %}
+{% endwith %}
+{%endblock%}
