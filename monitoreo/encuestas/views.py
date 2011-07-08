@@ -968,13 +968,13 @@ def plantaciones(request):
     for viver in Vivero.objects.all():
         #cuantos tiene
         conteo = a.filter(vivero__vivero_cacao = 1).count()
-        frecuencia = saca_porcentajes(conteo,num_familia)
+        frecuencia = round(saca_porcentajes(conteo,num_familia))
         #numero de plantas
         total_planta = a.aggregate(total_planta=Sum('vivero__plantas'))['total_planta']
-        promedio_planta = total_planta / conteo
+        promedio_planta = round(total_planta / conteo)
         #numero de plantas injertadas
         n_injertada = a.aggregate(n_injertada=Sum('vivero__planta_injerto'))['n_injertada']
-        promedio_injerto = n_injertada / conteo
+        promedio_injerto = round(n_injertada / conteo)
         vivero = (conteo,frecuencia,'---','---',total_planta,promedio_planta,n_injertada,
                   promedio_injerto)
         
@@ -982,16 +982,16 @@ def plantaciones(request):
     for menos in PlantaDesarrolloMenos.objects.all():
         #cuantos tiene
         conteo = a.filter(plantadesarrollomenos__cacao_desarrollo = 1).count()
-        frecuencia = saca_porcentajes(conteo,num_familia)
+        frecuencia = round(saca_porcentajes(conteo,num_familia))
         #areas
         area_total = a.aggregate(area_total=Sum('plantadesarrollomenos__area_sembrada'))['area_total']
-        promedio_area = area_total / conteo
+        promedio_area = round(area_total / conteo)
         #numero de plantas
         total_planta = a.aggregate(total_planta=Sum('plantadesarrollomenos__plantas_finca'))['total_planta']
-        promedio_planta = total_planta / conteo
+        promedio_planta = round(total_planta / conteo)
         #numero de plantas injertadas
         n_injertada = a.aggregate(n_injertada=Sum('plantadesarrollomenos__planta_injerto'))['n_injertada']
-        promedio_injerto = n_injertada / conteo
+        promedio_injerto = round(n_injertada / conteo)
         planta_menos = (conteo,frecuencia,area_total,promedio_area,total_planta,
                         promedio_planta,n_injertada,promedio_injerto)
                         
@@ -999,16 +999,16 @@ def plantaciones(request):
     for menos in PlantaDesarrolloMenos.objects.all():
         #cuantos tiene
         conteo = a.filter(plantadesarrollomenos__cacao_desarrollo = 1).count()
-        frecuencia = saca_porcentajes(conteo,num_familia)
+        frecuencia = round(saca_porcentajes(conteo,num_familia))
         #areas
         area_total = a.aggregate(area_total=Sum('plantadesarrollomas__area_sembrada'))['area_total']
-        promedio_area = area_total / conteo
+        promedio_area = round(area_total / conteo)
         #numero de plantas
         total_planta = a.aggregate(total_planta=Sum('plantadesarrollomas__plantas_finca'))['total_planta']
-        promedio_planta = total_planta / conteo
+        promedio_planta = round(total_planta / conteo)
         #numero de plantas injertadas
         n_injertada = a.aggregate(n_injertada=Sum('plantadesarrollomas__planta_injerto'))['n_injertada']
-        promedio_injerto = n_injertada / conteo
+        promedio_injerto = round(n_injertada / conteo)
         planta_mas = (conteo,frecuencia,area_total,promedio_area,total_planta,
                         promedio_planta,n_injertada,promedio_injerto)
                         
@@ -1016,16 +1016,16 @@ def plantaciones(request):
     for menos in PlantaDesarrolloMenos.objects.all():
         #cuantos tiene
         conteo = a.filter(plantaproduccion__plantas_cacao = 1).count()
-        frecuencia = saca_porcentajes(conteo,num_familia)
+        frecuencia = round(saca_porcentajes(conteo,num_familia))
         #areas
         area_total = a.aggregate(area_total=Sum('plantaproduccion__area_sembrada'))['area_total']
-        promedio_area = area_total / conteo
+        promedio_area = round(area_total / conteo)
         #numero de plantas
         total_planta = a.aggregate(total_planta=Sum('plantaproduccion__plantas_finca'))['total_planta']
-        promedio_planta = total_planta / conteo
+        promedio_planta = round(total_planta / conteo)
         #numero de plantas injertadas
         n_injertada = a.aggregate(n_injertada=Sum('plantaproduccion__planta_injerto'))['n_injertada']
-        promedio_injerto = n_injertada / conteo
+        promedio_injerto = round(n_injertada / conteo)
         planta_produccion = (conteo,frecuencia,area_total,promedio_area,total_planta,
                         promedio_planta,n_injertada,promedio_injerto)
                         
@@ -1033,10 +1033,13 @@ def plantaciones(request):
     for elite in PlantaElite.objects.all():
         #cuantos tiene
         conteo = a.filter(plantaelite__elite = 1).count()
-        frecuencia = saca_porcentajes(conteo,num_familia)
+        frecuencia = round(saca_porcentajes(conteo,num_familia))
         #numero de plantas
         total_planta = a.aggregate(total_planta=Sum('plantaelite__cuantas'))['total_planta']
-        promedio_planta = total_planta / conteo
+        try:
+            promedio_planta = round(total_planta / conteo)
+        except:
+            promedio_planta = 0
         planta_elite = (conteo,frecuencia,'---','---',total_planta,promedio_planta,
                         '---','---')
     
@@ -1048,53 +1051,55 @@ def plantaciones(request):
     for prod in PlantaProduccion.objects.all():
         #total
         conteo = a.aggregate(conteo=Count('plantaproduccion__total'))['conteo']
-        frecuencia= saca_porcentajes(conteo,num_familia)
+        frecuencia= round(saca_porcentajes(conteo,num_familia))
         produccion_total = a.aggregate(produccion_total=Sum('plantaproduccion__total'))['produccion_total']
-        promedio = produccion_total / conteo
-        porcentaje = saca_porcentajes(produccion_total,produccion_total)
+        promedio = round(produccion_total / conteo)
+        porcentaje = round(saca_porcentajes(produccion_total,produccion_total))
         lista_total = (conteo,frecuencia,produccion_total,promedio,porcentaje)
         #sin fermentacion
         s_conteo = a.aggregate(s_conteo=Count('plantaproduccion__sin_fermentar'))['s_conteo']
-        s_frecuencia= saca_porcentajes(conteo,num_familia)
+        s_frecuencia= round(saca_porcentajes(conteo,num_familia))
         s_produccion_total = a.aggregate(produccion_total=Sum('plantaproduccion__sin_fermentar'))['produccion_total']
-        s_promedio = produccion_total / conteo
-        s_porcentaje = saca_porcentajes(s_produccion_total,produccion_total)
+        s_promedio = round(produccion_total / conteo)
+        s_porcentaje = round(saca_porcentajes(s_produccion_total,produccion_total))
         lista_sin_fermentar = (s_conteo,s_frecuencia,s_produccion_total,s_promedio,
                                s_porcentaje)               
         #fermentado
         f_conteo = a.aggregate(f_conteo=Count('plantaproduccion__fermentado'))['f_conteo']
-        f_frecuencia= saca_porcentajes(conteo,num_familia)
+        f_frecuencia= round(saca_porcentajes(conteo,num_familia))
         f_produccion_total = a.aggregate(produccion_total=Sum('plantaproduccion__fermentado'))['produccion_total']
-        f_promedio = produccion_total / conteo
-        f_porcentaje = saca_porcentajes(f_produccion_total,produccion_total)
+        f_promedio = round(produccion_total / conteo)
+        f_porcentaje = round(saca_porcentajes(f_produccion_total,produccion_total))
         lista_fermentado = (f_conteo,f_frecuencia,f_produccion_total,
                             s_promedio,f_porcentaje)
         #organico
         o_conteo = a.aggregate(o_conteo=Count('plantaproduccion__organico'))['o_conteo']
-        o_frecuencia= saca_porcentajes(conteo,num_familia)
+        o_frecuencia= round(saca_porcentajes(conteo,num_familia))
         o_produccion_total = a.aggregate(produccion_total=Sum('plantaproduccion__organico'))['produccion_total']
-        o_promedio = produccion_total / conteo
-        o_porcentaje = saca_porcentajes(o_produccion_total,produccion_total)
+        o_promedio = round(produccion_total / conteo)
+        o_porcentaje = round(saca_porcentajes(o_produccion_total,produccion_total))
         lista_organico = (o_conteo,o_frecuencia,o_produccion_total,
                           o_promedio,o_porcentaje)
     
-    print lista_total[2]
-    print planta_produccion[4]
     productividad = lista_total[2] / planta_produccion[4]
     
     #costos de la produccion
     costo_area = []
     costo_finca = []
+    conteo_finca = 0
     for coso in Costo.objects.all():
         if coso.mantenimiento_area > 0:
             conteo_area = a.aggregate(conteo_area=Count('costo__mantenimiento_area'))['conteo_area']
         total_area = a.aggregate(total_area=Sum('costo__mantenimiento_area'))['total_area']
-        promedio_area = total_area / conteo_area
+        promedio_area = round(total_area / conteo_area)
         costo_area = (conteo_area,total_area,promedio_area)
         if coso.mantenimiento_finca > 0:
             conteo_finca = a.aggregate(conteo_finca=Count('costo__mantenimiento_finca'))['conteo_finca']
         total_finca = a.aggregate(total_finca=Sum('costo__mantenimiento_finca'))['total_finca']
-        promedio_finca = total_finca / conteo_finca
+        try:
+            promedio_finca = round(total_finca / conteo_finca)
+        except:
+            promedio_finca = 0
         costo_finca = (conteo_finca,total_finca,promedio_finca)
 
     porcentaje_cacao = round(saca_porcentajes(costo_area[1],costo_finca[1]),2)
@@ -1123,40 +1128,40 @@ def tecnicas(request):
     
     #vivero - practica
     lista_vivero = {}
-    for datos in ViveroPractica.objects.all():
+    for datos in Practicas.objects.all():
         conteo = a.filter(viveropractica__practica=datos,viveropractica__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_vivero[datos.practica.nombre] = (conteo,porcentaje)
+        lista_vivero[datos.nombre] = (conteo,porcentaje)
     dicc1 = sorted(lista_vivero.items(), key=lambda x: x[1], reverse=True)
     lista_fertilizacion = {}
-    for datos in PracticaFertilizacion.objects.all():
+    for datos in PracticaEtapa.objects.all():
         conteo = a.filter(practicafertilizacion__practica=datos,practicafertilizacion__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_fertilizacion[datos.practica.nombre] = (conteo,porcentaje)
+        lista_fertilizacion[datos.nombre] = (conteo,porcentaje)
     dicc2 = sorted(lista_fertilizacion.items(), key=lambda x: x[1], reverse=True)
     lista_fitosanitaria = {}
-    for datos in PracticaManejoFitosanitario.objects.all():
+    for datos in PracticaFitosanitaria.objects.all():
         conteo = a.filter(practicamanejofitosanitario__practica=datos,practicamanejofitosanitario__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_fitosanitaria[datos.practica.nombre] = (conteo,porcentaje)
+        lista_fitosanitaria[datos.nombre] = (conteo,porcentaje)
     dicc3 = sorted(lista_fitosanitaria.items(), key=lambda x: x[1], reverse=True)
     lista_productivo = {}
-    for datos in PracticaManejoProductivo.objects.all():
+    for datos in PracticaProductivo.objects.all():
         conteo = a.filter(practicamanejoproductivo__practica=datos,practicamanejoproductivo__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_productivo[datos.practica.nombre] = (conteo,porcentaje)
+        lista_productivo[datos.nombre] = (conteo,porcentaje)
     dicc4 = sorted(lista_productivo.items(), key=lambda x: x[1], reverse=True)
     lista_generico = {}
-    for datos in PracticaMejoramientoGenetico.objects.all():
+    for datos in PracticaGenetico.objects.all():
         conteo = a.filter(practicamejoramientogenetico__practica=datos,practicamejoramientogenetico__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_generico[datos.practica.nombre] = (conteo,porcentaje)
+        lista_generico[datos.nombre] = (conteo,porcentaje)
     dicc5 = sorted(lista_generico.items(), key=lambda x: x[1], reverse=True)
     lista_postcosecha = {}
-    for datos in PracticaManejoPostcosecha.objects.all():
+    for datos in PracticaPostcosecha.objects.all():
         conteo = a.filter(practicamanejopostcosecha__practica=datos,practicamanejopostcosecha__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_postcosecha[datos.practica.nombre] = (conteo,porcentaje)
+        lista_postcosecha[datos.nombre] = (conteo,porcentaje)
     dicc6 = sorted(lista_postcosecha.items(), key=lambda x: x[1], reverse=True)
 
     return render_to_response('estado/practicas.html', RequestContext(request, locals()))
@@ -1174,7 +1179,7 @@ def comercializacion(request):
         suma_autoconsumo = a.filter(comercializacion__producto=comer).aggregate(suma_autoconsumo=Sum('comercializacion__autoconsumo'))['suma_autoconsumo']
         suma_venta = a.filter(comercializacion__producto=comer).aggregate(suma_venta=Sum('comercializacion__venta'))['suma_venta']
         precio = a.filter(comercializacion__producto=comer).aggregate(precio=Avg('comercializacion__precio'))['precio']
-        ingreso = (suma_autoconsumo + suma_venta) * precio
+        ingreso = suma_autoconsumo + suma_venta * precio if suma_autoconsumo != None else 0
         lista_producto[comer.producto.nombre] = (comer.producto.unidad,conteo,
                                                  porcentaje,suma_autoconsumo,
                                                  suma_venta,precio,ingreso)
@@ -1201,24 +1206,27 @@ def generos(request):
     #********variables globales****************
     a = _queryset_filtrado(request)
     num_familia = a.filter(sexo=2).count()
+    mujer = Encuesta.objects.filter(sexo=2).count()
     
     #actividad del hogar
     lista_hogar = {}
     for i in ActividadHogar.objects.all():
-        conteo = a.filter(participacion__principal=i).count()
-        porcentaje = saca_porcentajes(conteo,num_familia)
+        conteo = a.filter(participacion__principal=i, sexo=2).count()
+        porcentaje = round(saca_porcentajes(conteo,mujer),2)
         lista_hogar[i.nombre]= (conteo,porcentaje)
+        
     lista_finca = {}
     for b in ActividadFinca.objects.all():
-        conteo = a.filter(participacion__actividad_finca=b).count()
-        porcentaje = saca_porcentajes(conteo,num_familia)
+        conteo = a.filter(participacion__actividad_finca=b, sexo=2).count()
+        porcentaje = round(saca_porcentajes(conteo,mujer),2)
         lista_finca[b.nombre]= (conteo,porcentaje)
         
     #numero de mujeres tiene ingreso
     conteo_mujer = a.filter(participacion__ingreso__gt=0,sexo=2).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
-    tiene_ingreso = saca_porcentajes(conteo_mujer,num_familia)
+    tiene_ingreso = round(saca_porcentajes(conteo_mujer,mujer))
     ingreso_mujer = a.filter(sexo=2).aggregate(ingreso_mujer=Sum('participacion__ingreso'))['ingreso_mujer']
 #    promedio_mujer = ingreso_mujer / conteo_mujer
+    
              
     return render_to_response('genero/genero.html', RequestContext(request, locals()))         
     
