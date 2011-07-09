@@ -496,9 +496,9 @@ def grafos_bienes(request, tipo):
     legends = []
     #----------------------
     if tipo == 'tipocasa':
-        for opcion in CHOICE_TIPO_CASA:
-            data.append(consulta.filter(tipocasa__tipo=opcion[0]).count())
-            legends.append(opcion[1])
+        for opcion in Casa.objects.all():
+            data.append(consulta.filter(tipocasa__tipo=opcion).count())
+            legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 'Tipos de casas', return_json = True,
                 type = grafos.PIE_CHART_2D)
@@ -1564,10 +1564,10 @@ def generos(request):
         lista_finca[b.nombre]= (conteo,porcentaje)
         
     #numero de mujeres tiene ingreso
-    conteo_mujer = a.filter(sexo=2, participacion__ingreso__gt=0).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
+    conteo_mujer = a.filter(sexo=2, participacion__ingreso__gt=1).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
     tiene_ingreso = round(saca_porcentajes(conteo_mujer,mujer))
     ingreso_mujer = a.filter(sexo=2).aggregate(ingreso_mujer=Sum('participacion__ingreso'))['ingreso_mujer']
-#    promedio_mujer = ingreso_mujer / conteo_mujer
+    promedio_mujer = round(ingreso_mujer / conteo_mujer)
     
              
     return render_to_response('genero/genero.html', RequestContext(request, locals()))         
@@ -1695,7 +1695,7 @@ def get_municipios(request, departamento):
     return HttpResponse(simplejson.dumps(lista), mimetype='application/javascript')
     
 def get_organizacion(request, departamento):
-    organizaciones = Organizaciones.objects.filter(departamento = departamento)
+    organizaciones = OrganizacionesOCB.objects.filter(departamento = departamento)
     lista = [(organizacion.id, organizacion.nombre) for organizacion in organizaciones]
     return HttpResponse(simplejson.dumps(lista), mimetype='application/javascript')
 

@@ -31,8 +31,6 @@ $(document).ready(function () {
 {% endblock %}
 {%block content%}
 {% include "filtros.html" %}
-{{lista_hogar}}<br><br>
-{{lista_finca}}
 <div class="contenido fulltabla">
 <div id="tablatab1" class="escondete">
     <div class="subindicador">GENERO &raquo; Participación de la mujer en las actividades del hogar<a href="#" class="exportar"></a></div>
@@ -77,8 +75,8 @@ $(document).ready(function () {
 
 
         </table style="width:100%;">
-        numero de mujeres = {{num_familia}}<br>
-        tiene ingreso = {{tiene_ingreso}}<br>
+        numero de mujeres que tienen ingreso = {{num_familia}}<br>
+        
         ingreso promedio = {{promedio_mujer}}
         <br></br>
         {{mujer}}
