@@ -2,6 +2,11 @@
 {%load unslugify %}
 
 {% block extra_header %}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".usotierra").addClass("activa");
+    });
+    </script>
 <script type="text/javascript">
     //si activo es 0 el html interno esta vacio
     //caso si activo es otro num sustituir grafico
@@ -18,6 +23,16 @@
             }
         });
     }
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.grafo').click(function(){
+        $('.grafo').each(function(){
+            $(this).removeClass('grafohover');
+        });
+       $(this).addClass('grafohover');
+    });
+});
 </script>
 {%endblock%}
 {% block barra %}

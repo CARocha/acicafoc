@@ -1,14 +1,16 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 {%load unslugify %}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Existencia de árboles y Reforestación
-</div>
 <div class="indicadores">
 	{% include "nav_tierra.html" %}
 </div>
 {% endblock %}
 {% block extra_header %}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $(".reforestacion").addClass("activa");
+    });
+    </script>
 <script type="text/javascript">
     var activo = 0;
     function click_callback(id){
@@ -22,49 +24,19 @@
             }
         });
     }
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.grafo').click(function(){
+        $('.grafo').each(function(){
+            $(this).removeClass('grafohover');
         });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico3").click(function(){
-            $("#grafico3").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-        });
-        $("#grafico4").click(function(){
-            $("#grafico4").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico5").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico5").click(function(){
-            $("#grafico5").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-            $("#grafico4").removeClass('enlace_seleccionado');
-        });
+       $(this).addClass('grafohover');
     });
+});
 </script>
 {% endblock %}
-{% block contenido %}
+{% block content %}
 
 <div class="sidebar">
    
@@ -73,13 +45,10 @@
         <a id="grafico2" href="#" onCLick="click_callback('forrajero')"class="grafo">Árbol Forrajero</a>
         <a id="grafico3" href="#" onCLick="click_callback('energetico')"class="grafo">Árbol Energetico</a>
         <a id="grafico4" href="#" onCLick="click_callback('frutal')"class="grafo">Árbol Frutal</a>
- 
+ <div id="grafo"></div>
 </div>
 
-<div class="cuerpo">
-<div id="grafo"></div>
-
-<div class="contenido">
+<div class="contenido mediatabla">
     <table style="width:100%;">
         <caption>Tabla Existencia de Arboles</caption>
         <thead>
@@ -142,5 +111,5 @@
         <tbody>
     </table>
 </div>
-</div>
+<div class="clean"></div>
 {% endblock %}
