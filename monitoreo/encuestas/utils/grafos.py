@@ -18,7 +18,7 @@ LINE_CHART = line_types
 
 def make_graph(data, legends, message=None, 
                axis_labels=None, steps=4, return_json = True,
-               type=PieChart2D, size=(600, 350), multiline=False):
+               type=PieChart2D, size=(500, 350), multiline=False):
 
     if (type in pie_types):
         graph = _pie_graph(data, legends, size, type)
@@ -30,6 +30,7 @@ def make_graph(data, legends, message=None,
                                        size, steps, type, multiline)
     try:
         graph.set_title(message)
+       # graph.set_legend_position('r')
         url = graph.get_url()
     except:
         url = NO_DATA_GRAPH_URL 

@@ -287,42 +287,42 @@ def organizacion_grafos(request, tipo):
             legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 '¿Qué beneficios ha tenido por ser socio/a de la cooperativa, la asociación o empresa', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'miembro':
         for opcion in SerMiembro.objects.all():
             data.append(consulta.filter(organizaciongremial__beneficio=opcion).count())
             legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 'Porque soy o quiero ser miembro de la junta directiva o las comisiones', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'estructura':
         for opcion in CHOICE_OPCION:
             data.append(consulta.filter(organizaciongremial__asumir_cargo=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends, 
                 'Si no es miembro de ninguna estructura ¿estaria interesado en asumir cargos?', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'beneficiorganizado':
         for opcion in BeneficioOrgComunitaria.objects.all():
             data.append(consulta.filter(organizacioncomunitaria__cual_beneficio=opcion).count())
             legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 '¿Cuáles son los beneficios de estar organizado', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'norganizado':
         for opcion in NoOrganizado.objects.all():
             data.append(consulta.filter(organizacioncomunitaria__no_organizado=opcion).count())
             legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 '¿Porqué no esta organizado?', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'comunitario':
         for opcion in OrgComunitarias.objects.all():
             data.append(consulta.filter(organizacioncomunitaria__cual_organizacion=opcion).count())
             legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 '¿A cual organizacion comunitaria pertenece', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     else:
         raise Http404
             
@@ -354,21 +354,21 @@ def fincas_grafos(request, tipo):
             legends.append(opcion[1])
         return grafos.make_graph(data, legends, 
                 'Tenencia de las parcelas', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'solares':
         for opcion in CHOICE_TENENCIA:
             data.append(consulta.filter(tenencia__solar=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends, 
                 'Tenencia de los solares', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'propietario':
         for opcion in CHOICE_DUENO:
             data.append(consulta.filter(tenencia__dueno=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends, 
                 'Dueño de propiedad', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     else:
         raise Http404 
         
@@ -412,21 +412,21 @@ def grafos_ingreso(request, tipo):
             legends.append(opcion[1])
         return grafos.make_graph(data, legends,
                 'A quien venden', return_json=True,
-                type=grafos.PIE_CHART_3D)
+                type=grafos.PIE_CHART_2D)
     elif tipo == 'maneja':
         for opcion in CHOICE_MANEJA:
             data.append(consulta.filter(ingresofamiliar__maneja_negocio=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends,
                 'Quien maneja negocio', return_json=True,
-                type=grafos.PIE_CHART_3D)
+                type=grafos.PIE_CHART_2D)
     elif tipo == 'ingreso':
         for opcion in CHOICE_MANEJA:
             data.append(consulta.filter(otrosingresos__tiene_ingreso=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends,
                 'Quien tiene los ingresos', return_json=True,
-                type=grafos.PIE_CHART_3D)
+                type=grafos.PIE_CHART_2D)
     elif tipo == 'salario':
         for opcion in TipoTrabajo.objects.all()[:4]:
             data.append(consulta.filter(otrosingresos__fuente__nombre__icontains="Salarios",
@@ -434,7 +434,7 @@ def grafos_ingreso(request, tipo):
             legends.append(opcion)
         return grafos.make_graph(data, legends,
                 'Tipos de salarios', return_json=True,
-                type=grafos.PIE_CHART_3D)
+                type=grafos.PIE_CHART_2D)
     elif tipo == 'negocio':
         for opcion in TipoTrabajo.objects.all()[4:8]:
             data.append(consulta.filter(otrosingresos__fuente__nombre__icontains="Negocios",
@@ -442,7 +442,7 @@ def grafos_ingreso(request, tipo):
             legends.append(opcion)
         return grafos.make_graph(data, legends,
                 'Tipos de Negocios', return_json=True,
-                type=grafos.PIE_CHART_3D)
+                type=grafos.PIE_CHART_2D)
     elif tipo == 'remesa':
         #for opcion in TipoTrabajo.objects.all()[9:9]:
         nacional = consulta.filter(otrosingresos__fuente__nombre__icontains="Remesas",
@@ -453,7 +453,7 @@ def grafos_ingreso(request, tipo):
         legends = ('Nacional','Extranjero')
         return grafos.make_graph(data, legends,
                 'Tipos de Remesas', return_json=True,
-                type=grafos.PIE_CHART_3D)
+                type=grafos.PIE_CHART_2D)
     elif tipo == 'alquiler':
         for opcion in TipoTrabajo.objects.all()[10:13]:
             data.append(consulta.filter(otrosingresos__fuente__nombre__icontains="Alquiler",
@@ -461,7 +461,7 @@ def grafos_ingreso(request, tipo):
             legends.append(opcion)
         return grafos.make_graph(data, legends,
                 'Tipos de Alquiler', return_json=True,
-                type=grafos.PIE_CHART_3D)
+                type=grafos.PIE_CHART_2D)
     elif tipo == 'aportar':
         #data.append[(consulta.filter(aporte__persona=opcion[0]).count())]
         uno = consulta.filter(aporte__persona=1).count()
