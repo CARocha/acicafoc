@@ -29,8 +29,8 @@ $(document).ready(function () {
         $('.grafo').each(function(){
             $(this).removeClass('grafohover');
         });
-        $(this).addClass('grafohover');
-        click_callback('/grafo/agua-disponibilidad/', $(this).attr('id'));
+       $(this).addClass('grafohover');
+ //       click_callback('/grafo/agua-disponibilidad/', $(this).attr('id'));
     });
 });
 </script>
@@ -45,7 +45,7 @@ $(document).ready(function () {
 {% block content %}
 
 {% include "filtros.html" %}
-
+<!-- Me dijeron que no lleva graficos
 <div class="sidebar">   
    <div class="subindicador">GRAFICOS</div>
    <a id="1" href="#" class="grafo">Río</a>
@@ -57,7 +57,10 @@ $(document).ready(function () {
     <div class="separador"></div>
     <div id="grafo"></div>
 </div>
-<div class="contenido mediatabla">
+-->
+
+
+<div class="contenido fulltabla">
 
     <div class="subindicador">FAMILIA &raquo; Agua de consumo<a href="#" class="exportar"></a></div>
 		<table style="width:100%;">

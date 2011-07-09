@@ -1,53 +1,57 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 
-{%block contenido%}
-
+{%block content%}
+{% include "filtros.html" %}
 {{lista_hogar}}<br><br>
 {{lista_finca}}
+<div class="contenido fulltabla">
+<div class="subindicador">GENERO &raquo; Participación de la mujer en las actividades del hogar<a href="#" class="exportar"></a></div>
+    <table style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Actividades</th>
+                    <th>Frecuencia</th>
+                    <th>Porcentajes(%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key, value in lista_hogar.items %}
+                <tr>
+                    <td>{{key}}</td>
+                    {%for i in value%}
+                        <td>{{i}}</td>    
+                    {%endfor%}
+               {%endfor%}
+            </tbody>
+    </table>
+<div class="subindicador">GENERO &raquo; Participación de la mujer en las actividades en la finca<a href="#" class="exportar"></a></div>
+    <table style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Actividades</th>
+                    <th>Frecuencia</th>
+                    <th>Porcentajes(%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key, value in lista_finca.items %}
+                <tr>
+                    <td>{{key}}</td>
+                    {%for i in value%}
+                        <td>{{i}}</td>    
+                    {%endfor%}
+               {%endfor%}
+            </tbody>
 
-<table>
-        <caption>Participación de la mujer en las actividades del hogar</span></caption>
-        <thead>
-            <tr>
-                <th>Actividades</th>
-                <th>Frecuencia</th>
-                <th>Porcentajes(%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for key, value in lista_hogar.items %}
-            <tr>
-                <td>{{key}}</td>
-                {%for i in value%}
-                    <td>{{i}}</td>    
-                {%endfor%}
-           {%endfor%}
-        </tbody>
-</table>
 
-<table>
-        <caption>Participación de la mujer en las actividades en la finca</span></caption>
-        <thead>
-            <tr>
-                <th>Actividades</th>
-                <th>Frecuencia</th>
-                <th>Porcentajes(%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for key, value in lista_finca.items %}
-            <tr>
-                <td>{{key}}</td>
-                {%for i in value%}
-                    <td>{{i}}</td>    
-                {%endfor%}
-           {%endfor%}
-        </tbody>
-</table>
-numero de mujeres = {{num_familia}}<br>
-tiene ingreso = {{tiene_ingreso}}<br>
-ingreso promedio = {{promedio_mujer}}
-<br></br>
-{{mujer}}
-{{num_familia}}
+    </table style="width:100%;">
+    numero de mujeres = {{num_familia}}<br>
+    tiene ingreso = {{tiene_ingreso}}<br>
+    ingreso promedio = {{promedio_mujer}}
+    <br></br>
+    {{mujer}}
+    {{num_familia}}
+
+</div>
+<div class="clean"></div>
 {%endblock%}
