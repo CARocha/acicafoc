@@ -1,15 +1,17 @@
-{% extends "base.html"%}
+{% extends "basenueva.html"%}
 {%load unslugify %}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Suelo
-</div>
 <div class="indicadores">
 	{% include "nav_suelo.html" %}
 </div>
 {% endblock %}
 
 {% block extra_header %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".manejo").addClass("activa");
+    });
+</script>
 <script type="text/javascript">
 
     //si activo es 0 el html interno esta vacio
@@ -27,42 +29,31 @@
             }
         });
     }
-    $(document).ready(function() {
-        $("#grafico1").click(function(){
-            $("#grafico1").addClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.grafo').click(function(){
+        $('.grafo').each(function(){
+            $(this).removeClass('grafohover');
         });
-    
-        $("#grafico2").click(function(){
-            $("#grafico2").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico3").removeClass('enlace_seleccionado');
-        });
-
-        $("#grafico3").click(function(){
-            $("#grafico3").addClass('enlace_seleccionado');
-            $("#grafico1").removeClass('enlace_seleccionado');
-            $("#grafico2").removeClass('enlace_seleccionado');
-        });
+        $(this).addClass('grafohover');
     });
+});
 </script>
 {%endblock%}
-{% block contenido %}
-
+{% block content %}
+{% include "filtros.html" %}
 <div class="sidebar">
-    
-        <h1>Gráficos</h1>
+        <div class="subindicador">Gráficos</a></div>
         <a href="#" id="grafico1" onCLick="click_callback('analisis')"class="grafo">Realiza analisis</a>
         <a href="#" id="grafico2" onCLick="click_callback('practica')"class="grafo">Realiza practica</a>
-   
+   <div id="grafo"></div>
 </div>
 
-<div class="cuerpo">
-<div id="grafo"></div>
-
+<div class="contenido mediatabla">
+    <div class="subindicador">¿Cómo preparan sus terrenos?<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>¿Cómo preparan sus terrenos?</caption>
+
         <thead>
             <tr>
                 <th>Terrenos</th>
@@ -80,9 +71,11 @@
             {%endfor%}
         </tbody>
     </table>
+    
+    <div class="subindicador">¿Qué tipo de traccion utiliza para la preparación del suelo?<a href="#" class="exportar"></a></div>
 
     <table style="width:100%;">
-        <caption>¿Qué tipo de traccion utiliza para la preparación del suelo?</caption>
+
         <thead>
             <tr>
                 <th>Tipo Tracción</th>
@@ -100,9 +93,8 @@
             {%endfor%}
         </tbody>
     </table>
-
+    <div class="subindicador">¿Qué tipo de fertilización realiza?<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>¿Qué tipo de fertilización realiza?</caption>
         <thead>
             <tr>
                 <th>Tipos de Fertilización</th>
@@ -120,9 +112,8 @@
             {%endfor%}
         </tbody>
     </table>
-
+    <div class="subindicador">¿Qué tipo de obra de conservación de suelo?<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>¿Qué tipo de obra de conservación de suelo?</caption>
         <thead>
             <tr>
                 <th>Tipos de obras</th>
@@ -142,4 +133,5 @@
     </table>
 
 </div>
+<div class="clean"></div>
 {% endblock %}

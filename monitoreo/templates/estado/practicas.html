@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 
 {% block extra_header %}
 <script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
@@ -389,145 +389,194 @@
         });
     });
 </script>
+<script type="text/javascript">
+$(document).ready(function () {
+    //Esconde todas las divs , muestra la primera tab con su div
+    $('.escondete').hide();
+    $('#tablatab1').show();
+    $('#1').addClass('activa');
+    
+    // cuando click en una tab enconde todas y muestra la deseada
+    $('.tab').click(function(){
+        $('.tab').each(function(){
+            $(this).removeClass("activa");
+        });
+        $(this).addClass('activa');
+        $(".escondete").hide();
+        var id = $(this).attr("id");
+        $('#tablatab'+id).show();
+        return false;
+    });
+});
+</script>
 {% endblock %}
+{% block barra %}
+<div class="indicadores">
+    <div id="contenedor_igual">
+        <a href="#" class="tab" id="1" >Vivero</a>   
+        <a href="#" class="tab"  id="2">Fertilización</a>    
+        <a href="#" class="tab" id="3" >Manejo fitosanitario</a>
+        <a href="#" class="tab" id="4" >Manejo productivo</a>
+        <a href="#" class="tab" id="5" >Mejoramiento Genético</a>
+        <a href="#" class="tab" id="6" >Manejo Postcosecha</a>        
+    </div>
+</div>
+{% endblock %}
+{%block content%}
+{% include "filtros.html" %}
+<div class="contenido fulltabla">
 
-{%block contenido%}
-<table>
-        <caption>Vivero practicas</span></caption>
-        <thead>
-            <tr>
-                <th>Prácticas</th>
-                <th>Frecuencia</th>
-                <th>porcentajes(%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for key, value in dicc1 %}
-            <tr>
-                <td>{{key}}</td>
-                {%for i in value%}
-                    <td>{{i|floatformat}}</td>    
-                {%endfor%}
-           {%endfor%}
-        </tbody>
-</table>
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
-    <div id="container"></div>
+<div id="tablatab1" class="escondete">
+<div class="subindicador">Vivero practicas<a href="#" class="exportar"></a></div>
+    <table style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Prácticas</th>
+                    <th>Frecuencia</th>
+                    <th>porcentajes(%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key, value in dicc1 %}
+                <tr>
+                    <td>{{key}}</td>
+                    {%for i in value%}
+                        <td>{{i|floatformat}}</td>    
+                    {%endfor%}
+               {%endfor%}
+            </tbody>
+    </table>
+    <div class="contenedor">
+        <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
+        <div id="container"></div>
+    </div>
 </div>
-<table>
-        <caption>Práctica de fertilización</span></caption>
-        <thead>
-            <tr>
-                <th>Prácticas</th>
-                <th>Frecuencia</th>
-                <th>porcentajes(%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for key, value in dicc2 %}
-            <tr>
-                <td>{{key}}</td>
-                {%for i in value%}
-                    <td>{{i|floatformat}}</td>    
-                {%endfor%}
-           {%endfor%}
-        </tbody>
-</table>
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
-    <div id="container1"></div>
+
+<div id="tablatab2" class="escondete">
+<div class="subindicador">Práctica de fertilización<a href="#" class="exportar"></a></div>
+    <table style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Prácticas</th>
+                    <th>Frecuencia</th>
+                    <th>porcentajes(%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key, value in dicc2 %}
+                <tr>
+                    <td>{{key}}</td>
+                    {%for i in value%}
+                        <td>{{i|floatformat}}</td>    
+                    {%endfor%}
+               {%endfor%}
+            </tbody>
+    </table>
+    <div class="contenedor">
+        <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
+        <div id="container1"></div>
+    </div>
 </div>
-<table>
-        <caption>Prácticas de manejo fitosanitario</span></caption>
-        <thead>
-            <tr>
-                <th>Prácticas</th>
-                <th>Frecuencia</th>
-                <th>porcentajes(%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for key, value in dicc3 %}
-            <tr>
-                <td>{{key}}</td>
-                {%for i in value%}
-                    <td>{{i|floatformat}}</td>    
-                {%endfor%}
-           {%endfor%}
-        </tbody>
-</table>
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
-    <div id="container2"></div>
+<div id="tablatab3" class="escondete">
+<div class="subindicador">Prácticas de manejo fitosanitario<a href="#" class="exportar"></a></div>
+    <table style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Prácticas</th>
+                    <th>Frecuencia</th>
+                    <th>porcentajes(%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key, value in dicc3 %}
+                <tr>
+                    <td>{{key}}</td>
+                    {%for i in value%}
+                        <td>{{i|floatformat}}</td>    
+                    {%endfor%}
+               {%endfor%}
+            </tbody>
+    </table>
+    <div class="contenedor">
+        <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
+        <div id="container2"></div>
+    </div>
 </div>
-<table>
-        <caption>Prácticas de manejo productivo</span></caption>
-        <thead>
-            <tr>
-                <th>Prácticas</th>
-                <th>Frecuencia</th>
-                <th>porcentajes(%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for key, value in dicc4 %}
-            <tr>
-                <td>{{key}}</td>
-                {%for i in value%}
-                    <td>{{i|floatformat}}</td>    
-                {%endfor%}
-           {%endfor%}
-        </tbody>
-</table>
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
-    <div id="container3"></div>
+<div id="tablatab4" class="escondete">
+<div class="subindicador">Prácticas de manejo productivo<a href="#" class="exportar"></a></div>
+    <table style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Prácticas</th>
+                    <th>Frecuencia</th>
+                    <th>porcentajes(%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key, value in dicc4 %}
+                <tr>
+                    <td>{{key}}</td>
+                    {%for i in value%}
+                        <td>{{i|floatformat}}</td>    
+                    {%endfor%}
+               {%endfor%}
+            </tbody>
+    </table>
+    <div class="contenedor">
+        <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
+        <div id="container3"></div>
+    </div>
 </div>
-<table>
-        <caption>Prácticas de mejoramiento genético de la plantación</span></caption>
-        <thead>
-            <tr>
-                <th>Prácticas</th>
-                <th>Frecuencia</th>
-                <th>porcentajes(%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for key, value in dicc5 %}
-            <tr>
-                <td>{{key}}</td>
-                {%for i in value%}
-                    <td>{{i|floatformat}}</td>    
-                {%endfor%}
-           {%endfor%}
-        </tbody>
-</table>
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
-    <div id="container4"></div>
+<div id="tablatab5" class="escondete">
+<div class="subindicador">Prácticas de mejoramiento genético de la plantación<a href="#" class="exportar"></a></div>
+    <table style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Prácticas</th>
+                    <th>Frecuencia</th>
+                    <th>porcentajes(%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key, value in dicc5 %}
+                <tr>
+                    <td>{{key}}</td>
+                    {%for i in value%}
+                        <td>{{i|floatformat}}</td>    
+                    {%endfor%}
+               {%endfor%}
+            </tbody>
+    </table>
+    <div class="contenedor">
+        <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
+        <div id="container4"></div>
+    </div>
 </div>
-<table>
-        <caption>Prácticas de manejo postcosecha y beneficiado</span></caption>
-        <thead>
-            <tr>
-                <th>Prácticas</th>
-                <th>Frecuencia</th>
-                <th>porcentajes(%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for key, value in dicc6 %}
-            <tr>
-                <td>{{key}}</td>
-                {%for i in value%}
-                    <td>{{i|floatformat}}</td>    
-                {%endfor%}
-           {%endfor%}
-        </tbody>
-</table>
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
-    <div id="container5"></div>
+<div id="tablatab6" class="escondete">
+<div class="subindicador">Prácticas de manejo postcosecha y beneficiado<a href="#" class="exportar"></a></div>
+    <table style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Prácticas</th>
+                    <th>Frecuencia</th>
+                    <th>porcentajes(%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key, value in dicc6 %}
+                <tr>
+                    <td>{{key}}</td>
+                    {%for i in value%}
+                        <td>{{i|floatformat}}</td>    
+                    {%endfor%}
+               {%endfor%}
+            </tbody>
+    </table>
+    <div class="contenedor">
+        <div class="grafico-title">Gr&aacute;fico <span class="numencuestas">Encuestas {{numero}}</span></div>
+        <div id="container5"></div>
+    </div>
 </div>
+</div>
+<div class="clean"></div>
 {%endblock%}

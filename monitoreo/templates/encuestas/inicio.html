@@ -84,9 +84,11 @@
             <div class="formulario_consulta">            
                 <div class="columna_uno">
                     <div class="form_widget date_widget"><img src="{{STATIC_URL}}img/fecha.png" alt=""> {{form.fecha}}<br>{{form.fecha.errors}}</div><br>                                            
+                    <div class="form_widget"><img src="{{STATIC_URL}}img/ubicacion.png" alt=""> {{form.sexo}}</div>
                 </div>
                 <div class="columna_dos">                
                     <div class="form_widget"><img src="{{STATIC_URL}}img/ubicacion.png" alt=""> {{form.departamento}}</div><br>
+                    <div class="form_widget"><img src="{{STATIC_URL}}img/ubicacion.png" alt=""> {{form.dueno}}</div>
                 </div>
                 <div class="columna_tres">                
                     <div class="form_widget"><img src="{{STATIC_URL}}img/ubicacion.png" alt=""> {{form.municipio}}</div>
@@ -96,10 +98,10 @@
                 <div class="form_widget"><img src="{{STATIC_URL}}img/ubicacion.png" alt=""> {{form.comunidad}}</div>            
                 </div>
                 <div class="columna_cinco">
-                <div class="form_widget"><img src="{{STATIC_URL}}img/ubicacion.png" alt=""> {{form.sexo}}</div>            
+                            
                 </div>
                 <div class="columna_seis">
-                <div class="form_widget"><img src="{{STATIC_URL}}img/ubicacion.png" alt=""> {{form.dueno}}</div>            
+                            
                 </div>
                 <div class="clean"></div>            
                 <input type="submit" value="Consultar" class="consultar"/>

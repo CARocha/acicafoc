@@ -37,10 +37,9 @@ $(document).ready(function () {
 </script>
 {% endblock %}
 {% block content %}
-
+{% include "filtros.html" %}
 <div class="sidebar">
-   
-        <h1>Gráficos tipos de arboles</h1>
+<div class="subindicador">Gráficos tipos de arboles</div>
         <a id="grafico1" href="#" onCLick="click_callback('maderable')"class="grafo">Árbol Maderable</a>
         <a id="grafico2" href="#" onCLick="click_callback('forrajero')"class="grafo">Árbol Forrajero</a>
         <a id="grafico3" href="#" onCLick="click_callback('energetico')"class="grafo">Árbol Energetico</a>
@@ -49,8 +48,8 @@ $(document).ready(function () {
 </div>
 
 <div class="contenido mediatabla">
+<div class="subindicador">Tabla Existencia de Arboles<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Tabla Existencia de Arboles</caption>
         <thead>
             <tr>
                 <th>TIPO</th>
@@ -87,8 +86,8 @@ $(document).ready(function () {
         </tbody>
     </table>
     <br>
+    <div class="subindicador">Reforestación en ultimo año<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Reforestación en ultimo año</caption>
         <thead>
             <tr>
                 <th>Actividad</th>

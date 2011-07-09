@@ -352,16 +352,17 @@ input[type='submit'].consultar:hover{
 	width: 35px;
 }
 .footer{
-	margin-top: 5px;
-	background: #595a44 url(/archivos/imagen/new/footer_bg.jpg) repeat-x bottom;
-	height: 120px;
+    width:1120px;
+	background: #6f883c;
+	height: 60px;
 	padding-top: 20px;
-	font-size: 13px;	
+	font-size: 13px;
+    	margin: 0 auto;
+        color:#d0e5bc;
 }
-.footer img{
-	float: right;
-	margin-right: 720px;
-	margin-top: -25px;
+.footer a{
+	text-decoration:none;
+    color:#ffdb5a;
 }
 .errorlist{
 	padding: 0;
@@ -504,6 +505,8 @@ td {
     margin-top:30px;
     height:60px;
 }
+
+.contenedor{width:960px!important;}
 
 .familiagroup{
     background:url(../img/familiagroup.jpg) no-repeat;

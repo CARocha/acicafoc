@@ -26,7 +26,16 @@
         });
     }
 </script>
-
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.grafo').click(function(){
+        $('.grafo').each(function(){
+            $(this).removeClass('grafohover');
+        });
+        $(this).addClass('grafohover');
+    });
+});
+</script>
 {%endblock%}
 
 {% block content %}

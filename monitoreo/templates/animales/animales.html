@@ -1,16 +1,14 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 {%load unslugify %}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Ánimales
-</div>
 {% endblock %}
 
-{% block contenido %}
-<div class="cuerpo">
-<div class="contenido">
+{% block content %}
+{% include "filtros.html" %}
+<div class="contenido fulltabla">
+	<div class="subindicador">Los Animales<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Los Animales</caption>
+        <caption></caption>
         <thead>
             <tr>
                 <th></th>
@@ -37,9 +35,8 @@
             {%endfor%}
         </tbody>
     </table>
-
+	<div class="subindicador">Los Animales y la Producción<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Los Animales y la Producción </caption>
         <thead>
             <tr>
                 <th>Animal</th>
@@ -63,6 +60,6 @@
         </tbody>
     </table>
 </div>
-</div>
+<div class="clean"></div>
 
 {% endblock %}
