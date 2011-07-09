@@ -490,9 +490,9 @@ def grafos_bienes(request, tipo):
     legends = []
     #----------------------
     if tipo == 'tipocasa':
-        for opcion in CHOICE_TIPO_CASA:
-            data.append(consulta.filter(tipocasa__tipo=opcion[0]).count())
-            legends.append(opcion[1])
+        for opcion in Casa.objects.all():
+            data.append(consulta.filter(tipocasa__tipo=opcion).count())
+            legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 'Tipos de casas', return_json = True,
                 type = grafos.PIE_CHART_2D)
@@ -1688,7 +1688,7 @@ def get_municipios(request, departamento):
     return HttpResponse(simplejson.dumps(lista), mimetype='application/javascript')
     
 def get_organizacion(request, departamento):
-    organizaciones = Organizaciones.objects.filter(departamento = departamento)
+    organizaciones = OrganizacionesOCB.objects.filter(departamento = departamento)
     lista = [(organizacion.id, organizacion.nombre) for organizacion in organizaciones]
     return HttpResponse(simplejson.dumps(lista), mimetype='application/javascript')
 
