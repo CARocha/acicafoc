@@ -1557,10 +1557,10 @@ def generos(request):
         lista_finca[b.nombre]= (conteo,porcentaje)
         
     #numero de mujeres tiene ingreso
-    conteo_mujer = a.filter(sexo=2, participacion__ingreso__gt=0).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
+    conteo_mujer = a.filter(sexo=2, participacion__ingreso__gt=1).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
     tiene_ingreso = round(saca_porcentajes(conteo_mujer,mujer))
     ingreso_mujer = a.filter(sexo=2).aggregate(ingreso_mujer=Sum('participacion__ingreso'))['ingreso_mujer']
-#    promedio_mujer = ingreso_mujer / conteo_mujer
+    promedio_mujer = round(ingreso_mujer / conteo_mujer)
     
              
     return render_to_response('genero/genero.html', RequestContext(request, locals()))         

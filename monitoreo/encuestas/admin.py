@@ -89,7 +89,7 @@ class UsoTierraInline(admin.TabularInline):
     model = UsoTierra
     extra = 1
     max_num = 8
-    can_delete = False
+    #can_delete = False
     
 admin.site.register(Uso)
 
