@@ -155,7 +155,7 @@ def generales(request):
         valores_e.append(conteo)
         leyenda_e.append(escuela[1])
         
-    grafo_url = grafos.make_graph(valores_e, leyenda_e, 'Tipos de escolaridad', return_json=False ,type=grafos.PIE_CHART_3D)
+    grafo_url = grafos.make_graph(valores_e, leyenda_e, 'Tipos de escolaridad', return_json=False ,type=grafos.PIE_CHART_2D)
         
         
     #Departamentos   
@@ -170,7 +170,7 @@ def generales(request):
             valores_d.append(conteo)
             leyenda_d.append(depar.nombre)
             
-    grafo_depart = grafos.make_graph(valores_d, leyenda_d, 'Departamentos Encuestados', return_json=False ,type=grafos.PIE_CHART_3D)
+    grafo_depart = grafos.make_graph(valores_d, leyenda_d, 'Departamentos Encuestados', return_json=False ,type=grafos.PIE_CHART_2D)
 
     #Municipios        
     munis = []
@@ -184,7 +184,7 @@ def generales(request):
             valores_m.append(conteo)
             leyenda_m.append(mun.nombre)
       
-    grafo_munis = grafos.make_graph(valores_m, leyenda_m, 'Municipios Encuestados', return_json=False ,type=grafos.PIE_CHART_3D)
+    grafo_munis = grafos.make_graph(valores_m, leyenda_m, 'Municipios Encuestados', return_json=False ,type=grafos.PIE_CHART_2D)
             
 
     return render_to_response('encuestas/generales.html', locals(),
@@ -343,7 +343,7 @@ def agua_grafos_disponibilidad(request, tipo):
     titulo = 'Disponibilidad del agua en %s' % tipo.nombre 
     return grafos.make_graph(data, legends, 
             titulo, return_json = True,
-            type = grafos.PIE_CHART_3D)
+            type = grafos.PIE_CHART_2D)
             
 @session_required
 def fincas_grafos(request, tipo):
@@ -389,14 +389,14 @@ def grafo_manejosuelo(request, tipo):
             legends.append(opcion[1])
         return grafos.make_graph(data, legends, 
                 '¿Realiza análisis de fertilidad del suelo', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'practica':
         for opcion in CHOICE_OPCION:
             data.append(consulta.filter(manejosuelo__practica=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends,
                                  '¿Realiza práctica de conservación de suelo', return_json=True,
-                                 type = grafos.PIE_CHART_3D)
+                                 type = grafos.PIE_CHART_2D)
     else:
         raise Http404
     
@@ -495,42 +495,42 @@ def grafos_bienes(request, tipo):
             legends.append(opcion[1])
         return grafos.make_graph(data, legends, 
                 'Tipos de casas', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'tipopiso': 
         for opcion in Piso.objects.all():
             data.append(consulta.filter(tipocasa__piso=opcion).count())
             legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 'Tipo de pisos', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'tipotecho':
         for opcion in Techo.objects.all():
             data.append(consulta.filter(tipocasa__techo=opcion).count())
             legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 'Tipos de Techos', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'ambiente':
         for opcion in CHOICE_AMBIENTE:
             data.append(consulta.filter(detallecasa__ambientes=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends,
                'Numeros de ambientes', return_json = True,
-               type = grafos.PIE_CHART_3D)
+               type = grafos.PIE_CHART_2D)
     elif tipo == 'letrina':
         for opcion in CHOICE_OPCION:
             data.append(consulta.filter(detallecasa__letrina=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends,
                 'Tiene letrina', return_json = True,
-                type = grafos.PIE_CHART_3D)
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'lavadero':
         for opcion in CHOICE_OPCION:
             data.append(consulta.filter(detallecasa__lavadero=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends,
                'Tiene lavadero', return_json = True,
-               type = grafos.PIE_CHART_3D)
+               type = grafos.PIE_CHART_2D)
             
     else:
         raise Http404

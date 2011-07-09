@@ -1,19 +1,24 @@
-{% extends "base.html"%}
+{% extends "basenueva.html"%}
 {%load unslugify %}
+{%block extra_header%}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".suelo").addClass("activa");
+    });
+</script>
+{%endblock%}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Suelo
-</div>
+
 <div class="indicadores">
 	{% include "nav_suelo.html" %}
 </div>
 {% endblock %}
 
-{% block contenido %}
-
-<div class="cuerpo">
-    <table>
-        <caption>¿Cúal es el tipo de textura del suelo?</caption>
+{% block content %}
+{% include "filtros.html" %}
+<div class="contenido fulltabla">
+ <div class="subindicador">¿Cúal es el tipo de textura del suelo?<a href="#" class="exportar"></a></div>
+    <table  style="width:100%;">
         <thead>
             <tr>
                 <th>Texturas</th>
@@ -31,9 +36,9 @@
             {%endfor%}
         </tbody>
     </table>
-
-    <table>
-        <caption>¿Cúal es la profundidad del suelo?</caption>
+ <div class="subindicador">¿Cúal es la profundidad del suelo?<a href="#" class="exportar"></a></div>
+    <table  style="width:100%;">
+        <caption></caption>
         <thead>
             <tr>
                 <th>Profundidad</th>
@@ -51,9 +56,8 @@
             {%endfor%}
         </tbody>
     </table>
-
-    <table>
-        <caption>¿Cómo es la presencia de lombrice en el suelo?</caption>
+ <div class="subindicador">¿Cómo es la presencia de lombrice en el suelo?<a href="#" class="exportar"></a></div>
+    <table  style="width:100%;">
         <thead>
             <tr>
                 <th>Presencia de Lombrices</th>
@@ -71,9 +75,8 @@
             {%endfor%}
         </tbody>
     </table>
-
-    <table>
-        <caption>¿Cómo es la densidad de raiz en la capa productiva de suelo?</caption>
+ <div class="subindicador">¿Cómo es la densidad de raiz en la capa productiva de suelo?<a href="#" class="exportar"></a></div>
+    <table  style="width:100%;">
         <thead>
             <tr>
                 <th>Densidad</th>
@@ -91,9 +94,9 @@
             {%endfor%}
         </tbody>
     </table>
-
-    <table>
-        <caption>¿Cúal es la pendiente del terrreno?</caption>
+ <div class="subindicador">¿Cúal es la pendiente del terrreno?<a href="#" class="exportar"></a></div>
+    <table  style="width:100%;">
+        <caption></caption>
         <thead>
             <tr>
                 <th>Pendientes</th>
@@ -111,9 +114,8 @@
             {%endfor%}
         </tbody>
     </table>
-
-    <table>
-        <caption>¿Cómo es el drenaje del suelo?</caption>
+ <div class="subindicador">¿Cómo es el drenaje del suelo?<a href="#" class="exportar"></a></div>
+    <table  style="width:100%;">
         <thead>
             <tr>
                 <th>Drenaje</th>
@@ -131,9 +133,9 @@
             {%endfor%}
         </tbody>
     </table>
+ <div class="subindicador">¿Cómo es el contenido de materia orgánica?<a href="#" class="exportar"></a></div>
+    <table  style="width:100%;">
 
-    <table>
-        <caption>¿Cómo es el contenido de materia orgánica?</caption>
         <thead>
             <tr>
                 <th>Contenido</th>
@@ -153,4 +155,5 @@
     </table>
 
 </div>
+<div class="clean"></div>
 {% endblock %}

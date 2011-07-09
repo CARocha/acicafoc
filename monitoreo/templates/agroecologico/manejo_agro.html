@@ -1,16 +1,12 @@
-{% extends "base.html"%}
+{% extends "basenueva.html"%}
 {%load unslugify %}
-{% block barra %}
-<div class="selectos_seleccion titulo">
-	Opciones de manejo agro.
-</div>
-{% endblock %}
 
-{% block contenido %}
+{% block content %}
+{% include "filtros.html" %}
 
-<div class="cuerpo">
+<div class="contenido fulltabla">
+<div class="subindicador">Nivel de conocimiento<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Nivel de conocimiento</caption>
         <thead>
             <tr>
                 <th>uso de manejo agro.</th>
@@ -41,8 +37,8 @@
         </tbody>
     </table>
     <br></br>
+    <div class="subindicador">Ha experimentadoo<a href="#" class="exportar"></a></div>
      <table style="width:100%;">
-        <caption>Ha experimentado</caption>
         <thead>
             <tr>
                 <th>uso de manejo agro.</th>
@@ -66,4 +62,5 @@
     </table>
     <br></br><br></br>
 </div>
+<div class="clean"></div>
 {% endblock %}

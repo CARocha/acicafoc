@@ -1,17 +1,13 @@
-{% extends "base.html"%}
+{% extends "basenueva.html"%}
 {%load unslugify %}
 {% block barra %}
-<div class="selectos_seleccion titulo">
-	Cultivos y producción
-</div>
 {% endblock %}
 
-{%block contenido%}
-<div class="cuerpo">
-
-<div class="contenido">
+{%block content%}
+{% include "filtros.html" %}
+<div class="contenido fulltabla">
+	<div class="subindicador">Los cultivos y la producción<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
-        <caption>Los cultivos y la producción</caption>
         <thead>
             <tr>
                 <th>CULTIVOS</th>
@@ -34,5 +30,5 @@
         <tbody>
     </table>
 </div>
-</div>
+<div class="clean"></div>
 {%endblock%}

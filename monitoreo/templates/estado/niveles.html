@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "basenueva.html" %}
 
 {% block extra_header %}
 <script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
@@ -173,26 +173,62 @@ chart = new Highcharts.Chart({
    });
 });
 </script>
+<script type="text/javascript">
+$(document).ready(function () {
+    //Esconde todas las divs , muestra la primera tab con su div
+    $('.escondete').hide();
+    $('#tablatab1').show();
+    $('#1').addClass('activa');
+    
+    // cuando click en una tab enconde todas y muestra la deseada
+    $('.tab').click(function(){
+        $('.tab').each(function(){
+            $(this).removeClass("activa");
+        });
+        $(this).addClass('activa');
+        $(".escondete").hide();
+        var id = $(this).attr("id");
+        $('#tablatab'+id).show();
+        return false;
+    });
+});
+</script>
 {%endblock%}
-
-{%block contenido%}
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico</div>
-<div id="container"></div>
+{% block barra %}
+<div class="indicadores">
+    <div id="contenedor_igual">
+        <a href="#" class="tab" id="1" >Nivel de fermentación</a>   
+        <a href="#" class="tab"  id="2">Nivel de humedad</a>    
+        <a href="#" class="tab" id="3" >Acopio de cacao</a>
+        <a href="#" class="tab" id="4" >Miembro de acopio</a>
+    
+    </div>
+</div>
+{% endblock %}
+{%block content%}
+{% include "filtros.html" %}
+<div id="tablatab1" class="escondete">
+    <div class="contenedor">
+    <div id="container"></div>
+    </div>
 </div>
 
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico</div>
-<div id="container1"></div>
+<div id="tablatab2" class="escondete">
+    <div class="contenedor">
+    <div id="container1"></div>
+    </div>
 </div>
 
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico</div>
-<div id="container2"></div>
+<div id="tablatab3" class="escondete">
+    <div class="contenedor">
+    <div id="container2"></div>
+    </div>
 </div>
 
-<div class="contenedor">
-    <div class="grafico-title">Gr&aacute;fico</div>
-<div id="container3"></div>
+<div id="tablatab4" class="escondete">
+    <div class="contenedor">
+    <div id="container3"></div>
+    </div>
 </div>
+<div class="clean"></div>
 {%endblock%}
