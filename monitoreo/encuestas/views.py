@@ -127,7 +127,13 @@ def inicio(request):
         form = MonitoreoForm()
         mensaje = "Existen alguno errores"
         centinela = 0
-    dict = {'form': form,'user': request.user,'centinela':centinela}
+    
+    shva = request.GET.get('shva', '')
+    if shva and request.session['activo']:
+        shva = 1
+        centinela = 1
+    
+    dict = {'form': form,'user': request.user,'centinela':centinela, 'shva':shva}
     return render_to_response('encuestas/inicio.html', dict,
                               context_instance=RequestContext(request))        
         
