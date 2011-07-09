@@ -123,32 +123,7 @@
        </tbody>
     </table>
 <br>
-<div class="subindicador">Desde cuando miembro <a href="#" class="exportar"></a></div>
-<table width="100%">
-        <thead>
-            <tr>
-                <th>Categoria</th>
-                <th>Frecuencia</th>
-                <th>porcentaje %</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-            {% for key, value in tabla_desde_miembro.items %}
-            <td>{{key|unslugify}}</td>
-            <td>{{value.frecuencia|floatformat:2}}</td>
-            <td>{{value.porcentaje|floatformat:2}}</td>
-       </tr>
-            {% endfor %}
-            
-       <tr>
-            <th>TOTAL</th>
-            <th>{{divisor3|floatformat:2}}</th>
-            <th>100</th>
-      </tr>
-       
-       </tbody>
-    </table>
+
 <br>
 <div class="subindicador">He recibido capacitación para desempeñar mi cargo <a href="#" class="exportar"></a></div>
     <table  width="100%">
