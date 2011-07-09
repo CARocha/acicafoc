@@ -1695,7 +1695,8 @@ def get_municipios(request, departamento):
     return HttpResponse(simplejson.dumps(lista), mimetype='application/javascript')
     
 def get_organizacion(request, departamento):
-    organizaciones = OrganizacionesOCB.objects.filter(departamento = departamento)
+    encuestas = Encuesta.objects.filter(municipio__departamento=departamento)    
+    organizaciones = OrganizacionOCB.objects.filter(encuesta__in=encuestas).distinct()
     lista = [(organizacion.id, organizacion.nombre) for organizacion in organizaciones]
     return HttpResponse(simplejson.dumps(lista), mimetype='application/javascript')
 
