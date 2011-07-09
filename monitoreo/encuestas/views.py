@@ -1485,7 +1485,7 @@ def comercializacion(request):
     #********variables globales****************
     productos = Productos.objects.all()
     a = _queryset_filtrado(request)
-    num_familia = a.count()
+    num_familias = num_familia = a.count()     
     
     lista_producto = {}
     for comer in productos:
