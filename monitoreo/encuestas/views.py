@@ -1,4 +1,4 @@
- # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from django.http import Http404, HttpResponse
 from django.template.defaultfilters import slugify
 from django.template import RequestContext
@@ -1500,14 +1500,25 @@ def comercializacion(request):
         lista_producto[comer.nombre] = (comer.unidad,conteo,
                                                  porcentaje,suma_autoconsumo,
                                                  suma_venta,precio,ingreso)
-    #graficos de ventas
-    lista_vende = []
+    #graficos de ventas a quien vende
+    lista_vende = {}
     for productos in Productos.objects.all():
+        lista_vende[productos.nombre] = {}
         for quien in AquienVende.objects.all():
-            conteo = a.filter(comercializacion__producto=productos,
-                              comercializacion__aquien_vende=quien).count()
-            lista_vende.append([productos.nombre,quien.nombre,conteo])
-    print lista_vende                     
+            lista_vende[productos.nombre][quien.nombre] = conteo = a.filter(comercializacion__producto=productos,
+                                                                   comercializacion__aquien_vende=quien).count()
+    print lista_vende
+    
+    #graficos de donde lo vende
+    lista_donde = {}
+    for productos in Productos.objects.all():
+        lista_vende[productos.nombre] = {}
+        for quien in DondeVende.objects.all():
+            lista_donde[productos.nombre][quien.nombre] = conteo = a.filter(comercializacion__producto=productos,
+                                                                   comercializacion__donde=quien).count()
+    print lista_donde 
+    
+                        
     #capacitaciones
     dicc2 = {}
     for tecnica in Tecnica.objects.all():
@@ -1663,9 +1674,10 @@ VALID_VIEWS = {
         #17.x plantaciones
         'vivero': plantaciones,
         'tecnica': tecnicas,
+        'niveles': nivels,
         'comercializacion': comercializacion,
         'genero': generos,
-        'niveles': nivels, 
+         
   }
         
 # Vistas para obtener los municipios, comunidades, etc..
