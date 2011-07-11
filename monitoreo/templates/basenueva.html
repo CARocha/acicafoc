@@ -22,6 +22,13 @@
         });
     });
     </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        alto = $(".contenido").height();
+        $('.sidebar').height(alto);
+        $('#filtroslaterales').height(alto);
+    });
+</script>
     {%block extra_header%}{%endblock%}
 </head>
 

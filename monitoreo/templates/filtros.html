@@ -4,7 +4,6 @@
     
     <div class="nombrefiltro">Filtros </div>
     {%if request.session.fecha%}
-        <div class="nombrefiltro"></div>
         <div class="filtrovalor"><b>Año:</b> {{request.session.fecha}}</div>
     {%endif%}
     {%if request.session.departamento%}

@@ -452,6 +452,7 @@ input[type='submit'].consultar:hover{
 }
 .contenido{
 	background-color: #fff;
+    min-height:430px;
 }
 caption {    
     text-align: left;    
