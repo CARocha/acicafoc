@@ -69,7 +69,7 @@ def _queryset_filtrado(request):
             params['sexo'] = request.session['sexo']
             
         if 'organizacion' in request.session:
-            params['organizacion__id'] = request.session['organizacion']            
+            params['beneficiario'] = request.session['organizacion']            
 
 #        if 'socio' in request.session:
 #            params['organizaciongremial__socio'] = request.session['socio']
