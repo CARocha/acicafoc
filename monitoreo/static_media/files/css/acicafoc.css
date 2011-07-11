@@ -314,8 +314,8 @@ ul, li{margin:0; padding:0; list-style:none;}
 .columna_cuatro select{
 	width: 158px;
 }
-input[type='submit'].consultar{
-	text-indent: -9999px;
+.consultar{
+
 	background: url(../img/consultar-boton.png) no-repeat;
 	width: 185px;
 	height: 29px;
