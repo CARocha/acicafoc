@@ -18,34 +18,38 @@
         $("#id_departamento").change(function () {
             var index = departamento.options.selectedIndex;
             var id = departamento.options[index].value;
-            $.getJSON("ajax/municipio/" + id +"/",
-            function(data){
-                municipio.options.length = 0;
-                comunidad.options.length = 0;
-                municipio.options[0] = new Option("Municipio");
-                municipio.options[0].value = '';
-                comunidad.options[0] = new Option("Comunidad");
-                comunidad.options[0].value = '';
-                for(i=0; i< data.length; i++){
-                    municipio.options[i+1] = new Option(data[i][1], data[i][0]);
-                }
-            });
+            if(id != ''){
+            	$.getJSON("ajax/municipio/" + id +"/", 
+            			function(data){
+                            municipio.options.length = 0;
+                            comunidad.options.length = 0;
+                            municipio.options[0] = new Option("Municipio");
+                            municipio.options[0].value = '';
+                            comunidad.options[0] = new Option("Comunidad");
+                            comunidad.options[0].value = '';
+                            for(i=0; i< data.length; i++){
+                                municipio.options[i+1] = new Option(data[i][1], data[i][0]);
+                        }
+                });            	
+            }            
         });
         
         //organizacion
         $("#id_departamento").change(function () {
             var index = departamento.options.selectedIndex;
             var id = departamento.options[index].value;
-            $.getJSON("ajax/organizaciones/" + id +"/",
-            function(data){
-                organizacion.options.length = 0;
-                organizacion.options.length = 0;
-                organizacion.options[0] = new Option("Organización");                
-                organizacion.options[0].value = '';
-                for(i=0; i< data.length; i++){
-                    organizacion.options[i+1] = new Option(data[i][1], data[i][0]);
-                }
-            });
+            if(id != ''){
+            	$.getJSON("ajax/organizaciones/" + id +"/",
+                        function(data){
+                            organizacion.options.length = 0;
+                            organizacion.options.length = 0;
+                            organizacion.options[0] = new Option("Organización");                
+                            organizacion.options[0].value = '';
+                            for(i=0; i< data.length; i++){
+                                organizacion.options[i+1] = new Option(data[i][1], data[i][0]);
+                            }
+             	});
+            }            
         });
         
         //comunidad
@@ -69,6 +73,11 @@
 .datos_aux{
 	display: none;
 }
+{% if shva == 1 %}
+#filtros{
+	display: none;
+}
+{% endif %}
 </style>
 {% endblock %}
 {%block content%}

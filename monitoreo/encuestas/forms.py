@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from monitoreo.encuestas.models import *
 from monitoreo.lugar.models import *
 
-ANOS_CHOICES = (('', u'Año'), (2011,'2011'),(2012,'2012'),(2013,'2013'),(2014,'2014'))
+ANOS_CHOICES = (('', u'Año'), (2010,'2010'),(2011,'2011'),(2012,'2012'),(2013,'2013'),(2014,'2014'))
 CHOICE_OPCION_F = (('', u'Socio'),(1,'Si'),(2,'No'))
 CHOICE_DESDE_F = (('','Desde'),(1,"Menos de 5 año"),(2,"Mas de 5 años"))
 CHOICE_DUENO_F = (('', u'Dueño'),(1,"Hombre"),(2,"Mujer"),(3,"Mancomunado"),(4,"Parientes"),(5,"Colectivo"),(6,"No hay"))

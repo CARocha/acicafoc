@@ -127,7 +127,13 @@ def inicio(request):
         form = MonitoreoForm()
         mensaje = "Existen alguno errores"
         centinela = 0
-    dict = {'form': form,'user': request.user,'centinela':centinela}
+    
+    shva = request.GET.get('shva', '')
+    if shva and request.session['activo']:
+        shva = 1
+        centinela = 1
+    
+    dict = {'form': form,'user': request.user,'centinela':centinela, 'shva':shva}
     return render_to_response('encuestas/inicio.html', dict,
                               context_instance=RequestContext(request))        
         
@@ -490,9 +496,9 @@ def grafos_bienes(request, tipo):
     legends = []
     #----------------------
     if tipo == 'tipocasa':
-        for opcion in CHOICE_TIPO_CASA:
-            data.append(consulta.filter(tipocasa__tipo=opcion[0]).count())
-            legends.append(opcion[1])
+        for opcion in Casa.objects.all():
+            data.append(consulta.filter(tipocasa__tipo=opcion).count())
+            legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
                 'Tipos de casas', return_json = True,
                 type = grafos.PIE_CHART_2D)
@@ -1483,11 +1489,12 @@ def nivels(request):
 @session_required
 def comercializacion(request):
     #********variables globales****************
+    productos = Productos.objects.all()
     a = _queryset_filtrado(request)
-    num_familia = a.count()
+    num_familias = num_familia = a.count()     
     
     lista_producto = {}
-    for comer in Productos.objects.all():
+    for comer in productos:
         conteo = a.filter(comercializacion__producto=comer).count()
         porcentaje = round(saca_porcentajes(conteo,num_familia),2)
         suma_autoconsumo = a.filter(comercializacion__producto=comer).aggregate(suma_autoconsumo=Sum('comercializacion__autoconsumo'))['suma_autoconsumo']
@@ -1502,21 +1509,21 @@ def comercializacion(request):
                                                  suma_venta,precio,ingreso)
     #graficos de ventas a quien vende
     lista_vende = {}
-    for productos in Productos.objects.all():
-        lista_vende[productos.nombre] = {}
+    for producto in productos:
+        lista_vende[producto.nombre] = {}
         for quien in AquienVende.objects.all():
-            lista_vende[productos.nombre][quien.nombre] = conteo = a.filter(comercializacion__producto=productos,
+            lista_vende[producto.nombre][quien.nombre] = a.filter(comercializacion__producto=producto,
                                                                    comercializacion__aquien_vende=quien).count()
-    print lista_vende
+    #print lista_vende
     
-    #graficos de donde lo vende
+    #graficos de donde lo vende    
     lista_donde = {}
-    for productos in Productos.objects.all():
-        lista_vende[productos.nombre] = {}
-        for quien in DondeVende.objects.all():
-            lista_donde[productos.nombre][quien.nombre] = conteo = a.filter(comercializacion__producto=productos,
-                                                                   comercializacion__donde=quien).count()
-    print lista_donde 
+    for producto in productos:
+        lista_donde[producto.nombre] = {}
+        for donde in DondeVende.objects.all():
+            lista_donde[producto.nombre][donde.nombre] = a.filter(comercializacion__producto=producto,
+                                                                   comercializacion__donde=donde).count()
+    #print lista_donde 
     
                         
     #capacitaciones
@@ -1557,10 +1564,10 @@ def generos(request):
         lista_finca[b.nombre]= (conteo,porcentaje)
         
     #numero de mujeres tiene ingreso
-    conteo_mujer = a.filter(sexo=2, participacion__ingreso__gt=0).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
+    conteo_mujer = a.filter(sexo=2, participacion__ingreso__gt=1).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
     tiene_ingreso = round(saca_porcentajes(conteo_mujer,mujer))
     ingreso_mujer = a.filter(sexo=2).aggregate(ingreso_mujer=Sum('participacion__ingreso'))['ingreso_mujer']
-#    promedio_mujer = ingreso_mujer / conteo_mujer
+    promedio_mujer = round(ingreso_mujer / conteo_mujer)
     
              
     return render_to_response('genero/genero.html', RequestContext(request, locals()))         
@@ -1688,7 +1695,8 @@ def get_municipios(request, departamento):
     return HttpResponse(simplejson.dumps(lista), mimetype='application/javascript')
     
 def get_organizacion(request, departamento):
-    organizaciones = Organizaciones.objects.filter(departamento = departamento)
+    encuestas = Encuesta.objects.filter(municipio__departamento=departamento)    
+    organizaciones = OrganizacionOCB.objects.filter(encuesta__in=encuestas).distinct()
     lista = [(organizacion.id, organizacion.nombre) for organizacion in organizaciones]
     return HttpResponse(simplejson.dumps(lista), mimetype='application/javascript')
 
