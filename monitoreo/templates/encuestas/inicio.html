@@ -90,7 +90,8 @@
         <div class="filtros_disponibles">	
             <form action="." method="POST">
             {% csrf_token %}
-            <div class="formulario_consulta">            
+            <div class="formulario_consulta">
+           
                 <div class="columna_uno">
                     <div class="form_widget date_widget"><img src="{{STATIC_URL}}img/fecha.png" alt=""> {{form.fecha}}<br>{{form.fecha.errors}}</div><br>                                            
                     <div class="form_widget"><img src="{{STATIC_URL}}img/ubicacion.png" alt=""> {{form.sexo}}</div>
@@ -106,14 +107,9 @@
                 <div class="columna_cuatro">
                 <div class="form_widget"><img src="{{STATIC_URL}}img/ubicacion.png" alt=""> {{form.comunidad}}</div>            
                 </div>
-                <div class="columna_cinco">
-                            
-                </div>
-                <div class="columna_seis">
-                            
-                </div>
+
                 <div class="clean"></div>            
-                <input type="submit" value="Consultar" class="consultar"/>
+                            <input type="submit" value="" class="consultar"/> 
             </div>        
             </form>
         </div>
