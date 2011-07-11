@@ -127,10 +127,17 @@ $(document).ready(function () {
             <td>{{dato}}</td>
             {%endfor%}
         </tr>
+    </table><br>
+        <table>
+        <thead>
+        <tr>
+            <th>Productividad (qq/mz) </th>
+            <th>{{productividad}}</th>
+        </tr>
+        </thead>
     </table>
 </div>
 <div id="tablatab3" class="escondete">
-    productividad (qq/mz) = {{productividad}}
 <div class="subindicador">Costo de producción<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
      <thead>
@@ -160,11 +167,22 @@ $(document).ready(function () {
             <td>---</td>
         </tr>
     </table>
+    <br>
+    <table>
+        <thead>
+        <tr>
+            <th>Costo de mantenimiento cacao/mz </th>
+            <th> {{mantenimiento_cacao}}</th>
+        </tr>
+        <tr>
+            <th>Costo de mantenimiento qq</th>
+            <th> {{mantenimiento_qq}}</th>
+        </tr>
+        </thead>
+    </table>
+<br></br>
 </div>
 </div>
 <div class="clean"></div>
-Costo de mantenimiento cacao/mz = 
-{{mantenimiento_cacao}}<br></br>
-Costo de mantenimiento qq =
-{{mantenimiento_qq}}
+
 {%endblock%}
