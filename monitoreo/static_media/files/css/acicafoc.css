@@ -602,5 +602,10 @@ td {
 	float: left;
 }
 
+#map_canvas {
+    height: 239px;
+    margin: 0 auto;
+    width: 617px;
+}
 
 	

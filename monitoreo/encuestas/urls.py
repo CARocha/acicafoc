@@ -17,7 +17,7 @@ urlpatterns = patterns('monitoreo.encuestas.views',
     (r'^grafo/ingreso/(?P<tipo>\w+)/$', 'grafos_ingreso'),
     (r'^grafo/bienes/(?P<tipo>\w+)/$', 'grafos_bienes'),
 #    (r'^grafo/ahorro-credito/(?P<tipo>\w+)/$', 'ahorro_credito_grafos'),
-#    (r'^mapa/$', 'obtener_lista'),
+    (r'^mapa/$', 'obtener_lista'),
 #    (r'^ayuda/$',   direct_to_template,{'template': 'acerca.html'}),
     (r'^(?P<vista>\w+)/$', '_get_view'),
     

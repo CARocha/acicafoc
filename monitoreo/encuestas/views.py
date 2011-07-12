@@ -1567,7 +1567,10 @@ def generos(request):
     conteo_mujer = a.filter(sexo=2, participacion__ingreso__gt=1).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
     tiene_ingreso = round(saca_porcentajes(conteo_mujer,mujer))
     ingreso_mujer = a.filter(sexo=2).aggregate(ingreso_mujer=Sum('participacion__ingreso'))['ingreso_mujer']
-    promedio_mujer = round(ingreso_mujer / conteo_mujer)
+    try:
+        promedio_mujer = round(ingreso_mujer / conteo_mujer)
+    except:
+        pass
     
              
     return render_to_response('genero/genero.html', RequestContext(request, locals()))         
@@ -1579,7 +1582,7 @@ def obtener_lista(request):
     if request.is_ajax():
         lista = []
         for objeto in Encuesta.objects.all():
-            dicc = dict(nombre=objeto.nombre, id=objeto.id, 
+            dicc = dict(nombre=objeto.entrevistado, id=objeto.id, 
                         lon=float(objeto.comunidad.municipio.longitud), 
                         lat=float(objeto.comunidad.municipio.latitud)
                         )

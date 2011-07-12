@@ -15,6 +15,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    (r'^xls/$', 'monitoreo.utils.save_as_xls'),
     (r'^$', 'monitoreo.encuestas.views.index'),
     (r'^', include('monitoreo.encuestas.urls')),
 )

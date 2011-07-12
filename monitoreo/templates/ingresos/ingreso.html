@@ -47,7 +47,9 @@ $(document).ready(function () {
        <div id="grafo"  style="width:500px; overflow-y:auto"></div>
     </div>
  <div class="contenido" style="width:460px">
-<div class="subindicador">INGRESO  &raquo; Los Ingresos familiares <a href="#" class="exportar"></a></div>
+<div class="subindicador">INGRESO  &raquo; Los Ingresos familiares <a class=" exportar guardarXLS" href="#" onclick="exportarXLS('modalidad'); return false;"></a></div>
+
+<div id="modalidad">
     <table style="width:100%">
         <caption></caption>
         <thead>
@@ -82,6 +84,7 @@ $(document).ready(function () {
         </tr>
 
     </table>
+</div>
     <br><div class="subindicador">INGRESO  &raquo; Los Otros Ingresos familiares <a href="#" class="exportar"></a></div><br>
     <table style="width:100%;">
         <caption></caption>
