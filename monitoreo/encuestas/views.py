@@ -1021,7 +1021,7 @@ def ingresos(request):
         cantidad = query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad']
         precio = query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio']
         ingreso = cantidad * precio if cantidad != None and precio != None else 0
-        respuesta['ingreso']= query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad'] * query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio'] if cantidad != None and precio != None else 0
+        respuesta['ingreso']= round(query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad'] * query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio'],) if cantidad != None and precio != None else 0
         respuesta['ingreso_total'] +=  respuesta['ingreso']
         
         tabla[key] = {'key2':key2,'numero':numero,'cantidad':cantidad,
@@ -1547,13 +1547,13 @@ def comercializacion(request):
 def generos(request):
     #********variables globales****************
     a = _queryset_filtrado(request)
-    num_familia = a.filter(sexo=2).count()
+    num_familias = a.filter(sexo=2).count()
     mujer = Encuesta.objects.filter(sexo=2).count()
     
-    #actividad del hogar
+    #actividad del hogar y finca
     lista_hogar = {}
     for i in ActividadHogar.objects.all():
-        conteo = a.filter(sexo=2, participacion__principal=i).count()
+        conteo = a.filter(participacion__principal=i, sexo=2).count()
         porcentaje = round(saca_porcentajes(conteo,mujer),2)
         lista_hogar[i.nombre]= (conteo,porcentaje)
         
@@ -1572,6 +1572,62 @@ def generos(request):
     except:
         pass
     
+    #grafico maneja y administra los recursos
+    decicion_grafico = []
+    for decicion in choice_si_no:
+        conteo = a.filter(participacion__decision=decicion[0], sexo=2).count()
+        porcentaje = round(saca_porcentajes(conteo,num_familias),2)
+        decicion_grafico.append([decicion[1],conteo,porcentaje])
+    
+    lista_proporcion = {}
+    lista_proporcion['De 0 - 20'] = a.filter(participacion__proporcion__range=(0,20), sexo=2,
+                      participacion__ingreso__gt=1).count()
+    lista_proporcion['De 21 - 40'] = a.filter(participacion__proporcion__range=(21,40), sexo=2,
+                      participacion__ingreso__gt=1).count()
+    lista_proporcion['De 41 - 60'] = a.filter(participacion__proporcion__range=(41,60), sexo=2,
+                      participacion__ingreso__gt=1).count()
+    lista_proporcion['De 61 - 80'] = a.filter(participacion__proporcion__range=(61,80), sexo=2,
+                      participacion__ingreso__gt=1).count()
+    lista_proporcion['De 81 - 100'] = a.filter(participacion__proporcion__range=(81,100), sexo=2,
+                      participacion__ingreso__gt=1).count()
+                      
+    #salidas de mujer en la Organización
+    grafo_participa = []
+    for c in CHOICE_OPCION:
+        conteo = a.filter(mujerorganizacion__participa=c[0], sexo=2).count()
+        porcentaje = round(saca_porcentajes(conteo,num_familias),2)
+        grafo_participa.append([c[1],conteo,porcentaje])
+        
+    grafo_organizacion = []
+    for c in TipoOrganizacion.objects.all():
+        conteo = a.filter(mujerorganizacion__tipo_organizacion=c,
+                          mujerorganizacion__participa=1, sexo=2).count()
+        porcentaje = round(saca_porcentajes(conteo,num_familias),2)
+        grafo_organizacion.append([c.nombre,conteo,porcentaje])
+        
+    grafo_voto = []
+    for c in CHOICE_OPCION:
+        conteo = a.filter(mujerorganizacion__voto=c[0], sexo=2).count()
+        porcentaje = round(saca_porcentajes(conteo,num_familias),2)
+        grafo_voto.append([c[1],conteo,porcentaje])
+        
+    grafo_informada = []
+    for c in CHOICE_OPCION:
+        conteo = a.filter(mujerorganizacion__informada=c[0], sexo=2).count()
+        porcentaje = round(saca_porcentajes(conteo,num_familias),2)
+        grafo_informada.append([c[1],conteo,porcentaje])
+        
+    grafo_ideas = []
+    for c in CHOICE_OPCION:
+        conteo = a.filter(mujerorganizacion__ideas_familia=c[0], sexo=2).count()
+        porcentaje = round(saca_porcentajes(conteo,num_familias),2)
+        grafo_ideas.append([c[1],conteo,porcentaje])
+        
+    grafo_comunidad = []
+    for c in CHOICE_OPCION:
+        conteo = a.filter(mujerorganizacion__ideas_comunidad=c[0], sexo=2).count()
+        porcentaje = round(saca_porcentajes(conteo,num_familias),2)
+        grafo_comunidad.append([c[1],conteo,porcentaje])
              
     return render_to_response('genero/genero.html', RequestContext(request, locals()))         
     

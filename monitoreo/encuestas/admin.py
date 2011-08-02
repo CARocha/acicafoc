@@ -351,13 +351,13 @@ class ParticipacionInline(admin.TabularInline):
     fields = ['principal','actividad_finca','ingreso','decision','proporcion']
     extra = 1
     max_num = 1
-    can_delete = False
+    #can_delete = False
     
 class MujerOrganizacionInline(admin.TabularInline):
     model = MujerOrganizacion
     extra = 1
     max_num = 1
-    can_delete = False
+    #can_delete = False
     
 admin.site.register(TipoOrganizacion)
 admin.site.register(ActividadFinca)
