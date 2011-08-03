@@ -1,5 +1,180 @@
 {% extends "basenueva.html"%}
 
+{% block extra_header %}
+<script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
+<script type="text/javascript">
+var chart;
+$(document).ready(function() {
+   chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'container',
+         defaultSeriesType: 'pie',
+         plotBackgroundColor: null,
+         plotBorderWidth: null,
+         plotShadow: false
+      },
+      title: {
+         text: 'Hombres y Mujeres'
+      },
+      tooltip: {
+         formatter: function() {
+            return '<b>'+ this.point.name +'</b>: '+ this.y +'%';
+         }
+      },
+      plotOptions: {
+         pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+               enabled: true,
+               //color: Highcharts.theme.textColor || '#000000',
+               //connectorColor: Highcharts.theme.textColor || '#000000',
+               formatter: function() {
+                  return '<b>'+ this.point.name +'</b>: '+ this.y +'%';
+               }
+            },
+            showInLegend: true
+         }
+      },
+       series: [{
+         data: [
+            ['Hombres',  {{por_hombres}}],
+            ['Mujeres',   {{por_mujeres}}],
+            
+         ]
+      }]
+   });
+});
+
+var chart;
+$(document).ready(function() {
+   chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'container1',
+         defaultSeriesType: 'pie',
+         plotBackgroundColor: null,
+         plotBorderWidth: null,
+         plotShadow: false
+      },
+      title: {
+         text: 'Números de personas entrevistadas'
+      },
+      tooltip: {
+         formatter: function() {
+            return '<b>'+ this.point.name +'</b>: '+ this.y +'%';
+         }
+      },
+      plotOptions: {
+         pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+               enabled: true,
+               //color: Highcharts.theme.textColor || '#000000',
+               //connectorColor: Highcharts.theme.textColor || '#000000',
+               formatter: function() {
+                  return '<b>'+ this.point.name +'</b>: '+ this.y +'%';
+               }
+            },
+            showInLegend: true
+         }
+      },
+       series: [{data: [{% for value in escolaridad %}
+                    ['{{value.0}}',
+                    {{value.2}}],
+                {% endfor %}]
+                
+                }]
+   });
+});
+
+var chart;
+$(document).ready(function() {
+   chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'container2',
+         defaultSeriesType: 'pie',
+         plotBackgroundColor: null,
+         plotBorderWidth: null,
+         plotShadow: false
+      },
+      title: {
+         text: 'Departamentos encuestado'
+      },
+      tooltip: {
+         formatter: function() {
+            return '<b>'+ this.point.name +'</b>: '+ this.y +'%';
+         }
+      },
+      plotOptions: {
+         pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+               enabled: true,
+               //color: Highcharts.theme.textColor || '#000000',
+               //connectorColor: Highcharts.theme.textColor || '#000000',
+               formatter: function() {
+                  return '<b>'+ this.point.name +'</b>: '+ this.y +'%';
+               }
+            },
+            showInLegend: true
+         }
+      },
+       series: [{data: [{% for value in depart %}
+                    ['{{value.0}}',
+                    {{value.2}}],
+                {% endfor %}]
+                
+                }]
+   });
+});
+
+var chart;
+$(document).ready(function() {
+   chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'container3',
+         defaultSeriesType: 'pie',
+         plotBackgroundColor: null,
+         plotBorderWidth: null,
+         plotShadow: false
+      },
+      title: {
+         text: 'Municipios encuestados'
+      },
+      tooltip: {
+         formatter: function() {
+            return '<b>'+ this.point.name +'</b>: '+ this.y +'%';
+         }
+      },
+      plotOptions: {
+         pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+               enabled: true,
+               //color: Highcharts.theme.textColor || '#000000',
+               //connectorColor: Highcharts.theme.textColor || '#000000',
+               formatter: function() {
+                  return '<b>'+ this.point.name +'</b>: '+ this.y +'%';
+               }
+            },
+            showInLegend: true
+         }
+      },
+       series: [{data: [{% for value in munis %}
+                    ['{{value.0}}',
+                    {{value.2}}],
+                {% endfor %}]
+                
+                }]
+   });
+});
+</script>
+{% endblock %}
+
 {% block content %}
 <br>
 <h1>Datos Generales de todas las encuestas</h1>
@@ -18,7 +193,6 @@
             <td>{{hombres}}</td>
             <td>{{ por_hombres }}</td>
         </tr>   
-        
         <tr>
 		    <td>Mujeres</td>
             <td>{{mujeres}}</td>
@@ -26,7 +200,7 @@
         </tr>   
     </table>
     <div class="clean"></div>
-    
+    <div id="container"></div>
 <table style="width:100%;">
         <caption>Número de personas en {{numero}} Familias entrevistadas</caption>
         <thead>
@@ -46,8 +220,7 @@
             {%endfor%}
         </tbody>
     </table>
-    
-        <img src="{{grafo_url}}" alt="Escolaridades" title="Escolaridades">
+    <div id="container1"></div>
 <br></br>
 <table style="width:100%;">
         <caption>Departamentos entrevistados</caption>
@@ -68,7 +241,8 @@
             {%endfor%}
         </tbody>
     </table>
-    <img src="{{grafo_depart}}" alt="Departamentos Entrevistados" title="Departamentos Entrevistados">
+    <div id="container2"></div>
+ 
 <br></br>
 <table style="width:100%;">
         <caption>Municipio entrevistados</caption>
@@ -89,7 +263,7 @@
             {%endfor%}
         </tbody>
     </table>
-    <img src="{{grafo_munis}}" alt="Municipios Entrevistados" title="Municipios Entrevistados">
+    <div id="container3"></div>
 <br></br>
 
 
