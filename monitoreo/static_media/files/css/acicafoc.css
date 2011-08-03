@@ -520,6 +520,10 @@ td {
 .suelogroup{
     background:url(../img/suelogroup.jpg) no-repeat;
 }
+
+.comercializaciongroup{
+    background:url(../img/comercializaciongroup.jpg) no-repeat;
+}
 #contenedor_indicadores a{
 	display: block;
 	float: left;
