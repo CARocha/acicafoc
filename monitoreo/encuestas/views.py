@@ -140,15 +140,16 @@ def inicio(request):
 #-------------------------------------------------------------------------------
 def index(request):
     familias = Encuesta.objects.all().count()
-    #organizacion = OrganizacionesOCB.objects.all().count()
-    mujeres = Encuesta.objects.filter(sexo=2).count()
-    hombres = Encuesta.objects.filter(sexo=1).count()    
+    #organizacion = OrganizacionesOCB.objects.all().count()  
 
     return direct_to_template(request, 'index.html', locals())        
         
 #-------------------------------------------------------------------------------
 def generales(request):
     numero = Encuesta.objects.all().count()
+    
+    mujeres = Encuesta.objects.filter(sexo=2).count()
+    hombres = Encuesta.objects.filter(sexo=1).count()  
     
     #Educacion
     escolaridad = []
