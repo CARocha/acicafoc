@@ -20,4 +20,8 @@ urlpatterns = patterns('',
     (r'^', include('monitoreo.encuestas.urls')),
 )
 
+handler404 = 'monitoreo.views.file_not_found_404'
+
+handler500 = 'monitoreo.views.file_not_found_500'
+
 urlpatterns += staticfiles_urlpatterns()
