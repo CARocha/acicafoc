@@ -71,12 +71,6 @@ def _queryset_filtrado(request):
         if 'organizacion' in request.session:
             params['beneficiario'] = request.session['organizacion']            
 
-#        if 'socio' in request.session:
-#            params['organizaciongremial__socio'] = request.session['socio']
-#            
-#        if 'desde' in request.session:
-#            params['organizaciongremial__desde_socio'] = request.session['desde']
-
         if 'duenio' in  request.session:
             params['tenencia__dueno'] = request.session['duenio']
         
@@ -114,8 +108,6 @@ def inicio(request):
             request.session['municipio'] = municipio 
             request.session['comunidad'] = comunidad
             request.session['sexo'] = form.cleaned_data['sexo']
-#            request.session['socio'] = form.cleaned_data['socio']
-#            request.session['desde'] = form.cleaned_data['desde']
             request.session['duenio'] = form.cleaned_data['dueno']
 
             mensaje = "Todas las variables estan correctamente :)"
@@ -195,6 +187,12 @@ def generales(request):
       
     grafo_munis = grafos.make_graph(valores_m, leyenda_m, 'Municipios Encuestados', return_json=False ,type=grafos.PIE_CHART_2D)
             
+    #salidas de grupos etnicos
+    grupo = []
+    for etnico in CHOICE_ETNICO:
+        conteo = Encuesta.objects.filter(grupo=etnico[0]).count()
+        porcentaje = round(saca_porcentajes(conteo,numero))
+        grupo.append([etnico[1],conteo,porcentaje])
 
     return render_to_response('encuestas/generales.html', locals(),
                                context_instance=RequestContext(request))
@@ -210,7 +208,7 @@ def educacion(request):
     #**********************************
     
     tabla_educacion = []
-    
+    grafo = []
     for e in CHOICE_EDUCACION:
         objeto = a.filter(educacion__sexo = e[0]).aggregate(num_total = Sum('educacion__total'),
                 no_leer = Sum('educacion__no_leer'), 
@@ -220,6 +218,9 @@ def educacion(request):
                 bachiller = Sum('educacion__bachiller'), 
                 universitario = Sum('educacion__universitario'),
                 f_comunidad = Sum('educacion__f_comunidad'))
+        suma = objeto['p_completa'] + objeto['s_incompleta'] + objeto['bachiller'] + objeto['universitario']
+        variable = round(saca_porcentajes(suma,objeto['num_total']))
+        grafo.append([e[1],variable])
         fila = [e[1], objeto['num_total'],
                 saca_porcentajes(objeto['no_leer'], objeto['num_total'], False),
                 saca_porcentajes(objeto['p_incompleta'], objeto['num_total'], False),
@@ -231,7 +232,7 @@ def educacion(request):
         tabla_educacion.append(fila)
     
     return render_to_response('familias/educacion.html', {'tabla_educacion':tabla_educacion,
-                                  'num_familias':num_familias},
+                                  'num_familias':num_familias,'grafo':grafo},
                                   context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
 #Tabla Energia
@@ -242,7 +243,7 @@ def luz(request):
     tabla = []
     total_tiene_luz = 0            
 
-    for choice in PreguntaEnergia.objects.all():
+    for choice in PreguntaEnergia.objects.exclude(id=2):
         query = consulta.filter(energia__pregunta=choice, energia__respuesta=1).distinct()
         resultados = query.count() 
         if choice.pregunta == 1:
@@ -256,9 +257,15 @@ def luz(request):
                     resultados,
                     saca_porcentajes(resultados, consulta.count(), False)]
             tabla.append(fila)
-
+    tabla_cocina = []        
+    for cocina in TipoCocina.objects.all():
+        conteo = consulta.filter(cocina__utiliza=cocina).count()
+        porcentaje = round(saca_porcentajes(conteo,consulta.count()))
+        tabla_cocina.append([cocina.nombre,conteo,porcentaje])
+        
     return render_to_response('familias/luz.html', 
-                              {'tabla':tabla, 'num_familias': consulta.count()},
+                              {'tabla':tabla, 'num_familias': consulta.count(),
+                               'tabla_cocina':tabla_cocina},
                               context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
 #Tabla Agua
@@ -527,19 +534,19 @@ def grafos_bienes(request, tipo):
                'Numeros de ambientes', return_json = True,
                type = grafos.PIE_CHART_2D)
     elif tipo == 'letrina':
-        for opcion in CHOICE_OPCION:
+        for opcion in CHOICE_OPCION[:2]:
             data.append(consulta.filter(detallecasa__letrina=opcion[0]).count())
             legends.append(opcion[1])
         return grafos.make_graph(data, legends,
                 'Tiene letrina', return_json = True,
                 type = grafos.PIE_CHART_2D)
-    elif tipo == 'lavadero':
-        for opcion in CHOICE_OPCION:
-            data.append(consulta.filter(detallecasa__lavadero=opcion[0]).count())
-            legends.append(opcion[1])
-        return grafos.make_graph(data, legends,
-               'Tiene lavadero', return_json = True,
-               type = grafos.PIE_CHART_2D)
+#    elif tipo == 'lavadero':
+#        for opcion in CHOICE_OPCION:
+#            data.append(consulta.filter(detallecasa__lavadero=opcion[0]).count())
+#            legends.append(opcion[1])
+#        return grafos.make_graph(data, legends,
+#               'Tiene lavadero', return_json = True,
+#               type = grafos.PIE_CHART_2D)
             
     else:
         raise Http404
@@ -555,18 +562,21 @@ def gremial(request):
     
     tabla_gremial = {}
     divisor = a.aggregate(divisor=Count('organizaciongremial__socio'))['divisor']
+    ninguno = (num_familias - divisor) + a.filter(organizaciongremial__socio=5).count()
+    por_ninguno = saca_porcentajes(ninguno,num_familias)
     
-    for i in OrgGremiales.objects.all():
+    for i in OrgGremiales.objects.exclude(id=5):
         key = slugify(i.nombre).replace('-', '_')
         query = a.filter(organizaciongremial__socio = i)
         frecuencia = query.aggregate(frecuencia=Count('organizaciongremial__socio'))['frecuencia']     
-        porcentaje = saca_porcentajes(frecuencia,divisor)
+        porcentaje = saca_porcentajes(frecuencia,num_familias)
         tabla_gremial[key] = {'frecuencia':frecuencia, 'porcentaje':porcentaje}
-    
+    tabla_gremial['ninguno'] = {'frecuencia':ninguno, 'porcentaje':por_ninguno}
+
     #desde gremial
     tabla_desde = {}
-    divisor1 = a.aggregate(divisor1=Count('organizaciongremial__desde_socio'))['divisor1']    
-    for k in CHOICE_DESDE:
+    divisor1 = a.exclude(organizaciongremial__desde_socio=3).aggregate(divisor1=Count('organizaciongremial__desde_socio'))['divisor1']    
+    for k in CHOICE_DESDE[:2]:
         key = slugify(k[1]).replace('-','_')
         query = a.filter(organizaciongremial__desde_socio = k[0])
         frecuencia = query.aggregate(frecuencia=Count('organizaciongremial__desde_socio'))['frecuencia']
@@ -576,34 +586,30 @@ def gremial(request):
     #miembro
     tabla_miembro = {}
     divisor2  = a.filter(organizaciongremial__miembro_gremial__in=(1,2,3)).count()
+    no_miembro = (num_familias - divisor2) + a.filter(organizaciongremial__miembro_gremial=2).count()
+    por_no_miembro = saca_porcentajes(no_miembro,num_familias)
                                          
-    for p in CHOICE_MIEMBRO_GREMIAL:
+    for p in CHOICE_MIEMBRO_GREMIAL[::2]:
         key = slugify(p[1]).replace('-','_')
         query = a.filter(organizaciongremial__miembro_gremial = p[0])
         frecuencia = query.aggregate(frecuencia=Count('organizaciongremial__miembro_gremial'))['frecuencia']
-        porcentaje = saca_porcentajes(frecuencia,divisor2)
+        porcentaje = saca_porcentajes(frecuencia,num_familias)
         tabla_miembro[key] = {'frecuencia':frecuencia, 'porcentaje':porcentaje}
-    
-#    #desde miembro
-#    tabla_desde_miembro = {}
-#    divisor3 = a.aggregate(divisor3=Count('organizaciongremial__desde_miembro'))['divisor3']    
-#    for k in CHOICE_DESDE:
-#        key = slugify(k[1]).replace('-','_')
-#        query = a.filter(organizaciongremial__desde_miembro = k[0])
-#        frecuencia = query.aggregate(frecuencia=Count('organizaciongremial__desde_miembro'))['frecuencia']
-#        porcentaje = saca_porcentajes(frecuencia,divisor3)
-#        tabla_desde_miembro[key] = {'frecuencia':frecuencia, 'porcentaje':porcentaje}
+    tabla_miembro['no'] = {'frecuencia':no_miembro,'porcentaje':por_no_miembro}
         
     #capacitación
     tabla_capacitacion = {}
-    divisor4 = a.filter(organizaciongremial__capacitacion__in=[1,2]).count()    
-    for t in CHOICE_OPCION:
+    divisor4 = a.filter(organizaciongremial__capacitacion__in=[1,2]).count()
+    no_capasitacion = (num_familias - divisor4) + a.filter(organizaciongremial__capacitacion=2).count()
+    por_no_capasitacion = saca_porcentajes(no_capasitacion,num_familias)
+        
+    for t in CHOICE_OPCION[:1]:
         key = slugify(t[1]).replace('-','_')
         query = a.filter(organizaciongremial__capacitacion = t[0])
         frecuencia = query.aggregate(frecuencia=Count('organizaciongremial__capacitacion'))['frecuencia']
-        porcentaje = saca_porcentajes(frecuencia,divisor4)
+        porcentaje = saca_porcentajes(frecuencia,num_familias)
         tabla_capacitacion[key] = {'frecuencia':frecuencia, 'porcentaje':porcentaje}
-        
+    tabla_capacitacion['no'] = {'frecuencia':no_capasitacion,'porcentaje':por_no_capasitacion}        
         
     return render_to_response('organizacion/gremial.html', 
                                  {'tabla_gremial': tabla_gremial, 'tabla_desde':tabla_desde,
@@ -630,7 +636,7 @@ def comunitario(request):
     
     tabla_pertenece = {}
     divisor = a.filter(organizacioncomunitaria__pertence__in=[1,2]).count()    
-    for t in CHOICE_OPCION:
+    for t in CHOICE_OPCION[:2]:
         key = slugify(t[1]).replace('-','_')
         query = a.filter(organizacioncomunitaria__pertence = t[0])
         frecuencia = query.aggregate(frecuencia=Count('organizacioncomunitaria__pertence'))['frecuencia']
@@ -654,23 +660,38 @@ def fincas(request):
     tabla = {}
     totales = {}
     consulta = _queryset_filtrado(request)
+    
+    suma = 0
+    total_manzana = 0
+    por_num = 0
+    por_man = 0
+    
+    for total in Uso.objects.exclude(id=1):
+        conteo = consulta.filter(usotierra__tierra = total)
+        suma += conteo.count()
+        man = conteo.aggregate(area = Sum('usotierra__area'))['area']
+        total_manzana += man
+    
+    totales['numero'] = suma
+    totales['manzanas'] = round(total_manzana,0)
 
-    totales['numero'] = consulta.count() 
-    totales['porcentaje_num'] = 100
-    totales['manzanas'] = consulta.aggregate(area=Sum('usotierra__area'))['area']
-    totales['porcentaje_mz'] = 100
-
-    for uso in Uso.objects.all():
+    for uso in Uso.objects.exclude(id=1):
         key = slugify(uso.nombre).replace('-', '_')
         query = consulta.filter(usotierra__tierra = uso)
         numero = query.count()
         porcentaje_num = saca_porcentajes(numero, totales['numero'])
+        por_num += porcentaje_num
         manzanas = query.aggregate(area = Sum('usotierra__area'))['area']
         porcentaje_mz = saca_porcentajes(manzanas, totales['manzanas'])
+        por_man += porcentaje_mz
+        
         tabla[key] = {'numero': numero, 'porcentaje_num': porcentaje_num,
                       'manzanas': manzanas, 'porcentaje_mz': porcentaje_mz}
-
+               
+    totales['porcentaje_numero'] = por_num
+    totales['porcentaje_manzana'] = round(por_man)                  
     
+        
     return render_to_response('reforestacion/fincas.html', 
                               {'tabla':tabla, 'totales': totales,
                               'num_familias': consulta.count()},
@@ -741,7 +762,14 @@ def animales(request):
                                    venta_libre = Sum('animalesfinca__venta_libre'),
                                    venta_organizada = Sum('animalesfinca__venta_organizada'),
                                    total_produccion = Sum('animalesfinca__total_produccion'),
-                                   consumo = Sum('animalesfinca__consumo'))
+                                   consumo = Sum('animalesfinca__consumo')
+                                   )
+        try:
+            total = animales['consumo'] + animales['venta_libre'] + animales['venta_organizada']
+        
+        except:
+            total = 0
+
         try:
             animal_familia = float(animales['cantidad'])/float(numero) 
         except:
@@ -755,9 +783,13 @@ def animales(request):
                                  animales['total_produccion'],
                                  animales['consumo'], 
                                  animales['venta_libre'], 
-                                 animales['venta_organizada']])
+                                 animales['venta_organizada'],
+                                 total
+                                 ])
         except:
             pass
+
+    
 
     return render_to_response('animales/animales.html', 
                               {'tabla':tabla, 'totales': totales, 
@@ -999,7 +1031,8 @@ def manejosuelo(request):
                               'tabla_obra':tabla_obra,'num_familias':num_familia},
                                context_instance=RequestContext(request))  
 #-------------------------------------------------------------------------------
-#Tabla Ingreso familiar y otros ingresos
+                #Tabla Ingreso familiar y otros ingresos
+#-------------------------------------------------------------------------------
 @session_required
 def ingresos(request):
     '''tabla de ingresos'''
@@ -1024,7 +1057,8 @@ def ingresos(request):
         cantidad = query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad']
         precio = query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio']
         ingreso = cantidad * precio if cantidad != None and precio != None else 0
-        respuesta['ingreso']= round(query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad'] * query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio'],) if cantidad != None and precio != None else 0
+        respuesta['ingreso'] = round(ingreso,0)
+        #respuesta['ingreso']= round(query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad'] * query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio'],) if cantidad != None and precio != None else 0
         respuesta['ingreso_total'] +=  respuesta['ingreso']
         
         tabla[key] = {'key2':key2,'numero':numero,'cantidad':cantidad,
@@ -1038,7 +1072,8 @@ def ingresos(request):
         frecuencia = consulta.count()
         meses = consulta.aggregate(meses=Avg('otrosingresos__meses'))['meses']
         ingreso = consulta.aggregate(ingreso=Avg('otrosingresos__ingreso'))['ingreso']
-        ingresototal = consulta.aggregate(meses=Avg('otrosingresos__meses'))['meses'] * consulta.aggregate(ingreso=Avg('otrosingresos__ingreso'))['ingreso'] if meses != None and ingreso != None else 0
+        ingresototal = round(meses * ingreso,2)
+        #ingresototal = consulta.aggregate(meses=Avg('otrosingresos__meses'))['meses'] * consulta.aggregate(ingreso=Avg('otrosingresos__ingreso'))['ingreso'] if meses != None and ingreso != None else 0
         respuesta['ingreso_otro'] +=  ingresototal
         #ingresototal = consulta.aggregate(total=Avg('otrosingresos__ingreso_total'))['total']
         matriz[key] = {'frecuencia':frecuencia,'meses':meses,

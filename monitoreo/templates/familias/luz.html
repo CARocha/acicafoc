@@ -37,6 +37,13 @@
                 {%endfor%}
             </tr>
             {%endfor%}
+            {% for f in tabla_cocina%}
+            <tr>
+                {%for celda in f%}
+                <td>{{celda}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
         <tbody>
     </table>
 </div>

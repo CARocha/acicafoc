@@ -62,13 +62,7 @@ $(document).ready(function () {
             </tr>
         </thead>
         <tbody>
-            <!--    <tr>-->
-            <!--        <td>Area Total</td>-->
-            <!--        <td>{{totales.numero}}</td>-->
-            <!--        <td>{{totales.porcentaje_num}}</td>-->
-            <!--        <td>{{totales.manzanas}}</td>-->
-            <!--        <td>{{totales.porcentaje_mz}}</td>-->
-            <!--    </tr>-->
+            
             {%for key, value in tabla.items%}
             <tr>
                 <td>{{key|unslugify}}</td>
@@ -78,6 +72,13 @@ $(document).ready(function () {
                 <td>{{value.porcentaje_mz|floatformat}}</td>
             </tr>
             {%endfor%}
+                <tr>
+                    <th>Area Total</th>
+                    <th>{{totales.numero}}</th>
+                    <th>{{totales.porcentaje_numero}}</th>
+                    <th>{{totales.manzanas}}</th>
+                    <th>{{totales.porcentaje_manzana}}</th>
+                </tr>
         </tbody>
     </table>
 </div>
