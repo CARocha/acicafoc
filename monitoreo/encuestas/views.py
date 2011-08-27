@@ -1435,7 +1435,7 @@ def tecnicas(request):
     #********variables globales****************
     a = _queryset_filtrado(request)
     num_familia = a.count()
-    
+    num_familias = num_familia
     #vivero - practica
     lista_vivero = {}
     for datos in Practicas.objects.all():
@@ -1491,7 +1491,7 @@ def tecnicas(request):
 def nivels(request):
     #********variables globales****************
     a = _queryset_filtrado(request)
-    num_familia = a.count()
+    num_familias = num_familia = a.count()
     
     nivel_fermentacion = []
     for k in CHOICE_FERMENTACION:
@@ -1618,15 +1618,15 @@ def generos(request):
         decicion_grafico.append([decicion[1],conteo,porcentaje])
     
     lista_proporcion = {}
-    lista_proporcion['De 0 - 20'] = a.filter(participacion__proporcion__range=(0,20), sexo=2,
+    lista_proporcion['De 0 - 20 %'] = a.filter(participacion__proporcion__range=(0,20), sexo=2,
                       participacion__ingreso__gt=1).count()
-    lista_proporcion['De 21 - 40'] = a.filter(participacion__proporcion__range=(21,40), sexo=2,
+    lista_proporcion['De 21 - 40 %'] = a.filter(participacion__proporcion__range=(21,40), sexo=2,
                       participacion__ingreso__gt=1).count()
-    lista_proporcion['De 41 - 60'] = a.filter(participacion__proporcion__range=(41,60), sexo=2,
+    lista_proporcion['De 41 - 60 %'] = a.filter(participacion__proporcion__range=(41,60), sexo=2,
                       participacion__ingreso__gt=1).count()
-    lista_proporcion['De 61 - 80'] = a.filter(participacion__proporcion__range=(61,80), sexo=2,
+    lista_proporcion['De 61 - 80 %'] = a.filter(participacion__proporcion__range=(61,80), sexo=2,
                       participacion__ingreso__gt=1).count()
-    lista_proporcion['De 81 - 100'] = a.filter(participacion__proporcion__range=(81,100), sexo=2,
+    lista_proporcion['De 81 - 100 %'] = a.filter(participacion__proporcion__range=(81,100), sexo=2,
                       participacion__ingreso__gt=1).count()
                       
     #salidas de mujer en la Organización
