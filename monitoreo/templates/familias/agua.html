@@ -1,6 +1,75 @@
 {% extends "basenueva.html" %}
 {%load unslugify %}
 {%block extra_header%}
+<script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
+<script type="text/javascript">
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                defaultSeriesType: 'column'
+            },
+            title: {
+                text: 'Agua para consumo'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    'Opciones'
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Frecuencias'
+                }
+            },
+            
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +'';
+                }
+            },
+            plotOptions: {
+                column: {
+                    groupPadding: 0,
+                    pointPadding: 0.9,
+                    borderWidth: 0
+                },
+                series: {
+                    pointWidth: 55,
+                    minPointLength : 1
+                }
+            },
+            series: [{% for value in tabla %}
+                {
+                    name: '{{value.0}}',
+                    data: [{{value.1}}],
+                    dataLabels: {
+                        enabled: true,
+                        rotation: 0,
+                        color: '#632D00',
+                        align: 'center',
+                        x: -3,
+                        y: 0,
+                            formatter: function() {
+                                return this.y + '';
+                                                  },
+                        style: {
+                            font: 'normal 13px Verdana, sans-serif'
+                                }
+                                }
+                },
+                {% endfor %}]
+        });
+    });
+    
+</script>
     <script type="text/javascript">
     $(document).ready(function() {
         $(".agua").addClass("activa");
@@ -84,6 +153,10 @@ $(document).ready(function () {
 </div>
 	</div>
 	<div class="clean"></div>
+<div class="contenedor">
+        <div class="grafico-title"></div>
+        <div id="container"></div>
+</div>
 </div>
 
 {% endblock %}

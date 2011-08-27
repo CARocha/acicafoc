@@ -102,7 +102,7 @@ a{
 #indexleft{
     width:620px;
     padding:15px;
-    height:620px;
+    height:760px;
     border-right:#cacaca 1px dotted;
     float:left;
     background:url(../img/fondoindexleft.jpg) no-repeat;
@@ -608,9 +608,9 @@ td {
 }
 
 #map_canvas {
-    height: 239px;
+    height: 380px;
     margin: 0 auto;
-    width: 617px;
+    width: 618px;
 }
 
 	
