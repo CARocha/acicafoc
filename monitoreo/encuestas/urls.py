@@ -5,6 +5,7 @@ from django.views.generic.simple import direct_to_template
 
 urlpatterns = patterns('monitoreo.encuestas.views',
     (r'^index/$', 'inicio'),
+    (r'^proyecto/$', 'proyecto'),
     (r'^index/ajax/organizaciones/(?P<departamento>\d+)/$', 'get_organizacion'),
     (r'^index/ajax/municipio/(?P<departamento>\d+)/$', 'get_municipios'),
     (r'^index/ajax/comunidad/(?P<municipio>\d+)/$', 'get_comunidad'),
@@ -20,6 +21,4 @@ urlpatterns = patterns('monitoreo.encuestas.views',
     (r'^mapa/$', 'obtener_lista'),
 #    (r'^ayuda/$',   direct_to_template,{'template': 'acerca.html'}),
     (r'^(?P<vista>\w+)/$', '_get_view'),
-    
-   
 )

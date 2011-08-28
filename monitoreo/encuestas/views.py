@@ -135,6 +135,9 @@ def index(request):
     #organizacion = OrganizacionesOCB.objects.all().count()  
 
     return direct_to_template(request, 'index.html', locals())        
+
+def proyecto(request):
+    return direct_to_template(request, 'proyecto.html', locals())        
         
 #-------------------------------------------------------------------------------
 def generales(request):

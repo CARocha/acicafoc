@@ -611,6 +611,22 @@ td {
     height: 380px;
     margin: 0 auto;
     width: 618px;
+
 }
 
-	
+.proyecto_column{
+    float:left;
+    width:500px;
+    margin:12px;
+    font-size:13px;
+    text-align:justify;
+}
+
+.proyecto_column p{
+    margin-bottom:10px;
+}
+
+.proyecto_column img{ float:left; margin: 0px 6px 6px 0px}
+.proyecto_column ul , .proyecto_column li{ list-style-type: circle;
+list-style-position: outside; }
+ .proyecto_column ul{margin-left:25px;}
