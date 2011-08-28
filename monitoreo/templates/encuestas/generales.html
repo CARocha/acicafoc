@@ -219,10 +219,10 @@ $(document).ready(function() {
 
 {% block content %}
 <br>
-<h1>Datos Generales de todas las encuestas</h1>
+<center><h1>Datos Generales de las {{numero}} Familias encuestadas</h1></center>
 </br>
+<div class="subindicador">Hombre y mujeres</div>
 <table style="width:100%;" >
-        <caption class="caption2">Hombre y mujeres</caption>
         <thead>
             <tr>
                 <th>Categoria</th>
@@ -243,8 +243,8 @@ $(document).ready(function() {
     </table>
     <div class="clean"></div>
     <div id="container"></div>
+<div class="subindicador">Distribución de edades en {{numero}} Familias entrevistadas</div>
 <table style="width:100%;">
-        <caption>Número de personas en {{numero}} Familias entrevistadas</caption>
         <thead>
             <tr>
                 <th>sexo</th>
@@ -264,8 +264,8 @@ $(document).ready(function() {
     </table>
     <div id="container1"></div>
 <br></br>
+<div class="subindicador">Departamentos entrevistados</div>
 <table style="width:100%;">
-        <caption>Departamentos entrevistados</caption>
         <thead>
             <tr>
                 <th>Departamentos</th>
@@ -286,8 +286,8 @@ $(document).ready(function() {
     <div id="container2"></div>
  
 <br></br>
+<div class="subindicador">Municipio entrevistados</div>
 <table style="width:100%;">
-        <caption>Municipio entrevistados</caption>
         <thead>
             <tr>
                 <th>Municipios</th>
@@ -307,8 +307,8 @@ $(document).ready(function() {
     </table>
     <div id="container3"></div>
 <br></br>
+<div class="subindicador">Grupos Etnicos</div>
 <table style="width:100%;">
-        <caption>Grupos Etnicos</caption>
         <thead>
             <tr>
                 <th>Grupo</th>

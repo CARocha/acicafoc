@@ -309,7 +309,7 @@ def organizacion_grafos(request, tipo):
             data.append(consulta.filter(organizaciongremial__beneficio=opcion).count())
             legends.append(opcion.nombre)
         return grafos.make_graph(data, legends, 
-                '¿Qué beneficios ha tenido por ser socio/a de la cooperativa, la asociación o empresa', return_json = True,
+                'Beneficios obtenidos siendo socio/a de la cooperativa, la asociación o empresa', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'miembro':
         for opcion in SerMiembro.objects.all():

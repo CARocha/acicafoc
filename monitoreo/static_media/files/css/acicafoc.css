@@ -277,7 +277,7 @@ ul, li{margin:0; padding:0; list-style:none;}
 	float: left;
 	padding-left: 25px;
 	border-left:#a96923 1px solid;
-	width: 734px;
+	width: 784px;
 	padding-top: 15px;
 }
 .formulario_consulta .form_widget{
@@ -298,10 +298,10 @@ ul, li{margin:0; padding:0; list-style:none;}
 }
 .columna_uno{
 	float: left;
-	width: 120px;	
+	width: 170px;	
 }
 .columna_uno select{
-	width: 70px;
+	width: 130px;
 }
 .columna_dos, 
 .columna_tres, 
