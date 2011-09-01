@@ -1243,13 +1243,28 @@ def graves(request,numero):
     a = _queryset_filtrado(request)
     num_familia = a.count()
     #******************************************
-    
+    suma = 0
+    for p in Graves.objects.all():
+        fenomeno = a.filter(vulnerable__motivo__id=numero, vulnerable__respuesta=p).count()
+        suma += fenomeno
+        
     lista = []
     for x in Graves.objects.all():
         fenomeno = a.filter(vulnerable__motivo__id=numero, vulnerable__respuesta=x).count()
-        #lista.append([x.nombre,fenomeno])
-        lista.append([x.nombre,fenomeno])        
+        porcentaje = round(saca_porcentajes(fenomeno,suma),2)
+        lista.append([x.nombre,fenomeno,porcentaje])        
     return lista
+    
+def suma_graves(request,numero):
+    #********variables globales****************
+    a = _queryset_filtrado(request)
+    num_familia = a.count()
+    #******************************************
+    suma = 0
+    for p in Graves.objects.all():
+        fenomeno = a.filter(vulnerable__motivo__id=numero, vulnerable__respuesta=p).count()
+        suma += fenomeno
+    return suma
 
 @session_required
 def vulnerable(request):
@@ -1262,24 +1277,37 @@ def vulnerable(request):
     
     #fenomenos naturales
     sequia = graves(request,1)
+    total_sequia = suma_graves(request,1)
     inundacion = graves(request,2)
+    total_inundacion = suma_graves(request,2)
     vientos = graves(request,3)
+    total_vientos = suma_graves(request,3)
     deslizamiento = graves(request,4)
+    total_deslizamiento = suma_graves(request,4)
     
     #Razones agricolas
     falta_semilla = graves(request,5)
+    total_falta_semilla = suma_graves(request,5)
     mala_semilla = graves(request,6)
+    total_mala_semilla = suma_graves(request,6)
     plagas = graves(request,7)
+    total_plagas = suma_graves(request,7)
     
     #Razones de mercado
     bajo_precio = graves(request,8)
+    total_bajo_precio = suma_graves(request,8)
     falta_venta = graves(request,9)
+    total_falta_venta = suma_graves(request,9)
     estafa = graves(request,10)
+    total_estafa = suma_graves(request,10)
     falta_calidad = graves(request,11)
+    total_falta_calidad = suma_graves(request,11)
     
     #inversion
     falta_credito = graves(request,12)
-    alto_interes = graves(request,13)     
+    total_falta_credito = suma_graves(request,12)
+    alto_interes = graves(request,13)
+    total_alto_interes = suma_graves(request,13)     
             
 #    lista2 = []
 #    for i in Fenomeno.objects.all():
