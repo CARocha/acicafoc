@@ -1216,38 +1216,59 @@ def seguridad_alimentaria(request):
                                context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
 #tabla finca vulnerable
+def graves(request,numero):
+    #********variables globales****************
+    a = _queryset_filtrado(request)
+    num_familia = a.count()
+    #******************************************
+    
+    lista = []
+    for x in Graves.objects.all():
+        fenomeno = a.filter(vulnerable__motivo__id=numero, vulnerable__respuesta=x).count()
+        #lista.append([x.nombre,fenomeno])
+        lista.append([x.nombre,fenomeno])        
+    return lista
+
 @session_required
 def vulnerable(request):
     ''' Cuales son los Riesgos que hace las fincas vulnerables '''
     #********variables globales****************
     a = _queryset_filtrado(request)
     num_familia = a.count()
+    num_familias = num_familia
     #******************************************
     
-    tabla = {}
-    lista2 = []
-    for i in Fenomeno.objects.all():
-        key = slugify(i.nombre).replace('-','_')
-        key2 = slugify(i.causa.nombre).replace('-','_')
-        query = a.filter(vulnerable__motivo = i)
-        frecuencia = query.count()
-        porce = saca_porcentajes(frecuencia,num_familia)
-#        fenon = query.filter(vulnerable__motivo=i,vulnerable__respuesta=1).aggregate(fenon=Count('vulnerable__respuesta'))['fenon']
-#        agri = query.filter(vulnerable__motivo=i,vulnerable__respuesta=2).aggregate(agri=Count('vulnerable__respuesta'))['agri']
-#        merc = query.filter(vulnerable__motivo=i,vulnerable__respuesta=3).aggregate(merc=Count('vulnerable__respuesta'))['merc']
-#        inver = query.filter(vulnerable__motivo=i,vulnerable__respuesta=4).aggregate(inver=Count('vulnerable__respuesta'))['inver']
-        
-        lista2.append([key,key2,frecuencia,porce])
-                       
-        #tabla[key] = {'key2':key2,'frecuencia':frecuencia,'porce':porce}
-#    lista = []              
-#    for key, value in sorted(tabla.iteritems(), key=lambda (k,v): (v,k)):
-#        lista.append([key,value])
-                      
-    #print lista
+    #fenomenos naturales
+    sequia = graves(request,1)
+    inundacion = graves(request,2)
+    vientos = graves(request,3)
+    deslizamiento = graves(request,4)
     
-    return render_to_response('riesgos/vulnerable.html',{'num_familias':num_familia, 
-                              'lista2':lista2},
+    #Razones agricolas
+    falta_semilla = graves(request,5)
+    mala_semilla = graves(request,6)
+    plagas = graves(request,7)
+    
+    #Razones de mercado
+    bajo_precio = graves(request,8)
+    falta_venta = graves(request,9)
+    estafa = graves(request,10)
+    falta_calidad = graves(request,11)
+    
+    #inversion
+    falta_credito = graves(request,12)
+    alto_interes = graves(request,13)     
+            
+#    lista2 = []
+#    for i in Fenomeno.objects.all():
+#        key = slugify(i.nombre).replace('-','_')
+#        key2 = slugify(i.causa.nombre).replace('-','_')
+#        query = a.filter(vulnerable__motivo = i)
+#        frecuencia = query.count()
+#        porce = saca_porcentajes(frecuencia,num_familia)    
+#        lista2.append([key,key2,frecuencia,porce])
+    
+    return render_to_response('riesgos/vulnerable.html', locals(),
                               context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
 #tabla mitigacion de riesgos
