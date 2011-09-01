@@ -82,7 +82,7 @@ def _queryset_filtrado(request):
         params['sexo'] = request.session['sexo']
         
     if 'organizacion' in request.session:
-        params['beneficiario'] = request.session['organizacion']            
+        params['beneficiario__in'] = request.session['organizacion']            
 
     if 'duenio' in  request.session:
         params['tenencia__dueno'] = request.session['duenio']
