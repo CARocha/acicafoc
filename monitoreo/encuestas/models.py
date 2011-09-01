@@ -68,6 +68,13 @@ class Encuesta(models.Model):
     grupo = models.IntegerField(choices=CHOICE_ETNICO, null=True, blank=True)
     usuario = models.ForeignKey(User)
     
+    #campo oculto
+    year = models.IntegerField(editable=True)
+    
+    def save(self):
+        self.year = self.fecha.year
+        super(Encuesta, self).save()
+    
     def __unicode__(self):
         return self.entrevistado
 

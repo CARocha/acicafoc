@@ -10,12 +10,20 @@ CHOICE_DESDE_F = (('','Desde'),(1,"Menos de 5 año"),(2,"Mas de 5 años"))
 CHOICE_DUENO_F = (('', u'Sexo Dueño'),(1,"Hombre"),(2,"Mujer"),(3,"Mancomunado"),(4,"Parientes"),(5,"Colectivo"),(6,"No hay"))
 CHOICE_SEXO = (('', u'Sexo beneficiario'),(1,'Hombre'),(2,'Mujer'))
 
+def departamentos():   
+    foo = Encuesta.objects.all().order_by('comunidad__municipio__departamento__nombre').distinct().values_list('comunidad__municipio__departamento__id', flat=True)
+    return Departamento.objects.filter(id__in=foo)
+
 class MonitoreoForm(forms.Form):
-    fecha = forms.ChoiceField(choices=ANOS_CHOICES)
-    departamento = forms.ModelChoiceField(queryset=Departamento.objects.all(), 
-            required=False, empty_label="Departamento")
-    organizacion = forms.CharField(widget = forms.Select, required=False)
-    municipio = forms.CharField(widget = forms.Select, required=False)
-    comunidad = forms.CharField(widget = forms.Select, required=False)
+    fecha = forms.MultipleChoiceField(choices=ANOS_CHOICES)
+    departamento = forms.ModelMultipleChoiceField(queryset=departamentos(), required=False, label=u'Departamentos')
+    organizacion = forms.ModelMultipleChoiceField(queryset=OrganizacionOCB.objects.all().order_by('nombre'), required=False, label=u'Organización')
+    municipio = forms.ModelMultipleChoiceField(queryset=Municipio.objects.all().order_by('nombre'), required=False)
+    comunidad = forms.ModelMultipleChoiceField(queryset=Comunidad.objects.all(), required=False)
+#    departamento = forms.ModelChoiceField(queryset=Departamento.objects.all(), 
+#            required=False, empty_label="Departamento")
+#    organizacion = forms.CharField(widget = forms.Select, required=False)
+#    municipio = forms.CharField(widget = forms.Select, required=False)
+#    comunidad = forms.CharField(widget = forms.Select, required=False)
     sexo = forms.ChoiceField(choices = CHOICE_SEXO, required=False)
     dueno = forms.ChoiceField(label = 'Dueño', choices = CHOICE_DUENO_F , required=False, initial=u"Dueño")

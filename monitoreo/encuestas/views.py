@@ -49,40 +49,53 @@ def _queryset_filtrado(request):
     '''metodo para obtener el queryset de encuesta 
     segun los filtros del formulario que son pasados
     por la variable de sesion'''
-    anio = int(request.session['fecha'])
+    #anio = int(request.session['fecha'])
     #diccionario de parametros del queryset
     params = {}
     if 'fecha' in request.session:
-        params['fecha__year'] = anio
-
-        if 'departamento' in request.session:
-            #incluye municipio y comunidad
-            if request.session['municipio']:                
-                if 'comunidad' in request.session and request.session['comunidad'] != None:
-                    params['comunidad'] = request.session['comunidad']                    
-                else:
-                    params['comunidad__municipio'] = request.session['municipio']                                        
+        params['year__in'] = request.session['fecha']
+        
+    if request.session['departamento']:
+        if not request.session['municipio']:
+            municipios = Municipio.objects.filter(departamento__in=request.session['departamento'])
+            params['municipio__in'] = municipios
+        else:
+            if request.session['comunidad']:
+                params['comunidad__in'] = request.session['comunidad']
             else:
-                params['comunidad__municipio__departamento'] = request.session['departamento']
-
-        if 'sexo' in  request.session:
-            params['sexo'] = request.session['sexo']
+                params['municipio__in'] = request.session['municipio']
             
-        if 'organizacion' in request.session:
-            params['beneficiario'] = request.session['organizacion']            
+#    if request.session['organizacion']:
+#        params['organizacion__in'] = request.session['organizacion']
 
-        if 'duenio' in  request.session:
-            params['tenencia__dueno'] = request.session['duenio']
+#        if 'departamento' in request.session:
+#            #incluye municipio y comunidad
+#            if request.session['municipio']:                
+#                if 'comunidad' in request.session and request.session['comunidad'] != None:
+#                    params['comunidad'] = request.session['comunidad']                    
+#                else:
+#                    params['comunidad__municipio'] = request.session['municipio']                                        
+#            else:
+#                params['comunidad__municipio__departamento'] = request.session['departamento']
+
+    if 'sexo' in  request.session:
+        params['sexo'] = request.session['sexo']
         
-        unvalid_keys = []
-        for key in params:
-            if not params[key]:
-                unvalid_keys.append(key)
-        
-        for key in unvalid_keys:
-            del params[key]
-        
-        return Encuesta.objects.filter(**params)
+    if 'organizacion' in request.session:
+        params['beneficiario'] = request.session['organizacion']            
+
+    if 'duenio' in  request.session:
+        params['tenencia__dueno'] = request.session['duenio']
+    
+    unvalid_keys = []
+    for key in params:
+        if not params[key]:
+            unvalid_keys.append(key)
+    
+    for key in unvalid_keys:
+        del params[key]
+    
+    return Encuesta.objects.filter(**params)
 
 #-------------------------------------------------------------------------------
 
@@ -92,21 +105,26 @@ def inicio(request):
     if request.method == 'POST':
         mensaje = None
         form = MonitoreoForm(request.POST)
-        if form.is_valid():            
-            request.session['organizacion'] = form.cleaned_data['organizacion']
+        if form.is_valid():
             request.session['fecha'] = form.cleaned_data['fecha']
             request.session['departamento'] = form.cleaned_data['departamento']
-            try:
-                municipio = Municipio.objects.get(id=int(form.cleaned_data['municipio'])) 
-            except:
-                municipio = None
-            try:
-                comunidad = Comunidad.objects.get(id=int(form.cleaned_data['comunidad']))                
-            except:
-                comunidad = None
+            request.session['organizacion'] = form.cleaned_data['organizacion']
+            request.session['municipio'] = form.cleaned_data['municipio']
+            request.session['comunidad'] = form.cleaned_data['comunidad']            
+#            request.session['organizacion'] = form.cleaned_data['organizacion']
+#            request.session['fecha'] = form.cleaned_data['fecha']
+#            request.session['departamento'] = form.cleaned_data['departamento']
+#            try:
+#                municipio = Municipio.objects.get(id=int(form.cleaned_data['municipio'])) 
+#            except:
+#                municipio = None
+#            try:
+#                comunidad = Comunidad.objects.get(id=int(form.cleaned_data['comunidad']))                
+#            except:
+#                comunidad = None
 
-            request.session['municipio'] = municipio 
-            request.session['comunidad'] = comunidad
+#            request.session['municipio'] = municipio 
+#            request.session['comunidad'] = comunidad
             request.session['sexo'] = form.cleaned_data['sexo']
             request.session['duenio'] = form.cleaned_data['dueno']
 
@@ -212,6 +230,7 @@ def educacion(request):
     
     tabla_educacion = []
     grafo = []
+    suma = 0 
     for e in CHOICE_EDUCACION:
         objeto = a.filter(educacion__sexo = e[0]).aggregate(num_total = Sum('educacion__total'),
                 no_leer = Sum('educacion__no_leer'), 
@@ -221,7 +240,10 @@ def educacion(request):
                 bachiller = Sum('educacion__bachiller'), 
                 universitario = Sum('educacion__universitario'),
                 f_comunidad = Sum('educacion__f_comunidad'))
-        suma = objeto['p_completa'] + objeto['s_incompleta'] + objeto['bachiller'] + objeto['universitario']
+        try:
+            suma = objeto['p_completa'] + objeto['s_incompleta'] + objeto['bachiller'] + objeto['universitario']
+        except:
+            pass
         variable = round(saca_porcentajes(suma,objeto['num_total']))
         grafo.append([e[1],variable])
         fila = [e[1], objeto['num_total'],
@@ -1809,6 +1831,64 @@ VALID_VIEWS = {
   }
         
 # Vistas para obtener los municipios, comunidades, etc..
+def get_munis(request):
+    '''Metodo para obtener los municipios via Ajax segun los departamentos selectos'''
+    ids = request.GET.get('ids', '')
+    dicc = {}
+    resultado = []
+    if ids:
+        lista = ids.split(',')    
+        for id in lista:
+            try:
+                departamento = Departamento.objects.get(pk=id)
+                municipios = Municipio.objects.filter(departamento__id=departamento.pk).order_by('nombre')
+                lista1 = []
+                for municipio in municipios:
+                    muni = {}
+                    muni['id'] = municipio.pk
+                    muni['nombre'] = municipio.nombre
+                    lista1.append(muni)
+                    dicc[departamento.nombre] = lista1
+            except:
+                pass    
+    
+    #filtrar segun la organizacion seleccionada
+    org_ids = request.GET.get('org_ids', '')
+    if org_ids:
+        lista = org_ids.split(',')    
+        municipios = [encuesta.municipio for encuesta in Encuesta.objects.filter(organizacion__id__in=lista)]
+        #crear los keys en el dicc para evitar KeyError
+        for municipio in municipios:
+            dicc[municipio.departamento.nombre] = []
+        
+        #agrupar municipios por departamento padre                
+        for municipio in municipios:
+            muni = {'id': municipio.id, 'nombre': municipio.nombre}
+            if not muni in dicc[municipio.departamento.nombre]:
+                dicc[municipio.departamento.nombre].append(muni)            
+    
+    resultado.append(dicc)
+        
+    return HttpResponse(simplejson.dumps(resultado), mimetype='application/json')
+
+def get_comunies(request):
+    ids = request.GET.get('ids', '')
+    if ids:
+        lista = ids.split(',')
+    results = []
+    comunies = Comunidad.objects.filter(municipio__pk__in=lista).order_by('nombre').values('id', 'nombre')
+
+    return HttpResponse(simplejson.dumps(list(comunies)), mimetype='application/json')
+    
+def get_organi(request):
+    ids = request.GET.get('ids', '')
+    if ids:
+        lista = ids.split(',')
+    organizaciones = OrganizacionOCB.objects.filter(encuesta__municipio__departamento__in = lista).distinct().order_by('nombre').values('id', 'nombre')
+       
+    
+    return HttpResponse(simplejson.dumps(list(organizaciones)), mimetype='application/json')
+
 
 def get_municipios(request, departamento):
     municipios = Municipio.objects.filter(departamento = departamento)
