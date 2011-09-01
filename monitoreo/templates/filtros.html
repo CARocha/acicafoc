@@ -4,15 +4,15 @@
     
     <div class="nombrefiltro">Filtros </div>
     {%if request.session.fecha%}
-                    <span class="filtrovalor"><b>Año</b><br>{%for x in request.session.fecha%}{{x}}, {%endfor%}</span>{%endif%}
+                    <div class="filtrovalor"><b>Año</b><br>{%for x in request.session.fecha%}{{x}}, {%endfor%}</div>{%endif%}
                     {%if request.session.departamento%}
-                    <span class="filtrovalor"><b>Departamento:</b><br>{%for a in request.session.departamento.all %}{{a}}, {%endfor%}</span>{%endif%}
+                    <div class="filtrovalor"><b>Departamento:</b><br>{%for a in request.session.departamento.all %}{{a}}, {%endfor%}</div>{%endif%}
                     {%if request.session.organizacion%}
-                    <span class="filtrovalor"><b>Organización</b><br>{%for b in request.session.organizacion.all %}{{b}}, {%endfor%}</span>{%endif%}
+                    <div class="filtrovalor"><b>Organización</b><br>{%for b in request.session.organizacion.all %}{{b}}, {%endfor%}</div>{%endif%}
                     {%if request.session.municipio%}
-                    <span class="filtrovalor"><b>Municipio</b><br>{%for c in request.session.municipio.all %}{{c.nombre}}, {%endfor%}</span>{%endif%}
+                    <div class="filtrovalor"><b>Municipio</b><br>{%for c in request.session.municipio.all %}{{c.nombre}}, {%endfor%}</div>{%endif%}
                     {%if request.session.comunidad%}
-                    <span class="filtrovalor"><b>Comunidad</b><br>{%for d in request.session.comunidad.all %}{{d.nombre}}, {%endfor%}</span>{%endif%}
+                    <div class="filtrovalor"><b>Comunidad</b><br>{%for d in request.session.comunidad.all %}{{d.nombre}}, {%endfor%}</div>{%endif%}
     {%if request.session.socio%}
         <div class="filtrovalor"><b>Socio:</b><br> {%if request.session.socio = '1'%}Si{%else%}No{%endif%}</div>
     {%endif%}
