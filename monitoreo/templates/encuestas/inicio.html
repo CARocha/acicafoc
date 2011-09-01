@@ -13,10 +13,10 @@
     $(document).ready(function(){
     
         $("#id_fecha").multiselect({
-            noneSelectedText: 'Seleccione elementos',
-            selectedText: '# seleccionados',
+            noneSelectedText: 'Año',
+            selectedText: 'Año',
             checkAllText: 'Todos',
-            uncheckAllText: 'Quitar seleccion',
+            uncheckAllText: 'Quitar todos',
             minWidth: 200,
             beforeclose: function(event, ui){
                 var selectos = $("#id_fecha").multiselect("getChecked").map(function(){
@@ -28,17 +28,17 @@
     
         $("#id_organizacion, #id_municipio, #id_comunidad").html('');
         comunidad = $("#id_comunidad").multiselect({
-            noneSelectedText: 'Seleccione elementos',
-            selectedText: '# seleccionados',
+            noneSelectedText: 'Comunidad',
+            selectedText: 'Comunidad',
             checkAllText: 'Todos',
-            uncheckAllText: 'Quitar seleccion',
+            uncheckAllText: 'Quitar todos',
             minWidth: 200
         });
            organizacion = $("#id_organizacion").multiselect({
-            noneSelectedText: 'Seleccione la organizacion',
-            selectedText: '# seleccionados',
+            noneSelectedText: 'Organización',
+            selectedText: 'Organización',
             checkAllText: 'Todos',
-            uncheckAllText: 'Quitar seleccion',
+            uncheckAllText: 'Quitar todos',
             minWidth: 200,
             beforeclose: function(event, ui){
                 var selectos = $("#id_organizacion").multiselect("getChecked").map(function(){
@@ -56,10 +56,10 @@
         });
 
         $("#id_departamento").multiselect({
-            noneSelectedText: 'Seleccione elementos',
-            selectedText: '# seleccionados',
+            noneSelectedText: 'Departamento',
+            selectedText: 'Departamento',
             checkAllText: 'Todos',
-            uncheckAllText: 'Quitar seleccion',
+            uncheckAllText: 'Quitar todos',
             minWidth: 200,
             beforeclose: function(event, ui){
                 var selectos = $("#id_departamento").multiselect("getChecked").map(function(){
@@ -76,10 +76,10 @@
         });
 
         municipio = $("#id_municipio").multiselect({
-            noneSelectedText: 'Seleccione elementos',
-            selectedText: '# seleccionados',
+            noneSelectedText: 'Municipio',
+            selectedText: 'Municipio',
             checkAllText: 'Todos',
-            uncheckAllText: 'Quitar seleccion',
+            uncheckAllText: 'Quitar todos',
             minWidth: 200,
             beforeclose: function(event, ui){
                 var selectos = $("#id_municipio").multiselect("getChecked").map(function(){
