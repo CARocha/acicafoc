@@ -277,7 +277,7 @@ ul, li{margin:0; padding:0; list-style:none;}
 	float: left;
 	padding-left: 25px;
 	border-left:#a96923 1px solid;
-	width: 784px;
+	width: 850px;
 	padding-top: 15px;
 }
 .formulario_consulta .form_widget{
@@ -294,25 +294,25 @@ ul, li{margin:0; padding:0; list-style:none;}
 	border: 1px #ad9b82 solid;
 	background-color: #fff;
 	color: #595042;
-	font-family: 'Georgia', sans-serif;
+    font-size:12px;
 }
 .columna_uno{
 	float: left;
-	width: 170px;	
+	width: 210px;	
 }
 .columna_uno select{
-	width: 130px;
+	width: 160px;
 }
 .columna_dos, 
 .columna_tres, 
 .columna_cuatro{
 	float: left;
-	width: 200px;
+	width: 210px;
 }
 .columna_dos select, 
 .columna_tres select, 
 .columna_cuatro select{
-	width: 158px;
+	width: 160px;
 }
 .consultar{
 
@@ -630,3 +630,17 @@ td {
 .proyecto_column ul , .proyecto_column li{ list-style-type: circle;
 list-style-position: outside; }
  .proyecto_column ul{margin-left:25px;}
+
+ .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    background: #fff !important;
+    width:160px !important;
+}
+
+.ui-widget {
+    font-family: Arial, sans-serif !important;
+    font-size: 12px !important;
+}
+
+.ui-multiselect-header ul li{
+    font-size:10px !important;
+}
