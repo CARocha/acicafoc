@@ -69,7 +69,7 @@ class Encuesta(models.Model):
     usuario = models.ForeignKey(User)
     
     #campo oculto
-    year = models.IntegerField(editable=True)
+    year = models.IntegerField(editable=False)
     
     def save(self):
         self.year = self.fecha.year
