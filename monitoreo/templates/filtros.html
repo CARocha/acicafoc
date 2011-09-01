@@ -4,22 +4,22 @@
     
     <div class="nombrefiltro">Filtros </div>
     {%if request.session.fecha%}
-                    <span class="filtrovalor"><b>Año</b>{%for x in request.session.fecha%}{{x}}, {%endfor%}</span>{%endif%}
+                    <span class="filtrovalor"><b>Año</b><br>{%for x in request.session.fecha%}{{x}}, {%endfor%}</span>{%endif%}
                     {%if request.session.departamento%}
-                    <span class="filtrovalor"><b>Departamento:</b>{%for a in request.session.departamento.all %}{{a}}, {%endfor%}</span>{%endif%}
+                    <span class="filtrovalor"><b>Departamento:</b><br>{%for a in request.session.departamento.all %}{{a}}, {%endfor%}</span>{%endif%}
                     {%if request.session.organizacion%}
-                    <span class="filtrovalor"><b>Organización</b>{%for b in request.session.organizacion.all %}{{b}}, {%endfor%}</span>{%endif%}
+                    <span class="filtrovalor"><b>Organización</b><br>{%for b in request.session.organizacion.all %}{{b}}, {%endfor%}</span>{%endif%}
                     {%if request.session.municipio%}
-                    <span class="filtrovalor"><b>Municipio</b>{%for c in request.session.municipio.all %}{{c}}, {%endfor%}</span>{%endif%}
+                    <span class="filtrovalor"><b>Municipio</b><br>{%for c in request.session.municipio.all %}{{c.nombre}}, {%endfor%}</span>{%endif%}
                     {%if request.session.comunidad%}
-                    <span class="filtrovalor"><b>Comunidad</b>{%for d in request.session.comunidad.all %}{{d}}, {%endfor%}</span>{%endif%}
+                    <span class="filtrovalor"><b>Comunidad</b><br>{%for d in request.session.comunidad.all %}{{d.nombre}}, {%endfor%}</span>{%endif%}
     {%if request.session.socio%}
-        <div class="filtrovalor"><b>Socio:</b> {%if request.session.socio = '1'%}Si{%else%}No{%endif%}</div>
+        <div class="filtrovalor"><b>Socio:</b><br> {%if request.session.socio = '1'%}Si{%else%}No{%endif%}</div>
     {%endif%}
     {%if request.session.desde%}
-        <div class="filtrovalor"><b>Años de socio:</b> {%if request.session.desde = '1'%}Menos de 5 {%else%}Mas de 5 {%endif%}</div>
+        <div class="filtrovalor"><b>Años de socio:</b><br> {%if request.session.desde = '1'%}Menos de 5 {%else%}Mas de 5 {%endif%}</div>
     {%endif%}
     {%if request.session.duenio%}
-        <div class="filtrovalor"><b>Tipo Dueño:</b> {%if request.session.duenio = '1'%}Hombre{%endif%}{%if request.session.duenio = '2'%}Mujer{%endif%}{%if request.session.duenio = '3'%}Mancomunado{%endif%}{%if request.session.duenio = '4'%}Parientes{%endif%}{%if request.session.duenio = '5'%}Colectivo{%endif%}{%if request.session.duenio = '6'%}No hay{%endif%}</div>
+        <div class="filtrovalor"><b>Tipo Dueño:</b> <br>{%if request.session.duenio = '1'%}Hombre{%endif%}{%if request.session.duenio = '2'%}Mujer{%endif%}{%if request.session.duenio = '3'%}Mancomunado{%endif%}{%if request.session.duenio = '4'%}Parientes{%endif%}{%if request.session.duenio = '5'%}Colectivo{%endif%}{%if request.session.duenio = '6'%}No hay{%endif%}</div>
     {%endif%}
 </div>
