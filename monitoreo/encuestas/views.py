@@ -1782,18 +1782,22 @@ def generos(request):
     
 #-------------------------------------------------------------------------------    
 #Los puntos en el mapa
-def obtener_lista(request):
-    if request.is_ajax():
-        lista = []
-        for objeto in Encuesta.objects.all():
-            dicc = dict(nombre=objeto.entrevistado, id=objeto.id, 
-                        lon=float(objeto.comunidad.municipio.longitud), 
-                        lat=float(objeto.comunidad.municipio.latitud)
-                        )
-            lista.append(dicc)
-
-        serializado = simplejson.dumps(lista)
-        return HttpResponse(serializado, mimetype='application/json')
+def obtener_lista(request):    
+    lista = []    
+    data = {}
+    for obj in Encuesta.objects.all():        
+        key = 'hombres' if obj.sexo == 1 else 'mujeres'
+        name = obj.comunidad.municipio.nombre
+        try:                
+            data[name][key] += 1
+        except:
+            data[name] = dict(hombres=0, mujeres=0, 
+                              lon=float(obj.comunidad.municipio.longitud),
+                              lat=float(obj.comunidad.municipio.latitud))
+            data[name][key] += 1
+                                        
+    lista.append(data)    
+    return HttpResponse(simplejson.dumps(lista), mimetype='application/javascript')
 
 #-------------------------------------------------------------------------------
 # Aca empieza el menu para los subindicadores :)
