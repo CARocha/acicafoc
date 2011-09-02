@@ -1095,14 +1095,18 @@ def ingresos(request):
         key = slugify(j.nombre).replace('-','_')
         consulta = a.filter(otrosingresos__fuente = j)
         frecuencia = consulta.count()
-        meses = consulta.aggregate(meses=Avg('otrosingresos__meses'))['meses']
+        meses = consulta.aggregate(meses=Sum('otrosingresos__meses'))['meses']
         ingreso = consulta.aggregate(ingreso=Avg('otrosingresos__ingreso'))['ingreso']
-        ingresototal = round(meses * ingreso,2)
-        #ingresototal = consulta.aggregate(meses=Avg('otrosingresos__meses'))['meses'] * consulta.aggregate(ingreso=Avg('otrosingresos__ingreso'))['ingreso'] if meses != None and ingreso != None else 0
+        try:
+            ingresototal = round(meses * ingreso,2)
+        except:
+            ingresototal = 0
         respuesta['ingreso_otro'] +=  ingresototal
+        #ingresototal = consulta.aggregate(meses=Avg('otrosingresos__meses'))['meses'] * consulta.aggregate(ingreso=Avg('otrosingresos__ingreso'))['ingreso'] if meses != None and ingreso != None else 0
         #ingresototal = consulta.aggregate(total=Avg('otrosingresos__ingreso_total'))['total']
         matriz[key] = {'frecuencia':frecuencia,'meses':meses,
                        'ingreso':ingreso,'ingresototal':ingresototal}
+                       
                        
     respuesta['brutoo'] = round((respuesta['ingreso_total'] + respuesta['ingreso_otro']) / num_familias,2)
     respuesta['total_neto'] = round(respuesta['brutoo'] * 0.6,2)
