@@ -74,11 +74,64 @@ $(document).ready(function () {
             {%endfor%}
                 <tr>
                     <th>Area Total</th>
-                    <th>{{totales.numero}}</th>
-                    <th>{{totales.porcentaje_numero}}</th>
+                    <th></th>
+                    <th></th>
                     <th>{{totales.manzanas}}</th>
                     <th>{{totales.porcentaje_manzana}}</th>
                 </tr>
+        </tbody>
+    </table>
+    <table>
+    </br>
+        <tr>
+        <th>Promedio Mz: {{totales.promedio_manzana}}</th>
+        </tr>
+    </table>
+  <br>  
+<table style="width:100%;">
+        <thead>
+            <tr>
+                <th>Rangos</th>
+                <th>Frecuencias</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+			    <td>0 Mz</td>
+			    <td>{{cero}}</td>
+			    <td>{{por_cero}}</td>
+			    
+		    </tr>
+		    <tr>
+			    <td>1 -- 10 Mz</td>
+			    <td>{{rango1}}</td>
+			    <td>{{por_rango1}}</td>
+			    
+		    </tr>
+		    <tr>
+			    <td>11 -- 25 Mz</td>
+			    <td>{{rango2}}</td>
+			    <td>{{por_rango2}}</td>
+			    
+		    </tr>
+		    <tr>
+			    <td>26 -- 50 Mz</td>
+			    <td>{{rango3}}</td>
+			    <td>{{por_rango3}}</td>
+			    
+		    </tr>
+		    <tr>
+			    <td>Más de 50 Mz</td>
+			    <td>{{rango4}}</td>
+			    <td>{{por_rango4}}</td>
+			    
+		    </tr>
+            <tr>
+                <th>Rangos Total</th>
+                <th>{{total_rangos}}</th>
+                <th>{{total_porcentajes}}</th>
+            </tr>
         </tbody>
     </table>
 </div>

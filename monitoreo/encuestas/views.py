@@ -675,8 +675,7 @@ def comunitario(request):
                               'uno':uno,'dos':dos,'tres':tres},
                                 context_instance=RequestContext(request) )
 #-------------------------------------------------------------------------------
-                          #aca van grafos de tenencia
-                          
+                          #aca van grafos de tenencia                       
 #Tabla Uso Tierra
 @session_required
 def fincas(request):
@@ -685,6 +684,7 @@ def fincas(request):
     tabla = {}
     totales = {}
     consulta = _queryset_filtrado(request)
+    num_familias = consulta.count()
     
     suma = 0
     total_manzana = 0
@@ -695,10 +695,14 @@ def fincas(request):
         conteo = consulta.filter(usotierra__tierra = total)
         suma += conteo.count()
         man = conteo.aggregate(area = Sum('usotierra__area'))['area']
-        total_manzana += man
+        try:
+            total_manzana += man
+        except:
+            total_manzana = 0
     
     totales['numero'] = suma
     totales['manzanas'] = round(total_manzana,0)
+    totales['promedio_manzana'] = round(totales['manzanas'] / consulta.count(),2)
 
     for uso in Uso.objects.exclude(id=1):
         key = slugify(uso.nombre).replace('-', '_')
@@ -715,11 +719,37 @@ def fincas(request):
                
     totales['porcentaje_numero'] = por_num
     totales['porcentaje_manzana'] = round(por_man)                  
-    
+    #calculando los promedios
+    lista = []
+    cero = 0
+    rango1 = 0
+    rango2 = 0
+    rango3 = 0
+    rango4 = 0
+    for x in consulta:
+        query = UsoTierra.objects.filter(encuesta=x, tierra=1).aggregate(AreaSuma=Sum('area'))
+        lista.append([x.id,query])
+
+    for nose in lista:
+        if nose[1]['AreaSuma'] == 0:
+            cero += 1
+        if nose[1]['AreaSuma'] >= 0.1 and  nose[1]['AreaSuma'] <= 10:
+            rango1 += 1
+        if nose[1]['AreaSuma'] >= 11 and nose[1]['AreaSuma'] <= 25:
+            rango2 += 1
+        if nose[1]['AreaSuma'] >= 26 and nose[1]['AreaSuma'] <= 50:
+            rango3 += 1
+        if nose[1]['AreaSuma'] >=51:
+            rango4 += 1
+    total_rangos = cero + rango1 + rango2 + rango3 + rango4
+    por_cero = round(saca_porcentajes(cero,total_rangos),2)
+    por_rango1 = round(saca_porcentajes(rango1,total_rangos),2)
+    por_rango2 = round(saca_porcentajes(rango2,total_rangos),2)
+    por_rango3 = round(saca_porcentajes(rango3,total_rangos),2)
+    por_rango4 = round(saca_porcentajes(rango4,total_rangos),2)
+    total_porcentajes = round((por_cero + por_rango1 + por_rango2 + por_rango3 + por_rango4),1)
         
-    return render_to_response('reforestacion/fincas.html', 
-                              {'tabla':tabla, 'totales': totales,
-                              'num_familias': consulta.count()},
+    return render_to_response('reforestacion/fincas.html', locals(),
                               context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
 #Tabla Existencia Arboles
@@ -1107,8 +1137,10 @@ def ingresos(request):
         matriz[key] = {'frecuencia':frecuencia,'meses':meses,
                        'ingreso':ingreso,'ingresototal':ingresototal}
                        
-                       
-    respuesta['brutoo'] = round((respuesta['ingreso_total'] + respuesta['ingreso_otro']) / num_familias,2)
+    try:                   
+        respuesta['brutoo'] = round((respuesta['ingreso_total'] + respuesta['ingreso_otro']) / num_familias,2)
+    except:
+        pass
     respuesta['total_neto'] = round(respuesta['brutoo'] * 0.6,2)
         
     return render_to_response('ingresos/ingreso.html',
