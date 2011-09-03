@@ -2,6 +2,115 @@
 {%load unslugify %}
 
 {% block extra_header %}
+<script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
+<script type="text/javascript">
+var chart;
+$(document).ready(function() {
+   chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'container',
+         plotBackgroundColor: null,
+         plotBorderWidth: null,
+         plotShadow: false
+      },
+      title: {
+         text: 'Rangos de Manzanas'
+      },
+      tooltip: {
+         formatter: function() {
+            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+         }
+      },
+      plotOptions: {
+         pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+               enabled: false
+            },
+            showInLegend: true
+         }
+      },
+       series: [{
+         type: 'pie',
+         name: 'Rangos de manzanas',
+         data: [
+            ['0 Mz',   {{por_cero}}],
+            ['1 - 10 Mz', {{por_rango1}}],
+            ['11 - 25 Mz', {{por_rango2}}],
+            ['26 - 50 Mz',  {{por_rango3}}],
+            ['más de 50 Mz', {{por_rango4}}]
+         ]
+      }]
+   });
+});
+
+var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container1',
+                defaultSeriesType: 'column'
+            },
+            title: {
+                text: 'Uso de tierra'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    'Opciones'
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cantidad Mz'
+                }
+            },
+            
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +'';
+                }
+            },
+            plotOptions: {
+                column: {
+                    groupPadding: 0,
+                    pointPadding: 0.9,
+                    borderWidth: 0
+                },
+                series: {
+                    pointWidth: 40,
+                    minPointLength : 1
+                }
+            },
+            series: [{% for key, value in tabla.items %}
+                {
+                    name: '{{key|unslugify}}',
+                    data: [{{value.manzanas}}],
+                    dataLabels: {
+                        enabled: true,
+                        rotation: 0,
+                        color: '#632D00',
+                        align: 'center',
+                        x: -3,
+                        y: 0,
+                            formatter: function() {
+                                return this.y + '';
+                                                  },
+                        style: {
+                            font: 'normal 13px Verdana, sans-serif'
+                                }
+                                }
+                },
+                {% endfor %}]
+        });
+    });
+</script>
     <script type="text/javascript">
     $(document).ready(function() {
         $(".usotierra").addClass("activa");
@@ -34,6 +143,25 @@ $(document).ready(function () {
     });
 });
 </script>
+
+<script type="text/javascript">
+            var flag = true;
+            $(document).ready(function(){
+                $('#mas').click(function(){
+                    if(flag==true){
+                        $('#mostrar').slideDown('slow');
+                        
+                        flag = false;
+                    }else if (flag==false){
+                        $('#mostrar').slideUp('slow');
+                        
+                        flag = true;
+                    }
+                    return false;
+                });
+            });
+        </script>
+
 {%endblock%}
 {% block barra %}
 <div class="indicadores">
@@ -46,8 +174,16 @@ $(document).ready(function () {
     <div class="subindicador">Gráficos</a></div>
         <a href="#" id="grafico1" onCLick="click_callback('tenencia')"class="grafo">Tenencia de las Parcelas</a>
         <a href="#" id="grafico3" onCLick="click_callback('propietario')"class="grafo">Dueño de la Propiedad</a>
+        <a href="#" id="mas" class="grafo">Rangos en Manzanas</a>
+        <a href="#" id="mas" class="grafo">Uso de tierra</a>
 <div id="grafo"></div>
+    <div id="mostrar">
+        <div id="container"></div>
+    </div>
+        <div id="container1"></div>
 </div>
+
+
 
 <div class="contenido mediatabla">
 <div class="subindicador">Uso de Tierra<a href="#" class="exportar"></a></div>
