@@ -27,9 +27,11 @@ $(document).ready(function() {
             allowPointSelect: true,
             cursor: 'pointer',
             dataLabels: {
-               enabled: false
-            },
-            showInLegend: true
+               enabled: true,
+               formatter: function() {
+                  return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+               }
+            }
          }
       },
        series: [{
