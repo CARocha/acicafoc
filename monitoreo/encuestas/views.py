@@ -82,7 +82,10 @@ def _queryset_filtrado(request):
         params['sexo'] = request.session['sexo']
         
     if 'organizacion' in request.session:
-        params['beneficiario__in'] = request.session['organizacion']            
+        params['beneficiario__in'] = request.session['organizacion']
+
+    if 'grupo' in  request.session:
+        params['grupo'] = request.session['grupo']            
 
     if 'duenio' in  request.session:
         params['tenencia__dueno'] = request.session['duenio']
@@ -125,6 +128,7 @@ def inicio(request):
 
 #            request.session['municipio'] = municipio 
 #            request.session['comunidad'] = comunidad
+            request.session['grupo'] = form.cleaned_data['grupo']
             request.session['sexo'] = form.cleaned_data['sexo']
             request.session['duenio'] = form.cleaned_data['dueno']
 
