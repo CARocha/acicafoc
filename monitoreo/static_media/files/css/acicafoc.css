@@ -644,3 +644,10 @@ list-style-position: outside; }
 .ui-multiselect-header ul li{
     font-size:10px !important;
 }
+
+#mostrar {
+    display: none;
+}
+#mostrar2 {
+    display: none;
+}
