@@ -1391,10 +1391,16 @@ def plantaciones(request):
     frecuencia = round(saca_porcentajes(conteo,num_familia))
         #numero de plantas
     total_planta = a.aggregate(total_planta=Sum('vivero__plantas'))['total_planta']
-    promedio_planta = round(total_planta / conteo)
+    try:
+        promedio_planta = round(total_planta / conteo)
+    except:
+        pass
         #numero de plantas injertadas
     n_injertada = a.aggregate(n_injertada=Sum('vivero__planta_injerto'))['n_injertada']
-    promedio_injerto = round(n_injertada / conteo)
+    try:
+        promedio_injerto = round(n_injertada / conteo)
+    except:
+        pass
     vivero = (conteo,frecuencia,'---','---',total_planta,promedio_planta,n_injertada,
               promedio_injerto)
         

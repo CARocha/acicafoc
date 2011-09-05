@@ -19,7 +19,7 @@ $(document).ready(function() {
       },
       tooltip: {
          formatter: function() {
-            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+            return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';
          }
       },
       plotOptions: {
@@ -29,7 +29,7 @@ $(document).ready(function() {
             dataLabels: {
                enabled: true,
                formatter: function() {
-                  return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                  return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';
                }
             }
          }
