@@ -14,7 +14,8 @@
 </script>
 
 <script type="text/javascript">
-    var activo = 0; 
+    var activo = 0;
+    $.ajaxSetup({ cache: false }); 
     function click_callback(id){
         $.getJSON('/grafo/organizacion/' + id, function(data) {
             if (activo!= id){
