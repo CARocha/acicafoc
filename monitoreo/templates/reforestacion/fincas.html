@@ -2,17 +2,13 @@
 {%load unslugify %}
 
 {% block extra_header %}
-<script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
-<script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
 <script type="text/javascript">
 var chart;
 $(document).ready(function() {
    chart = new Highcharts.Chart({
       chart: {
          renderTo: 'container',
-         plotBackgroundColor: null,
-         plotBorderWidth: null,
-         plotShadow: false
+         defaultSeriesType: 'pie'
       },
       title: {
          text: 'Rangos de Manzanas'
@@ -23,19 +19,29 @@ $(document).ready(function() {
          }
       },
       plotOptions: {
-         pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-               enabled: true,
-               formatter: function() {
-                  return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';
-               }
-            }
-         }
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                 enabled: false
+              },
+              showInLegend: true
+           },
+           series: {
+              dataLabels: {
+                  enabled: true,
+                  align: "center",
+                  formatter: function() {
+                      return ''+ this.percentage.toFixed(1) + ' %';
+                  },
+                  color: '#000',
+                  style: {
+                      font: '12px Trebuchet MS, Verdana, sans-serif'
+                  }
+              }
+          }
       },
-       series: [{
-         type: 'pie',
+       series: [{         
          name: 'Rangos de manzanas',
          data: [
             ['0 Mz',   {{por_cero}}],
@@ -107,7 +113,7 @@ var chart1;
                         style: {
                             font: 'normal 13px Verdana, sans-serif'
                                 }
-                                }
+                    }
                 },
                 {% endfor %}]
         });
