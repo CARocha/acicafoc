@@ -4,7 +4,7 @@
     
     <div class="nombrefiltro">Filtros </div>
     {%if request.session.fecha%}
-                    <div class="filtrovalor"><b>Año</b><br>{%for x in request.session.fecha%}{{x}}, {%endfor%}</div>{%endif%}
+                    <div class="filtrovalor"><b>Año</b><br>{%for x in request.session.fecha%}{{x}}{% if not forloop.last %}, {% endif %}{%endfor%}</div>{%endif%}
                     {%if request.session.departamento%}
                     <div class="filtrovalor"><b>Departamento:</b><br>{%for a in request.session.departamento.all %}{{a}}, {%endfor%}</div>{%endif%}
                     {%if request.session.organizacion%}
