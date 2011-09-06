@@ -6,6 +6,7 @@
 {% block extra_header %}
 <script type="text/javascript">
     var activo = 0;
+    $.ajaxSetup({ cache: false }); 
     function click_callback(id){
         $.getJSON('/grafo/ingreso/' + id, function(data) {
             if (activo!= id){

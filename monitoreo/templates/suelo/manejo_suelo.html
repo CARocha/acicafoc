@@ -17,7 +17,8 @@
     //si activo es 0 el html interno esta vacio
     //caso si activo es otro num sustituir grafico
     //si activo es el mismo id, esconder grafico
-    var activo = 0; 
+    var activo = 0;
+    $.ajaxSetup({ cache: false }); 
     function click_callback(id){
         $.getJSON('/grafo/manejosuelo/' + id, function(data) {
             if (activo!= id){
