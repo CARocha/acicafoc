@@ -7,8 +7,16 @@ from monitoreo.encuestas.models import *
 
 # Indicador 14. Seguridad alimentaria
 
+CHOICE_CATEGORIA = (
+                        (1,'Carbohidrátos'),
+                        (2,'Grasas'),
+                        (3,'Minerales/Vitaminas'),
+                        (4,'Proteinas')
+                    )
+
 class Alimentos(models.Model):
     nombre = models.CharField(max_length=100)
+    categoria = models.IntegerField(choices=CHOICE_CATEGORIA, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
