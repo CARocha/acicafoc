@@ -2,6 +2,117 @@
 {%load unslugify %}
 
 {% block extra_header %}
+<script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
+<script type="text/javascript">
+var chart;
+$(document).ready(function() {
+   chart = new Highcharts.Chart({
+      chart: {
+         renderTo: 'container',
+         plotBackgroundColor: null,
+         plotBorderWidth: null,
+         plotShadow: false
+      },
+      title: {
+         text: 'Rangos de Manzanas'
+      },
+      tooltip: {
+         formatter: function() {
+            return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';
+         }
+      },
+      plotOptions: {
+         pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+               enabled: true,
+               formatter: function() {
+                  return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';
+               }
+            }
+         }
+      },
+       series: [{
+         type: 'pie',
+         name: 'Rangos de manzanas',
+         data: [
+            ['0 Mz',   {{por_cero}}],
+            ['1 - 10 Mz', {{por_rango1}}],
+            ['11 - 25 Mz', {{por_rango2}}],
+            ['26 - 50 Mz',  {{por_rango3}}],
+            ['más de 50 Mz', {{por_rango4}}]
+         ]
+      }]
+   });
+});
+
+var chart1;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container1',
+                defaultSeriesType: 'column'
+            },
+            title: {
+                text: 'Uso de tierra'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                    'Opciones'
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Cantidad Mz'
+                }
+            },
+            
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +'';
+                }
+            },
+            plotOptions: {
+                column: {
+                    groupPadding: 0,
+                    pointPadding: 0.9,
+                    borderWidth: 0
+                },
+                series: {
+                    pointWidth: 40,
+                    minPointLength : 1
+                }
+            },
+            series: [{% for key, value in tabla.items %}
+                {
+                    name: '{{key|unslugify}}',
+                    data: [{{value.manzanas}}],
+                    dataLabels: {
+                        enabled: true,
+                        rotation: 0,
+                        color: '#632D00',
+                        align: 'center',
+                        x: -3,
+                        y: 0,
+                            formatter: function() {
+                                return this.y + '';
+                                                  },
+                        style: {
+                            font: 'normal 13px Verdana, sans-serif'
+                                }
+                                }
+                },
+                {% endfor %}]
+        });
+    });
+</script>
     <script type="text/javascript">
     $(document).ready(function() {
         $(".usotierra").addClass("activa");
@@ -34,6 +145,43 @@ $(document).ready(function () {
     });
 });
 </script>
+
+<script type="text/javascript">
+var flag = true;
+$(document).ready(function(){
+    $('#mas').click(function(){
+        if(flag==true){
+            $('#mostrar').slideDown('slow');
+            
+            flag = false;
+        }else if (flag==false){
+            $('#mostrar').slideUp('slow');
+            
+            flag = true;
+        }
+        return false;
+    });
+});
+</script>
+
+<script type="text/javascript">
+var flag = true;
+$(document).ready(function(){
+    $('#mas2').click(function(){
+        if(flag==true){
+            $('#mostrar2').slideDown('slow');
+            
+            flag = false;
+        }else if (flag==false){
+            $('#mostrar2').slideUp('slow');
+            
+            flag = true;
+        }
+        return false;
+    });
+});
+</script>
+
 {%endblock%}
 {% block barra %}
 <div class="indicadores">
@@ -46,8 +194,18 @@ $(document).ready(function () {
     <div class="subindicador">Gráficos</a></div>
         <a href="#" id="grafico1" onCLick="click_callback('tenencia')"class="grafo">Tenencia de las Parcelas</a>
         <a href="#" id="grafico3" onCLick="click_callback('propietario')"class="grafo">Dueño de la Propiedad</a>
+        <a href="#" id="mas" class="grafo">Rangos en Manzanas</a>
+        <a href="#" id="mas2" class="grafo">Uso de tierra</a>
 <div id="grafo"></div>
+    <div id="mostrar">
+        <div id="container"></div>
+    </div>
+    <div id="mostrar2">
+        <div id="container1"></div>
+    </div>
 </div>
+
+
 
 <div class="contenido mediatabla">
 <div class="subindicador">Uso de Tierra<a href="#" class="exportar"></a></div>
@@ -74,11 +232,64 @@ $(document).ready(function () {
             {%endfor%}
                 <tr>
                     <th>Area Total</th>
-                    <th>{{totales.numero}}</th>
-                    <th>{{totales.porcentaje_numero}}</th>
+                    <th></th>
+                    <th></th>
                     <th>{{totales.manzanas}}</th>
                     <th>{{totales.porcentaje_manzana}}</th>
                 </tr>
+        </tbody>
+    </table>
+    <table>
+    </br>
+        <tr>
+        <th>Promedio Mz: {{totales.promedio_manzana}}</th>
+        </tr>
+    </table>
+  <br>  
+<table style="width:100%;">
+        <thead>
+            <tr>
+                <th>Rangos</th>
+                <th>Frecuencias</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+			    <td>0 Mz</td>
+			    <td>{{cero}}</td>
+			    <td>{{por_cero}}</td>
+			    
+		    </tr>
+		    <tr>
+			    <td>1 -- 10 Mz</td>
+			    <td>{{rango1}}</td>
+			    <td>{{por_rango1}}</td>
+			    
+		    </tr>
+		    <tr>
+			    <td>11 -- 25 Mz</td>
+			    <td>{{rango2}}</td>
+			    <td>{{por_rango2}}</td>
+			    
+		    </tr>
+		    <tr>
+			    <td>26 -- 50 Mz</td>
+			    <td>{{rango3}}</td>
+			    <td>{{por_rango3}}</td>
+			    
+		    </tr>
+		    <tr>
+			    <td>Más de 50 Mz</td>
+			    <td>{{rango4}}</td>
+			    <td>{{por_rango4}}</td>
+			    
+		    </tr>
+            <tr>
+                <th>Rangos Total</th>
+                <th>{{total_rangos}}</th>
+                <th>{{total_porcentajes}}</th>
+            </tr>
         </tbody>
     </table>
 </div>

@@ -82,7 +82,10 @@ def _queryset_filtrado(request):
         params['sexo'] = request.session['sexo']
         
     if 'organizacion' in request.session:
-        params['beneficiario'] = request.session['organizacion']            
+        params['beneficiario__in'] = request.session['organizacion']
+
+    if 'grupo' in  request.session:
+        params['grupo'] = request.session['grupo']            
 
     if 'duenio' in  request.session:
         params['tenencia__dueno'] = request.session['duenio']
@@ -125,6 +128,7 @@ def inicio(request):
 
 #            request.session['municipio'] = municipio 
 #            request.session['comunidad'] = comunidad
+            request.session['grupo'] = form.cleaned_data['grupo']
             request.session['sexo'] = form.cleaned_data['sexo']
             request.session['duenio'] = form.cleaned_data['dueno']
 
@@ -675,8 +679,7 @@ def comunitario(request):
                               'uno':uno,'dos':dos,'tres':tres},
                                 context_instance=RequestContext(request) )
 #-------------------------------------------------------------------------------
-                          #aca van grafos de tenencia
-                          
+                          #aca van grafos de tenencia                       
 #Tabla Uso Tierra
 @session_required
 def fincas(request):
@@ -685,6 +688,7 @@ def fincas(request):
     tabla = {}
     totales = {}
     consulta = _queryset_filtrado(request)
+    num_familias = consulta.count()
     
     suma = 0
     total_manzana = 0
@@ -695,10 +699,14 @@ def fincas(request):
         conteo = consulta.filter(usotierra__tierra = total)
         suma += conteo.count()
         man = conteo.aggregate(area = Sum('usotierra__area'))['area']
-        total_manzana += man
+        try:
+            total_manzana += man
+        except:
+            total_manzana = 0
     
     totales['numero'] = suma
     totales['manzanas'] = round(total_manzana,0)
+    totales['promedio_manzana'] = round(totales['manzanas'] / consulta.count(),2)
 
     for uso in Uso.objects.exclude(id=1):
         key = slugify(uso.nombre).replace('-', '_')
@@ -715,11 +723,37 @@ def fincas(request):
                
     totales['porcentaje_numero'] = por_num
     totales['porcentaje_manzana'] = round(por_man)                  
-    
+    #calculando los promedios
+    lista = []
+    cero = 0
+    rango1 = 0
+    rango2 = 0
+    rango3 = 0
+    rango4 = 0
+    for x in consulta:
+        query = UsoTierra.objects.filter(encuesta=x, tierra=1).aggregate(AreaSuma=Sum('area'))
+        lista.append([x.id,query])
+
+    for nose in lista:
+        if nose[1]['AreaSuma'] == 0:
+            cero += 1
+        if nose[1]['AreaSuma'] >= 0.1 and  nose[1]['AreaSuma'] <= 10:
+            rango1 += 1
+        if nose[1]['AreaSuma'] >= 11 and nose[1]['AreaSuma'] <= 25:
+            rango2 += 1
+        if nose[1]['AreaSuma'] >= 26 and nose[1]['AreaSuma'] <= 50:
+            rango3 += 1
+        if nose[1]['AreaSuma'] >=51:
+            rango4 += 1
+    total_rangos = cero + rango1 + rango2 + rango3 + rango4
+    por_cero = round(saca_porcentajes(cero,total_rangos),2)
+    por_rango1 = round(saca_porcentajes(rango1,total_rangos),2)
+    por_rango2 = round(saca_porcentajes(rango2,total_rangos),2)
+    por_rango3 = round(saca_porcentajes(rango3,total_rangos),2)
+    por_rango4 = round(saca_porcentajes(rango4,total_rangos),2)
+    total_porcentajes = round((por_cero + por_rango1 + por_rango2 + por_rango3 + por_rango4),1)
         
-    return render_to_response('reforestacion/fincas.html', 
-                              {'tabla':tabla, 'totales': totales,
-                              'num_familias': consulta.count()},
+    return render_to_response('reforestacion/fincas.html', locals(),
                               context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
 #Tabla Existencia Arboles
@@ -1095,16 +1129,22 @@ def ingresos(request):
         key = slugify(j.nombre).replace('-','_')
         consulta = a.filter(otrosingresos__fuente = j)
         frecuencia = consulta.count()
-        meses = consulta.aggregate(meses=Avg('otrosingresos__meses'))['meses']
+        meses = consulta.aggregate(meses=Sum('otrosingresos__meses'))['meses']
         ingreso = consulta.aggregate(ingreso=Avg('otrosingresos__ingreso'))['ingreso']
-        ingresototal = round(meses * ingreso,2)
-        #ingresototal = consulta.aggregate(meses=Avg('otrosingresos__meses'))['meses'] * consulta.aggregate(ingreso=Avg('otrosingresos__ingreso'))['ingreso'] if meses != None and ingreso != None else 0
+        try:
+            ingresototal = round(meses * ingreso,2)
+        except:
+            ingresototal = 0
         respuesta['ingreso_otro'] +=  ingresototal
+        #ingresototal = consulta.aggregate(meses=Avg('otrosingresos__meses'))['meses'] * consulta.aggregate(ingreso=Avg('otrosingresos__ingreso'))['ingreso'] if meses != None and ingreso != None else 0
         #ingresototal = consulta.aggregate(total=Avg('otrosingresos__ingreso_total'))['total']
         matriz[key] = {'frecuencia':frecuencia,'meses':meses,
                        'ingreso':ingreso,'ingresototal':ingresototal}
                        
-    respuesta['brutoo'] = round((respuesta['ingreso_total'] + respuesta['ingreso_otro']) / num_familias,2)
+    try:                   
+        respuesta['brutoo'] = round((respuesta['ingreso_total'] + respuesta['ingreso_otro']) / num_familias,2)
+    except:
+        pass
     respuesta['total_neto'] = round(respuesta['brutoo'] * 0.6,2)
         
     return render_to_response('ingresos/ingreso.html',
@@ -1243,13 +1283,28 @@ def graves(request,numero):
     a = _queryset_filtrado(request)
     num_familia = a.count()
     #******************************************
-    
+    suma = 0
+    for p in Graves.objects.all():
+        fenomeno = a.filter(vulnerable__motivo__id=numero, vulnerable__respuesta=p).count()
+        suma += fenomeno
+        
     lista = []
     for x in Graves.objects.all():
         fenomeno = a.filter(vulnerable__motivo__id=numero, vulnerable__respuesta=x).count()
-        #lista.append([x.nombre,fenomeno])
-        lista.append([x.nombre,fenomeno])        
+        porcentaje = round(saca_porcentajes(fenomeno,suma),2)
+        lista.append([x.nombre,fenomeno,porcentaje])        
     return lista
+    
+def suma_graves(request,numero):
+    #********variables globales****************
+    a = _queryset_filtrado(request)
+    num_familia = a.count()
+    #******************************************
+    suma = 0
+    for p in Graves.objects.all():
+        fenomeno = a.filter(vulnerable__motivo__id=numero, vulnerable__respuesta=p).count()
+        suma += fenomeno
+    return suma
 
 @session_required
 def vulnerable(request):
@@ -1262,24 +1317,37 @@ def vulnerable(request):
     
     #fenomenos naturales
     sequia = graves(request,1)
+    total_sequia = suma_graves(request,1)
     inundacion = graves(request,2)
+    total_inundacion = suma_graves(request,2)
     vientos = graves(request,3)
+    total_vientos = suma_graves(request,3)
     deslizamiento = graves(request,4)
+    total_deslizamiento = suma_graves(request,4)
     
     #Razones agricolas
     falta_semilla = graves(request,5)
+    total_falta_semilla = suma_graves(request,5)
     mala_semilla = graves(request,6)
+    total_mala_semilla = suma_graves(request,6)
     plagas = graves(request,7)
+    total_plagas = suma_graves(request,7)
     
     #Razones de mercado
     bajo_precio = graves(request,8)
+    total_bajo_precio = suma_graves(request,8)
     falta_venta = graves(request,9)
+    total_falta_venta = suma_graves(request,9)
     estafa = graves(request,10)
+    total_estafa = suma_graves(request,10)
     falta_calidad = graves(request,11)
+    total_falta_calidad = suma_graves(request,11)
     
     #inversion
     falta_credito = graves(request,12)
-    alto_interes = graves(request,13)     
+    total_falta_credito = suma_graves(request,12)
+    alto_interes = graves(request,13)
+    total_alto_interes = suma_graves(request,13)     
             
 #    lista2 = []
 #    for i in Fenomeno.objects.all():
@@ -1327,10 +1395,16 @@ def plantaciones(request):
     frecuencia = round(saca_porcentajes(conteo,num_familia))
         #numero de plantas
     total_planta = a.aggregate(total_planta=Sum('vivero__plantas'))['total_planta']
-    promedio_planta = round(total_planta / conteo)
+    try:
+        promedio_planta = round(total_planta / conteo)
+    except:
+        pass
         #numero de plantas injertadas
     n_injertada = a.aggregate(n_injertada=Sum('vivero__planta_injerto'))['n_injertada']
-    promedio_injerto = round(n_injertada / conteo)
+    try:
+        promedio_injerto = round(n_injertada / conteo)
+    except:
+        pass
     vivero = (conteo,frecuencia,'---','---',total_planta,promedio_planta,n_injertada,
               promedio_injerto)
         
