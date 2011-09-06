@@ -712,7 +712,7 @@ def fincas(request):
         key = slugify(uso.nombre).replace('-', '_')
         query = consulta.filter(usotierra__tierra = uso)
         numero = query.count()
-        porcentaje_num = saca_porcentajes(numero, totales['numero'])
+        porcentaje_num = saca_porcentajes(numero, num_familias)
         por_num += porcentaje_num
         manzanas = query.aggregate(area = Sum('usotierra__area'))['area']
         porcentaje_mz = saca_porcentajes(manzanas, totales['manzanas'])
