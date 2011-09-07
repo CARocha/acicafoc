@@ -6,27 +6,26 @@
 {% include "filtros.html" %}
 <div class="contenido fulltabla">
 <div class="subindicador">La Seguridad Alimentaria<a href="#" class="exportar"></a></div>
-    <table style="width:100%;">
 
+<table style="width:100%;">
+    <caption>Alimentos que contienen carbohidrátos</caption>
         <thead>
             <tr>
                 <th>ALIMENTOS</th>
-                <!--        <th>FRECUENCIA</th>-->
-                <th>Producen</th>
+                <th># de familias que producen</th>
                 <th>%</th>
-                <th>Compran</th>
+                <th># de familias que compran</th>
                 <th>%</th>
-                <th>Consumen suficiente verano</th>
+                <th># de familias que consumen suficiente verano</th>
                 <th>%</th>
-                <th>Consumen suficiente invierno</th>
+                <th># de familias que consumen suficiente invierno</th>
                 <th>%</th>
             </tr>
         </thead>
         <tbody>
-            {%for key, value in tabla.items%}
+            {%for key, value in carbohidrato.items%}
             <tr>
                 <td>{{key|unslugify}}</td>
-                <!--        <td>{{value.frecuencia|floatformat}}</td>-->
                 <td>{{value.producen|floatformat}}</td>
                 <td>{{value.por_producen|floatformat}}</td>
                 <td>{{value.compran|floatformat}}</td>
@@ -39,6 +38,104 @@
             {%endfor%}
         </tbody>
     </table>
+    <br></br>
+<table style="width:100%;">
+    <caption>Alimentos que contienen grasas</caption>
+        <thead>
+            <tr>
+                <th>ALIMENTOS</th>
+                <th># de familias que producen</th>
+                <th>%</th>
+                <th># de familias que compran</th>
+                <th>%</th>
+                <th># de familias que consumen suficiente verano</th>
+                <th>%</th>
+                <th># de familias que consumen suficiente invierno</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in grasa.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.producen|floatformat}}</td>
+                <td>{{value.por_producen|floatformat}}</td>
+                <td>{{value.compran|floatformat}}</td>
+                <td>{{value.por_compran|floatformat}}</td>
+                <td>{{value.consumen|floatformat}}</td>
+                <td>{{value.por_consumen|floatformat}}</td>
+                <td>{{value.invierno|floatformat}}</td>
+                <td>{{value.por_invierno|floatformat}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <br></br>
+<table style="width:100%;">
+    <caption>Alimentos que contienen minerales/vitaminas</caption>
+        <thead>
+            <tr>
+                <th>ALIMENTOS</th>
+                <th># de familias que producen</th>
+                <th>%</th>
+                <th># de familias que compran</th>
+                <th>%</th>
+                <th># de familias que consumen suficiente verano</th>
+                <th>%</th>
+                <th># de familias que consumen suficiente invierno</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in minerales.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.producen|floatformat}}</td>
+                <td>{{value.por_producen|floatformat}}</td>
+                <td>{{value.compran|floatformat}}</td>
+                <td>{{value.por_compran|floatformat}}</td>
+                <td>{{value.consumen|floatformat}}</td>
+                <td>{{value.por_consumen|floatformat}}</td>
+                <td>{{value.invierno|floatformat}}</td>
+                <td>{{value.por_invierno|floatformat}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+   <br></br> 
+<table style="width:100%;">
+    <caption>Alimentos que contienen proteinas</caption>
+        <thead>
+            <tr>
+                <th>ALIMENTOS</th>
+                <th># de familias que producen</th>
+                <th>%</th>
+                <th># de familias que compran</th>
+                <th>%</th>
+                <th># de familias que consumen suficiente verano</th>
+                <th>%</th>
+                <th># de familias que consumen suficiente invierno</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in proteinas.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.producen|floatformat}}</td>
+                <td>{{value.por_producen|floatformat}}</td>
+                <td>{{value.compran|floatformat}}</td>
+                <td>{{value.por_compran|floatformat}}</td>
+                <td>{{value.consumen|floatformat}}</td>
+                <td>{{value.por_consumen|floatformat}}</td>
+                <td>{{value.invierno|floatformat}}</td>
+                <td>{{value.por_invierno|floatformat}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    
 </div>
+<br></br>
 <div class="clean"></div>
 {% endblock %}
