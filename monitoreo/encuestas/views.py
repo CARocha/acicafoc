@@ -1285,26 +1285,6 @@ def seguridad_alimentaria(request):
     grasa = alimentos(request,2)
     minerales = alimentos(request,3)
     proteinas = alimentos(request,4)
-    
-
-#    tabla = {}
-#    
-#    for u in Alimentos.objects.all():
-#        key = slugify(u.nombre).replace('-','_')
-#        query = a.filter(seguridad__alimento = u)
-#        frecuencia = query.count()
-#        producen = query.filter(seguridad__alimento=u,seguridad__producen=1).aggregate(producen=Count('seguridad__producen'))['producen']
-#        por_producen = saca_porcentajes(producen, num_familia)
-#        compran = query.filter(seguridad__alimento=u,seguridad__compran=1).aggregate(compran=Count('seguridad__compran'))['compran']
-#        por_compran = saca_porcentajes(compran, num_familia)
-#        consumen = query.filter(seguridad__alimento=u,seguridad__consumen=1).aggregate(consumen=Count('seguridad__consumen'))['consumen']
-#        por_consumen = saca_porcentajes(consumen, num_familia)
-#        invierno = query.filter(seguridad__alimento=u,seguridad__consumen_invierno=1).aggregate(invierno=Count('seguridad__consumen_invierno'))['invierno']
-#        por_invierno = saca_porcentajes(invierno, num_familia)
-#        tabla[key] = {'frecuencia':frecuencia, 'producen':producen, 'por_producen':por_producen,
-#                      'compran':compran,'por_compran':por_compran,'consumen':consumen, 
-#                      'por_consumen':por_consumen, 'invierno':invierno,
-#                      'por_invierno':por_invierno}
                      
                       
     return render_to_response('seguridad/seguridad.html',locals(),
