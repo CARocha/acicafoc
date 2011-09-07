@@ -1285,8 +1285,28 @@ def seguridad_alimentaria(request):
     grasa = alimentos(request,2)
     minerales = alimentos(request,3)
     proteinas = alimentos(request,4)
-                     
-                      
+    lista = []
+    carbo = 0
+    for k,v in carbohidrato.items():
+        if v['producen'] > 0:
+            carbo += 1
+            
+    gra = 0
+    for k,v in grasa.items():
+        if v['producen'] > 0:
+            gra += 1
+            
+    mine = 0
+    for k,v in minerales.items():
+        if v['producen'] > 0:
+            mine += 1
+            
+    prot = 0
+    for k,v in proteinas.items():
+        if v['producen'] > 0:
+            prot += 1      
+    lista.append({'Carbohidrato':carbo,'Grasa':gra,'Minerales/Vitamina':mine,'Proteinas':prot}) 
+                                 
     return render_to_response('seguridad/seguridad.html',locals(),
                                context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
