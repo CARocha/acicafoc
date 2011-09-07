@@ -1267,8 +1267,8 @@ def alimentos(request,numero):
         por_invierno = saca_porcentajes(invierno, num_familia)
         tabla[key] = {'frecuencia':frecuencia, 'producen':producen, 'por_producen':por_producen,
                       'compran':compran,'por_compran':por_compran,'consumen':consumen, 
-                      'por_consumen':por_consumen, 'invierno':invierno,
-                      'por_invierno':por_invierno}
+                      'por_consumen':int(por_consumen), 'invierno':invierno,
+                      'por_invierno':int(por_invierno)}
     return tabla
 
 
@@ -1286,6 +1286,7 @@ def seguridad_alimentaria(request):
     minerales = alimentos(request,3)
     proteinas = alimentos(request,4)
     
+
 #    tabla = {}
 #    
 #    for u in Alimentos.objects.all():
