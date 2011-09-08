@@ -1092,6 +1092,30 @@ def manejosuelo(request):
 #-------------------------------------------------------------------------------
                 #Tabla Ingreso familiar y otros ingresos
 #-------------------------------------------------------------------------------
+def total_ingreso(request, numero):
+    #******Variables***************
+    a = _queryset_filtrado(request)
+    num_familias = a.count()
+    #******************************
+    #*******calculos de las variables ingreso************
+    tabla = {}
+    for i in Rubros.objects.filter(categoria=numero):
+        key = slugify(i.nombre).replace('-','_')
+        key2 = slugify(i.unidad).replace('-','_')
+        query = a.filter(ingresofamiliar__rubro = i)
+        numero = query.count()
+        cantidad = query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad']
+        precio = query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio']
+        ingreso = cantidad * precio if cantidad != None and precio != None else 0
+        #respuesta['ingreso'] = round(ingreso,0)
+        #respuesta['ingreso']= round(query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad'] * query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio'],) if cantidad != None and precio != None else 0
+        #respuesta['ingreso_total'] +=  respuesta['ingreso']
+        
+        tabla[key] = {'key2':key2,'numero':numero,'cantidad':cantidad,
+                      'precio':precio,'ingreso':ingreso}
+                      
+    return tabla
+
 @session_required
 def ingresos(request):
     '''tabla de ingresos'''
@@ -1100,28 +1124,77 @@ def ingresos(request):
     num_familias = a.count()
     #******************************
     #*******calculos de las variables ingreso************
-    tabla = {}
     respuesta = {}
-    respuesta['bruto']=[]
+    respuesta['bruto']= 0
     respuesta['ingreso']=0
     respuesta['ingreso_total']=0
     respuesta['ingreso_otro']=0
     respuesta['brutoo'] = 0
     respuesta['total_neto'] = 0
-    for i in Rubros.objects.all():
-        key = slugify(i.nombre).replace('-','_')
-        key2 = slugify(i.unidad).replace('-','_')
-        query = a.filter(ingresofamiliar__rubro = i)
-        numero = query.count()
-        cantidad = query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad']
-        precio = query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio']
-        ingreso = cantidad * precio if cantidad != None and precio != None else 0
-        respuesta['ingreso'] = round(ingreso,0)
-        #respuesta['ingreso']= round(query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad'] * query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio'],) if cantidad != None and precio != None else 0
-        respuesta['ingreso_total'] +=  respuesta['ingreso']
+    agro = total_ingreso(request,1)
+    forestal = total_ingreso(request,2)
+    grano_basico = total_ingreso(request,3)
+    ganado_mayor = total_ingreso(request,4)
+    patio = total_ingreso(request,5)
+    frutas = total_ingreso(request,6)
+    musaceas = total_ingreso(request,7)
+    raices = total_ingreso(request,8)
+    
+    total_agro = 0
+    for k,v in agro.items():
+        total_agro += round(v['ingreso'],1)
+    
+    total_forestal = 0
+    for k,v in forestal.items():
+        total_forestal += round(v['ingreso'],1)
+    
+    total_basico = 0
+    for k,v in grano_basico.items():
+        total_basico += round(v['ingreso'],1)
+    
+    total_ganado = 0
+    for k,v in ganado_mayor.items():
+        total_ganado += round(v['ingreso'],1)
+    
+    total_patio = 0
+    for k,v in patio.items():
+        total_patio += round(v['ingreso'],1)
+    
+    total_fruta = 0
+    for k,v in frutas.items():
+        total_fruta += round(v['ingreso'],1)
+    
+    total_musaceas = 0
+    for k,v in musaceas.items():
+        total_musaceas += round(v['ingreso'],1)
+    
+    total_raices = 0
+    for k,v in raices.items():
+        total_raices += round(v['ingreso'],1)
         
-        tabla[key] = {'key2':key2,'numero':numero,'cantidad':cantidad,
-                      'precio':precio,'ingreso':ingreso}
+    respuesta['ingreso'] = total_agro + total_forestal + total_basico + total_ganado + total_patio + total_fruta + total_musaceas + total_raices  
+#    tabla = {}
+#    respuesta = {}
+#    respuesta['bruto']=[]
+#    respuesta['ingreso']=0
+#    respuesta['ingreso_total']=0
+#    respuesta['ingreso_otro']=0
+#    respuesta['brutoo'] = 0
+#    respuesta['total_neto'] = 0
+#    for i in Rubros.objects.all():
+#        key = slugify(i.nombre).replace('-','_')
+#        key2 = slugify(i.unidad).replace('-','_')
+#        query = a.filter(ingresofamiliar__rubro = i)
+#        numero = query.count()
+#        cantidad = query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad']
+#        precio = query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio']
+#        ingreso = cantidad * precio if cantidad != None and precio != None else 0
+#        respuesta['ingreso'] = round(ingreso,0)
+#        #respuesta['ingreso']= round(query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad'] * query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio'],) if cantidad != None and precio != None else 0
+#        respuesta['ingreso_total'] +=  respuesta['ingreso']
+#        
+#        tabla[key] = {'key2':key2,'numero':numero,'cantidad':cantidad,
+#                      'precio':precio,'ingreso':ingreso}
         
     #********* calculos de las variables de otros ingresos******
     matriz = {}
@@ -1142,14 +1215,12 @@ def ingresos(request):
                        'ingreso':ingreso,'ingresototal':ingresototal}
                        
     try:                   
-        respuesta['brutoo'] = round((respuesta['ingreso_total'] + respuesta['ingreso_otro']) / num_familias,2)
+        respuesta['bruto'] = round((respuesta['ingreso'] + respuesta['ingreso_otro']) / num_familias,2)
     except:
         pass
-    respuesta['total_neto'] = round(respuesta['brutoo'] * 0.6,2)
+    respuesta['total_neto'] = round(respuesta['bruto'] * 0.6,2)
         
-    return render_to_response('ingresos/ingreso.html',
-                              {'tabla':tabla,'num_familias':num_familias,'matriz':matriz,
-                              'respuesta':respuesta},
+    return render_to_response('ingresos/ingreso.html',locals(),
                               context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
                          #bienes

@@ -52,19 +52,19 @@ $(document).ready(function () {
 
 <div id="modalidad">
     <table style="width:100%">
-        <caption></caption>
+        <caption>Agroforestales</caption>
         <thead>
             <tr>
                 <th style="font-size:9px;">RUBROS</th>
-                <th style="font-size:9px;">Número de familias</th>
+                <th style="font-size:9px;">Número de familias que venden</th>
                 <th style="font-size:9px;">Unidad</th>
-                <th style="font-size:9px;">Cantidad vendida</th>
-                <th style="font-size:9px;">Precio <br> promedio</th>
-                <th style="font-size:9px;">Ingreso<br> por venta</th>
+                <th style="font-size:9px;">Cantidad vendida por familia</th>
+                <th style="font-size:9px;">Precio promedio</th>
+                <th style="font-size:9px;">Ingreso por venta</th>
             </tr>
         </thead>
         <tbody>
-            {%for key, value in tabla.items%}
+            {%for key, value in agro.items%}
             <tr>
                 <td>{{key|unslugify}}</td>
                 <td>{{value.numero|floatformat}}</td>
@@ -81,9 +81,258 @@ $(document).ready(function () {
             <th></th>
             <th></th>
             <th></th>
-            <th>{{respuesta.ingreso_total|intcomma}}</th>
+            <th>{{total_agro|intcomma}}</th>
         </tr>
 
+    </table>
+    <br></br>
+    <table style="width:100%">
+        <caption>Forestales</caption>
+        <thead>
+            <tr>
+                <th style="font-size:9px;">RUBROS</th>
+                <th style="font-size:9px;">Número de familias que venden</th>
+                <th style="font-size:9px;">Unidad</th>
+                <th style="font-size:9px;">Cantidad vendida por familia</th>
+                <th style="font-size:9px;">Precio promedio</th>
+                <th style="font-size:9px;">Ingreso por venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in forestal.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.numero|floatformat}}</td>
+                <td>{{value.key2|unslugify}}</td>
+                <td>{{value.cantidad|floatformat}}</td>
+                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.ingreso|floatformat}}</td>
+
+                {%endfor%}
+        </tbody>
+        <tr>
+            <th>TOTAL VENTA RUBROS</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>{{total_forestal|intcomma}}</th>
+        </tr>
+
+    </table>
+    <br></br>
+    <table style="width:100%">
+        <caption>Granos básicos</caption>
+        <thead>
+            <tr>
+                <th style="font-size:9px;">RUBROS</th>
+                <th style="font-size:9px;">Número de familias que venden</th>
+                <th style="font-size:9px;">Unidad</th>
+                <th style="font-size:9px;">Cantidad vendida por familia</th>
+                <th style="font-size:9px;">Precio promedio</th>
+                <th style="font-size:9px;">Ingreso por venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in grano_basico.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.numero|floatformat}}</td>
+                <td>{{value.key2|unslugify}}</td>
+                <td>{{value.cantidad|floatformat}}</td>
+                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.ingreso|floatformat}}</td>
+
+                {%endfor%}
+        </tbody>
+        <tr>
+            <th>TOTAL VENTA RUBROS</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>{{total_basico|intcomma}}</th>
+        </tr>
+
+    </table>
+    <br></br>
+    <table style="width:100%">
+        <caption>Ganado mayor</caption>
+        <thead>
+            <tr>
+                <th style="font-size:9px;">RUBROS</th>
+                <th style="font-size:9px;">Número de familias que venden</th>
+                <th style="font-size:9px;">Unidad</th>
+                <th style="font-size:9px;">Cantidad vendida por familia</th>
+                <th style="font-size:9px;">Precio promedio</th>
+                <th style="font-size:9px;">Ingreso por venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in ganado_mayor.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.numero|floatformat}}</td>
+                <td>{{value.key2|unslugify}}</td>
+                <td>{{value.cantidad|floatformat}}</td>
+                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.ingreso|floatformat}}</td>
+
+                {%endfor%}
+        </tbody>
+        <tr>
+            <th>TOTAL VENTA RUBROS</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>{{total_ganado|intcomma}}</th>
+        </tr>
+
+    </table>
+    <br></br>
+    <table style="width:100%">
+        <caption>Animales de patio</caption>
+        <thead>
+            <tr>
+                <th style="font-size:9px;">RUBROS</th>
+                <th style="font-size:9px;">Número de familias que venden</th>
+                <th style="font-size:9px;">Unidad</th>
+                <th style="font-size:9px;">Cantidad vendida por familia</th>
+                <th style="font-size:9px;">Precio promedio</th>
+                <th style="font-size:9px;">Ingreso por venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in patio.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.numero|floatformat}}</td>
+                <td>{{value.key2|unslugify}}</td>
+                <td>{{value.cantidad|floatformat}}</td>
+                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.ingreso|floatformat}}</td>
+
+                {%endfor%}
+        </tbody>
+        <tr>
+            <th>TOTAL VENTA RUBROS</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>{{total_patio|intcomma}}</th>
+        </tr>
+
+    </table>
+    <br></br>
+    <table style="width:100%">
+        <caption>Hortalizas y frutas</caption>
+        <thead>
+            <tr>
+                <th style="font-size:9px;">RUBROS</th>
+                <th style="font-size:9px;">Número de familias que venden</th>
+                <th style="font-size:9px;">Unidad</th>
+                <th style="font-size:9px;">Cantidad vendida por familia</th>
+                <th style="font-size:9px;">Precio promedio</th>
+                <th style="font-size:9px;">Ingreso por venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in frutas.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.numero|floatformat}}</td>
+                <td>{{value.key2|unslugify}}</td>
+                <td>{{value.cantidad|floatformat}}</td>
+                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.ingreso|floatformat}}</td>
+
+                {%endfor%}
+        </tbody>
+        <tr>
+            <th>TOTAL VENTA RUBROS</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>{{total_fruta|intcomma}}</th>
+        </tr>
+
+    </table>
+    <br></br>
+    <table style="width:100%">
+        <caption>Musaceas</caption>
+        <thead>
+            <tr>
+                <th style="font-size:9px;">RUBROS</th>
+                <th style="font-size:9px;">Número de familias que venden</th>
+                <th style="font-size:9px;">Unidad</th>
+                <th style="font-size:9px;">Cantidad vendida por familia</th>
+                <th style="font-size:9px;">Precio promedio</th>
+                <th style="font-size:9px;">Ingreso por venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in musaceas.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.numero|floatformat}}</td>
+                <td>{{value.key2|unslugify}}</td>
+                <td>{{value.cantidad|floatformat}}</td>
+                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.ingreso|floatformat}}</td>
+
+                {%endfor%}
+        </tbody>
+        <tr>
+            <th>TOTAL VENTA RUBROS</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>{{total_musaceas|intcomma}}</th>
+        </tr>
+
+    </table>
+    <br></br>
+    <table style="width:100%">
+        <caption>Raíces y tubérculos</caption>
+        <thead>
+            <tr>
+                <th style="font-size:9px;">RUBROS</th>
+                <th style="font-size:9px;">Número de familias que venden</th>
+                <th style="font-size:9px;">Unidad</th>
+                <th style="font-size:9px;">Cantidad vendida por familia</th>
+                <th style="font-size:9px;">Precio promedio</th>
+                <th style="font-size:9px;">Ingreso por venta</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for key, value in raices.items%}
+            <tr>
+                <td>{{key|unslugify}}</td>
+                <td>{{value.numero|floatformat}}</td>
+                <td>{{value.key2|unslugify}}</td>
+                <td>{{value.cantidad|floatformat}}</td>
+                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.ingreso|floatformat}}</td>
+
+                {%endfor%}
+        </tbody>
+        <tr>
+            <th>TOTAL VENTA RUBROS</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>{{total_raices|intcomma}}</th>
+        </tr>
+
+    </table>
+    <br></br>
+    <table>
+        <th>Ingreso agropecuario: {{respuesta.ingreso|intcomma}}</th>
     </table>
 </div>
     <br><div class="subindicador">INGRESO  &raquo; Los Otros Ingresos familiares <a href="#" class="exportar"></a></div><br>
@@ -123,7 +372,7 @@ $(document).ready(function () {
         <tr colspan="2">
             <th>INGRESO BRUTO</th>
 
-            <th>{{respuesta.brutoo|intcomma}}</th>
+            <th>{{respuesta.bruto|intcomma}}</th>
         </tr>
     </table>
     <div class="subindicador">INGRESO  &raquo; Ingreso Neto por familia</</a></div>
