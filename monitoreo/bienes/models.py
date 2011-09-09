@@ -151,8 +151,8 @@ class Transporte(models.Model):
     numero = models.IntegerField(null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
-    def __unicode__(self):
-        return u'%s' % self.transporte.nombre
+#    def __unicode__(self):
+#        return u'%s' % self.transporte.nombre
     
     class Meta:
         verbose_name_plural = "Medio de transporte"
