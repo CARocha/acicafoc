@@ -494,8 +494,7 @@ def grafos_ingreso(request, tipo):
                 type=grafos.PIE_CHART_2D)
     elif tipo == 'remesa':
         #for opcion in TipoTrabajo.objects.all()[9:9]:
-        nacional = consulta.filter(otrosingresos__fuente__nombre__icontains="Remesas",
-                                    otrosingresos__tipo=16).count()
+        nacional = consulta.filter(otrosingresos__fuente__nombre__icontains="Remesas").count()
         extran = consulta.filter(otrosingresos__fuente__nombre__icontains="Remesas",
                                     otrosingresos__tipo=9).count()
         data = (nacional,extran)
@@ -504,25 +503,13 @@ def grafos_ingreso(request, tipo):
                 'Tipos de Remesas', return_json=True,
                 type=grafos.PIE_CHART_2D)
     elif tipo == 'alquiler':
-        for opcion in TipoTrabajo.objects.all()[10:13]:
+        for opcion in TipoTrabajo.objects.all():
             data.append(consulta.filter(otrosingresos__fuente__nombre__icontains="Alquiler",
                                         otrosingresos__tipo=opcion).count())
             legends.append(opcion)
         return grafos.make_graph(data, legends,
                 'Tipos de Alquiler', return_json=True,
                 type=grafos.PIE_CHART_2D)
-    elif tipo == 'aportar':
-        #data.append[(consulta.filter(aporte__persona=opcion[0]).count())]
-        uno = consulta.filter(aporte__persona=1).count()
-        dos = consulta.filter(aporte__persona=2).count()
-        tres = consulta.filter(aporte__persona=3).count()
-        cuatro = consulta.filter(aporte__persona=4).count()
-        
-        data = [[uno],[dos],[tres],[cuatro]]
-        legends = ['2-3','4-5','6-7','mas de 8']
-        message = "Aporte en la finca"
-        return grafos.make_graph(data, legends, message, multiline = True,
-                return_json = True, type = grafos.GROUPED_BAR_CHART_V)
     else:
         raise Http404
         
@@ -1107,9 +1094,6 @@ def total_ingreso(request, numero):
         cantidad = query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad']
         precio = query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio']
         ingreso = cantidad * precio if cantidad != None and precio != None else 0
-        #respuesta['ingreso'] = round(ingreso,0)
-        #respuesta['ingreso']= round(query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad'] * query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio'],) if cantidad != None and precio != None else 0
-        #respuesta['ingreso_total'] +=  respuesta['ingreso']
         
         tabla[key] = {'key2':key2,'numero':numero,'cantidad':cantidad,
                       'precio':precio,'ingreso':ingreso}
@@ -1141,60 +1125,65 @@ def ingresos(request):
     raices = total_ingreso(request,8)
     
     total_agro = 0
+    c_agro = 0
     for k,v in agro.items():
         total_agro += round(v['ingreso'],1)
-    
+        if v['numero'] > 0:
+            c_agro += 1
     total_forestal = 0
+    c_forestal = 0
     for k,v in forestal.items():
         total_forestal += round(v['ingreso'],1)
-    
+        if v['numero'] > 0:
+            c_forestal += 1
     total_basico = 0
+    c_basico = 0
     for k,v in grano_basico.items():
         total_basico += round(v['ingreso'],1)
-    
+        if v['numero'] > 0:
+            c_basico += 1
     total_ganado = 0
+    c_ganado = 0
     for k,v in ganado_mayor.items():
         total_ganado += round(v['ingreso'],1)
-    
+        if v['numero'] > 0:
+            c_ganado += 1
     total_patio = 0
+    c_patio = 0
     for k,v in patio.items():
         total_patio += round(v['ingreso'],1)
-    
+        if v['numero'] > 0:
+            c_patio += 1
     total_fruta = 0
+    c_fruta = 0
     for k,v in frutas.items():
         total_fruta += round(v['ingreso'],1)
-    
+        if v['numero'] > 0:
+            c_fruta += 1
     total_musaceas = 0
+    c_musaceas = 0
     for k,v in musaceas.items():
         total_musaceas += round(v['ingreso'],1)
-    
+        if v['numero'] > 0:
+            c_musaceas += 1
     total_raices = 0
+    c_raices = 0
     for k,v in raices.items():
         total_raices += round(v['ingreso'],1)
-        
-    respuesta['ingreso'] = total_agro + total_forestal + total_basico + total_ganado + total_patio + total_fruta + total_musaceas + total_raices  
-#    tabla = {}
-#    respuesta = {}
-#    respuesta['bruto']=[]
-#    respuesta['ingreso']=0
-#    respuesta['ingreso_total']=0
-#    respuesta['ingreso_otro']=0
-#    respuesta['brutoo'] = 0
-#    respuesta['total_neto'] = 0
-#    for i in Rubros.objects.all():
-#        key = slugify(i.nombre).replace('-','_')
-#        key2 = slugify(i.unidad).replace('-','_')
-#        query = a.filter(ingresofamiliar__rubro = i)
-#        numero = query.count()
-#        cantidad = query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad']
-#        precio = query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio']
-#        ingreso = cantidad * precio if cantidad != None and precio != None else 0
-#        respuesta['ingreso'] = round(ingreso,0)
-#        #respuesta['ingreso']= round(query.aggregate(cantidad=Sum('ingresofamiliar__cantidad'))['cantidad'] * query.aggregate(precio=Avg('ingresofamiliar__precio'))['precio'],) if cantidad != None and precio != None else 0
-#        respuesta['ingreso_total'] +=  respuesta['ingreso']
-#        
-#        tabla[key] = {'key2':key2,'numero':numero,'cantidad':cantidad,
-#                      'precio':precio,'ingreso':ingreso}
+        if v['numero'] > 0:
+            c_raices += 1
+            
+    respuesta['ingreso'] = total_agro + total_forestal + total_basico + total_ganado + total_patio + total_fruta + total_musaceas + total_raices
+    grafo = []
+    grafo.append({'Agroforestales':total_agro,'Forestales':total_forestal,'Granos_basicos':total_basico,
+                  'Ganado_mayor':total_ganado,'Animales_de_patio':total_patio,
+                  'Hortalizas_y_frutas':total_fruta,'Musaceas':total_musaceas,
+                  'Tuberculos_y_raices':total_raices})
+    cuantos = []
+    cuantos.append({'Agroforestales':c_agro,'Forestales':c_forestal,'Granos_basicos':c_basico,
+                  'Ganado_mayor':c_ganado,'Animales_de_patio':c_patio,
+                  'Hortalizas_y_frutas':c_fruta,'Musaceas':c_musaceas,
+                  'Tuberculos_y_raices':c_raices})
         
     #********* calculos de las variables de otros ingresos******
     matriz = {}
