@@ -245,11 +245,12 @@ def educacion(request):
                 universitario = Sum('educacion__universitario'),
                 f_comunidad = Sum('educacion__f_comunidad'))
         try:
-            suma = objeto['p_completa'] + objeto['s_incompleta'] + objeto['bachiller'] + objeto['universitario']
+            suma = int(objeto['p_completa'] or 0) + int(objeto['s_incompleta'] or 0) + int(objeto['bachiller'] or 0) + int(objeto['universitario'] or 0)
         except:
             pass
         variable = round(saca_porcentajes(suma,objeto['num_total']))
         grafo.append([e[1],variable])
+        
         fila = [e[1], objeto['num_total'],
                 saca_porcentajes(objeto['no_leer'], objeto['num_total'], False),
                 saca_porcentajes(objeto['p_incompleta'], objeto['num_total'], False),
