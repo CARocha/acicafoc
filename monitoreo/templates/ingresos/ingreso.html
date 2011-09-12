@@ -164,6 +164,55 @@ function Grafo9(){
         });
     }
     
+function Grafo10(){
+	var chart = new Highcharts.Chart({
+	      chart: {
+	         renderTo: 'grafo',
+	         defaultSeriesType: 'pie',
+	         height: 350,
+             width: 520	         
+	      },
+	      title: {
+	         text: 'Ingreso por clase'
+	      },
+	      tooltip: {
+	         formatter: function() {
+	            return '<b>'+ this.point.name +'</b>: '+ this.percentage.toFixed(1) +' %';
+	         }
+	      },
+	      plotOptions: {
+	          pie: {
+	              allowPointSelect: true,
+	              cursor: 'pointer',
+	              dataLabels: {
+	                 enabled: false
+	              },
+	              showInLegend: true
+	           },
+	           series: {
+	              dataLabels: {
+	                  enabled: true,
+	                  align: "center",
+	                  formatter: function() {
+	                      return ''+ this.percentage.toFixed(1) + ' %';
+	                  },
+	                  color: '#000',
+	                  style: {
+	                      font: '12px Trebuchet MS, Verdana, sans-serif'
+	                  }
+	              }
+	          }
+	      },
+	       series: [{         
+	         name: 'Ingresos de clases',
+	         data: [
+	            ['Ingreso agropecuario - C${{respuesta.ingreso}}',   {{respuesta.ingreso}}],
+	            ['Otros ingresos - C${{respuesta.ingreso_otro}}', {{respuesta.ingreso_otro}}]
+	         ]
+	      }]
+	 });	
+}   
+    
 </script>
 {% endblock %}
 {%block content%}
@@ -176,7 +225,8 @@ function Grafo9(){
             <a href="#" id="grafico3" onCLick="click_callback('ingreso')"class="grafo">Quién tiene los ingresos?</a>
             <a href="#" id="grafico8" onclick="Grafo8();" class="grafo">Ingreso por sistema</a>
             <a href="#" id="grafico9" onCLick="Grafo9();" class="grafo">Número de rubro en cada sistema</a>
-            
+            <a href="#" id="grafico9" onCLick="Grafo10();" class="grafo">Ingreso por clase</a>
+            <br></br><br></br><br></br><br></br>
         <div class="subindicador">Gráficos Otros ingresos</div>
             
             <a href="#" id="grafico4" onCLick="click_callback('salario')"class="grafo">Tipos de Salarios</a>
