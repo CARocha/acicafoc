@@ -19,6 +19,9 @@
     {%if request.session.desde%}
         <div class="filtrovalor"><b>Años de socio:</b><br> {%if request.session.desde = '1'%}Menos de 5 {%else%}Mas de 5 {%endif%}</div>
     {%endif%}
+    {%if request.session.grupo%}
+        <div class="filtrovalor"><b>Grupo étnico</b><br>{{request.session.grupo}}</div>
+    {%endif%}
     {%if request.session.duenio%}
         <div class="filtrovalor"><b>Tipo Dueño:</b> <br>{%if request.session.duenio = '1'%}Hombre{%endif%}{%if request.session.duenio = '2'%}Mujer{%endif%}{%if request.session.duenio = '3'%}Mancomunado{%endif%}{%if request.session.duenio = '4'%}Parientes{%endif%}{%if request.session.duenio = '5'%}Colectivo{%endif%}{%if request.session.duenio = '6'%}No hay{%endif%}</div>
     {%endif%}
