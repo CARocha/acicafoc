@@ -10,4 +10,6 @@ nbproject/
 *.db
 *.sql
 local_settings.py
+../.ninjaproject/config.py
+.*config.py
 
