@@ -17,7 +17,8 @@
 {% block content %}
 {% include "filtros.html" %}
 <div class="contenido fulltabla">
- <div class="subindicador">¿Cúal es el tipo de textura del suelo?<a href="#" class="exportar"></a></div>
+ <div class="subindicador">¿Cúal es el tipo de textura del suelo?<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div id="modalidad">
     <table  style="width:100%;">
         <thead>
             <tr>
@@ -36,7 +37,7 @@
             {%endfor%}
         </tbody>
     </table>
- <div class="subindicador">¿Cúal es la profundidad del suelo?<a href="#" class="exportar"></a></div>
+ <div class="subindicador">¿Cúal es la profundidad del suelo?</div>
     <table  style="width:100%;">
         <caption></caption>
         <thead>
@@ -56,7 +57,7 @@
             {%endfor%}
         </tbody>
     </table>
- <div class="subindicador">¿Cómo es la presencia de lombrice en el suelo?<a href="#" class="exportar"></a></div>
+ <div class="subindicador">¿Cómo es la presencia de lombrice en el suelo?</div>
     <table  style="width:100%;">
         <thead>
             <tr>
@@ -75,7 +76,7 @@
             {%endfor%}
         </tbody>
     </table>
- <div class="subindicador">¿Cómo es la densidad de raiz en la capa productiva de suelo?<a href="#" class="exportar"></a></div>
+ <div class="subindicador">¿Cómo es la densidad de raiz en la capa productiva de suelo?</div>
     <table  style="width:100%;">
         <thead>
             <tr>
@@ -94,7 +95,7 @@
             {%endfor%}
         </tbody>
     </table>
- <div class="subindicador">¿Cúal es la pendiente del terrreno?<a href="#" class="exportar"></a></div>
+ <div class="subindicador">¿Cúal es la pendiente del terrreno?</div>
     <table  style="width:100%;">
         <caption></caption>
         <thead>
@@ -114,7 +115,7 @@
             {%endfor%}
         </tbody>
     </table>
- <div class="subindicador">¿Cómo es el drenaje del suelo?<a href="#" class="exportar"></a></div>
+ <div class="subindicador">¿Cómo es el drenaje del suelo?</div>
     <table  style="width:100%;">
         <thead>
             <tr>
@@ -133,7 +134,7 @@
             {%endfor%}
         </tbody>
     </table>
- <div class="subindicador">¿Cómo es el contenido de materia orgánica?<a href="#" class="exportar"></a></div>
+ <div class="subindicador">¿Cómo es el contenido de materia orgánica?</div>
     <table  style="width:100%;">
 
         <thead>
@@ -154,6 +155,7 @@
         </tbody>
     </table>
 
+</div>
 </div>
 <div class="clean"></div>
 {% endblock %}

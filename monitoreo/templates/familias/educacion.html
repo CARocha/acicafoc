@@ -28,7 +28,7 @@
                     text: 'Porcentajes (que dijeron Si)'
                 }
             },
-            
+
             tooltip: {
                 formatter: function() {
                     return ''+
@@ -68,7 +68,7 @@
                 {% endfor %}]
         });
     });
-    
+
 var chart;
     $(document).ready(function() {
         chart = new Highcharts.Chart({
@@ -77,7 +77,7 @@ var chart;
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Familias Alcanzaron la Primaria (primaria completa + secundaria incompleta + bachiller + universitario)'
+                text: 'Miembros que Alcanzaron la Primaria (primaria completa + secundaria incompleta + bachiller + universitario)'
             },
             subtitle: {
                 text: ''
@@ -93,7 +93,7 @@ var chart;
                     text: 'Porcentajes (%)'
                 }
             },
-            
+
             tooltip: {
                 formatter: function() {
                     return ''+
@@ -153,9 +153,9 @@ var chart;
 
 <div class="contenido fulltabla">
 	<div class="subindicador">FAMILIA &raquo; Educación<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
-	
-<div id="modalidad">	
-    <table style="width:100%;">        
+
+<div id="modalidad">
+    <table style="width:100%;">
         <thead>
             <tr>
                 <th></th>
@@ -189,7 +189,7 @@ var chart;
 <div class="contenedor">
         <div class="grafico-title"></div>
         <div id="container"></div>
-    </div>
+</div>
 <div class="clean"></div>
 {% endblock %}
 

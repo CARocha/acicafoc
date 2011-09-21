@@ -1793,8 +1793,7 @@ def comercializacion(request):
     for tecnica in Tecnica.objects.all():
         dicc2[tecnica.nombre] = {}
         for familia in Familia.objects.all():
-            dicc2[tecnica.nombre][familia.nombre] = conteo = a.filter(capacitaciontecnica__capacitacion=tecnica,capacitaciontecnica__respuesta=familia).count()
-            
+            dicc2[tecnica.nombre][familia.nombre] = conteo = a.filter(capacitaciontecnica__capacitacion=tecnica,capacitaciontecnica__respuesta=familia).count()            
             
     dicc1 = {}
     for tecnica in Social.objects.all():

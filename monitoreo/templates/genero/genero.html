@@ -9,7 +9,7 @@ $(document).ready(function () {
     $('.escondete').hide();
     $('#tablatab1').show();
     $('#1').addClass('activa');
-    
+
     // cuando click en una tab enconde todas y muestra la deseada
     $('.tab').click(function(){
         $('.tab').each(function(){
@@ -61,7 +61,7 @@ $(document).ready(function() {
                     ['{{value.0}}',
                     {{value.2}}],
                 {% endfor %}]
-                
+
                 }]
    });
 });
@@ -90,7 +90,7 @@ var chart1;
                     text: 'Cantidad'
                 }
             },
-            
+
             tooltip: {
                 formatter: function() {
                     return ''+
@@ -168,10 +168,10 @@ $(document).ready(function() {
                     ['{{value.0}}',
                     {{value.2}}],
                 {% endfor %}]
-                
+
                 }]
    });
-}); 
+});
 
  var chart4;
 $(document).ready(function() {
@@ -210,10 +210,10 @@ $(document).ready(function() {
                     ['{{value.0}}',
                     {{value.2}}],
                 {% endfor %}]
-                
+
                 }]
    });
-}); 
+});
 
 var chart5;
 $(document).ready(function() {
@@ -252,10 +252,10 @@ $(document).ready(function() {
                     ['{{value.0}}',
                     {{value.2}}],
                 {% endfor %}]
-                
+
                 }]
    });
-}); 
+});
 
 var chart6;
 $(document).ready(function() {
@@ -294,10 +294,10 @@ $(document).ready(function() {
                     ['{{value.0}}',
                     {{value.2}}],
                 {% endfor %}]
-                
+
                 }]
    });
-}); 
+});
 
 var chart7;
 $(document).ready(function() {
@@ -336,10 +336,10 @@ $(document).ready(function() {
                     ['{{value.0}}',
                     {{value.2}}],
                 {% endfor %}]
-                
+
                 }]
    });
-}); 
+});
 
 var chart8;
 $(document).ready(function() {
@@ -378,19 +378,19 @@ $(document).ready(function() {
                     ['{{value.0}}',
                     {{value.2}}],
                 {% endfor %}]
-                
+
                 }]
    });
-}); 
-            
+});
+
 
 </script>
 {%endblock%}
 {% block barra %}
 <div class="indicadores">
     <div id="contenedor_igual">
-        <a href="#" class="tab" id="1" >Mujer hogar y finca</a>   
-        <a href="#" class="tab"  id="2">Mujer en las organizaciones</a>      
+        <a href="#" class="tab" id="1" >Mujer hogar y finca</a>
+        <a href="#" class="tab"  id="2">Mujer en las organizaciones</a>
     </div>
 </div>
 {% endblock %}
@@ -398,7 +398,8 @@ $(document).ready(function() {
 {% include "filtros.html" %}
 <div class="contenido fulltabla">
 <div id="tablatab1" class="escondete">
-    <div class="subindicador">GENERO &raquo; Participación de la mujer en las actividades del hogar<a href="#" class="exportar"></a></div>
+    <div class="subindicador">GENERO &raquo; Participación de la mujer en las actividades del hogar<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div id="modalidad">
     <table style="width:100%;">
             <thead>
                 <tr>
@@ -412,13 +413,13 @@ $(document).ready(function() {
                 <tr>
                     <td>{{key}}</td>
                     {%for i in value%}
-                        <td>{{i}}</td>    
+                        <td>{{i}}</td>
                     {%endfor%}
                {%endfor%}
             </tbody>
     </table>
-
-    <div class="subindicador">GENERO &raquo; Participación de la mujer en las actividades en la finca<a href="#" class="exportar"></a></div>
+</div>
+    <div class="subindicador">GENERO &raquo; Participación de la mujer en las actividades en la finca</div>
         <table style="width:100%;">
                 <thead>
                     <tr>
@@ -432,14 +433,14 @@ $(document).ready(function() {
                     <tr>
                         <td>{{key}}</td>
                         {%for i in value%}
-                            <td>{{i}}</td>    
+                            <td>{{i}}</td>
                         {%endfor%}
                    {%endfor%}
                 </tbody>
 
 
         </table>
-       
+
         <table>
         <thead>
         <tr>
@@ -453,7 +454,7 @@ $(document).ready(function() {
         </thead>
     </table>
         <div id="container" class="grafo"></div>
-        
+
         <br>
         <div id="container1" class="grafo"></div>
     </div>

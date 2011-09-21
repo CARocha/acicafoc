@@ -52,7 +52,9 @@ $(document).ready(function () {
 
 <div class="contenido mediatabla">
  
-<div class="subindicador">Es socio/a de organización Gremial <a href="#" class="exportar"></a></div>
+<div class="subindicador">Es socio/a de organización Gremial <a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+
+<div id="modalidad">
     <table style="width:100%;">
         <thead>
             <tr>
@@ -79,7 +81,7 @@ $(document).ready(function () {
        <tbody>
     </table>
 <br>
-<div class="subindicador">Desde cuando socios <a href="#" class="exportar"></a></div>
+<div class="subindicador">Desde cuando socios </div>
      <table  width="100%">
         <thead>
             <tr>
@@ -106,7 +108,7 @@ $(document).ready(function () {
        </tbody>
     </table>
 <br>
-<div class="subindicador">Soy miembro de órgano gremials<a href="#" class="exportar"></a></div>
+<div class="subindicador">Soy miembro de órgano gremial</div>
      <table  width="100%">
         <thead>
             <tr>
@@ -135,7 +137,7 @@ $(document).ready(function () {
 <br>
 
 <br>
-<div class="subindicador">He recibido capacitación para desempeñar mi cargo <a href="#" class="exportar"></a></div>
+<div class="subindicador">He recibido capacitación para desempeñar mi cargo </div>
     <table  width="100%">
         <thead>
             <tr>
@@ -161,6 +163,8 @@ $(document).ready(function () {
        
        </tbody>
     </table>
+
+</div>
 
 </div>
 <div class="clean"></div>

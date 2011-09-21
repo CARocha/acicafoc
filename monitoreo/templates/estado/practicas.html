@@ -28,7 +28,7 @@
                     text: 'Porcentajes (que dijeron Si)'
                 }
             },
-            
+
             tooltip: {
                 formatter: function() {
                     return ''+
@@ -68,7 +68,7 @@
                 {% endfor %}]
         });
     });
-    
+
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
@@ -92,7 +92,7 @@
                     text: 'Porcentajes (que dijeron Si)'
                 }
             },
-            
+
             tooltip: {
                 formatter: function() {
                     return ''+
@@ -132,7 +132,7 @@
                 {% endfor %}]
         });
     });
-    
+
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
@@ -156,7 +156,7 @@
                     text: 'Porcentajes (que dijeron Si)'
                 }
             },
-            
+
             tooltip: {
                 formatter: function() {
                     return ''+
@@ -196,7 +196,7 @@
                 {% endfor %}]
         });
     });
-    
+
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
@@ -220,7 +220,7 @@
                     text: 'Porcentajes (que dijeron Si)'
                 }
             },
-            
+
             tooltip: {
                 formatter: function() {
                     return ''+
@@ -260,7 +260,7 @@
                 {% endfor %}]
         });
     });
-    
+
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
@@ -284,7 +284,7 @@
                     text: 'Porcentajes (que dijeron Si)'
                 }
             },
-            
+
             tooltip: {
                 formatter: function() {
                     return ''+
@@ -324,7 +324,7 @@
                 {% endfor %}]
         });
     });
-    
+
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
@@ -348,7 +348,7 @@
                     text: 'Porcentajes (que dijeron Si)'
                 }
             },
-            
+
             tooltip: {
                 formatter: function() {
                     return ''+
@@ -395,7 +395,7 @@ $(document).ready(function () {
     $('.escondete').hide();
     $('#tablatab1').show();
     $('#1').addClass('activa');
-    
+
     // cuando click en una tab enconde todas y muestra la deseada
     $('.tab').click(function(){
         $('.tab').each(function(){
@@ -413,12 +413,12 @@ $(document).ready(function () {
 {% block barra %}
 <div class="indicadores">
     <div id="contenedor_igual">
-        <a href="#" class="tab" id="1" >Vivero</a>   
-        <a href="#" class="tab"  id="2">Fertilización</a>    
+        <a href="#" class="tab" id="1" >Vivero</a>
+        <a href="#" class="tab"  id="2">Fertilización</a>
         <a href="#" class="tab" id="3" >Manejo fitosanitario</a>
         <a href="#" class="tab" id="4" >Manejo productivo</a>
         <a href="#" class="tab" id="5" >Mejoramiento Genético</a>
-        <a href="#" class="tab" id="6" >Manejo Postcosecha</a>        
+        <a href="#" class="tab" id="6" >Manejo Postcosecha</a>
     </div>
 </div>
 {% endblock %}
@@ -427,7 +427,8 @@ $(document).ready(function () {
 <div class="contenido fulltabla">
 
 <div id="tablatab1" class="escondete">
-<div class="subindicador">Vivero practicas<a href="#" class="exportar"></a></div>
+<div class="subindicador">Vivero practicas<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div id="modalidad">
     <table style="width:100%;">
             <thead>
                 <tr>
@@ -441,7 +442,7 @@ $(document).ready(function () {
                 <tr>
                     <td>{{key}}</td>
                     {%for i in value%}
-                        <td>{{i|floatformat}}</td>    
+                        <td>{{i|floatformat}}</td>
                     {%endfor%}
                {%endfor%}
             </tbody>
@@ -453,7 +454,7 @@ $(document).ready(function () {
 </div>
 
 <div id="tablatab2" class="escondete">
-<div class="subindicador">Práctica de fertilización<a href="#" class="exportar"></a></div>
+<div class="subindicador">Práctica de fertilización</div>
     <table style="width:100%;">
             <thead>
                 <tr>
@@ -467,7 +468,7 @@ $(document).ready(function () {
                 <tr>
                     <td>{{key}}</td>
                     {%for i in value%}
-                        <td>{{i|floatformat}}</td>    
+                        <td>{{i|floatformat}}</td>
                     {%endfor%}
                {%endfor%}
             </tbody>
@@ -478,7 +479,7 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab3" class="escondete">
-<div class="subindicador">Prácticas de manejo fitosanitario<a href="#" class="exportar"></a></div>
+<div class="subindicador">Prácticas de manejo fitosanitario</div>
     <table style="width:100%;">
             <thead>
                 <tr>
@@ -492,7 +493,7 @@ $(document).ready(function () {
                 <tr>
                     <td>{{key}}</td>
                     {%for i in value%}
-                        <td>{{i|floatformat}}</td>    
+                        <td>{{i|floatformat}}</td>
                     {%endfor%}
                {%endfor%}
             </tbody>
@@ -503,7 +504,7 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab4" class="escondete">
-<div class="subindicador">Prácticas de manejo productivo<a href="#" class="exportar"></a></div>
+<div class="subindicador">Prácticas de manejo productivo</div>
     <table style="width:100%;">
             <thead>
                 <tr>
@@ -517,7 +518,7 @@ $(document).ready(function () {
                 <tr>
                     <td>{{key}}</td>
                     {%for i in value%}
-                        <td>{{i|floatformat}}</td>    
+                        <td>{{i|floatformat}}</td>
                     {%endfor%}
                {%endfor%}
             </tbody>
@@ -528,7 +529,7 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab5" class="escondete">
-<div class="subindicador">Prácticas de mejoramiento genético de la plantación<a href="#" class="exportar"></a></div>
+<div class="subindicador">Prácticas de mejoramiento genético de la plantación</div>
     <table style="width:100%;">
             <thead>
                 <tr>
@@ -542,7 +543,7 @@ $(document).ready(function () {
                 <tr>
                     <td>{{key}}</td>
                     {%for i in value%}
-                        <td>{{i|floatformat}}</td>    
+                        <td>{{i|floatformat}}</td>
                     {%endfor%}
                {%endfor%}
             </tbody>
@@ -553,7 +554,7 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab6" class="escondete">
-<div class="subindicador">Prácticas de manejo postcosecha y beneficiado<a href="#" class="exportar"></a></div>
+<div class="subindicador">Prácticas de manejo postcosecha y beneficiado</div>
     <table style="width:100%;">
             <thead>
                 <tr>
@@ -567,7 +568,7 @@ $(document).ready(function () {
                 <tr>
                     <td>{{key}}</td>
                     {%for i in value%}
-                        <td>{{i|floatformat}}</td>    
+                        <td>{{i|floatformat}}</td>
                     {%endfor%}
                {%endfor%}
             </tbody>

@@ -39,10 +39,11 @@ $(document).ready(function () {
 <!--            <a id="grafico6" href="#" onCLick="click_callback('lavadero')"class="grafo">Lavadero</a>-->
             <div id="grafo"></div>
         </div>
-        
+
   <div class="contenido mediatabla">
-    
-    <div class="subindicador">Los Equipos <a href="#" class="exportar"></a></div>
+
+    <div class="subindicador">Los Equipos<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div id="modalidad">
     <table style="width:100%;">
         <thead>
             <tr>
@@ -65,7 +66,7 @@ $(document).ready(function () {
             {%endfor%}
         </tbody>
     </table>
-<div class="subindicador">Las Infraestructuras <a href="#" class="exportar"></a></div>
+<div class="subindicador">Las Infraestructuras</div>
     <table id="table_example" class="tablesorter" style="font-size:90%">
 
         <thead>
@@ -89,7 +90,7 @@ $(document).ready(function () {
             {%endfor%}
         </tbody>
     </table>
-<div class="subindicador">Las Herramientas<a href="#" class="exportar"></a></div>
+<div class="subindicador">Las Herramientas</div>
     <table id="table_example" class="tablesorter" style="font-size:90%">
         <thead>
             <tr>
@@ -112,7 +113,7 @@ $(document).ready(function () {
             {%endfor%}
         </tbody>
     </table>
-<div class="subindicador">Los Transportes<a href="#" class="exportar"></a></div>
+<div class="subindicador">Los Transportes</div>
     <table id="table_example" class="tablesorter" style="font-size:90%">
         <thead>
             <tr>
@@ -135,6 +136,7 @@ $(document).ready(function () {
             {%endfor%}
         <tbody>
     </table>
+</div>
 </div>
 <div class="clean"></div>
 {% endblock %}

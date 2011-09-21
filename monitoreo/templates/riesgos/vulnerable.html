@@ -487,7 +487,10 @@ var chart;
 
 {% include "filtros.html" %}
 <div class="contenido fulltabla">
-	<div class="subindicador">RIESGO &raquo; Vulnerabilidades de las fincas<a href="#" class="exportar"></a></div>
+	<div class="subindicador">RIESGO &raquo; Vulnerabilidades de las fincas<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+	
+<div id="modalidad">
+	
 <table width="100%">
         <thead>
         <caption>Fenomenos naturales</caption>
@@ -687,6 +690,7 @@ var chart;
 <div class="contenedor">
         <div class="grafico-title"></div>
         <div id="container3"></div>
+</div>
 </div>
 </div>
 <div class="clean"></div>

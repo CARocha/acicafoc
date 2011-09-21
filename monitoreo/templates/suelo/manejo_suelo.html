@@ -18,7 +18,7 @@
     //caso si activo es otro num sustituir grafico
     //si activo es el mismo id, esconder grafico
     var activo = 0;
-    $.ajaxSetup({ cache: false }); 
+    $.ajaxSetup({ cache: false });
     function click_callback(id){
         $.getJSON('/grafo/manejosuelo/' + id, function(data) {
             if (activo!= id){
@@ -52,7 +52,8 @@ $(document).ready(function () {
 </div>
 
 <div class="contenido mediatabla">
-    <div class="subindicador">¿Cómo preparan sus terrenos?<a href="#" class="exportar"></a></div>
+    <div class="subindicador">¿Cómo preparan sus terrenos?<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div id="modalidad">
     <table style="width:100%;">
 
         <thead>
@@ -72,8 +73,8 @@ $(document).ready(function () {
             {%endfor%}
         </tbody>
     </table>
-    
-    <div class="subindicador">¿Qué tipo de traccion utiliza para la preparación del suelo?<a href="#" class="exportar"></a></div>
+
+    <div class="subindicador">¿Qué tipo de traccion utiliza para la preparación del suelo?</div>
 
     <table style="width:100%;">
 
@@ -94,7 +95,7 @@ $(document).ready(function () {
             {%endfor%}
         </tbody>
     </table>
-    <div class="subindicador">¿Qué tipo de fertilización realiza?<a href="#" class="exportar"></a></div>
+    <div class="subindicador">¿Qué tipo de fertilización realiza?</div>
     <table style="width:100%;">
         <thead>
             <tr>
@@ -113,7 +114,7 @@ $(document).ready(function () {
             {%endfor%}
         </tbody>
     </table>
-    <div class="subindicador">¿Qué tipo de obra de conservación de suelo?<a href="#" class="exportar"></a></div>
+    <div class="subindicador">¿Qué tipo de obra de conservación de suelo?</div>
     <table style="width:100%;">
         <thead>
             <tr>
@@ -133,6 +134,7 @@ $(document).ready(function () {
         </tbody>
     </table>
 
+</div>
 </div>
 <div class="clean"></div>
 {% endblock %}

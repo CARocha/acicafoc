@@ -5,7 +5,8 @@
 {% include "filtros.html" %}
 
 <div class="contenido fulltabla">
-<div class="subindicador">Nivel de conocimiento<a href="#" class="exportar"></a></div>
+<div class="subindicador">Nivel de conocimiento<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div id="modalidad">
     <table style="width:100%;">
         <thead>
             <tr>
@@ -37,7 +38,7 @@
         </tbody>
     </table>
     <br></br>
-    <div class="subindicador">Ha experimentadoo<a href="#" class="exportar"></a></div>
+    <div class="subindicador">Ha experimentadoo</div>
      <table style="width:100%;">
         <thead>
             <tr>
@@ -52,7 +53,7 @@
             {%for key, value in tabla_escala.items%}
             <tr>
                 <td>{{key|unslugify}}</td>
-                <td>{{value.menor_escala|floatformat}}</td>     
+                <td>{{value.menor_escala|floatformat}}</td>
                 <td>{{value.por_menor_escala|floatformat}}</td>
                 <td>{{value.mayor_escala|floatformat}}</td>
                 <td>{{value.por_mayor_escala|floatformat}}</td>
@@ -61,6 +62,7 @@
         </tbody>
     </table>
     <br></br><br></br>
+</div>
 </div>
 <div class="clean"></div>
 {% endblock %}
