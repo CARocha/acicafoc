@@ -240,7 +240,7 @@ function Grafo10(){
 <div class="subindicador">INGRESO  &raquo; Los Ingresos familiares <a class="exportar guardarXLS" href="#" onclick="exportarXLS('modalidad'); return false;"></a></div>
 
 <div id="modalidad">
-    <table style="width:100%">
+    <table style="width:100%" id="sortTableExample">
         <caption>Agroforestales</caption>
         <thead>
             <tr>
@@ -259,7 +259,7 @@ function Grafo10(){
                 <td>{{value.numero|floatformat}}</td>
                 <td>{{value.key2|unslugify}}</td>
                 <td>{{value.cantidad|floatformat}}</td>
-                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.precio|floatformat:2}}</td>
                 <td>{{value.ingreso|floatformat}}</td>
 
                 {%endfor%}
@@ -275,7 +275,7 @@ function Grafo10(){
 
     </table>
     <br></br>
-    <table style="width:100%">
+    <table style="width:100%" id="sortTableExample">
         <caption>Forestales</caption>
         <thead>
             <tr>
@@ -294,7 +294,7 @@ function Grafo10(){
                 <td>{{value.numero|floatformat}}</td>
                 <td>{{value.key2|unslugify}}</td>
                 <td>{{value.cantidad|floatformat}}</td>
-                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.precio|floatformat:2}}</td>
                 <td>{{value.ingreso|floatformat}}</td>
 
                 {%endfor%}
@@ -310,7 +310,7 @@ function Grafo10(){
 
     </table>
     <br></br>
-    <table style="width:100%">
+    <table style="width:100%" id="sortTableExample">
         <caption>Granos básicos</caption>
         <thead>
             <tr>
@@ -329,7 +329,7 @@ function Grafo10(){
                 <td>{{value.numero|floatformat}}</td>
                 <td>{{value.key2|unslugify}}</td>
                 <td>{{value.cantidad|floatformat}}</td>
-                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.precio|floatformat:2}}</td>
                 <td>{{value.ingreso|floatformat}}</td>
 
                 {%endfor%}
@@ -345,7 +345,7 @@ function Grafo10(){
 
     </table>
     <br></br>
-    <table style="width:100%">
+    <table style="width:100%" id="sortTableExample">
         <caption>Ganado mayor</caption>
         <thead>
             <tr>
@@ -364,7 +364,7 @@ function Grafo10(){
                 <td>{{value.numero|floatformat}}</td>
                 <td>{{value.key2|unslugify}}</td>
                 <td>{{value.cantidad|floatformat}}</td>
-                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.precio|floatformat:2}}</td>
                 <td>{{value.ingreso|floatformat}}</td>
 
                 {%endfor%}
@@ -380,7 +380,7 @@ function Grafo10(){
 
     </table>
     <br></br>
-    <table style="width:100%">
+    <table style="width:100%" id="sortTableExample">
         <caption>Animales de patio</caption>
         <thead>
             <tr>
@@ -399,7 +399,7 @@ function Grafo10(){
                 <td>{{value.numero|floatformat}}</td>
                 <td>{{value.key2|unslugify}}</td>
                 <td>{{value.cantidad|floatformat}}</td>
-                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.precio|floatformat:2}}</td>
                 <td>{{value.ingreso|floatformat}}</td>
 
                 {%endfor%}
@@ -415,7 +415,7 @@ function Grafo10(){
 
     </table>
     <br></br>
-    <table style="width:100%">
+    <table style="width:100%" id="sortTableExample">
         <caption>Hortalizas y frutas</caption>
         <thead>
             <tr>
@@ -434,7 +434,7 @@ function Grafo10(){
                 <td>{{value.numero|floatformat}}</td>
                 <td>{{value.key2|unslugify}}</td>
                 <td>{{value.cantidad|floatformat}}</td>
-                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.precio|floatformat:2}}</td>
                 <td>{{value.ingreso|floatformat}}</td>
 
                 {%endfor%}
@@ -450,7 +450,7 @@ function Grafo10(){
 
     </table>
     <br></br>
-    <table style="width:100%">
+    <table style="width:100%" id="sortTableExample">
         <caption>Musaceas</caption>
         <thead>
             <tr>
@@ -469,7 +469,7 @@ function Grafo10(){
                 <td>{{value.numero|floatformat}}</td>
                 <td>{{value.key2|unslugify}}</td>
                 <td>{{value.cantidad|floatformat}}</td>
-                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.precio|floatformat:2}}</td>
                 <td>{{value.ingreso|floatformat}}</td>
 
                 {%endfor%}
@@ -485,7 +485,7 @@ function Grafo10(){
 
     </table>
     <br></br>
-    <table style="width:100%">
+    <table style="width:100%" id="sortTableExample">
         <caption>Raíces y tubérculos</caption>
         <thead>
             <tr>
@@ -504,7 +504,7 @@ function Grafo10(){
                 <td>{{value.numero|floatformat}}</td>
                 <td>{{value.key2|unslugify}}</td>
                 <td>{{value.cantidad|floatformat}}</td>
-                <td>{{value.precio|floatformat}}</td>
+                <td>{{value.precio|floatformat:2}}</td>
                 <td>{{value.ingreso|floatformat}}</td>
 
                 {%endfor%}
@@ -525,7 +525,7 @@ function Grafo10(){
     </table>
 </div>
     <br><div class="subindicador">INGRESO  &raquo; Los Otros Ingresos familiares <a href="#" class="exportar"></a></div><br>
-    <table style="width:100%;">
+    <table style="width:100%;" id="sortTableExample">
         <caption></caption>
         <thead>
             <tr>
@@ -572,6 +572,12 @@ function Grafo10(){
             <th>{{respuesta.total_neto|intcomma}}</th>
         </tr>
     </table>
+    
+<script type="text/javascript">
+  $(function() {
+    $("table#sortTableExample").tablesorter( {sortList: [[0,0], [1,0]]} );
+  });
+</script>
 </div>
 <div class="clean"></div>
 
