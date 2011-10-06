@@ -25,6 +25,7 @@ a{
 .clean{
 	clear: both;
 }
+p{margin-bottom:14px;}
 
 .left{float:left;}
 .right{float:right;}
@@ -102,7 +103,6 @@ a{
 #indexleft{
     width:620px;
     padding:15px;
-    height:760px;
     border-right:#cacaca 1px dotted;
     float:left;
     background:url(../img/fondoindexleft.jpg) no-repeat;
@@ -142,7 +142,7 @@ a{
     width:620px;
     height:20px;
     background:#3a5c87;
-    margin-top:15px;
+    margin-top:0px;
     color:#fff;
     font-size:14px;
     font-weight:bold;
@@ -610,7 +610,7 @@ td {
 #map_canvas {
     height: 380px;
     margin: 0 auto;
-    width: 618px;
+    width: 620px;
 
 }
 

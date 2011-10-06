@@ -2,6 +2,7 @@
 {%block extra_header%}
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/markerclusterer.js"></script>
+
 <script type="text/javascript">
     var map;    
     $(document).ready(function () {     
@@ -37,7 +38,7 @@
 	});
 </script>
 <style type="text/css">
-	#mapa { height: 450px; width: 600px; }
+	#mapa { height: 450px; width: 580px; }
 	.infowindow{font-size: 13px; color: #069;}	
 	.infowindow span{color: #4E4E4E;}
 	.infowindow .info{font-size: 13px; margin-top: 6px;}	
@@ -45,22 +46,24 @@
 {%endblock%}
 {%block content%}
         <div id="indexleft">
-            <div id ="numencuestados"><b>{{familias}}</b> Familias encuestadas en la actualidad</div>
-            <div id="tituloacerca">ACERCA DEL SISTEMA DE MONITOREO</div>
-            <div class="column">
-                <img src="{{STATIC_URL}}img/foto.jpg">
-                <br><br>
-                En la región Centroamericana, como en otras zonas en subdesarrollo, el manejo forestal comunitario es una de las alternativas más viables para resolver el gran dilema de la conciliación entre la preservación de la naturaleza y el desarrollo económico.
-            </div>
-            <div class="column">
-                El manejo forestal comunitario busca el uso razonable o planificado de de los bosques en las localidades de grupos indígenas y campesinos. La importancia de adecuadas prácticas de manejo forestal permite el bienestar socioeconómico, logrando un equilibrio entre las alternativas comerciales que ofrecen los bosques y la conservación de los patrimonios naturales y culturales de la humanidad.
-                <br><br>Ahora bien, es en este momento que se hace necesario hacer un monitoreo de impacto en la zona del proyecto, para verificar y evaluar el grado de cumplimiento de los objetivos y resultados. Pero sobre todo, saber si realmente la influencia del proyecto es positiva ya asertiva en su punto de intervención
-            </div>
-            <div class="clean"></div>
-            <div id="titulomapa">Mapa Geografico de encuestados</div>
-            <div id="mapaindex">
-                <div id="map_canvas"></div>
-            </div>
+
+
+                    <div id ="numencuestados"><b>{{familias}}</b> Familias encuestadas en la actualidad</div>
+                    <div id="tituloacerca">ACERCA DEL SISTEMA DE MONITOREO</div>
+                    <img src="{{STATIC_URL}}img/fotopartada.jpg">
+                    <div class="column">
+                        <p>El proyecto “Alternativa de manejo sostenible en sistemas agroforestales para indígenas, campesinos y afro descendientes de la RAAN, Nicaragua”, denominado COCOA RAAN, tiene como objetivo contribuir en la erradicación de la pobreza en comunidades indígenas, campesinas y afro descendientes y en el desarrollo integral de la producción cacaotera y mercadeo en la RAAN, a través del fomento del uso sostenible de los recursos naturales, el bienestar rural y establecimiento de acuerdos comerciales sostenibles. </p>
+                        <p>La Asociación Coordinadora Indígena y Campesina de Agroforestería Comunitaria Centroamericana (ACICAFOC) es la ejecutora de este proyecto cuyos componentes i) Desarrollo integrado de sistemas agroforestales en 1000 fincas de cacao para elevar los niveles de producción en Nicaragua, ii) Estrategia de comercialización directa y los vínculos con el mercado de cacao para los agricultores que operan en una empresa social y media ambientalmente sostenible, iii) ha consolidado la Red Centroamericana de Productores de Cacao en respuesta a las demandas expresadas por los productores de participar activamente en iniciativas de comercialización y iv) Monitoreo y Evaluación participativa en las acciones implementadas.</p>
+                    </div>
+                    <div class="column">
+                        <p>Con estos componentes, se pretende dar una respuesta a las necesidades de los productores de cacao, para desarrollar capacidades técnicas en el manejo del cacao en sistemas agroforestales y vincularlos con mecanismos innovadores que les permita participar activamente en el desarrollo de nichos de mercado.</p>
+                        <p>La ejecución del proyecto inicio en el 2010 y se ha dinamizado a partir del 2011, obteniéndose resultados visibles de las acciones dentro de las cuales se pueden destacar el aporte hacia el desarrollo de capacidades técnicas en la zona tanto a nivel de técnicos como a nivel de líderes y productores en el manejo de sistemas agroforestales de cacao, beneficiado y formulación de propuestas de subproyectos. Para ello la capacitación de facilitadores locales de Escuelas de campo en Cacao y talleres dirigidos en la formulación de propuestas de subproyectos y elaboración de presupuesto ha sido un proceso que ha generado capacidades locales que dinamizan el desarrollo de las acciones alrededor del cacao en la RAAN.</p>
+                    </div>
+                    <div class="clean"></div>
+                    <div id="titulomapa">Mapa Geografico de encuestados</div>
+                    <div id="mapaindex">
+                        <div id="map_canvas"></div>
+                    </div>
         </div>
         <div id="indexright">
             <br>
