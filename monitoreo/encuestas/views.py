@@ -766,20 +766,14 @@ def arboles(request):
         query = a.filter(reforestacion__reforestacion = activ)
         numero = query.count()
         porcentaje_num = saca_porcentajes(numero, num_familias)
-        nativos = query.aggregate( cantidad = Sum('reforestacion__respuesta'))['cantidad']   
-        totalnn = nativos
-        porcentaje_nativos = saca_porcentajes(nativos, totalnn)
        
-        tabla[key] = {'numero': numero, 'porcentaje_num':porcentaje_num, 
-                      'porcentaje_nativos': porcentaje_nativos,'nativos': nativos 
+        tabla[key] = {'numero': numero, 'porcentaje_num':porcentaje_num 
                       }
         
     
     return  render_to_response('reforestacion/arboles.html',
-                              {'num_familias':num_familias,
-                               'tabla':tabla,'totales':totales
-                               },
-                                context_instance=RequestContext(request))
+                               locals(),
+                               context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
 #Tabla Animales en la finca
 @session_required

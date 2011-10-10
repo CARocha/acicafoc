@@ -49,8 +49,7 @@ $(document).ready(function () {
                 <th>Actividad</th>
                 <th>Frecuencia</th>
                 <th>% Frec.</th>
-                <th>Cantidad de arboles sembrados</th>
-<!--                <th>% Cantidad de arboles</th>-->
+               
             </tr>
         </thead>
         <tbody>
@@ -59,8 +58,7 @@ $(document).ready(function () {
                 <td>{{key|unslugify}}</td>
                 <td>{{value.numero|floatformat}}</td>
                 <td>{{value.porcentaje_num|floatformat}}</td>
-                <td>{{value.nativos|floatformat}}</td>
-<!--                <td>{{value.porcentaje_nativos|floatformat}}</td>-->
+               
             </tr>
             {%endfor%}
         <tbody>
