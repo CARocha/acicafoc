@@ -2,6 +2,9 @@
 {%block extra_header%}
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/markerclusterer.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}js/jquery.nivo.slider.pack.js"></script>
+<link href="{{STATIC_URL}}css/nivo-slider.css" rel="stylesheet" type="text/css" media="all" title=""/>
+<link href="{{STATIC_URL}}css/themes/orman/orman.css" rel="stylesheet" type="text/css" media="all" title=""/>
 
 <script type="text/javascript">
     var map;    
@@ -37,6 +40,38 @@
 		});
 	});
 </script>
+<script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider({
+        effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+        slices: 15, // For slice animations
+        boxCols: 8, // For box animations
+        boxRows: 4, // For box animations
+        animSpeed: 500, // Slide transition speed
+        pauseTime: 5000, // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        directionNav: true, // Next & Prev navigation
+        directionNavHide: true, // Only show on hover
+        controlNav: true, // 1,2,3... navigation
+        controlNavThumbs: false, // Use thumbnails for Control Nav
+        controlNavThumbsFromRel: false, // Use image rel for thumbs
+        controlNavThumbsSearch: '.jpg', // Replace this with...
+        controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
+        keyboardNav: true, // Use left & right arrows
+        pauseOnHover: true, // Stop animation while hovering
+        manualAdvance: false, // Force manual transitions
+        captionOpacity: 0.8, // Universal caption opacity
+        prevText: 'Prev', // Prev directionNav text
+        nextText: 'Next', // Next directionNav text
+        beforeChange: function(){}, // Triggers before a slide transition
+        afterChange: function(){}, // Triggers after a slide transition
+        slideshowEnd: function(){}, // Triggers after all slides have been shown
+        lastSlide: function(){}, // Triggers when last slide is shown
+        afterLoad: function(){} // Triggers when slider has loaded
+    });
+});
+</script>
+
 <style type="text/css">
 	#mapa { height: 450px; width: 580px; }
 	.infowindow{font-size: 13px; color: #069;}	
@@ -46,11 +81,16 @@
 {%endblock%}
 {%block content%}
         <div id="indexleft">
-
-
+            <div class="slider-wrapper theme-orman">
+               <div id="slider" class="nivoSlider" >
+                   <img src="/files/img/slider1.jpg" alt=""  />
+                   <img src="/files/img/slider2.jpg" alt=""  />
+                   <img src="/files/img/slider3.jpg" alt=""  />
+                   <img src="/files/img/slider4.jpg" alt=""  />
+                </div>
+            </div>
                     <div id ="numencuestados"><b>{{familias}}</b> Familias encuestadas en la actualidad</div>
                     <div id="tituloacerca">ACERCA DEL SISTEMA DE MONITOREO</div>
-                    <img src="{{STATIC_URL}}img/fotopartada.jpg">
                     <div class="column">
                         <p>El proyecto “Alternativa de manejo sostenible en sistemas agroforestales para indígenas, campesinos y afro descendientes de la RAAN, Nicaragua”, denominado COCOA RAAN, tiene como objetivo contribuir en la erradicación de la pobreza en comunidades indígenas, campesinas y afro descendientes y en el desarrollo integral de la producción cacaotera y mercadeo en la RAAN, a través del fomento del uso sostenible de los recursos naturales, el bienestar rural y establecimiento de acuerdos comerciales sostenibles. </p>
                         <p>La Asociación Coordinadora Indígena y Campesina de Agroforestería Comunitaria Centroamericana (ACICAFOC) es la ejecutora de este proyecto cuyos componentes i) Desarrollo integrado de sistemas agroforestales en 1000 fincas de cacao para elevar los niveles de producción en Nicaragua, ii) Estrategia de comercialización directa y los vínculos con el mercado de cacao para los agricultores que operan en una empresa social y media ambientalmente sostenible, iii) ha consolidado la Red Centroamericana de Productores de Cacao en respuesta a las demandas expresadas por los productores de participar activamente en iniciativas de comercialización y iv) Monitoreo y Evaluación participativa en las acciones implementadas.</p>
