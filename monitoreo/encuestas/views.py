@@ -85,7 +85,7 @@ def _queryset_filtrado(request):
         params['beneficiario__in'] = request.session['organizacion']
 
     if 'grupo' in  request.session:
-        params['grupo'] = request.session['grupo']            
+        params['grupo__in'] = request.session['grupo']            
 
     if 'duenio' in  request.session:
         params['tenencia__dueno'] = request.session['duenio']
