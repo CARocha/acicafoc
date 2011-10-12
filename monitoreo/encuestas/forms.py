@@ -27,11 +27,7 @@ class MonitoreoForm(forms.Form):
     organizacion = forms.ModelMultipleChoiceField(queryset=OrganizacionOCB.objects.all().order_by('nombre'), required=False, label=u'Organización')
     municipio = forms.ModelMultipleChoiceField(queryset=Municipio.objects.all().order_by('nombre'), required=False)
     comunidad = forms.ModelMultipleChoiceField(queryset=Comunidad.objects.all(), required=False)
-#    departamento = forms.ModelChoiceField(queryset=Departamento.objects.all(), 
-#            required=False, empty_label="Departamento")
-#    organizacion = forms.CharField(widget = forms.Select, required=False)
-#    municipio = forms.CharField(widget = forms.Select, required=False)
-#    comunidad = forms.CharField(widget = forms.Select, required=False)
-    grupo = forms.ChoiceField(label = 'Grupo Etnico', choices = CHOICE_ETNICO, required=False)
+    #grupo = forms.ChoiceField(label = 'Grupo Etnico', choices = CHOICE_ETNICO, required=False)
+    grupo = forms.MultipleChoiceField(choices = CHOICE_ETNICO, required=False)
     sexo = forms.ChoiceField(choices = CHOICE_SEXO, required=False)
     dueno = forms.ChoiceField(label = 'Dueño', choices = CHOICE_DUENO_F , required=False, initial=u"Dueño")

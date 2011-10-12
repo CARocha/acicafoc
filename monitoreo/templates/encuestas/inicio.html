@@ -25,6 +25,20 @@
                 
             }
         });
+        
+        $("#id_grupo").multiselect({
+            noneSelectedText: 'Grupos',
+            selectedText: 'Grupos',
+            checkAllText: 'Todos',
+            uncheckAllText: 'Quitar todos',
+            minWidth: 200,
+            beforeclose: function(event, ui){
+                var selectos = $("#id_grupo").multiselect("getChecked").map(function(){
+                    return this.value;
+                }).get();
+                
+            }
+        });
     
         $("#id_organizacion, #id_municipio, #id_comunidad").html('');
         comunidad = $("#id_comunidad").multiselect({
