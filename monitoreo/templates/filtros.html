@@ -20,7 +20,7 @@
         <div class="filtrovalor"><b>Años de socio:</b><br> {%if request.session.desde = '1'%}Menos de 5 {%else%}Más de 5 {%endif%}</div>
     {%endif%}
     {%if request.session.grupo%}
-        <div class="filtrovalor"><b>Grupo étnico</b><br>{%if request.session.grupo = '1'%}Miskito{%endif%}{%if request.session.grupo = '2'%}Mayagna{%endif%}{%if request.session.grupo = '3'%}Mestizo{%endif%}{%if request.session.grupo = '4'%}Afrodescendiente{%endif%}</div>
+        <div class="filtrovalor"><b>Grupo étnico</b><br>{%for c in request.session.grupo%}{%if c = '1'%}Miskito{%endif%}{%if c = '2'%}Mayagna{%endif%}{%if c = '3'%}Mestizo{%endif%}{%if c = '4'%}Afrodescendiente{%endif%}, {%endfor%}</div>
     {%endif%}
     {%if request.session.duenio%}
         <div class="filtrovalor"><b>Tipo Dueño:</b> <br>{%if request.session.duenio = '1'%}Hombre{%endif%}{%if request.session.duenio = '2'%}Mujer{%endif%}{%if request.session.duenio = '3'%}Mancomunado{%endif%}{%if request.session.duenio = '4'%}Parientes{%endif%}{%if request.session.duenio = '5'%}Colectivo{%endif%}{%if request.session.duenio = '6'%}No hay{%endif%}</div>
