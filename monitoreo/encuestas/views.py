@@ -1474,7 +1474,8 @@ def plantaciones(request):
     #********variables globales****************
     a = _queryset_filtrado(request)
     num_familia = a.count()
-    
+    promedio_planta = 0
+    promedio_injerto = 0
     #Lista de los viveros
     vivero = []
 #    for viver in Vivero.objects.all():
