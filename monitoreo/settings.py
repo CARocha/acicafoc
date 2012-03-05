@@ -9,7 +9,7 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, 'static_media/uploads/')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/files/uploads/'
+MEDIA_URL = '/uploads/'
 
 STATIC_ROOT = ''
 
@@ -98,6 +98,7 @@ INSTALLED_APPS = (
     'monitoreo.seguridad',
     'monitoreo.suelo',
     'monitoreo.tierra',
+    'monitoreo.noticias',
     'south',
 )
 

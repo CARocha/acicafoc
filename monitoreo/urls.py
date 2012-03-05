@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from os import path as os_path
+from settings import *
 
 
 # Uncomment the next two lines to enable the admin:
@@ -26,3 +27,8 @@ handler404 = 'monitoreo.views.file_not_found_404'
 handler500 = 'monitoreo.views.file_not_found_500'
 
 urlpatterns += staticfiles_urlpatterns()
+
+if DEBUG:
+    urlpatterns += patterns('',
+                (r'^uploads/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
+                )
