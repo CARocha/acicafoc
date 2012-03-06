@@ -838,8 +838,8 @@ list-style-position: outside; }
 
 .filtronoticia ul li{
     background:#fff;
-    height:30px;
-    line-height:30px;
+    height:auto;
+    padding:9px 0px;
     border-bottom:#d2d2d2 1px solid;
 }
 
