@@ -19,7 +19,9 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^xls/$', 'monitoreo.utils.save_as_xls'),
     (r'^$', 'monitoreo.encuestas.views.index'),
+    (r'^', include('noticias.urls')),
     (r'^', include('monitoreo.encuestas.urls')),
+
 )
 
 handler404 = 'monitoreo.views.file_not_found_404'
