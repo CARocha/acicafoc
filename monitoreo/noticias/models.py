@@ -18,7 +18,7 @@ from django.utils.safestring import mark_safe
 
 class CategoriaNoticia(models.Model):
     '''Modelo que representa la categorias de las noticias'''
-    nombre = models.CharField('Título', max_length=40, unique=True, blank=True, null=True)
+    nombre = models.CharField('Título', max_length=250, unique=True, blank=True, null=True)
     slug = models.SlugField(max_length=40, unique=True, help_text='unico Valor', editable=False)
 
     def __unicode__(self):

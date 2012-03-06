@@ -1,0 +1,33 @@
+{% extends "basenueva.html"%}
+{% load pagination_tags %}
+{% block extra_header %}
+
+{% endblock %}
+
+{% block content %}
+	<div class="contenido-noticia">
+
+		<div class="sidebar-noticia">
+			Filtrar por :<br>
+			<ul>
+			{%for cat in categorias%}
+				<li><a href="#">{{cat.nombre}}</a></li>
+			{%endfor%}
+		</div>
+		<div class="der-noticia">
+		{% autopaginate noticias 6%}
+		    {%for noticia in noticias%}
+		    <div class="elemento-lista">
+		        <div class="fecha">{{noticia.fecha|date:"d M"}}</div>
+		        <div class="titulo"><a href="/noticias/{{noticia.slug}}">{{noticia.titulo}}</a></div>
+		        <div class="descripcion">{{noticia.contenido|truncatewords:80|safe}}</div>
+		        <img class="izq"  src="{{noticia.imagen.url_62x48}}"  alt="thumb"/>
+		        <div class="separador"></div>
+		    </div>
+		    {%endfor%}
+		{%paginate%}
+		</div>
+		<div class="clean"></div>
+	</div>
+
+{% endblock %}

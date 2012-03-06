@@ -58,6 +58,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'monitoreo.urls'
@@ -100,6 +101,7 @@ INSTALLED_APPS = (
     'monitoreo.tierra',
     'monitoreo.noticias',
     'south',
+    'pagination',
 )
 
 # A sample logging configuration. The only tangible logging
