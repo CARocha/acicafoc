@@ -29,7 +29,14 @@
 	<div class="contenido-noticia">
 
 		<div class="sidebar-noticia">
-			Filtrar por :<br>
+			<div class="filtrarpor"><i>Filtrar avances por:</i> </div>
+			<div class="filtronoticia">
+				<ul>
+				{%for cat in categorias%}
+					<li><a href="/noticias/categoria/{{cat.slug}}">{{cat.nombre}}</a></li>
+				{%endfor%}
+				</ul>
+			</div>
 
 		</div>
 		<div class="der-noticia">
@@ -46,6 +53,7 @@
 					{%endfor%}
 					<div class="clean"></div>
 			</div>
+			{%if documentos%}
 		    <div class="documentos">
 		    	<table class="table-bordered">
 		    		<thead>
@@ -65,6 +73,7 @@
 				</table>
 					<div class="clean"></div>
 			</div>
+			{%endif%}
 		</div>
 
 		<div class="clean"></div>

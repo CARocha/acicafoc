@@ -8,13 +8,22 @@
 	<div class="contenido-noticia">
 
 		<div class="sidebar-noticia">
-			Filtrar por :<br>
-			<ul>
-			{%for cat in categorias%}
-				<li><a href="#">{{cat.nombre}}</a></li>
-			{%endfor%}
+			<div class="filtrarpor"><i>Filtrar avances por:</i> </div>
+			<div class="filtronoticia">
+				<ul>
+				{%for cat in categorias%}
+					<li><a href="/noticias/categoria/{{cat.slug}}">{{cat.nombre}}</a></li>
+				{%endfor%}
+				</ul>
+			</div>
 		</div>
 		<div class="der-noticia">
+			{%if categoria%}
+			<div class="filtrarpor"><i>Avances de proyecto realcionados a <b>{{categoria.nombre}}</b></i> </div>
+			{%else%}
+			<div class="filtrarpor"><i>Avances de proyecto</i> </div>
+			{%endif%}
+			
 		{% autopaginate noticias 6%}
 		    {%for noticia in noticias%}
 		    <div class="elemento-lista">

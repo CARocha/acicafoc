@@ -826,3 +826,46 @@ list-style-position: outside; }
 #pagination a:hover {
     border:solid 1px #0e509e;
 }
+
+.filtronoticia ul{
+    float: left;
+    font-size: 12px;
+    width: 300px;
+    list-style: none;
+    padding-left:0px;
+    margin-top:0px;
+}
+
+.filtronoticia ul li{
+    background:#fff;
+    height:30px;
+    line-height:30px;
+    border-bottom:#d2d2d2 1px solid;
+}
+
+.filtronoticia ul li:hover{
+    background:#FFF9D0;
+}
+
+.filtronoticia ul li a{
+    display:block;
+    background: url(/files/img/flechamenu.png) no-repeat;
+    background-position:center right;
+    text-decoration:none;
+    font-size:12px;
+    color:#486e4a;
+    padding-left:10px;
+    width:280px;
+}
+
+.filtronoticia ul li a:hover{
+    background: url(/files/img/flechamenu2.png) no-repeat;
+    background-position:center right;
+}
+
+.filtrarpor{
+    font-family:Georgia;
+    font-size:16px;
+    color:#888;
+    margin-bottom:10px;
+}

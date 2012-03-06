@@ -31,7 +31,7 @@ def noticia_lista_cat(request,cat_slug):
     '''Filtra la lista de noticias por una categoria especifica'''
     noticias = Noticia.objects.filter(categoria__slug=cat_slug).order_by('-fecha','-id')
     categoria = CategoriaNoticia.objects.get(slug=cat_slug)
-
-    dicc = {'noticias': noticias,'categoria':categoria,
+    categorias = CategoriaNoticia.objects.all()
+    dicc = {'noticias': noticias,'categoria':categoria,'categorias':categorias,
            }
-    return direct_to_template(request, 'noticias/noticia_lista.html',dicc)
+    return direct_to_template(request, 'noticias/noticias_lista.html',dicc)
