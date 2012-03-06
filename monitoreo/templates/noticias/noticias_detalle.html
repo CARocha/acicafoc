@@ -1,0 +1,73 @@
+{% extends "basenueva.html"%}
+{% load pagination_tags %}
+{% block extra_header %}
+ <link href="{{STATIC_URL}}js/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" media="all" title=""/>
+ <script type="text/javascript" src="{{STATIC_URL}}js/jquery.fancybox-1.3.4.pack.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+
+			
+			$("a.gal").fancybox();
+			
+			$("a#inline").fancybox({
+				'hideOnContentClick': true
+			});
+			
+			$("a.group").fancybox({
+				'transitionIn'	:	'elastic',
+				'transitionOut'	:	'elastic',
+				'speedIn'		:	600, 
+				'speedOut'		:	200, 
+				'overlayShow'	:	false
+			});
+			
+		});
+		</script>
+{% endblock %}
+
+{% block content %}
+	<div class="contenido-noticia">
+
+		<div class="sidebar-noticia">
+			Filtrar por :<br>
+
+		</div>
+		<div class="der-noticia">
+		    <div class="elemento-lista">
+		        <div class="fecha">{{noticia.fecha|date:"d M"}}</div>
+		        <div class="titulo"><a href="/noticias/{{noticia.slug}}">{{noticia.titulo}}</a></div>
+		        <div class="descripcion">{{noticia.contenido|truncatewords:80|safe}}</div>
+		        
+		        <div class="separador"></div>
+		    </div>	
+		    <div class="galeria">
+		    		{%for imagen in imagen%}
+		    		<a class="gal" href="{{imagen.imagen.url_640x500}}"><img class="izq"  src="{{imagen.imagen.url_218x164}}"  alt="thumb"/></a>
+					{%endfor%}
+					<div class="clean"></div>
+			</div>
+		    <div class="documentos">
+		    	<table class="table-bordered">
+		    		<thead>
+		    			<tr>
+		    				<th>Documento</th>
+		    				<th>Enlace</th>
+		    			</tr>
+		    		</thead>
+		    		<tbody>
+		    		{%for doc in documento%}
+		    		<tr>
+		    			<td>{{doc.nombre}}</td>
+		    			<td><a href="/uploads/{{doc.adjunto}}">[ Descargar ] </a></td>
+		    		</tr>
+					{%endfor%}
+				</tbody>
+				</table>
+					<div class="clean"></div>
+			</div>
+		</div>
+
+		<div class="clean"></div>
+	</div>
+
+{% endblock %}
