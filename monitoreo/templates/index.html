@@ -19,26 +19,26 @@
             mapTypeId: google.maps.MapTypeId.TERRAIN
         }
         map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-		$.getJSON('/mapa/', function(data) {
-			$.each(data[0], function(name, item) {
-				var latlng = new google.maps.LatLng(item.lat, item.lon);
-				var marker = new google.maps.Marker({
-					position : latlng,
-					map : map,
-					title : name,
- 					icon : 'http://chart.apis.google.com/chart?chst=d_bubble_text_small&chld=bbT|'+(item.hombres+item.mujeres)+'|FABF15|000000',
-					item : ''					
-				});
-				google.maps.event.addListener(marker, 'click', function() {
-	                infowindow.open(map, marker);
-	                var text = '<div class="infowindow"><b>'+name+'</b><br><div class="info">';
-	                text += '<span>Hombres: </span>'+item.hombres+' <span>Mujeres:</span> '+item.mujeres;                
-	                text += '<br><span>Total:</span> '+(item.hombres+item.mujeres)+'</div></div>';
-	                infowindow.setContent(text);
-	            });
-			});
-		});
-	});
+        $.getJSON('/mapa/', function(data) {
+            $.each(data[0], function(name, item) {
+                var latlng = new google.maps.LatLng(item.lat, item.lon);
+                var marker = new google.maps.Marker({
+                    position : latlng,
+                    map : map,
+                    title : name,
+                    icon : 'http://chart.apis.google.com/chart?chst=d_bubble_text_small&chld=bbT|'+(item.hombres+item.mujeres)+'|FABF15|000000',
+                    item : ''                   
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map, marker);
+                    var text = '<div class="infowindow"><b>'+name+'</b><br><div class="info">';
+                    text += '<span>Hombres: </span>'+item.hombres+' <span>Mujeres:</span> '+item.mujeres;                
+                    text += '<br><span>Total:</span> '+(item.hombres+item.mujeres)+'</div></div>';
+                    infowindow.setContent(text);
+                });
+            });
+        });
+    });
 </script>
 <script type="text/javascript">
 $(window).load(function() {
@@ -73,12 +73,15 @@ $(window).load(function() {
 </script>
 
 <style type="text/css">
-	#mapa { height: 450px; width: 580px; }
-	.infowindow{font-size: 13px; color: #069;}	
-	.infowindow span{color: #4E4E4E;}
-	.infowindow .info{font-size: 13px; margin-top: 6px;}	
+    #mapa { height: 450px; width: 580px; }
+    .infowindow{font-size: 13px; color: #069;}  
+    .infowindow span{color: #4E4E4E;}
+    .infowindow .info{font-size: 13px; margin-top: 6px;}    
 </style>
 {%endblock%}
+
+{% load i18n %}
+
 {%block content%}
         <div id="indexleft">
             <div class="slider-wrapper theme-orman">
@@ -108,42 +111,44 @@ $(window).load(function() {
         <div id="indexright">
             <br>
             <div class="menuindex">
-                <a class="menutitulo"href="/proyecto">Información del proyecto</a>
+                <a class="menutitulo"href="/proyecto">{% trans "Información del proyecto" %}</a>
                 <a href="/proyecto"><img src="{{STATIC_URL}}img/menuproyecto.png" class="left"></a>
                 <p>Conoce los objetivos, la finalidad, el area de influencia y los beneficiarios del proyecto</p>
                 <a class="flecha" href="/proyecto"></a>
                 <div class="clean"></div>
             </div>
             <div class="menuindex">
-                <a class="menutitulo"href="/general">Estadistícas Generales</a>
+                <a class="menutitulo"href="/general">{% trans "Estadistícas Generales" %}</a>
                 <a href="/general"><img src="{{STATIC_URL}}img/generales.png" class="left"></a>
                 <p>Datos generales de la encuesta visibilizados geográficamente en las zonas de cobertura</p>
                 <a class="flecha" href="/general"></a>
                 <div class="clean"></div>
             </div>
             <div class="menuindex">
-                <a class="menutitulo"href="/index">Consulta de indicadores</a>
+                <a class="menutitulo"href="/index">{% trans "Consulta de indicadores" %}</a>
                 <a href="/index"><img src="{{STATIC_URL}}img/filtros.png" class="left"></a>
                 <p>A través de los filtros/indicadores podemos acceder a la información y los gráficos de acuerdo a nuestras necesidades. </p>
                 <a class="flecha" href="/index"></a>
                 <div class="clean"></div>
             </div>
             <div class="menuindex">
-                <a class="menutitulo"href="{{STATIC_URL}}manualAcicafocUsuario.pdf">Aprende a usar el sistema</a>
+                <a class="menutitulo"href="{{STATIC_URL}}manualAcicafocUsuario.pdf">{% trans "Aprende a usar el sistema" %}</a>
                 <a href="{{STATIC_URL}}manualAcicafocUsuario.pdf"><img src="{{STATIC_URL}}img/aprende.png" class="left"></a>
                 <p>Muestra la ayuda del sistema, cómo manipular la información disponible.</p>
                 <a class="flecha" href="{{STATIC_URL}}manualAcicafocUsuario.pdf"></a>
                 <div class="clean"></div>
             </div>
             <div class="menuindex">
-                <a class="menutitulo"href="/admin">Administrar el sistema</a>
+                <a class="menutitulo"href="/admin">{% trans "Administrar el sistema" %}
+</a>
                 <a href="/admin"><img src="{{STATIC_URL}}img/administrar.png" class="left"></a>
                 <p>Acceso a la administración válido únicamente para usuarios registrados.</p>
                 <a class="flecha" href="/admin"></a>
                 <div class="clean"></div>
             </div>
             <div class="menuindex">
-                <a class="menutitulo"href="/noticias">Avances del proyecto</a>
+                <a class="menutitulo"href="/noticias">{% trans "Avances del proyecto" %}
+</a>
                 <a href="/noticias"><img style="margin-right:10px;margin-left:10px;"src="{{STATIC_URL}}img/news.png" class="left"></a>
                 <p>Conoce la actualidad de las actividades
 realizadas por el proyecto.</p>

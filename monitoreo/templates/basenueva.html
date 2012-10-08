@@ -46,9 +46,11 @@
         </script>
 </head>
 
+{% load i18n %}
+
 <body>
 <div class="wrapper">
-	<div class="main">
+    <div class="main">
         <div id="header">
             <div id="logo"></div>
             <div id="cooperantes">
@@ -64,9 +66,9 @@
             <div id="cambiar-indicador" class="left">
                 <img id="home" src="{{STATIC_URL}}img/home.png" class="menu_head" />
                 <ul class="menu_body">
-                    <li><a href="/"><img src="{{STATIC_URL}}img/homemini.png">INICIO</a></li>
-                    <li><a href="/index?shva=1"><img src="{{STATIC_URL}}img/cambiarmini.png">CAMBIAR INDICADOR </a></li>
-                    <li><a href="/index/"><img src="{{STATIC_URL}}img/nuevamini.png">NUEVA CONSULTA</a></li>
+                    <li><a href="/"><img src="{{STATIC_URL}}img/homemini.png">{% trans "INICIO" %}</a></li>
+                    <li><a href="/index?shva=1"><img src="{{STATIC_URL}}img/cambiarmini.png">{% trans "CAMBIAR INDICADOR" %} </a></li>
+                    <li><a href="/index/"><img src="{{STATIC_URL}}img/nuevamini.png">{% trans "NUEVA CONSULTA" %}</a></li>
                 </ul>
             </div>
             {%block barra%}{%endblock%}
@@ -74,13 +76,13 @@
         </div>
         {%block content%}
         {%endblock%}
-	</div>	
+    </div>  
 </div>
 <div class="footer">
-	<div style="margin-left:15px;">
-		Sistema de Monitoreo <b>ACICAFOC</b><br>
-		Desarrollado en Nicaragua, bajo plataforma <a href="http://djangoproject.com">Django</a>
-	</div>
+    <div style="margin-left:15px;">
+        {% trans "Sistema de Monitoreo" %} <b>ACICAFOC</b><br>
+        {% trans "Desarrollado en Nicaragua" %}, {% trans "bajo plataforma" %} <a href="http://djangoproject.com">Django</a>
+    </div>
 </div>
 </body>
 </html>
