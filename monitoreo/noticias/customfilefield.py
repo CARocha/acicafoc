@@ -3,7 +3,7 @@
 from django.db.models import FileField
 from django.forms import forms
 from django.template.defaultfilters import filesizeformat
-from django.utils.translation import ugettext_lazy as _
+#from django.utils.translation import ugettext_lazy as _
 import mimetypes
 
 class ContentTypeRestrictedFileField(FileField):
@@ -38,10 +38,10 @@ class ContentTypeRestrictedFileField(FileField):
         if content_type in self.content_types:
             if bandera == 0:
                 if file._size > self.max_upload_size:
-                    raise forms.ValidationError(_('El Archivo debe ser menor a %s. El archivo actual es de %s') % (filesizeformat(self.max_upload_size), filesizeformat(file._size)))
+                    raise forms.ValidationError(('El Archivo debe ser menor a %s. El archivo actual es de %s') % (filesizeformat(self.max_upload_size), filesizeformat(file._size)))
             return data
         else:
-            raise forms.ValidationError(_('Archivo no soportado.'))
+            raise forms.ValidationError(('Archivo no soportado.'))
 
 from south.modelsinspector import add_introspection_rules
 add_introspection_rules([], ["^monitoreo\.noticias\.customfilefield\.ContentTypeRestrictedFileField"])
