@@ -1,5 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+{% load i18n %}
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="{{STATIC_URL}}css/acicafoc.css" rel="stylesheet" type="text/css">
@@ -10,7 +11,7 @@
 <script type="text/javascript" src="{{STATIC_URL}}js/table.exporting.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/jquery.cookie.js"></script>
-<title>Sistema de Monitoreo ACICAFOC | {%block title%}{%endblock%}</title>
+<title>{% trans "Sistema de Monitoreo ACICAFOC"%} | {%block title%}{%endblock%}</title>
     <script type="text/javascript">
     $(document).ready(function () {
         $("ul.menu_body li:even").addClass("alt");

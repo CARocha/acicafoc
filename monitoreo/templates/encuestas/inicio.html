@@ -1,5 +1,5 @@
 {% extends "basenueva.html" %}
-
+{% load i18n %}
 {%block extra_header%}
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
@@ -13,10 +13,10 @@
     $(document).ready(function(){
     
         $("#id_fecha").multiselect({
-            noneSelectedText: 'Año',
-            selectedText: 'Año',
-            checkAllText: 'Todos',
-            uncheckAllText: 'Quitar todos',
+            noneSelectedText: '{% trans "Año" %}',
+            selectedText: '{% trans "Año" %}',
+            checkAllText: '{% trans "Todos" %}',
+            uncheckAllText: '{% trans "Quitar todos" %}',
             minWidth: 200,
             beforeclose: function(event, ui){
                 var selectos = $("#id_fecha").multiselect("getChecked").map(function(){
@@ -27,10 +27,10 @@
         });
         
         $("#id_grupo").multiselect({
-            noneSelectedText: 'Grupos',
-            selectedText: 'Grupos',
-            checkAllText: 'Todos',
-            uncheckAllText: 'Quitar todos',
+            noneSelectedText: '{% trans "Grupos" %}',
+            selectedText: '{% trans "Grupos" %}',
+            checkAllText: '{% trans "Todos" %}',
+            uncheckAllText: '{% trans "Quitar todos" %}',
             minWidth: 200,
             beforeclose: function(event, ui){
                 var selectos = $("#id_grupo").multiselect("getChecked").map(function(){
@@ -42,17 +42,17 @@
     
         $("#id_organizacion, #id_municipio, #id_comunidad").html('');
         comunidad = $("#id_comunidad").multiselect({
-            noneSelectedText: 'Comunidad',
-            selectedText: 'Comunidad',
-            checkAllText: 'Todos',
-            uncheckAllText: 'Quitar todos',
+            noneSelectedText: '{% trans "Comunidad" %}',
+            selectedText: '{% trans "Comunidad" %}',
+            checkAllText: '{% trans "Todos" %}',
+            uncheckAllText: '{% trans "Quitar todos" %}',
             minWidth: 200
         });
            organizacion = $("#id_organizacion").multiselect({
-            noneSelectedText: 'Organización',
-            selectedText: 'Organización',
-            checkAllText: 'Todos',
-            uncheckAllText: 'Quitar todos',
+            noneSelectedText: '{% trans "Organización" %}',
+            selectedText: '{% trans "Organización" %}',
+            checkAllText: '{% trans "Todos" %}',
+            uncheckAllText: '{% trans "Quitar todos" %}',
             minWidth: 200,
             beforeclose: function(event, ui){
                 var selectos = $("#id_organizacion").multiselect("getChecked").map(function(){
@@ -70,10 +70,10 @@
         });
 
         $("#id_departamento").multiselect({
-            noneSelectedText: 'Departamento',
-            selectedText: 'Departamento',
-            checkAllText: 'Todos',
-            uncheckAllText: 'Quitar todos',
+            noneSelectedText: '{% trans "Departamento" %}',
+            selectedText: '{% trans "Departamento" %}',
+            checkAllText: '{% trans "Todos" %}',
+            uncheckAllText: '{% trans "Quitar todos" %}',
             minWidth: 200,
             beforeclose: function(event, ui){
                 var selectos = $("#id_departamento").multiselect("getChecked").map(function(){
@@ -90,10 +90,10 @@
         });
 
         municipio = $("#id_municipio").multiselect({
-            noneSelectedText: 'Municipio',
-            selectedText: 'Municipio',
-            checkAllText: 'Todos',
-            uncheckAllText: 'Quitar todos',
+            noneSelectedText: '{% trans "Municipio" %}',
+            selectedText: '{% trans "Municipio" %}',
+            checkAllText: '{% trans "Todos" %}',
+            uncheckAllText: '{% trans "Quitar todos" %}',
             minWidth: 200,
             beforeclose: function(event, ui){
                 var selectos = $("#id_municipio").multiselect("getChecked").map(function(){
@@ -173,7 +173,7 @@
     <div id="filtros">
         <div class="filtros_seleccion">
             <div class="paso1"></div>	
-            <div class="seleccion">SELECCI&Oacute;N<br><span>Filtros de encuestas</span></div>
+            <div class="seleccion">{% blocktrans %}SELECCIÓN<br><span>Filtros de encuestas</span>{%endblocktrans%}</div>
         </div>
         <div class="filtros_disponibles">	
             <form action="." method="POST">
@@ -212,7 +212,7 @@
         {%if centinela = 1 %}
             <div class="selectos_seleccion">
                     <div class="paso2"></div>	
-                    <div class="seleccion">SELECCI&Oacute;N<br><span>Indicadores del sistema</span></div>
+                    <div class="seleccion">{% blocktrans %}SELECCIÓN<br><span>Indicadores del sistema</span>{%endblocktrans%}</div>
             </div>
             <div class="clean"></div> 
             {% include "encuestas/menu.html" %}        

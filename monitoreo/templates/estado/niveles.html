@@ -1,5 +1,5 @@
 {% extends "basenueva.html" %}
-
+{% load i18n %}
 {% block extra_header %}
 <script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
@@ -15,7 +15,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: 'Nivel de fermentación que maneja y aplica'
+         text: '{% trans "Nivel de fermentación que maneja y aplica" %}'
       },
       tooltip: {
          formatter: function() {
@@ -58,7 +58,7 @@ chart = new Highcharts.Chart({
          plotShadow: false
       },
       title: {
-         text: 'Nivel de humedad que maneja en el secado'
+         text: '{% trans "Nivel de humedad que maneja en el secado" %}'
       },
       tooltip: {
          formatter: function() {
@@ -100,7 +100,7 @@ chart = new Highcharts.Chart({
          plotShadow: false
       },
       title: {
-         text: '¿Hay algún centro de acopio de cacao en la comunidad, comarca, zona o municipio al cual usted entregue su cacao?'
+         text: '{% trans "¿Hay algún centro de acopio de cacao en la comunidad, comarca, zona o municipio al cual usted entregue su cacao?" %}'
       },
       tooltip: {
          formatter: function() {
@@ -142,7 +142,7 @@ chart = new Highcharts.Chart({
          plotShadow: false
       },
       title: {
-         text: '¿Si usted es socio, asociado o miembro de algún centro de acopio de cacao?'
+         text: '{% trans "¿Si usted es socio, asociado o miembro de algún centro de acopio de cacao?" %}'
       },
       tooltip: {
          formatter: function() {
@@ -197,10 +197,10 @@ $(document).ready(function () {
 {% block barra %}
 <div class="indicadores">
     <div id="contenedor_igual">
-        <a href="#" class="tab" id="1" >Nivel de fermentación</a>   
-        <a href="#" class="tab"  id="2">Nivel de humedad</a>    
-        <a href="#" class="tab" id="3" >Acopio de cacao</a>
-        <a href="#" class="tab" id="4" >Miembro de acopio</a>
+        <a href="#" class="tab" id="1" >{% trans "Nivel de fermentación" %}</a>   
+        <a href="#" class="tab" id="2">{% trans "Nivel de humedad" %}</a>    
+        <a href="#" class="tab" id="3" >{% trans "Acopio de cacao" %}</a>
+        <a href="#" class="tab" id="4" >{% trans "Miembro de acopio" %}</a>
     
     </div>
 </div>

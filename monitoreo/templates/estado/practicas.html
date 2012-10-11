@@ -1,5 +1,5 @@
 {% extends "basenueva.html" %}
-
+{% load i18n %}
 {% block extra_header %}
 <script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
@@ -12,20 +12,20 @@
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'vivero'
+                text: '{% trans "vivero" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'
+                    '{% trans "Opciones" %}'
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (que dijeron Si)'
+                    text: '{% trans "Porcentajes (que dijeron Si)" %}'
                 }
             },
 
@@ -76,20 +76,20 @@
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Práctica de fertilización'
+                text: '{% trans "Práctica de fertilización" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'
+                    '{% trans "Opciones" %}'
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (que dijeron Si)'
+                    text: '{% trans "Porcentajes (que dijeron Si)" %}'
                 }
             },
 
@@ -140,20 +140,20 @@
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Prácticas de manejo fitosanitario'
+                text: '{% trans "Prácticas de manejo fitosanitario" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'
+                    '{% trans "Opciones" %}'
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (que dijeron Si)'
+                    text: '{% trans "Porcentajes (que dijeron Si)" %}'
                 }
             },
 
@@ -204,20 +204,20 @@
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Prácticas de manejo productivo'
+                text: '{% trans "Prácticas de manejo productivo" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'
+                    '{% trans "Opciones" %}'
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (que dijeron Si)'
+                    text: '{% trans "Porcentajes (que dijeron Si)" %}'
                 }
             },
 
@@ -268,20 +268,20 @@
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Prácticas de mejoramiento genético de la plantación'
+                text: '{% trans "Prácticas de mejoramiento genético de la plantación" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'
+                    '{% trans "Opciones" %}'
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (que dijeron Si)'
+                    text: '{% trans "Porcentajes (que dijeron Si)" %}'
                 }
             },
 
@@ -332,20 +332,20 @@
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Prácticas de manejo postcosecha y beneficiado'
+                text: '{% trans "Prácticas de manejo postcosecha y beneficiado" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'
+                    '{% trans "Opciones" %}'
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (que dijeron Si)'
+                    text: '{% trans "Porcentajes (que dijeron Si)" %}'
                 }
             },
 
@@ -413,12 +413,12 @@ $(document).ready(function () {
 {% block barra %}
 <div class="indicadores">
     <div id="contenedor_igual">
-        <a href="#" class="tab" id="1" >Vivero</a>
-        <a href="#" class="tab"  id="2">Fertilización</a>
-        <a href="#" class="tab" id="3" >Manejo fitosanitario</a>
-        <a href="#" class="tab" id="4" >Manejo productivo</a>
-        <a href="#" class="tab" id="5" >Mejoramiento Genético</a>
-        <a href="#" class="tab" id="6" >Manejo Postcosecha</a>
+        <a href="#" class="tab" id="1" >{% trans "Vivero" %}</a>
+        <a href="#" class="tab"  id="2">{% trans "Fertilización" %}</a>
+        <a href="#" class="tab" id="3" >{% trans "Manejo fitosanitario" %}</a>
+        <a href="#" class="tab" id="4" >{% trans "Manejo productivo" %}</a>
+        <a href="#" class="tab" id="5" >{% trans "Mejoramiento Genético" %}</a>
+        <a href="#" class="tab" id="6" >{% trans "Manejo Postcosecha" %}</a>
     </div>
 </div>
 {% endblock %}
@@ -427,14 +427,14 @@ $(document).ready(function () {
 <div class="contenido fulltabla">
 
 <div id="tablatab1" class="escondete">
-<div class="subindicador">Vivero practicas<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div class="subindicador">{% trans "Vivero practicas" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
     <div id="modalidad">
     <table style="width:100%;">
             <thead>
                 <tr>
-                    <th>Prácticas</th>
-                    <th>Frecuencia</th>
-                    <th>porcentajes(%)</th>
+                    <th>{% trans "Prácticas" %}</th>
+                    <th>{% trans "Frecuencia" %}</th>
+                    <th>{% trans "porcentajes(%)" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -455,14 +455,14 @@ $(document).ready(function () {
 </div>
 
 <div id="tablatab2" class="escondete">
-<div class="subindicador">Práctica de fertilización<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad1'); return false;"></a></div>
+<div class="subindicador">{% trans "Práctica de fertilización" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad1'); return false;"></a></div>
  <div id="modalidad1">
     <table style="width:100%;">
             <thead>
                 <tr>
-                    <th>Prácticas</th>
-                    <th>Frecuencia</th>
-                    <th>porcentajes(%)</th>
+                    <th>{% trans "Prácticas" %}</th>
+                    <th>{% trans "Frecuencia" %}</th>
+                    <th>{% trans "porcentajes(%)" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -482,14 +482,14 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab3" class="escondete">
-<div class="subindicador">Prácticas de manejo fitosanitario<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad2'); return false;"></a></div>
+<div class="subindicador">{% trans "Prácticas de manejo fitosanitario" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad2'); return false;"></a></div>
  <div id="modalidad2">
     <table style="width:100%;">
             <thead>
                 <tr>
-                    <th>Prácticas</th>
-                    <th>Frecuencia</th>
-                    <th>porcentajes(%)</th>
+                    <th>{% trans "Prácticas" %}</th>
+                    <th>{% trans "Frecuencia" %}</th>
+                    <th>{% trans "porcentajes(%)" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -509,14 +509,14 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab4" class="escondete">
-<div class="subindicador">Prácticas de manejo productivo<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad3'); return false;"></a></div>
+<div class="subindicador">{% trans "Prácticas de manejo productivo" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad3'); return false;"></a></div>
  <div id="modalidad3">
     <table style="width:100%;">
             <thead>
                 <tr>
-                    <th>Prácticas</th>
-                    <th>Frecuencia</th>
-                    <th>porcentajes(%)</th>
+                    <th>{% trans "Prácticas" %}</th>
+                    <th>{% trans "Frecuencia" %}</th>
+                    <th>{% trans "porcentajes(%)" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -536,14 +536,14 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab5" class="escondete">
-<div class="subindicador">Prácticas de mejoramiento genético de la plantación<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad4'); return false;"></a></div>
+<div class="subindicador">{% trans "Prácticas de mejoramiento genético de la plantación" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad4'); return false;"></a></div>
  <div id="modalidad4">
     <table style="width:100%;">
             <thead>
                 <tr>
-                    <th>Prácticas</th>
-                    <th>Frecuencia</th>
-                    <th>porcentajes(%)</th>
+                    <th>{% trans "Prácticas" %}</th>
+                    <th>{% trans "Frecuencia" %}</th>
+                    <th>{% trans "porcentajes(%)" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -563,14 +563,14 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab6" class="escondete">
-<div class="subindicador">Prácticas de manejo postcosecha y beneficiado<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad5'); return false;"></a></div>
+<div class="subindicador">{% trans "Prácticas de manejo postcosecha y beneficiado" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad5'); return false;"></a></div>
  <div id="modalidad5">
     <table style="width:100%;">
             <thead>
                 <tr>
-                    <th>Prácticas</th>
-                    <th>Frecuencia</th>
-                    <th>porcentajes(%)</th>
+                    <th>{% trans "Prácticas" %}</th>
+                    <th>{% trans "Frecuencia" %}</th>
+                    <th>{% trans "porcentajes(%)" %}</th>
                 </tr>
             </thead>
             <tbody>

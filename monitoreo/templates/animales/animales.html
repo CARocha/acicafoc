@@ -2,21 +2,21 @@
 {%load unslugify %}
 {% block barra %}
 {% endblock %}
-
+{% load i18n %}
 {% block content %}
 {% include "filtros.html" %}
 <div class="contenido fulltabla">
-	<div class="subindicador">Los Animales<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+	<div class="subindicador">{% trans "Los Animales" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
 <div id="modalidad">
     <table style="width:100%;">
         <caption></caption>
         <thead>
             <tr>
                 <th></th>
-                <th>Número de familias con</th>
+                <th>{% trans "Número de familias con" %}</th>
                 <th>%</th>
-                <th>cantidad</th>
-                <th>Cantidad/Familia</th>
+                <th>{% trans "cantidad" %}</th>
+                <th>{% trans "Cantidad/Familia" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -36,18 +36,18 @@
             {%endfor%}
         </tbody>
     </table>
-	<div class="subindicador">Los Animales y la Producción</div>
+	<div class="subindicador">{% trans "Los Animales y la Producción" %}</div>
     <table style="width:100%;">
         <thead>
             <tr>
-                <th>Animal</th>
-                <th>Cantidad</th>
-                <th>Producto</th>
-                <th>Unidad</th>
-                <th>Cantidad Producida</th>
-                <th>Consumo</th>
-                <th>Venta Libre</th>
-                <th>Venta organizada</th>
+                <th>{% trans "Animal" %}</th>
+                <th>{% trans "Cantidad" %}</th>
+                <th>{% trans "Producto" %}</th>
+                <th>{% trans "Unidad" %}</th>
+                <th>{% trans "Cantidad Producida" %}</th>
+                <th>{% trans "Consumo" %}</th>
+                <th>{% trans "Venta Libre" %}</th>
+                <th>{% trans "Venta organizad" %}a</th>
                 <th>Total</th>
             </tr>
         </thead>

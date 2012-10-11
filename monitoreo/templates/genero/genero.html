@@ -1,5 +1,5 @@
 {% extends "basenueva.html" %}
-
+{% load i18n %}
 {%block extra_header%}
 <script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
@@ -35,7 +35,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: '¿Usted toma la decisión en el manejo y administración de los recursos económicos de la familia?'
+         text: '{% trans "¿Usted toma la decisión en el manejo y administración de los recursos económicos de la familia?" %}'
       },
       tooltip: {
          formatter: function() {
@@ -74,20 +74,20 @@ var chart1;
                 defaultSeriesType: 'column'
             },
             title: {
-                text: '¿Qué proporción de los ingresos familiares maneja usted?'
+                text: '{% trans "¿Qué proporción de los ingresos familiares maneja usted?" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Rangos'
+                    '{% trans "Rangos" %}'
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Cantidad'
+                    text: '{% trans "Cantidad" %}'
                 }
             },
 
@@ -142,7 +142,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: '¿Usted participa en alguna organización dentro o fuera de la comunidad?'
+         text: '{% trans "¿Usted participa en alguna organización dentro o fuera de la comunidad?" %}'
       },
       tooltip: {
          formatter: function() {
@@ -184,7 +184,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: '¿Usted tiene voto en las decisiones de la organización?'
+         text: '{% trans "¿Usted tiene voto en las decisiones de la organización?" %}'
       },
       tooltip: {
          formatter: function() {
@@ -226,7 +226,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: '¿Usted está informado sobre las actividades o decisiones de las organizaciones comunitarias?'
+         text: '{% trans "¿Usted está informado sobre las actividades o decisiones de las organizaciones comunitarias" %}?'
       },
       tooltip: {
          formatter: function() {
@@ -268,7 +268,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: '¿Usted comunica sus ideas o puntos de vista en la familia?'
+         text: '{% trans "¿Usted comunica sus ideas o puntos de vista en la familia?" %}'
       },
       tooltip: {
          formatter: function() {
@@ -310,7 +310,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: '¿Usted comunica sus ideas o puntos de vista en la comunidad y organización?'
+         text: '{% trans "¿Usted comunica sus ideas o puntos de vista en la comunidad y organización?" %}'
       },
       tooltip: {
          formatter: function() {
@@ -352,7 +352,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: 'En caso de Si, qué tipo de organización'
+         text: '{% trans "En caso de Si, qué tipo de organización" %}'
       },
       tooltip: {
          formatter: function() {
@@ -389,8 +389,8 @@ $(document).ready(function() {
 {% block barra %}
 <div class="indicadores">
     <div id="contenedor_igual">
-        <a href="#" class="tab" id="1" >Mujer hogar y finca</a>
-        <a href="#" class="tab"  id="2">Mujer en las organizaciones</a>
+        <a href="#" class="tab" id="1" >{% trans "Mujer hogar y finca" %}</a>
+        <a href="#" class="tab"  id="2">{% trans "Mujer en las organizaciones" %}</a>
     </div>
 </div>
 {% endblock %}
@@ -398,14 +398,14 @@ $(document).ready(function() {
 {% include "filtros.html" %}
 <div class="contenido fulltabla">
 <div id="tablatab1" class="escondete">
-    <div class="subindicador">GENERO &raquo; Participación de la mujer en las actividades del hogar<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div class="subindicador">{% trans "GÉNERO" %} &raquo; {% trans "Participación de la mujer en las actividades del hogar" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
     <div id="modalidad">
     <table style="width:100%;">
             <thead>
                 <tr>
-                    <th>Actividades</th>
-                    <th>Frecuencia</th>
-                    <th>Porcentajes(%)</th>
+                    <th>{% trans "Actividades" %}</th>
+                    <th>{% trans "Frecuencia" %}</th>
+                    <th>{% trans "Porcentajes(%)" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -419,13 +419,13 @@ $(document).ready(function() {
             </tbody>
     </table>
 </div>
-    <div class="subindicador">GENERO &raquo; Participación de la mujer en las actividades en la finca</div>
+    <div class="subindicador">{% trans "GÉNERO" %} &raquo; {% trans "Participación de la mujer en las actividades en la finca" %}</div>
         <table style="width:100%;">
                 <thead>
                     <tr>
-                        <th>Actividades</th>
-                        <th>Frecuencia</th>
-                        <th>Porcentajes(%)</th>
+                        <th>{% trans "Actividades" %}</th>
+                        <th>{% trans "Frecuencia" %}</th>
+                        <th>{% trans "Porcentajes(%)" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -444,11 +444,11 @@ $(document).ready(function() {
         <table>
         <thead>
         <tr>
-            <th>Número de mujeres que tienen ingreso</th>
+            <th>{% trans "Número de mujeres que tienen ingreso" %}</th>
             <th> {{conteo_mujer}}</th>
         </tr>
         <tr>
-            <th>Ingreso promedio</th>
+            <th>{% trans "Ingreso promedio" %}</th>
             <th>{{promedio_mujer}}</th>
         </tr>
         </thead>
@@ -463,7 +463,7 @@ $(document).ready(function() {
 </style>
 
 <div id="tablatab2" class="escondete">
- <div class="subindicador">GENERO &raquo; Graficos de mujeres en las organizaciones</div>
+ <div class="subindicador">{% trans "GÉNERO" %} &raquo; {% trans "Gráficos de mujeres en las organizaciones" %}</div>
     <br>
         <div id="container2" class="grafo"></div>
     <br>

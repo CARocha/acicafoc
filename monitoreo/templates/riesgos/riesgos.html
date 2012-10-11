@@ -1,9 +1,9 @@
 {% extends "base.html" %}
-
-{% block title %}Monitoreo - Riesgos{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Monitoreo - Riesgos" %}{% endblock %}
 {% block barra %}
 <div class="selectos_seleccion titulo">
-	Riesgos
+	{% trans "Riesgos" %}
 </div>
 <div class="indicadores">
 	{% include "nav_riesgos.html" %}

@@ -1,5 +1,6 @@
 {% extends "basenueva.html"%}
 {%load unslugify %}
+{% load i18n %}
 {%block extra_header%}
 <script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
@@ -12,20 +13,20 @@
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Mitigación de Riesgos'
+                text: '{% trans "Mitigación de Riesgos" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'
+                    '{% trans "Opciones" %}'
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Frecuencias'
+                    text: '{% trans "Frecuencias" %}'
                 }
             },
             
@@ -86,15 +87,15 @@
 
 {% include "filtros.html" %}
 <div class="contenido fulltabla">
-<div class="subindicador">RIESGO &raquo; Mitigación de los Riesgos<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div class="subindicador">{% trans "RIESGO" %} &raquo; {% trans "Mitigación de los Riesgos" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
 
 <div id="modalidad">
     <table style="width:100%;">
         <caption></caption>
         <thead>
             <tr>
-                <th>Preguntas</th>
-                <th>Número</th>
+                <th>{% trans "Preguntas" %}</th>
+                <th>{% trans "Número" %}</th>
                 <th>%</th>
             </tr>
         </thead>

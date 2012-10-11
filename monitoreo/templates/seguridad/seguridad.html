@@ -1,5 +1,6 @@
 {% extends "basenueva.html"%}
 {%load unslugify %}
+{% load i18n %}
 {% block extra_header %}
 <script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
@@ -12,33 +13,33 @@
                 defaultSeriesType: 'column'
             },
             title: {
-                text: '% que consumen suficiente en verano/invierno carbohidrátos'
+                text: '{% trans "% que consumen suficiente en verano/invierno carbohidrátos" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Plantano',
-                    'Avena',
-                    'Miel',
-                    'Guineo',
-                    'Malanga',
-                    'Azucar',
-                    'Sorgo',
-                    'Papa',
-                    'Quequisque',
-                    'Yuca',
-                    'Maiz',
-                    'Millon',
-                    'Arroz'
+                    '{% trans "Plantano" %}',
+                    '{% trans "Avena" %}',
+                    '{% trans "Miel" %}',
+                    '{% trans "Guineo" %}',
+                    '{% trans "Malanga" %}',
+                    '{% trans "Azucar" %}',
+                    '{% trans "Sorgo" %}',
+                    '{% trans "Papa" %}',
+                    '{% trans "Quequisque" %}',
+                    '{% trans "Yuca" %}',
+                    '{% trans "Maiz" %}',
+                    '{% trans "Millon" %}',
+                    '{% trans "Arroz" %}'
                     
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (%)'
+                    text: '{% trans "Porcentajes (%)" %}'
                 }
             },
             
@@ -61,7 +62,7 @@
             },
             series: [
                 {
-                    name: 'Verano',
+                    name: '{% trans "Verano" %}',
                     data: [{{carbohidrato.platano.por_consumen}},{{carbohidrato.avena.por_consumen}},
                            {{carbohidrato.miel.por_consumen}},{{carbohidrato.guineo.por_consumen}},
                            {{carbohidrato.malanga.por_consumen}},{{carbohidrato.azucar.por_consumen}},
@@ -85,7 +86,7 @@
                                 }  
                 },
                 {
-                    name: 'Invierno',
+                    name: '{% trans "Invierno" %}',
                     data: [{{carbohidrato.platano.por_invierno}},{{carbohidrato.avena.por_invierno}},
                            {{carbohidrato.miel.por_invierno}},{{carbohidrato.guineo.por_invierno}},
                            {{carbohidrato.malanga.por_invierno}},{{carbohidrato.azucar.por_invierno}},
@@ -121,23 +122,23 @@ var chart;
                 defaultSeriesType: 'column'
             },
             title: {
-                text: '% que consumen suficiente en verano/invierno de grasas'
+                text: '{% trans "% que consumen suficiente en verano/invierno de grasas" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Queso',
-                    'Aceite',
-                    'Cuajada',
-                    'Crema'                    
+                    '{% trans "Queso" %}',
+                    '{% trans "Aceite" %}',
+                    '{% trans "Cuajada" %}',
+                    '{% trans "Crema" %}'                    
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (%)'
+                    text: '{% trans "Porcentajes (%)" %}'
                 }
             },
             
@@ -160,7 +161,7 @@ var chart;
             },
             series: [
                 {
-                    name: 'Verano',
+                    name: '{% trans "Verano" %}',
                     data: [{{grasa.queso.por_consumen}},{{grasa.aceite.por_consumen}},
                            {{grasa.cuajada.por_consumen}},{{grasa.crema.por_consumen}},
                           ],
@@ -180,7 +181,7 @@ var chart;
                                 }  
                 },
                 {
-                    name: 'Invierno',
+                    name: '{% trans "Invierno" %}',
                     data: [{{grasa.queso.por_invierno}},{{grasa.aceite.por_invierno}},
                            {{grasa.cuajada.por_invierno}},{{grasa.crema.por_invierno}},
                           ],
@@ -212,23 +213,23 @@ var chart;
                 defaultSeriesType: 'column'
             },
             title: {
-                text: '% que consumen suficiente en verano/invierno de minerales/vitaminas'
+                text: '{% trans "% que consumen suficiente en verano/invierno de minerales/vitaminas" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Café',
-                    'Frutas',
-                    'Verduras'
+                    '{% trans "Café" %}',
+                    '{% trans "Frutas" %}',
+                    '{% trans "Verduras" %}'
                                       
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (%)'
+                    text: '{% trans "Porcentajes (%)" %}'
                 }
             },
             
@@ -251,7 +252,7 @@ var chart;
             },
             series: [
                 {
-                    name: 'Verano',
+                    name: '{% trans "Verano" %}',
                     data: [{{minerales.cafe.por_consumen}},{{minerales.frutas.por_consumen}},
                            {{minerales.verdura.por_consumen}},
                           ],
@@ -271,7 +272,7 @@ var chart;
                                 }  
                 },
                 {
-                    name: 'Invierno',
+                    name: '{% trans "Invierno" %}',
                     data: [{{minerales.cafe.por_invierno}},{{minerales.frutas.por_invierno}},
                            {{minerales.verdura.por_invierno}},
                           ],
@@ -303,26 +304,26 @@ var chart;
                 defaultSeriesType: 'column'
             },
             title: {
-                text: '% que consumen suficiente en verano/invierno de proteinas'
+                text: '{% trans "% que consumen suficiente en verano/invierno de proteinas" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Carne de res',
-                    'Huevos',
-                    'Carne de cerdo',
-                    'Soya',
-                    'Pollo',
-                    'Leche',
-                    'Frijol'          
+                    '{% trans "Carne de res" %}',
+                    '{% trans "Huevos" %}',
+                    '{% trans "Carne de cerdo" %}',
+                    '{% trans "Soya" %}',
+                    '{% trans "Pollo" %}',
+                    '{% trans "Leche" %}',
+                    '{% trans "Frijol" %}'          
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Porcentajes (%)'
+                    text: '{% trans "Porcentajes (%)" %}'
                 }
             },
             
@@ -345,7 +346,7 @@ var chart;
             },
             series: [
                 {
-                    name: 'Verano',
+                    name: '{% trans "Verano" %}',
                     data: [{{proteinas.carne_de_res.por_consumen}},{{proteinas.huevos.por_consumen}},
                            {{proteinas.carne_de_cerdo.por_consumen}},{{proteinas.soya.por_consumen}},
                            {{proteinas.pollo.por_consumen}},{{proteinas.leche.por_consumen}},
@@ -367,7 +368,7 @@ var chart;
                                 }  
                 },
                 {
-                    name: 'Invierno',
+                    name: '{% trans "Invierno" %}',
                     data: [{{proteinas.carne_de_res.por_invierno}},{{proteinas.huevos.por_invierno}},
                            {{proteinas.carne_de_cerdo.por_invierno}},{{proteinas.soya.por_invierno}},
                            {{proteinas.pollo.por_invierno}},{{proteinas.leche.por_invierno}},
@@ -401,20 +402,20 @@ var chart;
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Cuanto tipo de alimentos producen por cada clase'
+                text: '{% trans "Cuanto tipo de alimentos producen por cada clase" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'   
+                    '{% trans "Opciones" %}'   
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Cantidad'
+                    text: '{% trans "Cantidad" %}'
                 }
             },
             
@@ -467,7 +468,7 @@ var chart;
 {% block content %}
 {% include "filtros.html" %}
 <div class="contenido fulltabla">
-<div class="subindicador">La Seguridad Alimentaria<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div class="subindicador">{% trans "La Seguridad Alimentaria" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
 <div class="contenedor">
         <div class="grafico-title"></div>
         <div id="container4"></div>
@@ -475,17 +476,17 @@ var chart;
 
 <div id="modalidad">
 <table style="width:100%;">
-    <caption>Alimentos que contienen carbohidrátos</caption>
+    <caption>{% trans "limentos que contienen carbohidrátos" %}A</caption>
         <thead>
             <tr>
-                <th>ALIMENTOS</th>
-                <th># de familias que producen</th>
+                <th>{% trans "ALIMENTOS" %}</th>
+                <th>{% trans "# de familias que producen" %}</th>
                 <th>%</th>
-                <th># de familias que compran</th>
+                <th>{% trans "# de familias que compran" %}</th>
                 <th>%</th>
-                <th># de familias que consumen suficiente verano</th>
+                <th>{% trans "# de familias que consumen suficiente verano" %}</th>
                 <th>%</th>
-                <th># de familias que consumen suficiente invierno</th>
+                <th>{% trans "# de familias que consumen suficiente invierno" %}</th>
                 <th>%</th>
             </tr>
         </thead>
@@ -511,17 +512,17 @@ var chart;
 </div>
     <br></br>
 <table style="width:100%;">
-    <caption>Alimentos que contienen grasas</caption>
+    <caption>{% trans "Alimentos que contienen grasas" %}</caption>
         <thead>
             <tr>
-                <th>ALIMENTOS</th>
-                <th># de familias que producen</th>
+                <th>{% trans "ALIMENTOS" %}</th>
+                <th>{% trans "# de familias que producen" %}</th>
                 <th>%</th>
-                <th># de familias que compran</th>
+                <th>{% trans "# de familias que compran" %}</th>
                 <th>%</th>
-                <th># de familias que consumen suficiente verano</th>
+                <th>{% trans "# de familias que consumen suficiente verano" %}</th>
                 <th>%</th>
-                <th># de familias que consumen suficiente invierno</th>
+                <th>{% trans "# de familias que consumen suficiente invierno" %}</th>
                 <th>%</th>
             </tr>
         </thead>
@@ -547,17 +548,17 @@ var chart;
 </div>
     <br></br>
 <table style="width:100%;">
-    <caption>Alimentos que contienen minerales/vitaminas</caption>
+    <caption>{% trans "Alimentos que contienen minerales/vitaminas" %}</caption>
         <thead>
             <tr>
-                <th>ALIMENTOS</th>
-                <th># de familias que producen</th>
+                <th>{% trans "ALIMENTOS" %}</th>
+                <th>{% trans "# de familias que producen" %}</th>
                 <th>%</th>
-                <th># de familias que compran</th>
+                <th>{% trans "# de familias que compran" %}</th>
                 <th>%</th>
-                <th># de familias que consumen suficiente verano</th>
+                <th>{% trans "# de familias que consumen suficiente verano" %}</th>
                 <th>%</th>
-                <th># de familias que consumen suficiente invierno</th>
+                <th>{% trans "# de familias que consumen suficiente invierno" %}</th>
                 <th>%</th>
             </tr>
         </thead>
@@ -583,17 +584,17 @@ var chart;
 </div>
    <br></br> 
 <table style="width:100%;">
-    <caption>Alimentos que contienen proteinas</caption>
+    <caption>{% trans "Alimentos que contienen proteinas" %}</caption>
         <thead>
             <tr>
-                <th>ALIMENTOS</th>
-                <th># de familias que producen</th>
+                <th>{% trans "ALIMENTOS" %}</th>
+                <th>{% trans "# de familias que producen" %}</th>
                 <th>%</th>
-                <th># de familias que compran</th>
+                <th>{% trans "# de familias que compran" %}</th>
                 <th>%</th>
-                <th># de familias que consumen suficiente verano</th>
+                <th>{% trans "# de familias que consumen suficiente verano" %}</th>
                 <th>%</th>
-                <th># de familias que consumen suficiente invierno</th>
+                <th>{% trans "# de familias que consumen suficiente invierno" %}</th>
                 <th>%</th>
             </tr>
         </thead>

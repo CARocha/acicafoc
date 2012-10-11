@@ -12,4 +12,6 @@ nbproject/
 local_settings.py
 ../.ninjaproject/config.py
 .*config.py
+*.sublime-project
+*.sublime-workspace
 

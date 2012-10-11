@@ -1,5 +1,6 @@
 {% extends "basenueva.html" %}
 {%load unslugify %}
+{% load i18n %}
 {% block barra %}
 <div class="indicadores">
 	{% include "nav_org.html" %}
@@ -44,23 +45,23 @@ $(document).ready(function () {
 {% include "filtros.html" %}
 <div class="sidebar">
     
-        <div class="subindicador">Gráficos</a></div>
-        <a id="grafico2" href="#" onCLick="click_callback('beneficio')" class="grafo">Beneficio de ser Socio/a</a>
+        <div class="subindicador">{% trans "Gráficos" %}</a></div>
+        <a id="grafico2" href="#" onCLick="click_callback('beneficio')" class="grafo">{% trans "Beneficio de ser Socio/a" %}</a>
         
  <div id="grafo"></div>
 </div> 
 
 <div class="contenido mediatabla">
  
-<div class="subindicador">Es socio/a de organización Gremial <a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div class="subindicador">{% trans "Es socio/a de organización Gremial" %} <a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
 
 <div id="modalidad">
     <table style="width:100%;">
         <thead>
             <tr>
-                <th>Categoria</th>
-                <th>Frecuencia</th>
-                <th>porcentaje %</th>
+                <th>{% trans "Categoria" %}</th>
+                <th>{% trans "Frecuencia" %}</th>
+                <th>{% trans "porcentaje" %} %</th>
             </tr>
         </thead>
         <tbody>
@@ -81,13 +82,13 @@ $(document).ready(function () {
        <tbody>
     </table>
 <br>
-<div class="subindicador">Desde cuando socios </div>
+<div class="subindicador">{% trans "Desde cuando socios" %} </div>
      <table  width="100%">
         <thead>
             <tr>
-                <th>Categoria</th>
-                <th>Frecuencia</th>
-                <th>porcentaje %</th>
+                <th>{% trans "Categoria" %}</th>
+                <th>{% trans "Frecuencia" %}</th>
+                <th>{% trans "porcentaje %" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -108,13 +109,13 @@ $(document).ready(function () {
        </tbody>
     </table>
 <br>
-<div class="subindicador">Soy miembro de órgano gremial</div>
+<div class="subindicador">{% trans "Soy miembro de órgano gremial" %}</div>
      <table  width="100%">
         <thead>
             <tr>
-                <th>Categoria</th>
-                <th>Frecuencia</th>
-                <th>porcentaje %</th>
+                <th>{% trans "Categoria" %}</th>
+                <th>{% trans "Frecuencia" %}</th>
+                <th>{% trans "porcentaje %" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -137,13 +138,13 @@ $(document).ready(function () {
 <br>
 
 <br>
-<div class="subindicador">He recibido capacitación para desempeñar mi cargo </div>
+<div class="subindicador">{% trans "He recibido capacitación para desempeñar mi cargo" %} </div>
     <table  width="100%">
         <thead>
             <tr>
-                <th>Categoria</th>
-                <th>Frecuencia</th>
-                <th>porcentaje %</th>
+                <th>{% trans "Categoria" %}</th>
+                <th>{% trans "Frecuencia" %}</th>
+                <th>{% trans "porcentaje" %} %</th>
             </tr>
         </thead>
         <tbody>

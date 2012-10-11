@@ -1,4 +1,5 @@
 {% extends "basenueva.html" %}
+{% load i18n %}
 {%block extra_header%}
 <style type="text/css">
 	.comer-graph{
@@ -65,10 +66,10 @@ $(document).ready(function () {
                 width: 480
             },
             title: {
-                text: 'Producto: {{key}}'
+                text: '{% trans "Producto:" %} {{key}}'
             },
             subtitle: {
-                text: 'A quien vende.'
+                text: '{% trans "A quien vende." %}'
             },
             tooltip: tooltip,
             plotOptions: plotOptions,
@@ -84,10 +85,10 @@ $(document).ready(function () {
                 width: 480
             },
             title: {
-                text: 'Producto: {{key}}'
+                text: '{% trans "Producto:" %} {{key}}'
             },
             subtitle: {
-                text: 'Donde lo vende'
+                text: '{% trans "Donde lo vende" %}'
             },
             tooltip: tooltip,
             plotOptions: plotOptions,
@@ -100,10 +101,10 @@ $(document).ready(function () {
 {% block barra %}
 <div class="indicadores">
     <div id="contenedor_igual">
-        <a href="#" class="tab" id="1" >Comercialización</a>
-        <a href="#" class="tab" id="4" >Gráficos comercialización</a>
-        <a href="#" class="tab"  id="2">Capacitaciones técnicas</a>
-        <a href="#" class="tab" id="3" >Capacitaciones en tema social</a>
+        <a href="#" class="tab" id="1" >{% trans "Comercialización" %}</a>
+        <a href="#" class="tab" id="4" >{% trans "Gráficos comercialización" %}</a>
+        <a href="#" class="tab"  id="2">{% trans "Capacitaciones técnicas" %}</a>
+        <a href="#" class="tab" id="3" >{% trans "Capacitaciones en tema social" %}</a>
     </div>
 </div>
 {% endblock %}
@@ -112,19 +113,19 @@ $(document).ready(function () {
 <div class="contenido fulltabla">
 
 <div id="tablatab1" class="escondete">
-    <div class="subindicador">Comercialización<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div class="subindicador">{% trans "Comercialización" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
     <div id="modalidad">
         <table style="width:100%;">
                 <thead>
                     <tr>
-                        <th>Productos</th>
-                        <th>unidad</th>
-                        <th>Frecuencia</th>
-                        <th>Porcentajes(%)</th>
-                        <th>Volumen auto-consumo</th>
-                        <th>Volumen venta</th>
-                        <th>Precio</th>
-                        <th>Ingreso</th>
+                        <th>{% trans "Productos" %}</th>
+                        <th>{% trans "unidad" %}</th>
+                        <th>{% trans "Frecuencia" %}</th>
+                        <th>{% trans "Porcentajes(%)" %}</th>
+                        <th>{% trans "Volumen auto-consumo" %}</th>
+                        <th>{% trans "Volumen venta" %}</th>
+                        <th>{% trans "Precio" %}</th>
+                        <th>{% trans "Ingreso" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -141,25 +142,25 @@ $(document).ready(function () {
 </div>
     <br>
 <div id="tablatab2" class="escondete">
-    <div class="subindicador">Capacitaciones técnicas recibidas<a href="#" class="exportar"></a></div>
+    <div class="subindicador">{% trans "Capacitaciones técnicas recibidas" %}<a href="#" class="exportar"></a></div>
     {% with tabla=dicc2 titulo='' primer_td='Acciones' colspan=7 titulo_combinado='¿Quiénes de la familia de usted han recibido capacitaciones técnicas en los últimos 2 años' percent=1 %}
     {% include "comercializacion/tabla_generica.html" %}
     {% endwith %}
     <br>
 </div>
 <div id="tablatab3" class="escondete">
-    <div class="subindicador">Capacitaciones en tema social recibidas<a href="#" class="exportar"></a></div>
+    <div class="subindicador">{% trans "Capacitaciones en tema social recibidas" %}<a href="#" class="exportar"></a></div>
     {% with tabla=dicc1 titulo='' primer_td='Acciones' colspan=7 titulo_combinado='¿Quiénes de la familia de usted han recibido capacitaciones en temas sociales en los ultimos 2 años' percent=1 %}
     {% include "comercializacion/tabla_generica.html" %}
     {% endwith %}
 </div>
 <div id="tablatab4" class="escondete">
-	<div class="subindicador">A quien vende sus productos</div>
+	<div class="subindicador">{% trans "A quien vende sus productos" %}</div>
 	{% for key in lista_vende.keys %}
 	<div id="{{key|slugify}}" class="comer-graph"></div>
 	{% endfor %}
 	<div class="clean"></div>
-	<div class="subindicador">Donde vende sus productos</div>
+	<div class="subindicador">{% trans "Donde vende sus productos" %}</div>
 	{% for key in lista_donde.keys %}
 	<div id="{{key|slugify}}_1" class="comer-graph"></div>
 	{% endfor %}

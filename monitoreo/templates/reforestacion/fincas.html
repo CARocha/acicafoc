@@ -1,6 +1,6 @@
 {% extends "basenueva.html" %}
 {%load unslugify %}
-
+{% load i18n %}
 {% block extra_header %}
 <script type="text/javascript">
 function Grafo4(){
@@ -12,7 +12,7 @@ function Grafo4(){
              width: 520
 	      },
 	      title: {
-	         text: 'Rangos de Manzanas'
+	         text: '{% trans "Rangos de Manzanas" %}'
 	      },
 	      tooltip: {
 	         formatter: function() {
@@ -43,13 +43,13 @@ function Grafo4(){
 	          }
 	      },
 	       series: [{
-	         name: 'Rangos de manzanas',
+	         name: '{% trans "Rangos de manzanas" %}',
 	         data: [
 	            ['0 Mz',   {{por_cero}}],
 	            ['1 - 10 Mz', {{por_rango1}}],
 	            ['11 - 25 Mz', {{por_rango2}}],
 	            ['26 - 50 Mz',  {{por_rango3}}],
-	            ['más de 50 Mz', {{por_rango4}}]
+	            ['{% trans "más de 50 Mz" %}', {{por_rango4}}]
 	         ]
 	      }]
 	 });
@@ -64,20 +64,20 @@ function Grafo5(){
             width: 520
         },
         title: {
-            text: 'Uso de tierra'
+            text: '{% trans "Uso de tierra" %}'
         },
         subtitle: {
             text: ''
         },
         xAxis: {
             categories: [
-                'Opciones'
+                '{% trans "Opciones" %}'
             ]
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Cantidad Mz'
+                text: '{% trans "Cantidad Mz" %}'
             }
         },
 
@@ -163,12 +163,12 @@ $(document).ready(function () {
 {% block content%}
 {% include "filtros.html" %}
 <div class="sidebar">
-    <div class="subindicador">Gráficos</a></div>
+    <div class="subindicador">{% trans "Gráficos" %}</a></div>
     <div>
-	    <a href="#" id="grafico1" onclick="click_callback('tenencia')" class="grafo">Tenencia de las Parcelas</a>
-	    <a href="#" id="grafico3" onclick="click_callback('propietario')" class="grafo">Dueño de la Propiedad</a>
-	    <a href="#" id="grafico4" onclick="Grafo4();" class="grafo">Rangos en Manzanas</a>
-	    <a href="#" id="grafico5" onclick="Grafo5();" class="grafo">Uso de tierra</a>
+	    <a href="#" id="grafico1" onclick="click_callback('tenencia')" class="grafo">{% trans "Tenencia de las Parcelas" %}</a>
+	    <a href="#" id="grafico3" onclick="click_callback('propietario')" class="grafo">{% trans "Dueño de la Propiedad" %}</a>
+	    <a href="#" id="grafico4" onclick="Grafo4();" class="grafo">{% trans "Rangos en Manzanas" %}</a>
+	    <a href="#" id="grafico5" onclick="Grafo5();" class="grafo">{% trans "Uso de tierra" %}</a>
     </div>
     <div class="clean"></div>
     <div id="grafo"></div>
@@ -177,15 +177,15 @@ $(document).ready(function () {
 
 
 <div class="contenido mediatabla">
-<div class="subindicador">Uso de Tierra<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div class="subindicador">{% trans "Uso de Tierra" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
     <div id="modalidad">
     <table style="width:100%;">
         <thead>
             <tr>
                 <th></th>
-                <th>Número</th>
+                <th>{% trans "Número" %}</th>
                 <th>%</th>
-                <th>Manzanas</th>
+                <th>{% trans "Manzanas" %}</th>
                 <th>%</th>
             </tr>
         </thead>
@@ -212,15 +212,15 @@ $(document).ready(function () {
     <table>
     </br>
         <tr>
-        <th>Promedio Mz: {{totales.promedio_manzana}}</th>
+        <th>{% trans "Promedio Mz:" %} {{totales.promedio_manzana}}</th>
         </tr>
     </table>
   <br>
 <table style="width:100%;">
         <thead>
             <tr>
-                <th>Rangos</th>
-                <th>Frecuencias</th>
+                <th>{% trans "Rangos" %}</th>
+                <th>{% trans "Frecuencias" %}</th>
                 <th>%</th>
             </tr>
         </thead>
@@ -250,13 +250,13 @@ $(document).ready(function () {
 
 		    </tr>
 		    <tr>
-			    <td>Más de 50 Mz</td>
+			    <td>{% trans "Más de 50 Mz" %}</td>
 			    <td>{{rango4}}</td>
 			    <td>{{por_rango4}}</td>
 
 		    </tr>
             <tr>
-                <th>Rangos Total</th>
+                <th>{% trans "Rangos Total" %}</th>
                 <th>{{total_rangos}}</th>
                 <th>{{total_porcentajes}}</th>
             </tr>

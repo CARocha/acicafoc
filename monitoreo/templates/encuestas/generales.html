@@ -1,5 +1,5 @@
 {% extends "basenueva.html"%}
-
+{% load i18n %}
 {% block extra_header %}
 <script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
 <script type="text/javascript" src="{{STATIC_URL}}js/exporting.js"></script>
@@ -15,7 +15,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: 'Hombres y Mujeres'
+         text: '{% trans "Hombres y Mujeres" %}'
       },
       tooltip: {
          formatter: function() {
@@ -39,8 +39,8 @@ $(document).ready(function() {
       },
        series: [{
          data: [
-            ['Hombres',  {{por_hombres}}],
-            ['Mujeres',   {{por_mujeres}}],
+            ['{% trans "Hombres" %}',  {{por_hombres}}],
+            ['{% trans "Mujeres" %}',   {{por_mujeres}}],
             
          ]
       }]
@@ -58,7 +58,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: 'Números de personas entrevistadas'
+         text: '{% trans "Números de personas entrevistadas" %}'
       },
       tooltip: {
          formatter: function() {
@@ -100,7 +100,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: 'Departamentos encuestado'
+         text: '{% trans "Departamentos encuestados" %}'
       },
       tooltip: {
          formatter: function() {
@@ -142,7 +142,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: 'Municipios encuestados'
+         text: '{% trans "Municipios encuestados" %}'
       },
       tooltip: {
          formatter: function() {
@@ -184,7 +184,7 @@ $(document).ready(function() {
          plotShadow: false
       },
       title: {
-         text: 'Grupos Etnicos'
+         text: '{% trans "Grupos Etnicos" %}'
       },
       tooltip: {
          formatter: function() {
@@ -219,37 +219,37 @@ $(document).ready(function() {
 
 {% block content %}
 <br>
-<center><h1>Datos Generales de las {{numero}} Familias encuestadas</h1></center>
+<center><h1>{% blocktrans %}Datos Generales de las {{numero}} Familias encuestadas{%endblocktrans%}</h1></center>
 </br>
-<div class="subindicador">Hombre y mujeres</div>
+<div class="subindicador">{% trans "Hombre y mujeres" %}</div>
 <table style="width:100%;" >
         <thead>
             <tr>
-                <th>Categoria</th>
-                <th>Frecuencia</th>
-                <th>Porcentajes</th>
+                <th>{% trans "Categoria" %}</th>
+                <th>{% trans "Frecuencia" %}</th>
+                <th>{% trans "Porcentajes" %}</th>
             </tr>
         </thead>
        <tr>
-		    <td>Hombres</td>
+		    <td>{% trans "Hombres" %}</td>
             <td>{{hombres}}</td>
             <td>{{ por_hombres }}</td>
         </tr>   
         <tr>
-		    <td>Mujeres</td>
+		    <td>{% trans "Mujeres" %}</td>
             <td>{{mujeres}}</td>
             <td>{{ por_mujeres }}</td>
         </tr>   
     </table>
     <div class="clean"></div>
     <div id="container"></div>
-<div class="subindicador">Distribución de edades en {{numero}} Familias entrevistadas</div>
+<div class="subindicador">{% blocktrans %}Distribución de edades en {{numero}} Familias entrevistadas{%endblocktrans%}</div>
 <table style="width:100%;">
         <thead>
             <tr>
-                <th>sexo</th>
-                <th>numeros</th>
-                <th>Porcentaje</th>
+                <th>{% trans "sexo" %}</th>
+                <th>{% trans "numeros" %}</th>
+                <th>{% trans "Porcentaje" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -269,13 +269,13 @@ $(document).ready(function() {
     </table>
     <div id="container1"></div>
 <br></br>
-<div class="subindicador">Departamentos entrevistados</div>
+<div class="subindicador">{% trans "Departamentos entrevistados" %}</div>
 <table style="width:100%;">
         <thead>
             <tr>
-                <th>Departamentos</th>
-                <th>numeros</th>
-                <th>Porcentaje</th>
+                <th>{% trans "Departamentos" %}</th>
+                <th>{% trans "numeros" %}</th>
+                <th>{% trans "Porcentaje" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -291,13 +291,13 @@ $(document).ready(function() {
     <div id="container2"></div>
  
 <br></br>
-<div class="subindicador">Municipio entrevistados</div>
+<div class="subindicador">{% trans "Municipio entrevistados" %}</div>
 <table style="width:100%;">
         <thead>
             <tr>
-                <th>Municipios</th>
-                <th>numeros</th>
-                <th>Porcentaje</th>
+                <th>{% trans "Municipios" %}</th>
+                <th>{% trans "numeros" %}</th>
+                <th>{% trans "Porcentaje" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -312,13 +312,13 @@ $(document).ready(function() {
     </table>
     <div id="container3"></div>
 <br></br>
-<div class="subindicador">Grupos Etnicos</div>
+<div class="subindicador">{% trans "Grupos Étnicos" %}</div>
 <table style="width:100%;">
         <thead>
             <tr>
-                <th>Grupo</th>
-                <th>numeros</th>
-                <th>Porcentaje (%)</th>
+                <th>{% trans "Grupo" %}</th>
+                <th>{% trans "numeros" %}</th>
+                <th>{% trans "Porcentaje (%)" %}</th>
             </tr>
         </thead>
         <tbody>

@@ -1,4 +1,5 @@
 {% extends "basenueva.html" %}
+{% load i18n %}
 {%load unslugify %}
 {%block extra_header%}
 <script type="text/javascript" src="{{STATIC_URL}}js/highcharts.js"></script>
@@ -12,20 +13,20 @@
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Agua para consumo'
+                text: '{% trans "Agua para consumo" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'
+                    '{% trans "Opciones" %}'
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Frecuencias'
+                    text: '{% trans "Frecuencias" %}'
                 }
             },
             
@@ -131,14 +132,14 @@ $(document).ready(function () {
 
 <div class="contenido fulltabla">
 
-    <div class="subindicador">FAMILIA &raquo; Agua de consumo<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div class="subindicador">{% trans "FAMILIA" %} &raquo; {% trans "Agua de consumo" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
  
 <div id="modalidad">
 		<table style="width:100%;">
 			<thead>
 				<tr>
-					<th>Fuente</th>
-					<th>Frecuencia</th>
+					<th>{% trans "Fuente" %}</th>
+					<th>{% trans "Frecuencia" %}</th>
 					<th>%</th>
 				</tr>
 			</thead>

@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Monitoreo - Tierra{% endblock %}
+{% block title %}{% trans "Monitoreo - Tierra" %}{% endblock %}
 {% block barra %}
 <div class="selectos_seleccion titulo">
-	Tierra
+	{% trans "Tierra" %}
 </div>
 <div class="indicadores">
 	{% include "nav_tierra.html" %}

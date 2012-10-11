@@ -1,28 +1,29 @@
+{% load i18n %}
 <div id="filtroslaterales">
-    <div class="nombrefiltro">Encuestas</div>
+    <div class="nombrefiltro">{% trans "Encuestas" %}</div>
     <div class="filtrovalor">{{num_familias}}</div>
     
-    <div class="nombrefiltro">Filtros </div>
+    <div class="nombrefiltro">{% trans "Filtros " %}</div>
     {%if request.session.fecha%}
-                    <div class="filtrovalor"><b>Año</b><br>{%for x in request.session.fecha%}{{x}}{% if not forloop.last %}, {% endif %}{%endfor%}</div>{%endif%}
+                    <div class="filtrovalor"><b>{% trans "Año" %}</b><br>{%for x in request.session.fecha%}{{x}}{% if not forloop.last %}, {% endif %}{%endfor%}</div>{%endif%}
                     {%if request.session.departamento%}
-                    <div class="filtrovalor"><b>Departamento:</b><br>{%for a in request.session.departamento.all %}{{a}}, {%endfor%}</div>{%endif%}
+                    <div class="filtrovalor"><b>{% trans "Departamento:" %}</b><br>{%for a in request.session.departamento.all %}{{a}}, {%endfor%}</div>{%endif%}
                     {%if request.session.organizacion%}
-                    <div class="filtrovalor"><b>Organización</b><br>{%for b in request.session.organizacion.all %}{{b}}, {%endfor%}</div>{%endif%}
+                    <div class="filtrovalor"><b>{% trans "Organización" %}</b><br>{%for b in request.session.organizacion.all %}{{b}}, {%endfor%}</div>{%endif%}
                     {%if request.session.municipio%}
-                    <div class="filtrovalor"><b>Municipio</b><br>{%for c in request.session.municipio.all %}{{c.nombre}}, {%endfor%}</div>{%endif%}
+                    <div class="filtrovalor"><b>{% trans "Municipio" %}</b><br>{%for c in request.session.municipio.all %}{{c.nombre}}, {%endfor%}</div>{%endif%}
                     {%if request.session.comunidad%}
-                    <div class="filtrovalor"><b>Comunidad</b><br>{%for d in request.session.comunidad.all %}{{d.nombre}}, {%endfor%}</div>{%endif%}
+                    <div class="filtrovalor"><b>{% trans "Comunidad" %}</b><br>{%for d in request.session.comunidad.all %}{{d.nombre}}, {%endfor%}</div>{%endif%}
     {%if request.session.socio%}
-        <div class="filtrovalor"><b>Socio:</b><br> {%if request.session.socio = '1'%}Si{%else%}No{%endif%}</div>
+        <div class="filtrovalor"><b>{% trans "Socio:" %}</b><br> {%if request.session.socio = '1'%}Si{%else%}No{%endif%}</div>
     {%endif%}
     {%if request.session.desde%}
-        <div class="filtrovalor"><b>Años de socio:</b><br> {%if request.session.desde = '1'%}Menos de 5 {%else%}Más de 5 {%endif%}</div>
+        <div class="filtrovalor"><b>{% trans "Años de socio:" %}</b><br> {%if request.session.desde = '1'%}{% trans "Menos de 5" %} {%else%}{% trans "Más de 5 " %}{%endif%}</div>
     {%endif%}
     {%if request.session.grupo%}
-        <div class="filtrovalor"><b>Grupo étnico</b><br>{%for c in request.session.grupo%}{%if c = '1'%}Miskito{%endif%}{%if c = '2'%}Mayagna{%endif%}{%if c = '3'%}Mestizo{%endif%}{%if c = '4'%}Afrodescendiente{%endif%}, {%endfor%}</div>
+        <div class="filtrovalor"><b>{% trans "Grupo étnico" %}</b><br>{%for c in request.session.grupo%}{%if c = '1'%}{% trans "Miskito" %}{%endif%}{%if c = '2'%}{% trans "Mayagna" %}{%endif%}{%if c = '3'%}{% trans "Mestizo" %}{%endif%}{%if c = '4'%}{% trans "Afrodescendiente" %}{%endif%}, {%endfor%}</div>
     {%endif%}
     {%if request.session.duenio%}
-        <div class="filtrovalor"><b>Tipo Dueño:</b> <br>{%if request.session.duenio = '1'%}Hombre{%endif%}{%if request.session.duenio = '2'%}Mujer{%endif%}{%if request.session.duenio = '3'%}Mancomunado{%endif%}{%if request.session.duenio = '4'%}Parientes{%endif%}{%if request.session.duenio = '5'%}Colectivo{%endif%}{%if request.session.duenio = '6'%}No hay{%endif%}</div>
+        <div class="filtrovalor"><b>{% trans "Tipo Dueño:" %}</b> <br>{%if request.session.duenio = '1'%}{% trans "Hombre" %}{%endif%}{%if request.session.duenio = '2'%}{% trans "Mujer" %}{%endif%}{%if request.session.duenio = '3'%}{% trans "Mancomunado" %}{%endif%}{%if request.session.duenio = '4'%}{% trans "Parientes" %}{%endif%}{%if request.session.duenio = '5'%}{% trans "Colectivo" %}{%endif%}{%if request.session.duenio = '6'%}{% trans "No hay" %}{%endif%}</div>
     {%endif%}
 </div>

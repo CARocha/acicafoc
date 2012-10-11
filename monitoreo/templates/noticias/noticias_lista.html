@@ -1,5 +1,6 @@
 {% extends "basenueva.html"%}
 {% load pagination_tags %}
+{% load i18n %}
 {% block extra_header %}
 
 {% endblock %}
@@ -8,7 +9,7 @@
 	<div class="contenido-noticia">
 
 		<div class="sidebar-noticia">
-			<div class="filtrarpor"><i>Filtrar avances por:</i> </div>
+			<div class="filtrarpor"><i>{% trans "Filtrar avances por" %}</i> </div>
 			<div class="filtronoticia">
 				<ul>
 				{%for cat in categorias%}
@@ -19,9 +20,9 @@
 		</div>
 		<div class="der-noticia">
 			{%if categoria%}
-			<div class="filtrarpor"><i>Avances de proyecto realcionados a <b>{{categoria.nombre}}</b></i> </div>
+			<div class="filtrarpor"><i>{% trans "Avances de proyecto realcionados a" %} <b>{{categoria.nombre}}</b></i> </div>
 			{%else%}
-			<div class="filtrarpor"><i>Avances de proyecto</i> </div>
+			<div class="filtrarpor"><i>{% trans "Avances de proyecto" %}</i> </div>
 			{%endif%}
 			
 		{% autopaginate noticias 6%}

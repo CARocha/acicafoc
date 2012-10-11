@@ -1,5 +1,6 @@
 {% extends "basenueva.html"%}
 {% load humanize %}
+{% load i18n %}
 {% block barra %}
 {% endblock %}
 {%load unslugify %}
@@ -36,20 +37,20 @@ function Grafo8(){
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Ingreso por sistema de produccion'
+                text: '{% trans "Ingreso por sistema de produccion" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'   
+                    '{% trans "Opciones" %}'   
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Cantidad'
+                    text: '{% trans "Cantidad" %}'
                 }
             },
             
@@ -104,20 +105,20 @@ function Grafo9(){
                 defaultSeriesType: 'column'
             },
             title: {
-                text: 'Número de rubros en cada sistema de produccion'
+                text: '{% trans "Número de rubros en cada sistema de produccion" %}'
             },
             subtitle: {
                 text: ''
             },
             xAxis: {
                 categories: [
-                    'Opciones'   
+                    '{% trans "Opciones" %}'   
                 ]
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Cantidad'
+                    text: '{% trans "Cantidad" %}'
                 }
             },
             
@@ -173,7 +174,7 @@ function Grafo10(){
              width: 520	         
 	      },
 	      title: {
-	         text: 'Ingreso por clase'
+	         text: '{% trans "Ingreso por clase" %}'
 	      },
 	      tooltip: {
 	         formatter: function() {
@@ -204,7 +205,7 @@ function Grafo10(){
 	          }
 	      },
 	       series: [{         
-	         name: 'Ingresos de clases',
+	         name: '{% trans "Ingresos de clases" %}',
 	         data: [
 	            ['Ingreso agropecuario - C${{respuesta.ingreso}}',   {{respuesta.ingreso}}],
 	            ['Otros ingresos - C${{respuesta.ingreso_otro}}', {{respuesta.ingreso_otro}}]
@@ -218,38 +219,38 @@ function Grafo10(){
 {%block content%}
 {% include "filtros.html" %}
     <div class="sidebar" style="width:500px; padding-bottom:13px;" >
-        <div class="subindicador">Gráficos ingresos</div>
+        <div class="subindicador">{% trans "Gráficos ingresos" %}</div>
             
-            <a href="#" id="grafico1" onCLick="click_callback('vendio')"class="grafo">A quién venden?</a>
-            <a href="#" id="grafico2" onCLick="click_callback('maneja')"class="grafo">Quién maneja el negocio?</a>
-            <a href="#" id="grafico3" onCLick="click_callback('ingreso')"class="grafo">Quién tiene los ingresos?</a>
-            <a href="#" id="grafico8" onclick="Grafo8();" class="grafo">Ingreso por sistema</a>
-            <a href="#" id="grafico9" onCLick="Grafo9();" class="grafo">Número de rubro en cada sistema</a>
-            <a href="#" id="grafico9" onCLick="Grafo10();" class="grafo">Ingreso por clase</a>
+            <a href="#" id="grafico1" onCLick="click_callback('vendio')"class="grafo">{% trans "A quién venden?" %}</a>
+            <a href="#" id="grafico2" onCLick="click_callback('maneja')"class="grafo">{% trans "Quién maneja el negocio?" %}</a>
+            <a href="#" id="grafico3" onCLick="click_callback('ingreso')"class="grafo">{% trans "Quién tiene los ingresos?" %}</a>
+            <a href="#" id="grafico8" onclick="Grafo8();" class="grafo">{% trans "Ingreso por sistema" %}</a>
+            <a href="#" id="grafico9" onCLick="Grafo9();" class="grafo">{% trans "Número de rubro en cada sistema" %}</a>
+            <a href="#" id="grafico9" onCLick="Grafo10();" class="grafo">{% trans "Ingreso por clase" %}</a>
             <br></br><br></br><br></br><br></br>
-        <div class="subindicador">Gráficos Otros ingresos</div>
+        <div class="subindicador">{% trans "Gráficos Otros ingresos" %}</div>
             
-            <a href="#" id="grafico4" onCLick="click_callback('salario')"class="grafo">Tipos de Salarios</a>
-            <a href="#" id="grafico5" onCLick="click_callback('negocio')"class="grafo">Tipos de Negocio</a>
-            <a href="#" id="grafico6" onCLick="click_callback('remesa')"class="grafo">Tipos Remesas</a>
-            <a href="#" id="grafico7" onCLick="click_callback('alquiler')"class="grafo">Tipo alquiler</a>
+            <a href="#" id="grafico4" onCLick="click_callback('salario')"class="grafo">{% trans "Tipos de Salarios" %}</a>
+            <a href="#" id="grafico5" onCLick="click_callback('negocio')"class="grafo">{% trans "Tipos de Negocio" %}</a>
+            <a href="#" id="grafico6" onCLick="click_callback('remesa')"class="grafo">{% trans "Tipos Remesas" %}</a>
+            <a href="#" id="grafico7" onCLick="click_callback('alquiler')"class="grafo">{% trans "Tipo alquiler" %}</a>
 
        <div id="grafo"  style="width:500px; overflow-y:auto"></div>
     </div>
  <div class="contenido" style="width:460px">
-<div class="subindicador">INGRESO  &raquo; Los Ingresos familiares <a class="exportar guardarXLS" href="#" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div class="subindicador">{% trans "INGRESO" %}  &raquo; {% trans "Los Ingresos familiares" %} <a class="exportar guardarXLS" href="#" onclick="exportarXLS('modalidad'); return false;"></a></div>
 
 <div id="modalidad">
     <table style="width:100%" id="sortTableExample">
-        <caption>Agroforestales</caption>
+        <caption>{% trans "Agroforestales" %}</caption>
         <thead>
             <tr>
-                <th style="font-size:9px;">RUBROS</th>
-                <th style="font-size:9px;">Número de familias que venden</th>
-                <th style="font-size:9px;">Unidad</th>
-                <th style="font-size:9px;">Cantidad vendida por familia</th>
-                <th style="font-size:9px;">Precio promedio</th>
-                <th style="font-size:9px;">Ingreso por venta</th>
+                <th style="font-size:9px;">{% trans "RUBROS" %}</th>
+                <th style="font-size:9px;">{% trans "Número de familias que venden" %}</th>
+                <th style="font-size:9px;">{% trans "Unidad" %}</th>
+                <th style="font-size:9px;">{% trans "Cantidad vendida por familia" %}</th>
+                <th style="font-size:9px;">{% trans "Precio promedio" %}</th>
+                <th style="font-size:9px;">{% trans "Ingreso por venta" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -265,7 +266,7 @@ function Grafo10(){
                 {%endfor%}
         </tbody>
         <tr>
-            <th>TOTAL VENTA RUBROS</th>
+            <th>{% trans "TOTAL VENTA RUBROS" %}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -276,15 +277,15 @@ function Grafo10(){
     </table>
     <br></br>
     <table style="width:100%" id="sortTableExample">
-        <caption>Forestales</caption>
+        <caption>{% trans "Forestales" %}</caption>
         <thead>
             <tr>
-                <th style="font-size:9px;">RUBROS</th>
-                <th style="font-size:9px;">Número de familias que venden</th>
-                <th style="font-size:9px;">Unidad</th>
-                <th style="font-size:9px;">Cantidad vendida por familia</th>
-                <th style="font-size:9px;">Precio promedio</th>
-                <th style="font-size:9px;">Ingreso por venta</th>
+                <th style="font-size:9px;">{% trans "RUBROS" %}</th>
+                <th style="font-size:9px;">{% trans "Número de familias que venden" %}</th>
+                <th style="font-size:9px;">{% trans "Unidad" %}</th>
+                <th style="font-size:9px;">{% trans "Cantidad vendida por familia" %}</th>
+                <th style="font-size:9px;">{% trans "Precio promedio" %}</th>
+                <th style="font-size:9px;">{% trans "Ingreso por venta" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -300,7 +301,7 @@ function Grafo10(){
                 {%endfor%}
         </tbody>
         <tr>
-            <th>TOTAL VENTA RUBROS</th>
+            <th>{% trans "TOTAL VENTA RUBROS" %}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -311,15 +312,15 @@ function Grafo10(){
     </table>
     <br></br>
     <table style="width:100%" id="sortTableExample">
-        <caption>Granos básicos</caption>
+        <caption>{% trans "Granos básicos" %}</caption>
         <thead>
             <tr>
-                <th style="font-size:9px;">RUBROS</th>
-                <th style="font-size:9px;">Número de familias que venden</th>
-                <th style="font-size:9px;">Unidad</th>
-                <th style="font-size:9px;">Cantidad vendida por familia</th>
-                <th style="font-size:9px;">Precio promedio</th>
-                <th style="font-size:9px;">Ingreso por venta</th>
+                <th style="font-size:9px;">{% trans "RUBROS" %}</th>
+                <th style="font-size:9px;">{% trans "Número de familias que venden" %}</th>
+                <th style="font-size:9px;">{% trans "Unidad" %}</th>
+                <th style="font-size:9px;">{% trans "Cantidad vendida por familia" %}</th>
+                <th style="font-size:9px;">{% trans "Precio promedio" %}</th>
+                <th style="font-size:9px;">{% trans "Ingreso por venta" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -335,7 +336,7 @@ function Grafo10(){
                 {%endfor%}
         </tbody>
         <tr>
-            <th>TOTAL VENTA RUBROS</th>
+            <th>{% trans "TOTAL VENTA RUBROS" %}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -346,15 +347,15 @@ function Grafo10(){
     </table>
     <br></br>
     <table style="width:100%" id="sortTableExample">
-        <caption>Ganado mayor</caption>
+        <caption>{% trans "Ganado mayor" %}</caption>
         <thead>
             <tr>
-                <th style="font-size:9px;">RUBROS</th>
-                <th style="font-size:9px;">Número de familias que venden</th>
-                <th style="font-size:9px;">Unidad</th>
-                <th style="font-size:9px;">Cantidad vendida por familia</th>
-                <th style="font-size:9px;">Precio promedio</th>
-                <th style="font-size:9px;">Ingreso por venta</th>
+                <th style="font-size:9px;">{% trans "RUBROS" %}</th>
+                <th style="font-size:9px;">{% trans "Número de familias que venden" %}</th>
+                <th style="font-size:9px;">{% trans "Unidad" %}</th>
+                <th style="font-size:9px;">{% trans "Cantidad vendida por familia" %}</th>
+                <th style="font-size:9px;">{% trans "Precio promedio" %}</th>
+                <th style="font-size:9px;">{% trans "Ingreso por venta" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -370,7 +371,7 @@ function Grafo10(){
                 {%endfor%}
         </tbody>
         <tr>
-            <th>TOTAL VENTA RUBROS</th>
+            <th>{% trans "TOTAL VENTA RUBROS" %}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -381,15 +382,15 @@ function Grafo10(){
     </table>
     <br></br>
     <table style="width:100%" id="sortTableExample">
-        <caption>Animales de patio</caption>
+        <caption>{% trans "Animales de patio" %}</caption>
         <thead>
             <tr>
-                <th style="font-size:9px;">RUBROS</th>
-                <th style="font-size:9px;">Número de familias que venden</th>
-                <th style="font-size:9px;">Unidad</th>
-                <th style="font-size:9px;">Cantidad vendida por familia</th>
-                <th style="font-size:9px;">Precio promedio</th>
-                <th style="font-size:9px;">Ingreso por venta</th>
+                <th style="font-size:9px;">{% trans "RUBROS" %}</th>
+                <th style="font-size:9px;">{% trans "Número de familias que venden" %}</th>
+                <th style="font-size:9px;">{% trans "Unidad" %}</th>
+                <th style="font-size:9px;">{% trans "Cantidad vendida por familia" %}</th>
+                <th style="font-size:9px;">{% trans "Precio promedio" %}</th>
+                <th style="font-size:9px;">{% trans "Ingreso por venta" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -405,7 +406,7 @@ function Grafo10(){
                 {%endfor%}
         </tbody>
         <tr>
-            <th>TOTAL VENTA RUBROS</th>
+            <th>{% trans "TOTAL VENTA RUBROS" %}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -416,15 +417,15 @@ function Grafo10(){
     </table>
     <br></br>
     <table style="width:100%" id="sortTableExample">
-        <caption>Hortalizas y frutas</caption>
+        <caption>{% trans "Hortalizas y frutas" %}</caption>
         <thead>
             <tr>
-                <th style="font-size:9px;">RUBROS</th>
-                <th style="font-size:9px;">Número de familias que venden</th>
-                <th style="font-size:9px;">Unidad</th>
-                <th style="font-size:9px;">Cantidad vendida por familia</th>
-                <th style="font-size:9px;">Precio promedio</th>
-                <th style="font-size:9px;">Ingreso por venta</th>
+                <th style="font-size:9px;">{% trans "RUBROS" %}</th>
+                <th style="font-size:9px;">{% trans "Número de familias que venden" %}</th>
+                <th style="font-size:9px;">{% trans "Unidad" %}</th>
+                <th style="font-size:9px;">{% trans "Cantidad vendida por familia" %}</th>
+                <th style="font-size:9px;">{% trans "Precio promedio" %}</th>
+                <th style="font-size:9px;">{% trans "Ingreso por venta" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -440,7 +441,7 @@ function Grafo10(){
                 {%endfor%}
         </tbody>
         <tr>
-            <th>TOTAL VENTA RUBROS</th>
+            <th>{% trans "TOTAL VENTA RUBROS" %}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -451,15 +452,15 @@ function Grafo10(){
     </table>
     <br></br>
     <table style="width:100%" id="sortTableExample">
-        <caption>Musaceas</caption>
+        <caption>{% trans "Musaceas" %}</caption>
         <thead>
             <tr>
-                <th style="font-size:9px;">RUBROS</th>
-                <th style="font-size:9px;">Número de familias que venden</th>
-                <th style="font-size:9px;">Unidad</th>
-                <th style="font-size:9px;">Cantidad vendida por familia</th>
-                <th style="font-size:9px;">Precio promedio</th>
-                <th style="font-size:9px;">Ingreso por venta</th>
+                <th style="font-size:9px;">{% trans "RUBROS" %}</th>
+                <th style="font-size:9px;">{% trans "Número de familias que venden" %}</th>
+                <th style="font-size:9px;">{% trans "Unidad" %}</th>
+                <th style="font-size:9px;">{% trans "Cantidad vendida por familia" %}</th>
+                <th style="font-size:9px;">{% trans "Precio promedio" %}</th>
+                <th style="font-size:9px;">{% trans "Ingreso por venta" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -475,7 +476,7 @@ function Grafo10(){
                 {%endfor%}
         </tbody>
         <tr>
-            <th>TOTAL VENTA RUBROS</th>
+            <th>{% trans "TOTAL VENTA RUBROS" %}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -486,15 +487,15 @@ function Grafo10(){
     </table>
     <br></br>
     <table style="width:100%" id="sortTableExample">
-        <caption>Raíces y tubérculos</caption>
+        <caption>{% trans "Raíces y tubérculos" %}</caption>
         <thead>
             <tr>
-                <th style="font-size:9px;">RUBROS</th>
-                <th style="font-size:9px;">Número de familias que venden</th>
-                <th style="font-size:9px;">Unidad</th>
-                <th style="font-size:9px;">Cantidad vendida por familia</th>
-                <th style="font-size:9px;">Precio promedio</th>
-                <th style="font-size:9px;">Ingreso por venta</th>
+                <th style="font-size:9px;">{% trans "RUBROS" %}</th>
+                <th style="font-size:9px;">{% trans "Número de familias que venden" %}</th>
+                <th style="font-size:9px;">{% trans "Unidad" %}</th>
+                <th style="font-size:9px;">{% trans "Cantidad vendida por familia" %}</th>
+                <th style="font-size:9px;">{% trans "Precio promedio" %}</th>
+                <th style="font-size:9px;">{% trans "Ingreso por venta" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -510,7 +511,7 @@ function Grafo10(){
                 {%endfor%}
         </tbody>
         <tr>
-            <th>TOTAL VENTA RUBROS</th>
+            <th>{% trans "TOTAL VENTA RUBROS" %}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -521,19 +522,19 @@ function Grafo10(){
     </table>
     <br></br>
     <table>
-        <th>Ingreso agropecuario: {{respuesta.ingreso|intcomma}}</th>
+        <th>{% trans "Ingreso agropecuario:" %} {{respuesta.ingreso|intcomma}}</th>
     </table>
 </div>
-    <br><div class="subindicador">INGRESO  &raquo; Los Otros Ingresos familiares <a href="#" class="exportar"></a></div><br>
+    <br><div class="subindicador">{% trans "INGRESO" %}  &raquo; {% trans "Los Otros Ingresos familiares" %} <a href="#" class="exportar"></a></div><br>
     <table style="width:100%;" id="sortTableExample">
         <caption></caption>
         <thead>
             <tr>
-                <th>FUENTES</th>
-                <th>NÚMERO DE FAMILIAS</th>
-                <th>TOTAL MESES</th>
-                <th>INGRESO MENSUAL PROMEDIO</th>
-                <th>INGRESO TOTAL PROMEDIO</th>
+                <th>{% trans "FUENTES" %}</th>
+                <th>{% trans "NÚMERO DE FAMILIAS" %}</th>
+                <th>{% trans "TOTAL MESES" %}</th>
+                <th>{% trans "INGRESO MENSUAL PROMEDIO" %}</th>
+                <th>{% trans "INGRESO TOTAL PROMEDIO" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -548,7 +549,7 @@ function Grafo10(){
             {%endfor%}
         </tbody>
         <tr>
-            <th>TOTAL OTROS INGRESO</th>
+            <th>{% trans "TOTAL OTROS INGRESO" %}</th>
             <th></th>
             <th></th>
             <th></th>
@@ -556,18 +557,18 @@ function Grafo10(){
         </tr>
     </table style="width:100%;">
     <br>
-<div class="subindicador">INGRESO  &raquo; Ingreso Bruto por familia</div>
+<div class="subindicador">{% trans "INGRESO " %} &raquo; {% trans "Ingreso Bruto por familia" %}</div>
     <table>
         <tr colspan="2">
-            <th>INGRESO BRUTO</th>
+            <th>{% trans "INGRESO BRUTO" %}</th>
 
             <th>{{respuesta.bruto|intcomma}}</th>
         </tr>
     </table>
-    <div class="subindicador">INGRESO  &raquo; Ingreso Neto por familia</</a></div>
+    <div class="subindicador">{% trans "INGRESO " %} &raquo; {% trans "Ingreso Neto por familia" %}</a></div>
     <table style="width:100%;">
         <tr colspan="2">
-            <th>INGRESO NETO</th>
+            <th>{% trans "INGRESO NETO" %}</th>
 
             <th>{{respuesta.total_neto|intcomma}}</th>
         </tr>

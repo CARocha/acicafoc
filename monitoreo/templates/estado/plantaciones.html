@@ -1,4 +1,5 @@
 {% extends "basenueva.html" %}
+{% load i18n %}
 {%block extra_header%}
 <script type="text/javascript">
 $(document).ready(function () {
@@ -24,9 +25,9 @@ $(document).ready(function () {
 {% block barra %}
 <div class="indicadores">
     <div id="contenedor_igual">
-        <a href="#" class="tab" id="1" >Tamaño de plantaciones</a>
-        <a href="#" class="tab"  id="2">Producción</a>
-        <a href="#" class="tab" id="3" >Costos</a>
+        <a href="#" class="tab" id="1" >{% trans "Tamaño de plantaciones" %}</a>
+        <a href="#" class="tab"  id="2">{% trans "Producción" %}</a>
+        <a href="#" class="tab" id="3" >{% trans "Costos" %}</a>
     </div>
 </div>
 {% endblock %}
@@ -35,55 +36,55 @@ $(document).ready(function () {
 <div class="contenido fulltabla">
 
 <div id="tablatab1" class="escondete">
-<div class="subindicador">Tamaño de las plantaciones<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div class="subindicador">{% trans "Tamaño de las plantaciones" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
     <div id="modalidad">
     <table style="width:100%;">
      <thead>
         <tr>
             <th></th>
-            <th colspan="2">¿Cuántos tienen?</th>
-            <th colspan="2">Área</th>
-            <th colspan="2">Número de plantas</th>
-            <th colspan="2">Número de plantas injertadas</th>
+            <th colspan="2">{% trans "¿Cuántos tienen?" %}</th>
+            <th colspan="2">{% trans "Área" %}</th>
+            <th colspan="2">{% trans "Número de plantas" %}</th>
+            <th colspan="2">{% trans "Número de plantas injertadas" %}</th>
         </tr>
         <tr>
             <th></th>
-            <th>Frecuencia</th>
+            <th>{% trans "Frecuencia" %}</th>
             <th>%</th>
             <th>Total</th>
-            <th>Promedio</th>
+            <th>{% trans "Promedio" %}</th>
             <th>Total</th>
-            <th>Promedio</th>
+            <th>{% trans "Promedio" %}</th>
             <th>Total</th>
-            <th>Promedio</th>
+            <th>{% trans "Promedio" %}</th>
         </tr>
      </thead>
         <tr>
-            <td>Viveros</td>
+            <td>{% trans "Viveros" %}</td>
             {%for dato in vivero%}
             <td>{{dato}}</td>
             {%endfor%}
         </tr>
         <tr>
-            <td>Plantas en desarrollo menos 1 año</td>
+            <td>{% trans "Plantas en desarrollo menos 1 año" %}</td>
             {%for dato in planta_menos%}
             <td>{{dato}}</td>
             {%endfor%}
         </tr>
         <tr>
-            <td>Plantas en desarrollo más 1 año</td>
+            <td>{% trans "Plantas en desarrollo más 1 año" %}</td>
             {%for dato in planta_mas%}
             <td>{{dato}}</td>
             {%endfor%}
         </tr>
         <tr>
-            <td>Plantas en producción</td>
+            <td>{% trans "Plantas en producción" %}</td>
             {%for dato in planta_produccion%}
             <td>{{dato}}</td>
             {%endfor%}
         </tr>
         <tr>
-            <td>Plantas élite de cacao</td>
+            <td>{% trans "Plantas élite de cacao" %}</td>
             {%for dato in planta_elite%}
             <td>{{dato}}</td>
             {%endfor%}
@@ -93,16 +94,16 @@ $(document).ready(function () {
 </div>
 <div id="tablatab2" class="escondete">
     {{lista_produccion}}
-<div class="subindicador">Producción<a href="#" class="exportar"></a></div>
+<div class="subindicador">{% trans "Producción" %}<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
      <thead>
         <tr>
             <th></th>
-            <th>Frecuencia</th>
+            <th>{% trans "Frecuencia" %}</th>
             <th>%</th>
-            <th>Producción total(qq seco)</th>
-            <th>Promedio(qq seco)</th>
-            <th>% producción</th>
+            <th>{% trans "Producción total(qq seco)" %}</th>
+            <th>{% trans "Promedio(qq seco)" %}</th>
+            <th>{% trans "% producción" %}</th>
         </tr>
      </thead>
         <tr>
@@ -112,19 +113,19 @@ $(document).ready(function () {
             {%endfor%}
         </tr>
         <tr>
-            <td>Sin fermentar</td>
+            <td>{% trans "Sin fermentar" %}</td>
             {%for dato in lista_sin_fermentar%}
             <td>{{dato}}</td>
             {%endfor%}
         </tr>
         <tr>
-            <td>Fermentado convencional</td>
+            <td>{% trans "Fermentado convencional" %}</td>
             {%for dato in lista_fermentado%}
             <td>{{dato}}</td>
             {%endfor%}
         </tr>
         <tr>
-            <td>Fermentado organico</td>
+            <td>{% trans "Fermentado organico" %}</td>
             {%for dato in lista_organico%}
             <td>{{dato}}</td>
             {%endfor%}
@@ -133,37 +134,37 @@ $(document).ready(function () {
         <table>
         <thead>
         <tr>
-            <th>Productividad (qq/mz) </th>
+            <th>{% trans "Productividad (qq/mz) " %}</th>
             <th>{{productividad}}</th>
         </tr>
         </thead>
     </table>
 </div>
 <div id="tablatab3" class="escondete">
-<div class="subindicador">Costo de producción<a href="#" class="exportar"></a></div>
+<div class="subindicador">{% trans "Costo de producción" %}<a href="#" class="exportar"></a></div>
     <table style="width:100%;">
      <thead>
         <tr>
             <th></th>
-            <th>Frecuencia</th>
+            <th>{% trans "Frecuencia" %}</th>
             <th>Total</th>
-            <th>Promedio</th>
+            <th>{% trans "Promedio" %}</th>
         </tr>
      </thead>
         <tr>
-            <td>Gasto anual de cacao</td>
+            <td>{% trans "Gasto anual de cacao" %}</td>
             {%for dato in costo_area%}
             <td>{{dato}}</td>
             {%endfor%}
         </tr>
         <tr>
-            <td>Gasto anual finca</td>
+            <td>{% trans "Gasto anual finca" %}</td>
             {%for dato in costo_finca%}
             <td>{{dato}}</td>
             {%endfor%}
         </tr>
         <tr>
-            <td>% de Gasto de cacao</td>
+            <td>{% trans "% de Gasto de cacao" %}</td>
             <td>---</td>
             <td>{{porcentaje_cacao}}</td>
             <td>---</td>
@@ -173,11 +174,11 @@ $(document).ready(function () {
     <table>
         <thead>
         <tr>
-            <th>Costo de mantenimiento cacao/mz </th>
+            <th>{% trans "Costo de mantenimiento cacao/mz" %} </th>
             <th> {{mantenimiento_cacao}}</th>
         </tr>
         <tr>
-            <th>Costo de mantenimiento qq</th>
+            <th>{% trans "Costo de mantenimiento qq" %}</th>
             <th> {{mantenimiento_qq}}</th>
         </tr>
         </thead>

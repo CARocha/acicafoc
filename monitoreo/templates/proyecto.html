@@ -1,4 +1,5 @@
 {% extends "basenueva.html" %}
+{% load i18n %}
 {%block extra_header%}
 <script type="text/javascript" src="{{STATIC_URL}}js/jquery.nivo.slider.pack.js"></script>
 <link href="{{STATIC_URL}}css/nivo-slider.css" rel="stylesheet" type="text/css" media="all" title=""/>
@@ -29,37 +30,39 @@ jQuery(window).load(function(){
 
 <div style="margin:10px 15px 0px 15px;">
     <div class="proyecto_column">
-        <p>El proyecto “Alternativa de manejo sostenible en sistemas agroforestales para indígenas y afrodescendientes de la RAAN, Nicaragua”  Grant TF093115 es una donación de JSDF (Japan Social Development Fund), con la gerencia del Banco Mundial y ejecutado por La Asociación Coordinadora Indígena y Campesina de Agroforestería Comunitaria Centroamericana (ACICAFOC) ubicado en la RAAN Nicaragua. </p>
+        <p>{% trans "El proyecto “Alternativa de manejo sostenible en sistemas agroforestales para indígenas y afrodescendientes de la RAAN, Nicaragua”  Grant TF093115 es una donación de JSDF (Japan Social Development Fund), con la gerencia del Banco Mundial y ejecutado por La Asociación Coordinadora Indígena y Campesina de Agroforestería Comunitaria Centroamericana (ACICAFOC) ubicado en la RAAN Nicaragua." %} </p>
 
-         <p>Sus componentes</p>
+         <p>{% trans "Sus componentes" %}</p>
         <ul>
-        <li><i>Componente 1:</i> Desarrollo integrado de sistemas agroforestales en 1000 fincas de cacao para elevar los niveles de producción en Nicaragua</li>
-        <li><i>Componente 2:</i>  Estrategia de comercialización directa y los vínculos con el mercado de cacao para los agricultores que operan en una empresa social y medioambientalmente sostenible </li>
-        <li><i>Componente 3:</i>  Fortalecimiento de la Red Centroamericana de Productores de Cacao </li>
-        <li><i>Componente 4:</i>  Monitoreo y Evaluación Participativa</li>
+        <li><i>{% trans "Componente 1:" %}</i>{% trans "Desarrollo integrado de sistemas agroforestales en 1000 fincas de cacao para elevar los niveles de producción en Nicaragua" %}</li>
+        <li><i>{% trans "Componente 2:" %}</i>{% trans "Estrategia de comercialización directa y los vínculos con el mercado de cacao para los agricultores que operan en una empresa social y medioambientalmente sostenible" %}   </li>
+        <li><i>{% trans "Componente 3:" %}</i>{% trans "Fortalecimiento de la Red Centroamericana de Productores de Cacao" %}   </li>
+        <li><i>{% trans "Componente 4:" %}</i>{% trans "Monitoreo y Evaluación Participativa" %}  </li>
         </ul>
         <br>
-        <b>Área de influencia del Proyecto</b>
+        <b>{% trans "Área de influencia del Proyecto" %}</b>
         <br><br>
+
         <p>
-        Comprende los municipios de Bonanza, Rosita, Siuna, Prinzapolka y Mulukukú en la RAAN, y se trabajará con organizaciones que están dentro de la Red Centroamericana de Productores de Cacao tales como La Campesina en Matiguas, Matagalpa.
+        {% trans "Comprende los municipios de Bonanza, Rosita, Siuna, Prinzapolka y Mulukukú en la RAAN, y se trabajará con organizaciones que están dentro de la Red Centroamericana de Productores de Cacao tales como La Campesina en Matiguas, Matagalpa." %}
         </p>
-        <b>Beneficiarios </b>
+
+        <b>{% trans "Beneficiarios" %}</b>
         <br><br> 
         <p>
-        Esta subvención pretende beneficiar a al menos 1.000 agricultores de cacao y sus dependientes directos (5.000 personas). Además, se beneficiarán aproximadamente 7.000 productores y sus dependientes directos (35.000 personas), socios de asociaciones y cooperativas que trabajan con la Red Centroamericana de Productores de Cacao. Por otro lado, alrededor de 200 dirigentes o líderes serán formados con capacitaciones avanzadas y más de 1.200 agricultores individuales y organizados participan del desarrollo de capacidades y de formación de habilidades de mercadeo a nivel centroamericano. 
+        {% trans "Esta subvención pretende beneficiar a al menos 1.000 agricultores de cacao y sus dependientes directos (5.000 personas). Además, se beneficiarán aproximadamente 7.000 productores y sus dependientes directos (35.000 personas), socios de asociaciones y cooperativas que trabajan con la Red Centroamericana de Productores de Cacao. Por otro lado, alrededor de 200 dirigentes o líderes serán formados con capacitaciones avanzadas y más de 1.200 agricultores individuales y organizados participan del desarrollo de capacidades y de formación de habilidades de mercadeo a nivel centroamericano. " %}
         </p>
-        <b>Objetivo general</b>
+        <b>{% trans "Objetivo general" %}</b>
         <br><br>
         <p>
-        Contribuir en la erradicación de la pobreza a partir del desarrollo integral de la producción cacaotera y su mercadeo en la Región Autónoma del Atlántico Norte de Nicaragua, a través del fomento del uso sostenible de los recursos naturales, el bienestar rural y establecimiento de acuerdos comerciales sostenible y de promoción al exterior.
+        {% trans "Contribuir en la erradicación de la pobreza a partir del desarrollo integral de la producción cacaotera y su mercadeo en la Región Autónoma del Atlántico Norte de Nicaragua, a través del fomento del uso sostenible de los recursos naturales, el bienestar rural y establecimiento de acuerdos comerciales sostenible y de promoción al exterior." %}
         </p>
-        <b>Objetivos específicos </b>
+        <b>{% trans "Objetivos específicos" %} </b>
         <br> <br>
         <ul>
-        <li>a) Apoyar en el mejoramiento de las actividades relacionadas con el manejo integrado de sistemas agroforestales en fincas cacaoteras, con el fin de incrementar los niveles de producción entre los indígenas, campesinos y afro-descendientes de la RAAN de Nicaragua. </li>
-        <li>b) Establecer vínculos sostenibles entre los productores con empresas de chocolate a nivel internacional y con las normas internacionales de comercio justo, para consolidar acuerdos formales sobre la oferta y venta de productos y servicios ambientales procedentes de las fincas cacaoteras de la RAAN de Nicaragua. </li>
-        <li>c) Fortalecer la gestión social, comercial y ambiental de la Red Centroamericana de Productores de Cacao, mediante la creación de un mecanismo eficaz para financiar sus actividades, la certificación y la comercialización, y para mejorar la capacidad de liderazgo, coordinación y el intercambio de experiencias entre las organizaciones comunitarias, cooperativas, productores, entre otros.</li>
+        <li>{% trans "a) Apoyar en el mejoramiento de las actividades relacionadas con el manejo integrado de sistemas agroforestales en fincas cacaoteras, con el fin de incrementar los niveles de producción entre los indígenas, campesinos y afro-descendientes de la RAAN de Nicaragua." %} </li>
+        <li>{% trans "b) Establecer vínculos sostenibles entre los productores con empresas de chocolate a nivel internacional y con las normas internacionales de comercio justo, para consolidar acuerdos formales sobre la oferta y venta de productos y servicios ambientales procedentes de las fincas cacaoteras de la RAAN de Nicaragua. " %}</li>
+        <li>{% trans "c) Fortalecer la gestión social, comercial y ambiental de la Red Centroamericana de Productores de Cacao, mediante la creación de un mecanismo eficaz para financiar sus actividades, la certificación y la comercialización, y para mejorar la capacidad de liderazgo, coordinación y el intercambio de experiencias entre las organizaciones comunitarias, cooperativas, productores, entre otros." %}</li>
         </ul><br>
     </div>
     <div class="proyecto_column">
@@ -74,7 +77,7 @@ jQuery(window).load(function(){
                 </div>
             </div>
             <div>
-                <iframe width="525" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.cr/maps/ms?msa=0&amp;msid=217922025112102343393.0004c663f63fdcacc52be&amp;hl=es&amp;ie=UTF8&amp;t=p&amp;ll=13.699362,-84.68811&amp;spn=1.87315,2.334595&amp;z=8&amp;output=embed"></iframe><br /><small>Ver <a href="https://maps.google.co.cr/maps/ms?msa=0&amp;msid=217922025112102343393.0004c663f63fdcacc52be&amp;hl=es&amp;ie=UTF8&amp;t=p&amp;ll=13.699362,-84.68811&amp;spn=1.87315,2.334595&amp;z=8&amp;source=embed" style="color:#0000FF;text-align:left">Subproyectos COCOARAAN</a> en un mapa más grande</small>
+                <iframe width="525" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.cr/maps/ms?msa=0&amp;msid=217922025112102343393.0004c663f63fdcacc52be&amp;hl=es&amp;ie=UTF8&amp;t=p&amp;ll=13.699362,-84.68811&amp;spn=1.87315,2.334595&amp;z=8&amp;output=embed"></iframe><br /><small>{% trans "Ver" %} <a href="https://maps.google.co.cr/maps/ms?msa=0&amp;msid=217922025112102343393.0004c663f63fdcacc52be&amp;hl=es&amp;ie=UTF8&amp;t=p&amp;ll=13.699362,-84.68811&amp;spn=1.87315,2.334595&amp;z=8&amp;source=embed" style="color:#0000FF;text-align:left">{% trans "Subproyectos COCOARAAN" %}</a> {% trans "en un mapa más grande" %} </small>
             </div>
     </div>
     <div class="clean"></div> 

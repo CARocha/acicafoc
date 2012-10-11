@@ -1,6 +1,6 @@
 {% extends "basenueva.html" %}
 {%load unslugify %}
-
+{% load i18n %}
 {% block extra_header %}
 <script type="text/javascript">
     var activo = 0;
@@ -30,28 +30,28 @@ $(document).ready(function () {
 {% block content %}
 {% include "filtros.html" %}
         <div class="sidebar">
-            <div class="subindicador">Gráficos de bienes</a></div>
-            <a id="grafico1" href="#" onCLick="click_callback('tipocasa')"class="grafo">Tipo Casa</a></a>
-            <a id="grafico2" href="#" onCLick="click_callback('tipopiso')"class="grafo">Tipo Piso</a>
-            <a id="grafico3" href="#" onCLick="click_callback('tipotecho')"class="grafo">Tipo Techo</a>
-            <a id="grafico4" href="#" onCLick="click_callback('ambiente')"class="grafo">Ambientes</a>
-            <a id="grafico5" href="#" onCLick="click_callback('letrina')"class="grafo">Letrina</a>
+            <div class="subindicador">{% trans "Gráficos de bienes" %}</a></div>
+            <a id="grafico1" href="#" onCLick="click_callback('tipocasa')"class="grafo">{% trans "Tipo Casa" %}</a></a>
+            <a id="grafico2" href="#" onCLick="click_callback('tipopiso')"class="grafo">{% trans "Tipo Piso" %}</a>
+            <a id="grafico3" href="#" onCLick="click_callback('tipotecho')"class="grafo">{% trans "Tipo Techo" %}</a>
+            <a id="grafico4" href="#" onCLick="click_callback('ambiente')"class="grafo">{% trans "Ambientes" %}</a>
+            <a id="grafico5" href="#" onCLick="click_callback('letrina')"class="grafo">{% trans "Letrina" %}</a>
 <!--            <a id="grafico6" href="#" onCLick="click_callback('lavadero')"class="grafo">Lavadero</a>-->
             <div id="grafo"></div>
         </div>
 
   <div class="contenido mediatabla">
 
-    <div class="subindicador">Los Equipos<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div class="subindicador">{% trans "Los Equipos" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
     <div id="modalidad">
     <table style="width:100%;">
         <thead>
             <tr>
-                <th>EQUIPOS</th>
-                <th>Frecuencia</th>
+                <th>{% trans "Equipos" %}</th>
+                <th>{% trans "Frecuencia" %}</th>
                 <th>%</th>
-                <th>Cantidad</th>
-                <th>Promedio por familia</th>
+                <th>{% trans "Cantidad" %}</th>
+                <th>{% trans "Promedio por familia" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -66,16 +66,16 @@ $(document).ready(function () {
             {%endfor%}
         </tbody>
     </table>
-<div class="subindicador">Las Infraestructuras</div>
+<div class="subindicador">{% trans "Las Infraestructuras" %}</div>
     <table id="table_example" class="tablesorter" style="font-size:90%">
 
         <thead>
             <tr>
-                <th>INFRAESTRUCTURA</th>
-                <th>FRECUENCIA</th>
+                <th>{% trans "INFRAESTRUCTURA" %}</th>
+                <th>{% trans "FRECUENCIA" %}</th>
                 <th>%</th>
-                <th>CANTIDAD</th>
-                <th>Promedio por familia</th>
+                <th>{% trans "CANTIDAD" %}</th>
+                <th>{% trans "Promedio por familia" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -90,15 +90,15 @@ $(document).ready(function () {
             {%endfor%}
         </tbody>
     </table>
-<div class="subindicador">Las Herramientas</div>
+<div class="subindicador">{% trans "Las Herramientas" %}</div>
     <table id="table_example" class="tablesorter" style="font-size:90%">
         <thead>
             <tr>
-                <th>HERRAMIENTAS</th>
-                <th>FRECUENCIA</th>
+                <th>{% trans "HERRAMIENTAS" %}</th>
+                <th>{% trans "FRECUENCIA" %}</th>
                 <th>%</th>
-                <th>CANTIDAD</th>
-                <th>Promedio por familia</th>
+                <th>{% trans "CANTIDAD" %}</th>
+                <th>{% trans "Promedio por familia" %}</th>
             </tr>
         </thead>
         <tbody>
@@ -113,15 +113,15 @@ $(document).ready(function () {
             {%endfor%}
         </tbody>
     </table>
-<div class="subindicador">Los Transportes</div>
+<div class="subindicador">{% trans "Los Transportes" %}</div>
     <table id="table_example" class="tablesorter" style="font-size:90%">
         <thead>
             <tr>
-                <th>TRANSPORTE</th>
-                <th>FRECUENCIA</th>
+                <th>{% trans "TRANSPORTE" %}</th>
+                <th>{% trans "FRECUENCIA" %}</th>
                 <th>%</th>
-                <th>CANTIDAD</th>
-                <th>Promedio por familia</th>
+                <th>{% trans "CANTIDAD" %}</th>
+                <th>{% trans "Promedio por familia" %}</th>
             </tr>
         </thead>
         <tbody>
