@@ -8,8 +8,8 @@ from django.utils.translation import ugettext_lazy as _
 ANOS_CHOICES = (('', u'Año'), (2009,'2009'), (2010,'2010'),(2011,'2011'),(2012,'2012'),(2013,'2013'),(2014,'2014'))
 CHOICE_OPCION_F = (('', u'Socio'),(1,'Si'),(2,'No'))
 CHOICE_DESDE_F = (('','Desde'),(1,"Menos de 5 año"),(2,"Mas de 5 años"))
-CHOICE_DUENO_F = (('', u'Sexo Dueño'),(1,"Hombre"),(2,"Mujer"),(3,"Mancomunado"),(4,"Parientes"),(5,"Colectivo"),(6,"No hay"))
-CHOICE_SEXO = (('', u'Sexo beneficiario'),(1,'Hombre'),(2,'Mujer'))
+CHOICE_DUENO_F = (('', _(u'Sexo Dueño')),(1,"Hombre"),(2,"Mujer"),(3,"Mancomunado"),(4,"Parientes"),(5,"Colectivo"),(6,"No hay"))
+CHOICE_SEXO = (('', _(u'Sexo beneficiario')),(1,'Hombre'),(2,'Mujer'))
 CHOICE_ETNICO = (
                     ('', u'Grupo Etnico'),
                     (1, 'Miskito'),

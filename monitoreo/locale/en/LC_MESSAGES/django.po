@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-15 12:09-0600\n"
+"POT-Creation-Date: 2012-10-15 13:40-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: encuestas/forms.py:33
-#, fuzzy
+#: encuestas/forms.py:11
+msgid "Sexo Dueño"
+msgstr "Owner"
+
+#: encuestas/forms.py:12 encuestas/forms.py:33
 msgid "Sexo beneficiario"
 msgstr "Beneficiaries"
 
 #: encuestas/forms.py:34
-#, fuzzy
 msgid "Dueño"
-msgstr "Owner Type:"
+msgstr "Owner"
 
 #: templates/basenueva.html:14
-#, fuzzy
 msgid "Sistema de Monitoreo ACICAFOC"
 msgstr "ACICAFOC monitoring system"
 
@@ -174,7 +175,6 @@ msgid "ACERCA DEL SISTEMA DE MONITOREO"
 msgstr "ABOUT MONITORING SYSTEM "
 
 #: templates/index.html:100
-#, fuzzy
 msgid ""
 "El proyecto Alternativa de manejo sostenible en sistemas agroforestales para "
 "indígenas, campesinos y afro descendientes de la RAAN, Nicaragua, denominado "
@@ -228,7 +228,6 @@ msgstr ""
 "participate actively in the development of niche markets."
 
 #: templates/index.html:109
-#, fuzzy
 msgid ""
 "La ejecución del proyecto inicio en el 2010 y se ha dinamizado a partir del "
 "2011, obteniéndose resultados visibles de las acciones dentro de las cuales "
@@ -361,7 +360,6 @@ msgid "Reforestación"
 msgstr "Reforestation"
 
 #: templates/proyecto.html:33
-#, fuzzy
 msgid ""
 "El proyecto “Alternativa de manejo sostenible en sistemas agroforestales "
 "para indígenas y afrodescendientes de la RAAN, Nicaragua”  Grant TF093115 es "
@@ -441,7 +439,6 @@ msgid "Beneficiarios"
 msgstr "Beneficiaries"
 
 #: templates/proyecto.html:53
-#, fuzzy
 msgid ""
 "Esta subvención pretende beneficiar a al menos 1.000 agricultores de cacao y "
 "sus dependientes directos (5.000 personas). Además, se beneficiarán "
@@ -496,7 +493,6 @@ msgstr ""
 "Nicaragua's RAAN."
 
 #: templates/proyecto.html:64
-#, fuzzy
 msgid ""
 "b) Establecer vínculos sostenibles entre los productores con empresas de "
 "chocolate a nivel internacional y con las normas internacionales de comercio "
@@ -894,9 +890,9 @@ msgid "Grupos Etnicos"
 msgstr "Ethnic Groups"
 
 #: templates/encuestas/generales.html:222
-#, fuzzy, python-format
+#, python-format
 msgid "Datos Generales de las %(numero)s Familias encuestadas"
-msgstr "General features of the families surveyed"
+msgstr "General features of the %(numero)s families surveyed"
 
 #: templates/encuestas/generales.html:224
 msgid "Hombre y mujeres"
@@ -1290,7 +1286,6 @@ msgid "FAMILIA"
 msgstr "FAMILY"
 
 #: templates/familias/agua.html:141 templates/familias/luz.html:28
-#, fuzzy
 msgid "Fuente"
 msgstr "Source"
 
@@ -1634,7 +1629,6 @@ msgid "Filtrar avances por:"
 msgstr "Filter advances by:"
 
 #: templates/noticias/noticias_detalle.html:62
-#, fuzzy
 msgid "Documento"
 msgstr "Document"
 
@@ -1651,12 +1645,10 @@ msgid "Filtrar avances por"
 msgstr "Filter by advances"
 
 #: templates/noticias/noticias_lista.html:23
-#, fuzzy
 msgid "Avances de proyecto realcionados a"
 msgstr "Progress of the project"
 
 #: templates/noticias/noticias_lista.html:25
-#, fuzzy
 msgid "Avances de proyecto"
 msgstr "Progress of the project"
 
@@ -1912,7 +1904,6 @@ msgid "Falta de venta"
 msgstr "Could not sell"
 
 #: templates/riesgos/vulnerable.html:258 templates/riesgos/vulnerable.html:633
-#, fuzzy
 msgid "Estafa de contrato"
 msgstr "Contract breach"
 
