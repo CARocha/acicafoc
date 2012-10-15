@@ -2,6 +2,11 @@
 
 from local_settings import *
 
+LANGUAGES = (
+                ('en', 'English'),
+                ('es', 'Spanish'),
+            )
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'static_media/uploads/')
