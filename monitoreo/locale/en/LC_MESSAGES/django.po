@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-15 11:56-0600\n"
+"POT-Creation-Date: 2012-10-15 12:09-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,20 +26,6 @@ msgstr "Beneficiaries"
 #, fuzzy
 msgid "Dueño"
 msgstr "Owner Type:"
-
-#: pagination/templates/pagination/pagination.html:6
-#: pagination/templates/pagination/pagination.html:8
-#: templates/pagination/pagination.html:6
-#: templates/pagination/pagination.html:8
-msgid "Anterior"
-msgstr "Previous"
-
-#: pagination/templates/pagination/pagination.html:22
-#: pagination/templates/pagination/pagination.html:24
-#: templates/pagination/pagination.html:22
-#: templates/pagination/pagination.html:24
-msgid "Siguiente"
-msgstr "Next"
 
 #: templates/basenueva.html:14
 #, fuzzy
@@ -465,7 +451,7 @@ msgid ""
 "dirigentes o líderes serán formados con capacitaciones avanzadas y más de "
 "1.200 agricultores individuales y organizados participan del desarrollo de "
 "capacidades y de formación de habilidades de mercadeo a nivel "
-"centroamericano. "
+"centroamericano."
 msgstr ""
 "This grant is intended to benefit at least 1,000 cocoa farmers and their "
 "direct dependents (5,000 people). Also, will benefit about 7,000 farmers and "
@@ -1756,6 +1742,16 @@ msgstr "I have been trained to perform my job"
 #: templates/organizacion/organizacion.html:3
 msgid "Monitoreo - Organización"
 msgstr "Monitoring - Organization"
+
+#: templates/pagination/pagination.html:6
+#: templates/pagination/pagination.html:8
+msgid "Anterior"
+msgstr "Previous"
+
+#: templates/pagination/pagination.html:22
+#: templates/pagination/pagination.html:24
+msgid "Siguiente"
+msgstr "Next"
 
 #: templates/reforestacion/arboles.html:45
 msgid "Reforestación en ultimo año"
