@@ -22,7 +22,7 @@ msgstr ""
 #: templates/pagination/pagination.html:6
 #: templates/pagination/pagination.html:8
 msgid "Anterior"
-msgstr "Previous"
+msgstr "Previuos"
 
 #: pagination/templates/pagination/pagination.html:22
 #: pagination/templates/pagination/pagination.html:24
@@ -34,11 +34,11 @@ msgstr "Next"
 #: templates/basenueva.html:14
 #, fuzzy
 msgid "Sistema de Monitoreo ACICAFOC"
-msgstr "ACICAFOC monitoring system"
+msgstr "System monitor"
 
 #: templates/basenueva.html:70
 msgid "INICIO"
-msgstr "Home"
+msgstr "Start"
 
 #: templates/basenueva.html:71
 msgid "CAMBIAR INDICADOR"
@@ -46,137 +46,136 @@ msgstr "Change indicator"
 
 #: templates/basenueva.html:72
 msgid "NUEVA CONSULTA"
-msgstr "New Search"
+msgstr "New filter"
 
 #: templates/basenueva.html:84
 msgid "Sistema de Monitoreo"
-msgstr "Monitoring System"
+msgstr "System monitor"
 
 #: templates/basenueva.html:85
 msgid "Desarrollado en Nicaragua"
-msgstr "Developed in Nicaragua"
+msgstr "Develoment in Nicaragua"
 
 #: templates/basenueva.html:85
 msgid "bajo plataforma"
-msgstr "with platform"
+msgstr "With platform"
 
 #: templates/filtros.html:3
 msgid "Encuestas"
-msgstr "Surveys"
+msgstr ""
 
 #: templates/filtros.html:6
 msgid "Filtros "
-msgstr "Filters "
+msgstr ""
 
 #: templates/filtros.html:8 templates/encuestas/inicio.html:16
 #: templates/encuestas/inicio.html.py:17
 msgid "Año"
-msgstr "Year"
+msgstr ""
 
 #: templates/filtros.html:10
 msgid "Departamento:"
-msgstr "Department:"
+msgstr ""
 
 #: templates/filtros.html:12 templates/encuestas/inicio.html:52
 #: templates/encuestas/inicio.html.py:53 templates/encuestas/menu.html:5
 #: templates/organizacion/organizacion.html:6
 msgid "Organización"
-msgstr "Organization"
+msgstr ""
 
 #: templates/filtros.html:14 templates/encuestas/inicio.html:93
 #: templates/encuestas/inicio.html.py:94
 msgid "Municipio"
-msgstr "Municipality"
+msgstr ""
 
 #: templates/filtros.html:16 templates/encuestas/inicio.html:45
 #: templates/encuestas/inicio.html.py:46
 msgid "Comunidad"
-msgstr "Community"
+msgstr ""
 
 #: templates/filtros.html:18
 msgid "Socio:"
-msgstr "Partner"
+msgstr ""
 
 #: templates/filtros.html:21
 msgid "Años de socio:"
-msgstr "Years of membership:"
+msgstr ""
 
 #: templates/filtros.html:21
 msgid "Menos de 5"
-msgstr "Less than 5"
+msgstr ""
 
 #: templates/filtros.html:21
 msgid "Más de 5 "
-msgstr "More than 5 "
+msgstr ""
 
 #: templates/filtros.html:24
 msgid "Grupo étnico"
-msgstr "Ethnic group"
+msgstr ""
 
 #: templates/filtros.html:24
 msgid "Miskito"
-msgstr "Miskito"
+msgstr ""
 
 #: templates/filtros.html:24
 msgid "Mayagna"
-msgstr "Mayangna"
+msgstr ""
 
 #: templates/filtros.html:24
 msgid "Mestizo"
-msgstr "Mixed"
+msgstr ""
 
 #: templates/filtros.html:24
 msgid "Afrodescendiente"
-msgstr "Of African Origin"
+msgstr ""
 
 #: templates/filtros.html:27
 msgid "Tipo Dueño:"
-msgstr "Owner Type:"
+msgstr ""
 
 #: templates/filtros.html:27
 msgid "Hombre"
-msgstr "Man"
+msgstr ""
 
 #: templates/filtros.html:27
 msgid "Mujer"
-msgstr "Woman"
+msgstr ""
 
 #: templates/filtros.html:27
 msgid "Mancomunado"
-msgstr "Shared"
+msgstr ""
 
 #: templates/filtros.html:27
 msgid "Parientes"
-msgstr "Kins"
+msgstr ""
 
 #: templates/filtros.html:27
 msgid "Colectivo"
-msgstr "Collective"
+msgstr ""
 
 #: templates/filtros.html:27
 msgid "No hay"
-msgstr "None"
+msgstr ""
 
 #: templates/index.html:36
 msgid "Hombres:"
-msgstr "Men"
+msgstr ""
 
 #: templates/index.html:36
 msgid "Mujeres:"
-msgstr "Women"
+msgstr ""
 
 #: templates/index.html:37
 msgid "Total:"
-msgstr "
-Total"
+msgstr ""
 
 #: templates/index.html:96
 msgid "Familias encuestadas en la actualidad"
-msgstr "Families surveyed currently"
+msgstr ""
 
 #: templates/index.html:97
 msgid "ACERCA DEL SISTEMA DE MONITOREO"
-msgstr "ABOUT MONITORING SYSTEM "
+msgstr ""
 
 #: templates/index.html:100
 msgid ""
@@ -187,7 +186,7 @@ msgid ""
 "desarrollo integral de la producción cacaotera y mercadeo en la RAAN, a "
 "través del fomento del uso sostenible de los recursos naturales, el "
 "bienestar rural y establecimiento de acuerdos comerciales sostenibles."
-msgstr "The "Alternative sustainable agroforestry systems for indigenous, peasant and Afro descendants of the RAAN, Nicaragua", project named COCOA RAAN Project, aims to contribute to the eradication of poverty in indigenous, peasant and Afro descendants and development integral cocoa production and marketing in the RAAN, through the promotion of sustainable use of natural resources, rural welfare and sustainable development of business agreements."
+msgstr ""
 
 #: templates/index.html:102
 msgid ""
@@ -201,7 +200,7 @@ msgid ""
 "Productores de Cacao en respuesta a las demandas expresadas por los "
 "productores de participar activamente en iniciativas de comercialización y "
 "iv) Monitoreo y Evaluación participativa en las acciones implementadas."
-msgstr "The Coordinating Association of Indigenous and for Peasants Community Agroforestry in nCentral America (ACICAFOC) is the implementor of this project whose components i) Integrated development of agroforestry systems in 1000 cacao growing farms to raise production levels in Nicaragua, ii) direct marketing strategy and market linkages for cocoa farmers operating in a socially and environmentally sustainable environment, iii) consolidation of the Central American cacao producers in response to the demands expressed by producers to actively participate in marketing initiatives and iv) Participatory Monitoring and Evaluation in the actions implemented."
+msgstr ""
 
 #: templates/index.html:107
 msgid ""
@@ -210,7 +209,7 @@ msgid ""
 "del cacao en sistemas agroforestales y vincularlos con mecanismos "
 "innovadores que les permita participar activamente en el desarrollo de "
 "nichos de mercado."
-msgstr "With these components, it is intended to respond to the needs of cocoa farmers, to develop technical skills in the management of cocoa agroforestry systems and link them with innovative mechanisms to enable them to participate actively in the development of niche markets."
+msgstr ""
 
 #: templates/index.html:109
 msgid ""
@@ -224,110 +223,110 @@ msgid ""
 "de propuestas de subproyectos y elaboración de presupuesto ha sido un "
 "proceso que ha generado capacidades locales que dinamizan el desarrollo de "
 "las acciones alrededor del cacao en la RAAN."
-msgstr "Project implementation started in 2010 and has been vigorously implemented from 2011, yielding visible results of actions within which we can highlight the contribution towards the development of technical skills in the area of ​​both technical and in terms of leaders and producers in the management of cocoa agroforestry systems, and formulating subproject proposals by beneficiaries. This facilitator training through local field schools in Cocoa and workshops in the formulation of subproject proposals and budgeting has been a process that has generated local capabilities streamlined the development of cocoa actions in the RAAN."
+msgstr ""
 
 #: templates/index.html:112
 msgid "Mapa Geografico de encuestados"
-msgstr "Geographical location of families surveyed"
+msgstr ""
 
 #: templates/index.html:120
 msgid "Información del proyecto"
-msgstr "Project information"
+msgstr "Information proyect"
 
 #: templates/index.html:122
 msgid ""
 "Conoce los objetivos, la finalidad, el area de influencia y los "
 "beneficiarios del proyecto"
-msgstr "Learn about objectives, purpose, the area of ​​influence and project beneficiaries"
+msgstr ""
 
 #: templates/index.html:127
 msgid "Estadistícas Generales"
-msgstr "General information of surveys"
+msgstr "General estadistic"
 
 #: templates/index.html:129
 msgid ""
 "Datos generales de la encuesta visibilizados geográficamente en las zonas de "
 "cobertura"
-msgstr "General information about the survey made visible geographically coverage areas"
+msgstr ""
 
 #: templates/index.html:134
 msgid "Consulta de indicadores"
-msgstr "Query of indicators"
+msgstr "Query indicator"
 
 #: templates/index.html:136
 msgid ""
 "A través de los filtros/indicadores podemos acceder a la información y los "
 "gráficos de acuerdo a nuestras necesidades."
-msgstr "Through the filters / indicators we can access information and graphics according to our querries"
+msgstr ""
 
 #: templates/index.html:141
 msgid "Aprende a usar el sistema"
-msgstr "Learn to use the system"
+msgstr "Learn and use system"
 
 #: templates/index.html:143
 msgid "Muestra la ayuda del sistema, cómo manipular la información disponible."
-msgstr "Displays help system, how to manipulate the information available."
+msgstr ""
 
 #: templates/index.html:148
 msgid "Administrar el sistema"
-msgstr "System administration"
+msgstr "System administrator"
 
 #: templates/index.html:151
 msgid "Acceso a la administración válido únicamente para usuarios registrados."
-msgstr "Access to administration valid only for registered users."
+msgstr ""
 
 #: templates/index.html:156
 msgid "Avances del proyecto"
-msgstr "Project advances"
+msgstr "Progress of the project"
 
 #: templates/index.html:159
 msgid "Conoce la actualidad de las actividades realizadas por el proyecto."
-msgstr "Find out about current activities of the project"
+msgstr ""
 
 #: templates/nav_familia.html:3 templates/familias/educacion.html:156
 msgid "Educación"
-msgstr "Education"
+msgstr ""
 
 #: templates/nav_familia.html:4
 msgid "Energia"
-msgstr "Energy"
+msgstr ""
 
 #: templates/nav_familia.html:5 templates/familias/agua.html:135
 msgid "Agua de consumo"
-msgstr "Drinking water"
+msgstr ""
 
 #: templates/nav_org.html:3
 msgid "Gremial"
-msgstr "Union"
+msgstr ""
 
 #: templates/nav_org.html:4
 msgid "Comunitaria"
-msgstr "Community"
+msgstr ""
 
 #: templates/nav_riesgos.html:3
 msgid "Vulnerabilidad de la finca"
-msgstr "Vulnerability of the farm"
+msgstr ""
 
 #: templates/nav_riesgos.html:4
 msgid "Mitigación de riesgos"
-msgstr "Risk Mitigation"
+msgstr ""
 
 #: templates/nav_suelo.html:3
 msgid "Carácteristicas del terreno"
-msgstr "Terrain features"
+msgstr ""
 
 #: templates/nav_suelo.html:4
 msgid "Manejo del suelo"
-msgstr "Soil Management"
+msgstr ""
 
 #: templates/nav_tierra.html:3 templates/reforestacion/fincas.html:67
 #: templates/reforestacion/fincas.html:171
 msgid "Uso de tierra"
-msgstr "Land use"
+msgstr ""
 
 #: templates/nav_tierra.html:4
 msgid "Reforestación"
-msgstr "Reforestation"
+msgstr ""
 
 #: templates/proyecto.html:33
 msgid ""
@@ -337,52 +336,52 @@ msgid ""
 "Banco Mundial y ejecutado por La Asociación Coordinadora Indígena y "
 "Campesina de Agroforestería Comunitaria Centroamericana (ACICAFOC) ubicado "
 "en la RAAN Nicaragua."
-msgstr "The "Alternative sustainable agroforestry systems for indigenous and Afro-descendant of the RAAN, Nicaragua" Grant is a grant TF093115 from JSDF (Japan Social Development Fund), managed by World Bank and implemented by the Coordinating Association of Indigenous and Peasant households for Community Agroforestry in Central America (ACICAFOC) located in the RAAN Nicaragua."
+msgstr ""
 
 #: templates/proyecto.html:35
 msgid "Sus componentes"
-msgstr "Components"
+msgstr ""
 
 #: templates/proyecto.html:37
 msgid "Componente 1:"
-msgstr "Component 1:"
+msgstr ""
 
 #: templates/proyecto.html:37
 msgid ""
 "Desarrollo integrado de sistemas agroforestales en 1000 fincas de cacao para "
 "elevar los niveles de producción en Nicaragua"
-msgstr "Integrated development of agroforestry in 1000 cocoa growing farms to raise production levels"
+msgstr ""
 
 #: templates/proyecto.html:38
 msgid "Componente 2:"
-msgstr "Component 2:"
+msgstr ""
 
 #: templates/proyecto.html:38
 msgid ""
 "Estrategia de comercialización directa y los vínculos con el mercado de "
 "cacao para los agricultores que operan en una empresa social y "
 "medioambientalmente sostenible"
-msgstr "Direct marketing strategy and market linkages for cocoa farmers operating in a socially and environmentally sustainable environment"
+msgstr ""
 
 #: templates/proyecto.html:39
 msgid "Componente 3:"
-msgstr "Component 3:"
+msgstr ""
 
 #: templates/proyecto.html:39
 msgid "Fortalecimiento de la Red Centroamericana de Productores de Cacao"
-msgstr "Strengthening the Central American Cocoa Producers network"
+msgstr ""
 
 #: templates/proyecto.html:40
 msgid "Componente 4:"
-msgstr "Component 4:"
+msgstr ""
 
 #: templates/proyecto.html:40
 msgid "Monitoreo y Evaluación Participativa"
-msgstr "Participatory Monitoring and Evaluation"
+msgstr ""
 
 #: templates/proyecto.html:43
 msgid "Área de influencia del Proyecto"
-msgstr "Area of influence of the project"
+msgstr ""
 
 #: templates/proyecto.html:47
 msgid ""
@@ -390,11 +389,11 @@ msgid ""
 "en la RAAN, y se trabajará con organizaciones que están dentro de la Red "
 "Centroamericana de Productores de Cacao tales como La Campesina en Matiguas, "
 "Matagalpa."
-msgstr "It includes the municipalities of Bonanza, Rosita, Siuna Prinzapolka and Mulukukú in RAAN, and work with organizations that are within the Central American Cocoa Producers network such as La Campesina in Matiguas, Matagalpa."
+msgstr ""
 
 #: templates/proyecto.html:50
 msgid "Beneficiarios"
-msgstr "Beneficiaries"
+msgstr ""
 
 #: templates/proyecto.html:53
 msgid ""
@@ -407,11 +406,11 @@ msgid ""
 "1.200 agricultores individuales y organizados participan del desarrollo de "
 "capacidades y de formación de habilidades de mercadeo a nivel "
 "centroamericano. "
-msgstr "This grant is intended to benefit at least 1,000 cocoa farmers and their direct dependents (5,000 people). Also, will benefit about 7,000 farmers and their direct dependents (35,000 people), members of associations and cooperatives that work with the Central American Cocoa Producers. In addition, about 200 leaders or leaders will be trained with advanced training and over 1,200 participating farmers and organized individual capacity development and marketing skills training in Central America. "
+msgstr ""
 
 #: templates/proyecto.html:55
 msgid "Objetivo general"
-msgstr "General Objective"
+msgstr ""
 
 #: templates/proyecto.html:58
 msgid ""
@@ -420,11 +419,11 @@ msgid ""
 "Norte de Nicaragua, a través del fomento del uso sostenible de los recursos "
 "naturales, el bienestar rural y establecimiento de acuerdos comerciales "
 "sostenible y de promoción al exterior."
-msgstr "To contribute to the eradication of poverty from the development of cocoa production and marketing in the North Atlantic Autonomous Region of Nicaragua, through the promotion of sustainable use of natural resources, rural welfare and sustainable development of trade agreements and promotion abroad."
+msgstr ""
 
 #: templates/proyecto.html:60
 msgid "Objetivos específicos"
-msgstr "Specific Objectives"
+msgstr ""
 
 #: templates/proyecto.html:63
 msgid ""
@@ -432,7 +431,7 @@ msgid ""
 "integrado de sistemas agroforestales en fincas cacaoteras, con el fin de "
 "incrementar los niveles de producción entre los indígenas, campesinos y afro-"
 "descendientes de la RAAN de Nicaragua."
-msgstr "a) Support the improvement of activities related to the integrated management of cocoa agroforestry systems on farms, in order to increase production levels among indigenous and Afro-descendent peasants of Nicaragua's RAAN."
+msgstr ""
 
 #: templates/proyecto.html:64
 msgid ""
@@ -441,7 +440,7 @@ msgid ""
 "justo, para consolidar acuerdos formales sobre la oferta y venta de "
 "productos y servicios ambientales procedentes de las fincas cacaoteras de la "
 "RAAN de Nicaragua. "
-msgstr "b) Establishing sustainable linkages between producers with chocolate companies internationally and with international standards of fair trade, to strengthen formal agreements on the supply and sale of environmental products and services from the cacao farms RAAN Nicaragua. "
+msgstr ""
 
 #: templates/proyecto.html:65
 msgid ""
@@ -451,19 +450,19 @@ msgid ""
 "comercialización, y para mejorar la capacidad de liderazgo, coordinación y "
 "el intercambio de experiencias entre las organizaciones comunitarias, "
 "cooperativas, productores, entre otros."
-msgstr "c) strengthen social management, trade and environment of the Central American Cocoa Producers, by creating an effective mechanism to finance their activities, certification and marketing, and to improve leadership, coordination and exchange of experiences among community organizations, cooperatives, producers, among others."
+msgstr ""
 
 #: templates/proyecto.html:80
 msgid "Ver"
-msgstr "View"
+msgstr ""
 
 #: templates/proyecto.html:80
 msgid "Subproyectos COCOARAAN"
-msgstr "Subprojects COCOARAAN"
+msgstr ""
 
 #: templates/proyecto.html:80
 msgid "en un mapa más grande"
-msgstr "in a larger map"
+msgstr ""
 
 #: templates/tabular.html:15
 #: templates/admin/noticias/edit_inline/tabular.html:15
@@ -504,74 +503,74 @@ msgstr "Log out"
 
 #: templates/agroecologico/manejo_agro.html:8
 msgid "Nivel de conocimiento"
-msgstr "Level of knowledge"
+msgstr ""
 
 #: templates/agroecologico/manejo_agro.html:13
 #: templates/agroecologico/manejo_agro.html:45
 msgid "uso de manejo agro."
-msgstr "use of agronomic practices"
+msgstr ""
 
 #: templates/agroecologico/manejo_agro.html:14
 msgid "Nada"
-msgstr "Nothing"
+msgstr ""
 
 #: templates/agroecologico/manejo_agro.html:16
 msgid "Poco"
-msgstr "Little"
+msgstr ""
 
 #: templates/agroecologico/manejo_agro.html:18
 msgid "Algo"
-msgstr "Something"
+msgstr ""
 
 #: templates/agroecologico/manejo_agro.html:20
 msgid "Bastante"
-msgstr "Sufficient"
+msgstr ""
 
 #: templates/agroecologico/manejo_agro.html:41
 msgid "Ha experimentado"
-msgstr "Have you experimented?"
+msgstr ""
 
 #: templates/agroecologico/manejo_agro.html:46
 msgid "Menor escala (Si)"
-msgstr "Smaller scale (Yes)"
+msgstr ""
 
 #: templates/agroecologico/manejo_agro.html:48
 msgid "Mayor escala (Si)"
-msgstr "Larger scale (Yes)"
+msgstr ""
 
 #: templates/animales/animales.html:9
 msgid "Los Animales"
-msgstr "Animals"
+msgstr ""
 
 #: templates/animales/animales.html:16
 msgid "Número de familias con"
-msgstr "Number of families with"
+msgstr ""
 
 #: templates/animales/animales.html:18
 msgid "cantidad"
-msgstr "Quantity"
+msgstr ""
 
 #: templates/animales/animales.html:19
 msgid "Cantidad/Familia"
-msgstr "Quantity / Family"
+msgstr ""
 
 #: templates/animales/animales.html:39
 msgid "Los Animales y la Producción"
-msgstr "Animals and Production"
+msgstr ""
 
 #: templates/animales/animales.html:43
 msgid "Animal"
-msgstr "Animal"
+msgstr ""
 
 #: templates/animales/animales.html:44 templates/bienes/equipos.html:53
 #: templates/genero/genero.html:90 templates/ingresos/ingreso.html:53
 #: templates/ingresos/ingreso.html:121 templates/seguridad/seguridad.html:418
 msgid "Cantidad"
-msgstr "Quantity"
+msgstr ""
 
 #: templates/animales/animales.html:45
 msgid "Producto"
-msgstr "Products"
+msgstr ""
 
 #: templates/animales/animales.html:46 templates/cultivos/cultivos.html:15
 #: templates/ingresos/ingreso.html:250 templates/ingresos/ingreso.html:285
@@ -579,55 +578,55 @@ msgstr "Products"
 #: templates/ingresos/ingreso.html:390 templates/ingresos/ingreso.html:425
 #: templates/ingresos/ingreso.html:460 templates/ingresos/ingreso.html:495
 msgid "Unidad"
-msgstr "Units"
+msgstr ""
 
 #: templates/animales/animales.html:47
 msgid "Cantidad Producida"
-msgstr "Quantity Produced"
+msgstr ""
 
 #: templates/animales/animales.html:48
 msgid "Consumo"
-msgstr "Consumption"
+msgstr ""
 
 #: templates/animales/animales.html:49
 msgid "Venta Libre"
-msgstr "Non-organized sale"
+msgstr ""
 
 #: templates/animales/animales.html:50
 msgid "Venta organizad"
-msgstr "Organised Sale"
+msgstr ""
 
 #: templates/bienes/equipos.html:33
 msgid "Gráficos de bienes"
-msgstr "Graphs of assests"
+msgstr ""
 
 #: templates/bienes/equipos.html:34
 msgid "Tipo Casa"
-msgstr "Type of House"
+msgstr ""
 
 #: templates/bienes/equipos.html:35
 msgid "Tipo Piso"
-msgstr "Type of floor"
+msgstr ""
 
 #: templates/bienes/equipos.html:36
 msgid "Tipo Techo"
-msgstr "Type of Ceiling"
+msgstr ""
 
 #: templates/bienes/equipos.html:37
 msgid "Ambientes"
-msgstr "Number of rooms"
+msgstr ""
 
 #: templates/bienes/equipos.html:38
 msgid "Letrina"
-msgstr "Latrine"
+msgstr ""
 
 #: templates/bienes/equipos.html:45
 msgid "Los Equipos"
-msgstr "Equipment"
+msgstr ""
 
 #: templates/bienes/equipos.html:50
 msgid "Equipos"
-msgstr "Equipment"
+msgstr ""
 
 #: templates/bienes/equipos.html:51
 #: templates/comercializacion/comercio.html:123
@@ -647,189 +646,189 @@ msgstr "Equipment"
 #: templates/organizacion/gremial.html:146
 #: templates/reforestacion/arboles.html:51
 msgid "Frecuencia"
-msgstr "Frequency"
+msgstr ""
 
 #: templates/bienes/equipos.html:54 templates/bienes/equipos.html.py:78
 #: templates/bienes/equipos.html:101 templates/bienes/equipos.html.py:124
 msgid "Promedio por familia"
-msgstr "Average per family"
+msgstr ""
 
 #: templates/bienes/equipos.html:69
 msgid "Las Infraestructuras"
-msgstr "Infrastructures"
+msgstr ""
 
 #: templates/bienes/equipos.html:74
 msgid "INFRAESTRUCTURA"
-msgstr "Infrastructure "
+msgstr ""
 
 #: templates/bienes/equipos.html:75 templates/bienes/equipos.html.py:98
 #: templates/bienes/equipos.html:121
 msgid "FRECUENCIA"
-msgstr "Frequency"
+msgstr ""
 
 #: templates/bienes/equipos.html:77 templates/bienes/equipos.html.py:100
 #: templates/bienes/equipos.html:123
 msgid "CANTIDAD"
-msgstr "QUANTITY"
+msgstr ""
 
 #: templates/bienes/equipos.html:93
 msgid "Las Herramientas"
-msgstr "Tools"
+msgstr ""
 
 #: templates/bienes/equipos.html:97
 msgid "HERRAMIENTAS"
-msgstr "Tools."
+msgstr ""
 
 #: templates/bienes/equipos.html:116
 msgid "Los Transportes"
-msgstr "Transport"
+msgstr ""
 
 #: templates/bienes/equipos.html:120
 msgid "TRANSPORTE"
-msgstr "Transport."
+msgstr ""
 
 #: templates/comercializacion/comercio.html:69
 #: templates/comercializacion/comercio.html:88
 msgid "Producto:"
-msgstr "Product:"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:72
 msgid "A quien vende."
-msgstr "To whom they sell?"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:91
 msgid "Donde lo vende"
-msgstr "Where do they sell?"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:104
 #: templates/comercializacion/comercio.html:116
 #: templates/encuestas/menu.html:25
 msgid "Comercialización"
-msgstr "Marketing"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:105
 msgid "Gráficos comercialización"
-msgstr "Marketing Graphs"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:106
 msgid "Capacitaciones técnicas"
-msgstr "Technical Training"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:107
 msgid "Capacitaciones en tema social"
-msgstr "Training in social themes"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:121
 msgid "Productos"
-msgstr "Products"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:122
 msgid "unidad"
-msgstr "unidad"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:124
 #: templates/genero/genero.html:408 templates/genero/genero.html.py:428
 msgid "Porcentajes(%)"
-msgstr "Percentages (%)"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:125
 msgid "Volumen auto-consumo"
-msgstr "Volume-consumption"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:126
 msgid "Volumen venta"
-msgstr "Volume sales"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:127
 msgid "Precio"
-msgstr "Price"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:128
 msgid "Ingreso"
-msgstr "Gross Income"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:145
 msgid "Capacitaciones técnicas recibidas"
-msgstr "Received technical training"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:152
 msgid "Capacitaciones en tema social recibidas"
-msgstr "Received training in social issues"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:158
 msgid "A quien vende sus productos"
-msgstr "To whom they sell"
+msgstr ""
 
 #: templates/comercializacion/comercio.html:163
 msgid "Donde vende sus productos"
-msgstr "Where they sell"
+msgstr ""
 
 #: templates/cultivos/cultivos.html:9
 msgid "Los cultivos y la producción"
-msgstr "Crops and production"
+msgstr ""
 
 #: templates/cultivos/cultivos.html:14
 msgid "CULTIVOS"
-msgstr "CROPS"
+msgstr ""
 
 #: templates/cultivos/cultivos.html:16
 msgid "Consumo por año"
-msgstr "Consumption per year"
+msgstr ""
 
 #: templates/cultivos/cultivos.html:17
 msgid "Venta libre por año"
-msgstr "Unorganized sale per year"
+msgstr ""
 
 #: templates/cultivos/cultivos.html:18
 msgid "Vente organizada por año"
-msgstr "Organized sale per year"
+msgstr ""
 
 #: templates/encuestas/familia.html:4
 msgid "Monitoreo - Familias"
-msgstr "Monitoring - Families"
+msgstr ""
 
 #: templates/encuestas/familia.html:8 templates/encuestas/menu.html:4
 msgid "Familias"
-msgstr "Families"
+msgstr ""
 
 #: templates/encuestas/generales.html:18
 msgid "Hombres y Mujeres"
-msgstr "Men and Women"
+msgstr ""
 
 #: templates/encuestas/generales.html:42
 #: templates/encuestas/generales.html:234
 msgid "Hombres"
-msgstr "Men"
+msgstr ""
 
 #: templates/encuestas/generales.html:43
 #: templates/encuestas/generales.html:239
 msgid "Mujeres"
-msgstr "Women"
+msgstr ""
 
 #: templates/encuestas/generales.html:61
 msgid "Números de personas entrevistadas"
-msgstr "Number of respondents"
+msgstr ""
 
 #: templates/encuestas/generales.html:103
 msgid "Departamentos encuestados"
-msgstr "Departments surveyed"
+msgstr ""
 
 #: templates/encuestas/generales.html:145
 msgid "Municipios encuestados"
-msgstr "Municipalities surveyed"
+msgstr ""
 
 #: templates/encuestas/generales.html:187
 msgid "Grupos Etnicos"
-msgstr "Ethnic Groups"
+msgstr ""
 
 #: templates/encuestas/generales.html:222
 #, python-format
 msgid "Datos Generales de las %(numero)s Familias encuestadas"
-msgstr "General features of the families surveyed"
+msgstr ""
 
 #: templates/encuestas/generales.html:224
 msgid "Hombre y mujeres"
-msgstr "Men and women"
+msgstr ""
 
 #: templates/encuestas/generales.html:228
 #: templates/organizacion/comunitario.html:87
@@ -838,292 +837,292 @@ msgstr "Men and women"
 #: templates/organizacion/gremial.html:116
 #: templates/organizacion/gremial.html:145
 msgid "Categoria"
-msgstr "Category"
+msgstr ""
 
 #: templates/encuestas/generales.html:230
 #: templates/riesgos/vulnerable.html:381
 msgid "Porcentajes"
-msgstr "Percentages"
+msgstr ""
 
 #: templates/encuestas/generales.html:246
 #, python-format
 msgid "Distribución de edades en %(numero)s Familias entrevistadas"
-msgstr "Age distribution in% (number) s families interviewed"
+msgstr ""
 
 #: templates/encuestas/generales.html:250
 msgid "sexo"
-msgstr "Gender"
+msgstr ""
 
 #: templates/encuestas/generales.html:251
 #: templates/encuestas/generales.html:277
 #: templates/encuestas/generales.html:299
 #: templates/encuestas/generales.html:320
 msgid "numeros"
-msgstr "numbers"
+msgstr ""
 
 #: templates/encuestas/generales.html:252
 #: templates/encuestas/generales.html:278
 #: templates/encuestas/generales.html:300
 msgid "Porcentaje"
-msgstr "Percentage"
+msgstr ""
 
 #: templates/encuestas/generales.html:272
 msgid "Departamentos entrevistados"
-msgstr "Departments interviewed"
+msgstr ""
 
 #: templates/encuestas/generales.html:276
 msgid "Departamentos"
-msgstr "Departments"
+msgstr ""
 
 #: templates/encuestas/generales.html:294
 msgid "Municipio entrevistados"
-msgstr "Municipality interviewed"
+msgstr ""
 
 #: templates/encuestas/generales.html:298
 msgid "Municipios"
-msgstr "Municipalities"
+msgstr ""
 
 #: templates/encuestas/generales.html:315
 msgid "Grupos Étnicos"
-msgstr "Ethnic Groups"
+msgstr ""
 
 #: templates/encuestas/generales.html:319
 msgid "Grupo"
-msgstr "Group"
+msgstr ""
 
 #: templates/encuestas/generales.html:321
 msgid "Porcentaje (%)"
-msgstr "Percentage (%)"
+msgstr ""
 
 #: templates/encuestas/inicio.html:18 templates/encuestas/inicio.html.py:32
 #: templates/encuestas/inicio.html:47 templates/encuestas/inicio.html.py:54
 #: templates/encuestas/inicio.html:75 templates/encuestas/inicio.html.py:95
 msgid "Todos"
-msgstr "All"
+msgstr ""
 
 #: templates/encuestas/inicio.html:19 templates/encuestas/inicio.html.py:33
 #: templates/encuestas/inicio.html:48 templates/encuestas/inicio.html.py:55
 #: templates/encuestas/inicio.html:76 templates/encuestas/inicio.html.py:96
 msgid "Quitar todos"
-msgstr "Remove all"
+msgstr ""
 
 #: templates/encuestas/inicio.html:30 templates/encuestas/inicio.html.py:31
 msgid "Grupos"
-msgstr "Groups"
+msgstr ""
 
 #: templates/encuestas/inicio.html:73 templates/encuestas/inicio.html.py:74
 msgid "Departamento"
-msgstr "Department"
+msgstr ""
 
 #: templates/encuestas/inicio.html:176
 msgid "SELECCIÓN<br><span>Filtros de encuestas</span>"
-msgstr "SELECTION <br> <span> Filters surveys </ span>"
+msgstr ""
 
 #: templates/encuestas/inicio.html:215
 msgid "SELECCIÓN<br><span>Indicadores del sistema</span>"
-msgstr "SELECTION <br> <span> System Indicators </ span>"
+msgstr ""
 
 #: templates/encuestas/menu.html:6 templates/riesgos/riesgos.html:6
 msgid "Riesgos"
-msgstr "Risks"
+msgstr ""
 
 #: templates/encuestas/menu.html:7
 msgid "Seguridad alimentaria"
-msgstr "Food security"
+msgstr ""
 
 #: templates/encuestas/menu.html:8
 msgid "Género"
-msgstr "Gender"
+msgstr ""
 
 #: templates/encuestas/menu.html:12
 msgid "Ingresos"
-msgstr "Gross income"
+msgstr ""
 
 #: templates/encuestas/menu.html:13
 msgid "Bienes"
-msgstr "Assets"
+msgstr ""
 
 #: templates/encuestas/menu.html:17 templates/tierra/tierra.html:7
 msgid "Tierra"
-msgstr "Land"
+msgstr ""
 
 #: templates/encuestas/menu.html:18
 msgid "Animales"
-msgstr "Animals"
+msgstr ""
 
 #: templates/encuestas/menu.html:19
 msgid "Cultivos"
-msgstr "Crops"
+msgstr ""
 
 #: templates/encuestas/menu.html:20
 msgid "Opciones de manejo"
-msgstr "Management Options"
+msgstr ""
 
 #: templates/encuestas/menu.html:21 templates/suelo/suelo.html:7
 msgid "Suelo"
-msgstr "Soil"
+msgstr ""
 
 #: templates/encuestas/menu.html:26
 msgid "Estado Producción"
-msgstr "Production Status"
+msgstr ""
 
 #: templates/encuestas/menu.html:27
 msgid "Técnicas Agrícolas"
-msgstr "Agricultural Techniques"
+msgstr ""
 
 #: templates/encuestas/menu.html:28
 msgid "Niveles"
-msgstr "Levels"
+msgstr ""
 
 #: templates/estado/niveles.html:18
 msgid "Nivel de fermentación que maneja y aplica"
-msgstr "Fermentation level achieved"
+msgstr ""
 
 #: templates/estado/niveles.html:61
 msgid "Nivel de humedad que maneja en el secado"
-msgstr "Moisture level achieved while drying "
+msgstr ""
 
 #: templates/estado/niveles.html:103
 msgid ""
 "¿Hay algún centro de acopio de cacao en la comunidad, comarca, zona o "
 "municipio al cual usted entregue su cacao?"
-msgstr "Is there a cocoa collection center in the community, region, area or municipality to which you sell your cocoa?"
+msgstr ""
 
 #: templates/estado/niveles.html:145
 msgid ""
 "¿Si usted es socio, asociado o miembro de algún centro de acopio de cacao?"
-msgstr "If you are a partner or member of a collection center for cacao?"
+msgstr ""
 
 #: templates/estado/niveles.html:200
 msgid "Nivel de fermentación"
-msgstr "Level of fermentation"
+msgstr ""
 
 #: templates/estado/niveles.html:201
 msgid "Nivel de humedad"
-msgstr "Humidity (%)"
+msgstr ""
 
 #: templates/estado/niveles.html:202
 msgid "Acopio de cacao"
-msgstr "Cocoa Storage"
+msgstr ""
 
 #: templates/estado/niveles.html:203
 msgid "Miembro de acopio"
-msgstr "Member of collection"
+msgstr ""
 
 #: templates/estado/plantaciones.html:28
 msgid "Tamaño de plantaciones"
-msgstr "Size of plantations"
+msgstr ""
 
 #: templates/estado/plantaciones.html:29 templates/estado/plantaciones.html:97
 msgid "Producción"
-msgstr "Production"
+msgstr ""
 
 #: templates/estado/plantaciones.html:30
 msgid "Costos"
-msgstr "Costs"
+msgstr ""
 
 #: templates/estado/plantaciones.html:39
 msgid "Tamaño de las plantaciones"
-msgstr "Size of plantations"
+msgstr ""
 
 #: templates/estado/plantaciones.html:45
 msgid "¿Cuántos tienen?"
-msgstr "How many do you have?"
+msgstr ""
 
 #: templates/estado/plantaciones.html:46
 msgid "Área"
-msgstr "Area"
+msgstr ""
 
 #: templates/estado/plantaciones.html:47
 msgid "Número de plantas"
-msgstr "Number of plants"
+msgstr ""
 
 #: templates/estado/plantaciones.html:48
 msgid "Número de plantas injertadas"
-msgstr "Number of grafted plants"
+msgstr ""
 
 #: templates/estado/plantaciones.html:55 templates/estado/plantaciones.html:57
 #: templates/estado/plantaciones.html:59
 #: templates/estado/plantaciones.html:151
 msgid "Promedio"
-msgstr "Average"
+msgstr ""
 
 #: templates/estado/plantaciones.html:63
 msgid "Viveros"
-msgstr "Nurseries"
+msgstr ""
 
 #: templates/estado/plantaciones.html:69
 msgid "Plantas en desarrollo menos 1 año"
-msgstr "Plants in development stage less than 1 year"
+msgstr ""
 
 #: templates/estado/plantaciones.html:75
 msgid "Plantas en desarrollo más 1 año"
-msgstr "Plants in development stage more 1 year"
+msgstr ""
 
 #: templates/estado/plantaciones.html:81
 msgid "Plantas en producción"
-msgstr "Producing Plants"
+msgstr ""
 
 #: templates/estado/plantaciones.html:87
 msgid "Plantas élite de cacao"
-msgstr "Elite cocoa plants"
+msgstr ""
 
 #: templates/estado/plantaciones.html:104
 msgid "Producción total(qq seco)"
-msgstr "Total production (qq dry cocoa)"
+msgstr ""
 
 #: templates/estado/plantaciones.html:105
 msgid "Promedio(qq seco)"
-msgstr "Average (qq dry cocoa)"
+msgstr ""
 
 #: templates/estado/plantaciones.html:106
 msgid "% producción"
-msgstr "% Production"
+msgstr ""
 
 #: templates/estado/plantaciones.html:116
 msgid "Sin fermentar"
-msgstr "Unfermented"
+msgstr ""
 
 #: templates/estado/plantaciones.html:122
 msgid "Fermentado convencional"
-msgstr "Fermented conventional"
+msgstr ""
 
 #: templates/estado/plantaciones.html:128
 msgid "Fermentado organico"
-msgstr "Fermented Organic"
+msgstr ""
 
 #: templates/estado/plantaciones.html:137
 msgid "Productividad (qq/mz) "
-msgstr "Productivity (qq / mz) "
+msgstr ""
 
 #: templates/estado/plantaciones.html:144
 msgid "Costo de producción"
-msgstr "Cost of production"
+msgstr ""
 
 #: templates/estado/plantaciones.html:155
 msgid "Gasto anual de cacao"
-msgstr "Annual expenditure cocoa"
+msgstr ""
 
 #: templates/estado/plantaciones.html:161
 msgid "Gasto anual finca"
-msgstr "Annual farm expenditure"
+msgstr ""
 
 #: templates/estado/plantaciones.html:167
 #, python-format
 msgid "% de Gasto de cacao"
-msgstr "Expenditure% cocoa"
+msgstr ""
 
 #: templates/estado/plantaciones.html:177
 msgid "Costo de mantenimiento cacao/mz"
-msgstr "Maintenance cost cocoa / mz"
+msgstr ""
 
 #: templates/estado/plantaciones.html:181
 msgid "Costo de mantenimiento qq"
-msgstr "Maintenance cost cocoa per qq"
+msgstr ""
 
 #: templates/estado/practicas.html:15
 msgid "vivero"
-msgstr "nursery"
+msgstr ""
 
 #: templates/estado/practicas.html:22 templates/estado/practicas.html.py:86
 #: templates/estado/practicas.html:150 templates/estado/practicas.html:214
@@ -1133,103 +1132,103 @@ msgstr "nursery"
 #: templates/ingresos/ingreso.html:115 templates/reforestacion/fincas.html:74
 #: templates/riesgos/mitigacion.html:23 templates/seguridad/seguridad.html:412
 msgid "Opciones"
-msgstr "Options"
+msgstr ""
 
 #: templates/estado/practicas.html:28 templates/estado/practicas.html.py:92
 #: templates/estado/practicas.html:156 templates/estado/practicas.html:220
 #: templates/estado/practicas.html:284 templates/estado/practicas.html:348
 #: templates/familias/educacion.html:29
 msgid "Porcentajes (que dijeron Si)"
-msgstr "Percentages (who said yes)"
+msgstr ""
 
 #: templates/estado/practicas.html:79 templates/estado/practicas.html:458
 msgid "Práctica de fertilización"
-msgstr "Fertilization practice"
+msgstr ""
 
 #: templates/estado/practicas.html:143 templates/estado/practicas.html:485
 msgid "Prácticas de manejo fitosanitario"
-msgstr "Phytosanitary management practices"
+msgstr ""
 
 #: templates/estado/practicas.html:207 templates/estado/practicas.html:512
 msgid "Prácticas de manejo productivo"
-msgstr "Productive management practices"
+msgstr ""
 
 #: templates/estado/practicas.html:271 templates/estado/practicas.html:539
 msgid "Prácticas de mejoramiento genético de la plantación"
-msgstr "Genetic improvement practices"
+msgstr ""
 
 #: templates/estado/practicas.html:335 templates/estado/practicas.html:566
 msgid "Prácticas de manejo postcosecha y beneficiado"
-msgstr "Postharvest handling practices and fermentation"
+msgstr ""
 
 #: templates/estado/practicas.html:416
 msgid "Vivero"
-msgstr "Nursery"
+msgstr ""
 
 #: templates/estado/practicas.html:417
 msgid "Fertilización"
-msgstr "Fertilization"
+msgstr ""
 
 #: templates/estado/practicas.html:418
 msgid "Manejo fitosanitario"
-msgstr "Plant Health Management"
+msgstr ""
 
 #: templates/estado/practicas.html:419
 msgid "Manejo productivo"
-msgstr "Production management"
+msgstr ""
 
 #: templates/estado/practicas.html:420
 msgid "Mejoramiento Genético"
-msgstr "Genetic improvement"
+msgstr ""
 
 #: templates/estado/practicas.html:421
 msgid "Manejo Postcosecha"
-msgstr "Postharvest Handling"
+msgstr ""
 
 #: templates/estado/practicas.html:430
 msgid "Vivero practicas"
-msgstr "Nursery practices"
+msgstr ""
 
 #: templates/estado/practicas.html:435 templates/estado/practicas.html:463
 #: templates/estado/practicas.html:490 templates/estado/practicas.html:517
 #: templates/estado/practicas.html:544 templates/estado/practicas.html:571
 msgid "Prácticas"
-msgstr "Practices"
+msgstr ""
 
 #: templates/estado/practicas.html:437 templates/estado/practicas.html:465
 #: templates/estado/practicas.html:492 templates/estado/practicas.html:519
 #: templates/estado/practicas.html:546 templates/estado/practicas.html:573
 msgid "porcentajes(%)"
-msgstr "Percentages (%)"
+msgstr ""
 
 #: templates/familias/agua.html:16
 msgid "Agua para consumo"
-msgstr "Drinking water"
+msgstr ""
 
 #: templates/familias/agua.html:29 templates/reforestacion/fincas.html:223
 #: templates/riesgos/mitigacion.html:29
 msgid "Frecuencias"
-msgstr "Frequency"
+msgstr ""
 
 #: templates/familias/agua.html:135 templates/familias/educacion.html:156
 #: templates/familias/luz.html:22
 msgid "FAMILIA"
-msgstr "FAMILY"
+msgstr ""
 
 #: templates/familias/agua.html:141 templates/familias/luz.html:28
 #, fuzzy
 msgid "Fuente"
-msgstr "Source"
+msgstr "Next"
 
 #: templates/familias/educacion.html:16
 msgid "Viven fuera de Comunidad"
-msgstr "Live outside the community"
+msgstr ""
 
 #: templates/familias/educacion.html:81
 msgid ""
 "Miembros que Alcanzaron la Primaria (primaria completa + secundaria "
 "incompleta + bachiller + universitario)"
-msgstr "Members who achieved primary education (primary + secondary incomplete + complete + university degree)"
+msgstr ""
 
 #: templates/familias/educacion.html:94 templates/riesgos/vulnerable.html:32
 #: templates/riesgos/vulnerable.html:148 templates/riesgos/vulnerable.html:265
@@ -1238,336 +1237,336 @@ msgstr "Members who achieved primary education (primary + secondary incomplete +
 #: templates/seguridad/seguridad.html:232
 #: templates/seguridad/seguridad.html:326
 msgid "Porcentajes (%)"
-msgstr "Percentages (%)"
+msgstr ""
 
 #: templates/familias/educacion.html:163
 msgid "Número total"
-msgstr "Total"
+msgstr ""
 
 #: templates/familias/educacion.html:164
 msgid "No sabe leer (%)"
-msgstr "Can not read (%)"
+msgstr ""
 
 #: templates/familias/educacion.html:165
 msgid "Primaria incompleta (%)"
-msgstr "Incomplete primary (%)"
+msgstr ""
 
 #: templates/familias/educacion.html:166
 msgid "Primaria completa (%)"
-msgstr "Complete primary (%)"
+msgstr ""
 
 #: templates/familias/educacion.html:167
 msgid "Secundaria incompleta (%)"
-msgstr "Incomplete secondary (%)"
+msgstr ""
 
 #: templates/familias/educacion.html:168
 msgid "Bachiller (%)"
-msgstr "High School graduate (%)"
+msgstr ""
 
 #: templates/familias/educacion.html:169
 msgid "Universitario (%)"
-msgstr "University (%)"
+msgstr ""
 
 #: templates/familias/educacion.html:170
 msgid "Vive fuera de la comunidad (%)"
-msgstr "Lives outside the community (%)"
+msgstr ""
 
 #: templates/familias/luz.html:22
 msgid "Energía Eléctrica"
-msgstr "Electric power"
+msgstr ""
 
 #: templates/genero/genero.html:38
 msgid ""
 "¿Usted toma la decisión en el manejo y administración de los recursos "
 "económicos de la familia?"
-msgstr "Do you take the decision in the management and administration of the financial resources of the family?"
+msgstr ""
 
 #: templates/genero/genero.html:77
 msgid "¿Qué proporción de los ingresos familiares maneja usted?"
-msgstr "What proportion of household income do you handle?"
+msgstr ""
 
 #: templates/genero/genero.html:84 templates/reforestacion/fincas.html:222
 msgid "Rangos"
-msgstr "Ranges"
+msgstr ""
 
 #: templates/genero/genero.html:145
 msgid "¿Usted participa en alguna organización dentro o fuera de la comunidad?"
-msgstr "Do you participate in any organization inside or outside the community?"
+msgstr ""
 
 #: templates/genero/genero.html:187
 msgid "¿Usted tiene voto en las decisiones de la organización?"
-msgstr "Do you vote in the decisions of the organization?"
+msgstr ""
 
 #: templates/genero/genero.html:229
 msgid ""
 "¿Usted está informado sobre las actividades o decisiones de las "
 "organizaciones comunitarias"
-msgstr "Are you informed about the activities and decisions of community organizations?"
+msgstr ""
 
 #: templates/genero/genero.html:271
 msgid "¿Usted comunica sus ideas o puntos de vista en la familia?"
-msgstr "Do you communicate your ideas or views in the family?"
+msgstr ""
 
 #: templates/genero/genero.html:313
 msgid ""
 "¿Usted comunica sus ideas o puntos de vista en la comunidad y organización?"
-msgstr "Do you communicate your ideas or views in the community and organization?"
+msgstr ""
 
 #: templates/genero/genero.html:355
 msgid "En caso de Si, qué tipo de organización"
-msgstr "If yes, what type of organization"
+msgstr ""
 
 #: templates/genero/genero.html:392
 msgid "Mujer hogar y finca"
-msgstr "Women, household and farm"
+msgstr ""
 
 #: templates/genero/genero.html:393
 msgid "Mujer en las organizaciones"
-msgstr "Women in organizations"
+msgstr ""
 
 #: templates/genero/genero.html:401 templates/genero/genero.html.py:422
 #: templates/genero/genero.html:466
 msgid "GÉNERO"
-msgstr "Gender"
+msgstr ""
 
 #: templates/genero/genero.html:401
 msgid "Participación de la mujer en las actividades del hogar"
-msgstr "Women's participation in household activities"
+msgstr ""
 
 #: templates/genero/genero.html:406 templates/genero/genero.html.py:426
 msgid "Actividades"
-msgstr "Activities"
+msgstr ""
 
 #: templates/genero/genero.html:422
 msgid "Participación de la mujer en las actividades en la finca"
-msgstr "Women's participation in the activities on the farm"
+msgstr ""
 
 #: templates/genero/genero.html:447
 msgid "Número de mujeres que tienen ingreso"
-msgstr "Number of women with income"
+msgstr ""
 
 #: templates/genero/genero.html:451
 msgid "Ingreso promedio"
-msgstr "Average income"
+msgstr ""
 
 #: templates/genero/genero.html:466
 msgid "Gráficos de mujeres en las organizaciones"
-msgstr "Graphics women in organizations"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:40
 msgid "Ingreso por sistema de produccion"
-msgstr "Incomes from production systems"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:108
 msgid "Número de rubros en cada sistema de produccion"
-msgstr "Number of crops or animals in each production system"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:177 templates/ingresos/ingreso.html:229
 msgid "Ingreso por clase"
-msgstr "Income Categories"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:208
 msgid "Ingresos de clases"
-msgstr "Income of categories"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:222
 msgid "Gráficos ingresos"
-msgstr "Graphics income"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:224
 msgid "A quién venden?"
-msgstr "To whom they sell?"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:225
 msgid "Quién maneja el negocio?"
-msgstr "Who runs the business?"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:226
 msgid "Quién tiene los ingresos?"
-msgstr "Who has the income?"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:227
 msgid "Ingreso por sistema"
-msgstr "Incomes from different Systems"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:228
 msgid "Número de rubro en cada sistema"
-msgstr "Item number on each system"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:231
 msgid "Gráficos Otros ingresos"
-msgstr "Graphics Other income"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:233
 msgid "Tipos de Salarios"
-msgstr "Wage Types"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:234
 msgid "Tipos de Negocio"
-msgstr "Types of Business"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:235
 msgid "Tipos Remesas"
-msgstr "Remittances Types"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:236
 msgid "Tipo alquiler"
-msgstr "Type rent"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:241 templates/ingresos/ingreso.html:528
 msgid "INGRESO"
-msgstr "INCOME"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:241
 msgid "Los Ingresos familiares"
-msgstr "Family income"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:245
 msgid "Agroforestales"
-msgstr "Agroforestry"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:248 templates/ingresos/ingreso.html:283
 #: templates/ingresos/ingreso.html:318 templates/ingresos/ingreso.html:353
 #: templates/ingresos/ingreso.html:388 templates/ingresos/ingreso.html:423
 #: templates/ingresos/ingreso.html:458 templates/ingresos/ingreso.html:493
 msgid "RUBROS"
-msgstr "ITEMS"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:249 templates/ingresos/ingreso.html:284
 #: templates/ingresos/ingreso.html:319 templates/ingresos/ingreso.html:354
 #: templates/ingresos/ingreso.html:389 templates/ingresos/ingreso.html:424
 #: templates/ingresos/ingreso.html:459 templates/ingresos/ingreso.html:494
 msgid "Número de familias que venden"
-msgstr "Number of households selling"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:251 templates/ingresos/ingreso.html:286
 #: templates/ingresos/ingreso.html:321 templates/ingresos/ingreso.html:356
 #: templates/ingresos/ingreso.html:391 templates/ingresos/ingreso.html:426
 #: templates/ingresos/ingreso.html:461 templates/ingresos/ingreso.html:496
 msgid "Cantidad vendida por familia"
-msgstr "Quantity sold per family"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:252 templates/ingresos/ingreso.html:287
 #: templates/ingresos/ingreso.html:322 templates/ingresos/ingreso.html:357
 #: templates/ingresos/ingreso.html:392 templates/ingresos/ingreso.html:427
 #: templates/ingresos/ingreso.html:462 templates/ingresos/ingreso.html:497
 msgid "Precio promedio"
-msgstr "Average Price"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:253 templates/ingresos/ingreso.html:288
 #: templates/ingresos/ingreso.html:323 templates/ingresos/ingreso.html:358
 #: templates/ingresos/ingreso.html:393 templates/ingresos/ingreso.html:428
 #: templates/ingresos/ingreso.html:463 templates/ingresos/ingreso.html:498
 msgid "Ingreso por venta"
-msgstr "Proceeds from sale"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:269 templates/ingresos/ingreso.html:304
 #: templates/ingresos/ingreso.html:339 templates/ingresos/ingreso.html:374
 #: templates/ingresos/ingreso.html:409 templates/ingresos/ingreso.html:444
 #: templates/ingresos/ingreso.html:479 templates/ingresos/ingreso.html:514
 msgid "TOTAL VENTA RUBROS"
-msgstr "TOTAL SALE ITEMS"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:280
 msgid "Forestales"
-msgstr "Forest"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:315
 msgid "Granos básicos"
-msgstr "Basic grains"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:350
 msgid "Ganado mayor"
-msgstr "Livestock"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:385
 msgid "Animales de patio"
-msgstr "Animals patio"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:420
 msgid "Hortalizas y frutas"
-msgstr "Vegetables and fruits"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:455
 msgid "Musaceas"
-msgstr "Musaceas"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:490
 msgid "Raíces y tubérculos"
-msgstr "Roots and tubers"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:525
 msgid "Ingreso agropecuario:"
-msgstr "Agricultural income:"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:528
 msgid "Los Otros Ingresos familiares"
-msgstr "The other family income"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:533
 msgid "FUENTES"
-msgstr "Sources)."
+msgstr ""
 
 #: templates/ingresos/ingreso.html:534
 msgid "NÚMERO DE FAMILIAS"
-msgstr "Number of families"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:535
 msgid "TOTAL MESES"
-msgstr "TOTAL MONTHS"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:536
 msgid "INGRESO MENSUAL PROMEDIO"
-msgstr "AVERAGE MONTHLY INCOME"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:537
 msgid "INGRESO TOTAL PROMEDIO"
-msgstr "AVERAGE TOTAL INCOME"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:552
 msgid "TOTAL OTROS INGRESO"
-msgstr "TOTAL OTHER INCOME"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:560 templates/ingresos/ingreso.html:568
 msgid "INGRESO "
-msgstr "Income "
+msgstr ""
 
 #: templates/ingresos/ingreso.html:560
 msgid "Ingreso Bruto por familia"
-msgstr "Gross Income per family"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:563
 msgid "INGRESO BRUTO"
-msgstr "GROSS INCOME"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:568
 msgid "Ingreso Neto por familia"
-msgstr "Net income per family"
+msgstr ""
 
 #: templates/ingresos/ingreso.html:571
 msgid "INGRESO NETO"
-msgstr "NET INCOME"
+msgstr ""
 
 #: templates/noticias/noticias_detalle.html:33
 msgid "Filtrar avances por:"
-msgstr "Filter advances by:"
+msgstr ""
 
 #: templates/noticias/noticias_detalle.html:62
 #, fuzzy
 msgid "Documento"
-msgstr "Document"
+msgstr "Documentation"
 
 #: templates/noticias/noticias_detalle.html:63
 msgid "Enlace"
-msgstr "Path"
+msgstr ""
 
 #: templates/noticias/noticias_detalle.html:70
 msgid "[ Descargar ]"
-msgstr "Download"
+msgstr ""
 
 #: templates/noticias/noticias_lista.html:12
 msgid "Filtrar avances por"
-msgstr "Filter by advances"
+msgstr ""
 
 #: templates/noticias/noticias_lista.html:23
 #, fuzzy
@@ -1584,127 +1583,127 @@ msgstr "Progress of the project"
 #: templates/reforestacion/fincas.html:166
 #: templates/suelo/manejo_suelo.html:49
 msgid "Gráficos"
-msgstr "Graphics"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:47
 msgid "¿Beneficios de estar organizado"
-msgstr "Benefits of being organized?"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:48
 msgid "¿Organización comunitaria?"
-msgstr "Community organization??"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:55
 #: templates/organizacion/comunitario.html:83
 msgid "ORGANIZACIÓN"
-msgstr "ORGANIZATION"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:55
 msgid "¿Cuántas organizaciones están activas en la localidad o comunidad?"
-msgstr "How many organizations are active in the town or community?"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:60
 msgid "Organizaciones"
-msgstr "Organizations"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:61
 msgid "Cuantas"
-msgstr "Many"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:66
 msgid "De uno a cinco (1-5)"
-msgstr "From one to five (1-5)"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:71
 msgid "De seis a diez (6-10)"
-msgstr "Six to ten (6-10)"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:75
 msgid "De once a más (> 11)"
-msgstr "Eleven to most (> 11)"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:83
 msgid "¿Pertenece a algunas organizaciones?"
-msgstr "Do you belong to some organizations?"
+msgstr ""
 
 #: templates/organizacion/comunitario.html:89
 #: templates/organizacion/gremial.html:64
 #: templates/organizacion/gremial.html:147
 msgid "porcentaje"
-msgstr "Percentage (%)"
+msgstr ""
 
 #: templates/organizacion/gremial.html:49
 msgid "Beneficio de ser Socio/a"
-msgstr "Benefits of membership"
+msgstr ""
 
 #: templates/organizacion/gremial.html:56
 msgid "Es socio/a de organización Gremial"
-msgstr "Is member of farmers organization?"
+msgstr ""
 
 #: templates/organizacion/gremial.html:85
 msgid "Desde cuando socios"
-msgstr "Since when are they members?"
+msgstr ""
 
 #: templates/organizacion/gremial.html:91
 #: templates/organizacion/gremial.html:118
 msgid "porcentaje %"
-msgstr "Percentage (%)"
+msgstr ""
 
 #: templates/organizacion/gremial.html:112
 msgid "Soy miembro de órgano gremial"
-msgstr "I am a member of farmers organization directive"
+msgstr ""
 
 #: templates/organizacion/gremial.html:141
 msgid "He recibido capacitación para desempeñar mi cargo"
-msgstr "I have been trained to perform my job"
+msgstr ""
 
 #: templates/organizacion/organizacion.html:3
 msgid "Monitoreo - Organización"
-msgstr "Monitoring - Organization"
+msgstr ""
 
 #: templates/reforestacion/arboles.html:45
 msgid "Reforestación en ultimo año"
-msgstr "Reforestation in past year"
+msgstr ""
 
 #: templates/reforestacion/arboles.html:50
 msgid "Actividad"
-msgstr "Activity "
+msgstr ""
 
 #: templates/reforestacion/arboles.html:52
 msgid "% Frec."
-msgstr "% Freq."
+msgstr ""
 
 #: templates/reforestacion/fincas.html:15
 msgid "Rangos de Manzanas"
-msgstr "Apples Ranges"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:46
 msgid "Rangos de manzanas"
-msgstr "Ranges of apples"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:52
 msgid "más de 50 Mz"
-msgstr "over 50 Mz"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:80
 msgid "Cantidad Mz"
-msgstr "Mz Quantity"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:168
 msgid "Tenencia de las Parcelas"
-msgstr "Tenure of Parcels"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:169
 msgid "Dueño de la Propiedad"
-msgstr "Property Owner"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:170
 msgid "Rangos en Manzanas"
-msgstr "Ranges in Mz (0.7ha)"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:180
 msgid "Uso de Tierra"
-msgstr "Land Use"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:186
 #: templates/riesgos/mitigacion.html:98 templates/suelo/manejo_suelo.html:63
@@ -1714,488 +1713,487 @@ msgstr "Land Use"
 #: templates/suelo/suelos.html.py:86 templates/suelo/suelos.html:106
 #: templates/suelo/suelos.html.py:125 templates/suelo/suelos.html:145
 msgid "Número"
-msgstr "Number"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:188
 msgid "Manzanas"
-msgstr "Manzanas (0.7ha)"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:215
 msgid "Promedio Mz:"
-msgstr "Average Mz:"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:253
 msgid "Más de 50 Mz"
-msgstr "Over 50 Mz"
+msgstr ""
 
 #: templates/reforestacion/fincas.html:259
 msgid "Rangos Total"
-msgstr "Total Ranges"
+msgstr ""
 
 #: templates/riesgos/mitigacion.html:16
 msgid "Mitigación de Riesgos"
-msgstr "Risk Mitigation"
+msgstr ""
 
 #: templates/riesgos/mitigacion.html:90 templates/riesgos/vulnerable.html:491
 msgid "RIESGO"
-msgstr "RISK"
+msgstr ""
 
 #: templates/riesgos/mitigacion.html:90
 msgid "Mitigación de los Riesgos"
-msgstr "Risk Mitigation"
+msgstr ""
 
 #: templates/riesgos/mitigacion.html:97
 msgid "Preguntas"
-msgstr "Questions"
+msgstr ""
 
 #: templates/riesgos/riesgos.html:3
 msgid "Monitoreo - Riesgos"
-msgstr "Monitoring - Risks"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:16 templates/riesgos/vulnerable.html:497
 msgid "Fenomenos naturales"
-msgstr "Natural phenomena"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:23
 msgid "sequia"
-msgstr "drought"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:24
 msgid "inundacion"
-msgstr "FLOOD"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:25
 msgid "vientos"
-msgstr "Winds"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:26
 msgid "deslizamiento"
-msgstr "Landslide"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:50 templates/riesgos/vulnerable.html:166
 #: templates/riesgos/vulnerable.html:283 templates/riesgos/vulnerable.html:399
 msgid "año con año"
-msgstr "Year after year"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:68 templates/riesgos/vulnerable.html:184
 #: templates/riesgos/vulnerable.html:301 templates/riesgos/vulnerable.html:417
 msgid "cada 5 años"
-msgstr "every 5 years"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:86 templates/riesgos/vulnerable.html:202
 #: templates/riesgos/vulnerable.html:319 templates/riesgos/vulnerable.html:435
 msgid "cada 10 años"
-msgstr "every 10 years"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:104 templates/riesgos/vulnerable.html:220
 #: templates/riesgos/vulnerable.html:337 templates/riesgos/vulnerable.html:453
 msgid "nunca"
-msgstr "Never. "
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:133
 msgid "Razones agricolas"
-msgstr "Agricultural reasons"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:140 templates/riesgos/vulnerable.html:567
 msgid "Falta de semilla"
-msgstr "Lack of seed"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:141 templates/riesgos/vulnerable.html:576
 msgid "Mala calidad de semilla"
-msgstr "Poor quality seed"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:142 templates/riesgos/vulnerable.html:585
 msgid "Plagas y enfermedades"
-msgstr "Pests and diseases"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:249
 msgid "Razones de mercado"
-msgstr "Market reasons"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:256 templates/riesgos/vulnerable.html:615
 msgid "Bajo precio"
-msgstr "Low price"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:257 templates/riesgos/vulnerable.html:624
 msgid "Falta de venta"
-msgstr "Could not sell"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:258 templates/riesgos/vulnerable.html:633
 #, fuzzy
 msgid "Estafa de contrato"
-msgstr "Contract breach"
+msgstr "System monitor"
 
 #: templates/riesgos/vulnerable.html:259 templates/riesgos/vulnerable.html:642
 msgid "Falta calidad de producto"
-msgstr "Lack of product quality"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:367 templates/riesgos/vulnerable.html:659
 msgid "Inversión"
-msgstr "Investment"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:374 templates/riesgos/vulnerable.html:672
 msgid "Falta de crédito"
-msgstr "Lack of credit"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:375 templates/riesgos/vulnerable.html:681
 msgid "Altos interés"
-msgstr "Higher interest"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:491
 msgid "Vulnerabilidades de las fincas"
-msgstr "Vulnerabilities of farms"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:499 templates/riesgos/vulnerable.html:556
 #: templates/riesgos/vulnerable.html:604 templates/riesgos/vulnerable.html:661
 msgid "Causa"
-msgstr "Cause"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:500 templates/riesgos/vulnerable.html:557
 #: templates/riesgos/vulnerable.html:605 templates/riesgos/vulnerable.html:662
 msgid "Años con años"
-msgstr "Year after year"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:501
 msgid "Cada 5 año"
-msgstr "Every 5 years"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:502 templates/riesgos/vulnerable.html:559
 #: templates/riesgos/vulnerable.html:607 templates/riesgos/vulnerable.html:664
 msgid "Cada 10 años"
-msgstr "Every 10 years"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:503 templates/riesgos/vulnerable.html:560
 #: templates/riesgos/vulnerable.html:608 templates/riesgos/vulnerable.html:665
 msgid "Nunca"
-msgstr "Never"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:510
 msgid "Sequía"
-msgstr "Drought"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:519
 msgid "Inundación"
-msgstr "Flood"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:528
 msgid "Vientos"
-msgstr "Winds"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:537
 msgid "Deslizamiento"
-msgstr "Slide:"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:554
 msgid "Razones agrícolas"
-msgstr "Reasons agricultural"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:558 templates/riesgos/vulnerable.html:606
 #: templates/riesgos/vulnerable.html:663
 msgid "Cada 5 años"
-msgstr "Every 5 years"
+msgstr ""
 
 #: templates/riesgos/vulnerable.html:602
 msgid "Razones de mercados"
-msgstr "Reasons market"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:16
 msgid "% que consumen suficiente en verano/invierno carbohidrátos"
-msgstr "% families Consuming sufficient amount of carbohydrates in summer / winter"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:23
 msgid "Plantano"
-msgstr "Plantain"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:24
 msgid "Avena"
-msgstr "Oats"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:25
 msgid "Miel"
-msgstr "Honey"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:26
 msgid "Guineo"
-msgstr "Cooking Banana"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:27
 msgid "Malanga"
-msgstr "Yam"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:28
 msgid "Azucar"
-msgstr "Sugar"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:29
 msgid "Sorgo"
-msgstr "Sorghum"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:30
 msgid "Papa"
-msgstr "Potatoes"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:31
 msgid "Quequisque"
-msgstr "Colocasia"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:32
 msgid "Yuca"
-msgstr "Tapioca"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:33
 msgid "Maiz"
-msgstr "Corn"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:34
 msgid "Millon"
-msgstr "Millet"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:35
 msgid "Arroz"
-msgstr "Rice"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:65
 #: templates/seguridad/seguridad.html:164
 #: templates/seguridad/seguridad.html:255
 #: templates/seguridad/seguridad.html:349
 msgid "Verano"
-msgstr "Summer"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:89
 #: templates/seguridad/seguridad.html:184
 #: templates/seguridad/seguridad.html:275
 #: templates/seguridad/seguridad.html:371
 msgid "Invierno"
-msgstr "Winter"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:125
 msgid "% que consumen suficiente en verano/invierno de grasas"
-msgstr "% Families consuming enough fat in summer / winter"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:132
 msgid "Queso"
-msgstr "Cheese"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:133
 msgid "Aceite"
-msgstr "Oil"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:134
 msgid "Cuajada"
-msgstr "Fresh cheese"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:135
 msgid "Crema"
-msgstr "cream"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:216
 msgid "% que consumen suficiente en verano/invierno de minerales/vitaminas"
-msgstr "%Families consuming enough minerals/vitamins in summer / winter"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:223
 msgid "Café"
-msgstr "Cafe"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:224
 msgid "Frutas"
-msgstr "Fruits"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:225
 msgid "Verduras"
-msgstr "Vegetables"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:307
 msgid "% que consumen suficiente en verano/invierno de proteinas"
-msgstr "% Families consuming enough proteins in summer / winter"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:314
 msgid "Carne de res"
-msgstr "Beef"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:315
 msgid "Huevos"
-msgstr "Eggs"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:316
 msgid "Carne de cerdo"
-msgstr "Pork"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:317
 msgid "Soya"
-msgstr "Soybean"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:318
 msgid "Pollo"
-msgstr "Chicken"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:319
 msgid "Leche"
-msgstr "Milk"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:320
 msgid "Frijol"
-msgstr "Red beans"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:405
 msgid "Cuanto tipo de alimentos producen por cada clase"
-msgstr "Number of food items per class"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:471
 msgid "La Seguridad Alimentaria"
-msgstr "Food Security"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:479
 msgid "limentos que contienen carbohidrátos"
-msgstr "Carbohydrate sources"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:482
 #: templates/seguridad/seguridad.html:518
 #: templates/seguridad/seguridad.html:554
 #: templates/seguridad/seguridad.html:590
 msgid "ALIMENTOS"
-msgstr "Food items"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:483
 #: templates/seguridad/seguridad.html:519
 #: templates/seguridad/seguridad.html:555
 #: templates/seguridad/seguridad.html:591
 msgid "# de familias que producen"
-msgstr "# Of families producing"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:485
 #: templates/seguridad/seguridad.html:521
 #: templates/seguridad/seguridad.html:557
 #: templates/seguridad/seguridad.html:593
 msgid "# de familias que compran"
-msgstr "# Of families purchasing"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:487
 #: templates/seguridad/seguridad.html:523
 #: templates/seguridad/seguridad.html:559
 #: templates/seguridad/seguridad.html:595
 msgid "# de familias que consumen suficiente verano"
-msgstr "# Of households consuming enough in summer"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:489
 #: templates/seguridad/seguridad.html:525
 #: templates/seguridad/seguridad.html:561
 #: templates/seguridad/seguridad.html:597
 msgid "# de familias que consumen suficiente invierno"
-msgstr "# Of households consuming enough in winter"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:515
 msgid "Alimentos que contienen grasas"
-msgstr "Foods containing fat"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:551
 msgid "Alimentos que contienen minerales/vitaminas"
-msgstr "Foods containing minerals / vitamins"
+msgstr ""
 
 #: templates/seguridad/seguridad.html:587
 msgid "Alimentos que contienen proteinas"
-msgstr "Foods containing proteins"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:50
 msgid "Realiza analisis"
-msgstr "Performs analysis"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:51
 msgid "Realiza practica"
-msgstr "Make practice"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:56
 msgid "¿Cómo preparan sus terrenos?"
-msgstr "How do they prepare the land?"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:62
 msgid "Terrenos"
-msgstr "Land"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:78
 msgid "¿Qué tipo de traccion utiliza para la preparación del suelo?"
-msgstr "What kind of traction used for soil preparation?"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:84
 msgid "Tipo Tracción"
-msgstr "Type of traction"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:99
 msgid "¿Qué tipo de fertilización realiza?"
-msgstr "What type of fertilization is used?"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:103
 msgid "Tipos de Fertilización"
-msgstr "Types Fertilization"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:118
 msgid "¿Qué tipo de obra de conservación de suelo?"
-msgstr "What kind of soil conservation measures are there?"
+msgstr ""
 
 #: templates/suelo/manejo_suelo.html:122
 msgid "Tipos de obras"
-msgstr "Types of soil conservation measures"
+msgstr ""
 
 #: templates/suelo/suelo.html:4
 msgid "Monitoreo - Suelo"
-msgstr "Monitoring - Soil"
+msgstr ""
 
 #: templates/suelo/suelos.html:22
 msgid "¿Cúal es el tipo de textura del suelo?"
-msgstr "What is the type of soil texture?"
+msgstr ""
 
 #: templates/suelo/suelos.html:27
 msgid "Texturas"
-msgstr "Textures"
+msgstr ""
 
 #: templates/suelo/suelos.html:42
 msgid "¿Cúal es la profundidad del suelo?"
-msgstr "What is the depth of the soil?"
+msgstr ""
 
 #: templates/suelo/suelos.html:47
 msgid "Profundidad"
-msgstr "Depth"
+msgstr ""
 
 #: templates/suelo/suelos.html:62
 msgid "¿Cómo es la presencia de lombrice en el suelo?"
-msgstr "Presence of earthworms"
+msgstr ""
 
 #: templates/suelo/suelos.html:66
 msgid "Presencia de Lombrices"
-msgstr "Presence of Earthworms"
+msgstr ""
 
 #: templates/suelo/suelos.html:81
 msgid "¿Cómo es la densidad de raiz en la capa productiva de suelo?"
-msgstr "What is the root density in the productive layer of soil?"
+msgstr ""
 
 #: templates/suelo/suelos.html:85
 msgid "Densidad"
-msgstr "density"
+msgstr ""
 
 #: templates/suelo/suelos.html:100
 msgid "¿Cúal es la pendiente del terrreno?"
-msgstr "What is the slope of terrreno?"
+msgstr ""
 
 #: templates/suelo/suelos.html:105
 msgid "Pendientes"
-msgstr "Slope"
+msgstr ""
 
 #: templates/suelo/suelos.html:120
 msgid "¿Cómo es el drenaje del suelo?"
-msgstr "How is soil drainage?"
+msgstr ""
 
 #: templates/suelo/suelos.html:124
 msgid "Drenaje"
-msgstr "Drainage."
+msgstr ""
 
 #: templates/suelo/suelos.html:139
 msgid "¿Cómo es el contenido de materia orgánica?"
-msgstr "How is organic matter?"
+msgstr ""
 
 #: templates/suelo/suelos.html:144
 msgid "Contenido"
-msgstr "Content"
+msgstr ""
 
 #: templates/tierra/tierra.html:4
 msgid "Monitoreo - Tierra"
-msgstr "Monitoring - Earth"
-
+msgstr ""
