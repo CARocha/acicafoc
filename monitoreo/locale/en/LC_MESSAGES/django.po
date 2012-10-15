@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-15 13:40-0600\n"
+"POT-Creation-Date: 2012-10-15 13:57-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,30 @@ msgstr "Beneficiaries"
 #: encuestas/forms.py:34
 msgid "Dueño"
 msgstr "Owner"
+
+#: familias/models.py:12
+msgid "Hombre mas de 18 años"
+msgstr "Men more than 18 years old"
+
+#: familias/models.py:13
+msgid "Mujeres mas de 18 años"
+msgstr "Women more than 18 years old"
+
+#: familias/models.py:14
+msgid "Hombre de 7 a 18 años"
+msgstr "boys"
+
+#: familias/models.py:15
+msgid "Mujeres de 7 a 18 años"
+msgstr "girls"
+
+#: familias/models.py:16
+msgid "Niños menos de 6 años"
+msgstr "Children under 6 years"
+
+#: familias/models.py:17
+msgid "Niñas menos de 6 años"
+msgstr "Girls under age 6"
 
 #: templates/basenueva.html:14
 msgid "Sistema de Monitoreo ACICAFOC"
