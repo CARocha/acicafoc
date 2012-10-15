@@ -167,8 +167,7 @@ msgstr "Women"
 
 #: templates/index.html:37
 msgid "Total:"
-msgstr "
-Total"
+msgstr "Total"
 
 #: templates/index.html:96
 msgid "Familias encuestadas en la actualidad"
@@ -179,51 +178,19 @@ msgid "ACERCA DEL SISTEMA DE MONITOREO"
 msgstr "ABOUT MONITORING SYSTEM "
 
 #: templates/index.html:100
-msgid ""
-"El proyecto “Alternativa de manejo sostenible en sistemas agroforestales "
-"para indígenas, campesinos y afro descendientes de la RAAN, Nicaragua”, "
-"denominado COCOA RAAN, tiene como objetivo contribuir en la erradicación de "
-"la pobreza en comunidades indígenas, campesinas y afro descendientes y en el "
-"desarrollo integral de la producción cacaotera y mercadeo en la RAAN, a "
-"través del fomento del uso sostenible de los recursos naturales, el "
-"bienestar rural y establecimiento de acuerdos comerciales sostenibles."
-msgstr "The "Alternative sustainable agroforestry systems for indigenous, peasant and Afro descendants of the RAAN, Nicaragua", project named COCOA RAAN Project, aims to contribute to the eradication of poverty in indigenous, peasant and Afro descendants and development integral cocoa production and marketing in the RAAN, through the promotion of sustainable use of natural resources, rural welfare and sustainable development of business agreements."
+msgid "El proyecto Alternativa de manejo sostenible en sistemas agroforestales para indígenas, campesinos y afro descendientes de la RAAN, Nicaragua, denominado COCOA RAAN, tiene como objetivo contribuir en la erradicación de la pobreza en comunidades indígenas, campesinas y afro descendientes y en el desarrollo integral de la producción cacaotera y mercadeo en la RAAN, a través del fomento del uso sostenible de los recursos naturales, el bienestar rural y establecimiento de acuerdos comerciales sostenibles."
+msgstr "The Alternative sustainable agroforestry systems for indigenous, peasant and Afro descendants of the RAAN, Nicaragua, project named COCOA RAAN Project, aims to contribute to the eradication of poverty in indigenous, peasant and Afro descendants and development integral cocoa production and marketing in the RAAN, through the promotion of sustainable use of natural resources, rural welfare and sustainable development of business agreements."
 
 #: templates/index.html:102
-msgid ""
-"La Asociación Coordinadora Indígena y Campesina de Agroforestería "
-"Comunitaria Centroamericana (ACICAFOC) es la ejecutora de este proyecto "
-"cuyos componentes i) Desarrollo integrado de sistemas agroforestales en 1000 "
-"fincas de cacao para elevar los niveles de producción en Nicaragua, ii) "
-"Estrategia de comercialización directa y los vínculos con el mercado de "
-"cacao para los agricultores que operan en una empresa social y media "
-"ambientalmente sostenible, iii) ha consolidado la Red Centroamericana de "
-"Productores de Cacao en respuesta a las demandas expresadas por los "
-"productores de participar activamente en iniciativas de comercialización y "
-"iv) Monitoreo y Evaluación participativa en las acciones implementadas."
+msgid "La Asociación Coordinadora Indígena y Campesina de Agroforestería Comunitaria Centroamericana (ACICAFOC) es la ejecutora de este proyecto cuyos componentes i) Desarrollo integrado de sistemas agroforestales en 1000 fincas de cacao para elevar los niveles de producción en Nicaragua, ii) Estrategia de comercialización directa y los vínculos con el mercado de cacao para los agricultores que operan en una empresa social y media ambientalmente sostenible, iii) ha consolidado la Red Centroamericana de Productores de Cacao en respuesta a las demandas expresadas por los productores de participar activamente en iniciativas de comercialización y iv) Monitoreo y Evaluación participativa en las acciones implementadas."
 msgstr "The Coordinating Association of Indigenous and for Peasants Community Agroforestry in nCentral America (ACICAFOC) is the implementor of this project whose components i) Integrated development of agroforestry systems in 1000 cacao growing farms to raise production levels in Nicaragua, ii) direct marketing strategy and market linkages for cocoa farmers operating in a socially and environmentally sustainable environment, iii) consolidation of the Central American cacao producers in response to the demands expressed by producers to actively participate in marketing initiatives and iv) Participatory Monitoring and Evaluation in the actions implemented."
 
 #: templates/index.html:107
-msgid ""
-"Con estos componentes, se pretende dar una respuesta a las necesidades de "
-"los productores de cacao, para desarrollar capacidades técnicas en el manejo "
-"del cacao en sistemas agroforestales y vincularlos con mecanismos "
-"innovadores que les permita participar activamente en el desarrollo de "
-"nichos de mercado."
+msgid "Con estos componentes, se pretende dar una respuesta a las necesidades de los productores de cacao, para desarrollar capacidades técnicas en el manejo del cacao en sistemas agroforestales y vincularlos con mecanismos innovadores que les permita participar activamente en el desarrollo de nichos de mercado."
 msgstr "With these components, it is intended to respond to the needs of cocoa farmers, to develop technical skills in the management of cocoa agroforestry systems and link them with innovative mechanisms to enable them to participate actively in the development of niche markets."
 
 #: templates/index.html:109
-msgid ""
-"La ejecución del proyecto inicio en el 2010 y se ha dinamizado a partir del "
-"2011, obteniéndose resultados visibles de las acciones dentro de las cuales "
-"se pueden destacar el aporte hacia el desarrollo de capacidades técnicas en "
-"la zona tanto a nivel de técnicos como a nivel de líderes y productores en "
-"el manejo de sistemas agroforestales de cacao, beneficiado y formulación de "
-"propuestas de subproyectos. Para ello la capacitación de facilitadores "
-"locales de Escuelas de campo en Cacao y talleres dirigidos en la formulación "
-"de propuestas de subproyectos y elaboración de presupuesto ha sido un "
-"proceso que ha generado capacidades locales que dinamizan el desarrollo de "
-"las acciones alrededor del cacao en la RAAN."
+msgid "La ejecución del proyecto inicio en el 2010 y se ha dinamizado a partir del 2011, obteniéndose resultados visibles de las acciones dentro de las cuales  se pueden destacar el aporte hacia el desarrollo de capacidades técnicas en  la zona tanto a nivel de técnicos como a nivel de líderes y productores en el manejo de sistemas agroforestales de cacao, beneficiado y formulación de propuestas de subproyectos. Para ello la capacitación de facilitadores locales de Escuelas de campo en Cacao y talleres dirigidos en la formulación de propuestas de subproyectos y elaboración de presupuesto ha sido un proceso que ha generado capacidades locales que dinamizan el desarrollo de las acciones alrededor del cacao en la RAAN."
 msgstr "Project implementation started in 2010 and has been vigorously implemented from 2011, yielding visible results of actions within which we can highlight the contribution towards the development of technical skills in the area of ​​both technical and in terms of leaders and producers in the management of cocoa agroforestry systems, and formulating subproject proposals by beneficiaries. This facilitator training through local field schools in Cocoa and workshops in the formulation of subproject proposals and budgeting has been a process that has generated local capabilities streamlined the development of cocoa actions in the RAAN."
 
 #: templates/index.html:112
@@ -235,9 +202,7 @@ msgid "Información del proyecto"
 msgstr "Project information"
 
 #: templates/index.html:122
-msgid ""
-"Conoce los objetivos, la finalidad, el area de influencia y los "
-"beneficiarios del proyecto"
+msgid "Conoce los objetivos, la finalidad, el area de influencia y los beneficiarios del proyecto"
 msgstr "Learn about objectives, purpose, the area of ​​influence and project beneficiaries"
 
 #: templates/index.html:127
@@ -245,9 +210,7 @@ msgid "Estadistícas Generales"
 msgstr "General information of surveys"
 
 #: templates/index.html:129
-msgid ""
-"Datos generales de la encuesta visibilizados geográficamente en las zonas de "
-"cobertura"
+msgid "Datos generales de la encuesta visibilizados geográficamente en las zonas de cobertura"
 msgstr "General information about the survey made visible geographically coverage areas"
 
 #: templates/index.html:134
@@ -255,9 +218,7 @@ msgid "Consulta de indicadores"
 msgstr "Query of indicators"
 
 #: templates/index.html:136
-msgid ""
-"A través de los filtros/indicadores podemos acceder a la información y los "
-"gráficos de acuerdo a nuestras necesidades."
+msgid "A través de los filtros/indicadores podemos acceder a la información y los gráficos de acuerdo a nuestras necesidades."
 msgstr "Through the filters / indicators we can access information and graphics according to our querries"
 
 #: templates/index.html:141
@@ -330,14 +291,8 @@ msgid "Reforestación"
 msgstr "Reforestation"
 
 #: templates/proyecto.html:33
-msgid ""
-"El proyecto “Alternativa de manejo sostenible en sistemas agroforestales "
-"para indígenas y afrodescendientes de la RAAN, Nicaragua”  Grant TF093115 es "
-"una donación de JSDF (Japan Social Development Fund), con la gerencia del "
-"Banco Mundial y ejecutado por La Asociación Coordinadora Indígena y "
-"Campesina de Agroforestería Comunitaria Centroamericana (ACICAFOC) ubicado "
-"en la RAAN Nicaragua."
-msgstr "The "Alternative sustainable agroforestry systems for indigenous and Afro-descendant of the RAAN, Nicaragua" Grant is a grant TF093115 from JSDF (Japan Social Development Fund), managed by World Bank and implemented by the Coordinating Association of Indigenous and Peasant households for Community Agroforestry in Central America (ACICAFOC) located in the RAAN Nicaragua."
+msgid "El proyecto Alternativa de manejo sostenible en sistemas agroforestales para indígenas y afrodescendientes de la RAAN, Nicaragua  Grant TF093115 es una donación de JSDF (Japan Social Development Fund), con la gerencia del Banco Mundial y ejecutado por La Asociación Coordinadora Indígena y Campesina de Agroforestería Comunitaria Centroamericana (ACICAFOC) ubicado en la RAAN Nicaragua."
+msgstr "The Alternative sustainable agroforestry systems for indigenous and Afro-descendant of the RAAN, Nicaragua Grant is a grant TF093115 from JSDF (Japan Social Development Fund), managed by World Bank and implemented by the Coordinating Association of Indigenous and Peasant households for Community Agroforestry in Central America (ACICAFOC) located in the RAAN Nicaragua."
 
 #: templates/proyecto.html:35
 msgid "Sus componentes"
@@ -348,9 +303,7 @@ msgid "Componente 1:"
 msgstr "Component 1:"
 
 #: templates/proyecto.html:37
-msgid ""
-"Desarrollo integrado de sistemas agroforestales en 1000 fincas de cacao para "
-"elevar los niveles de producción en Nicaragua"
+msgid "Desarrollo integrado de sistemas agroforestales en 1000 fincas de cacao para elevar los niveles de producción en Nicaragua"
 msgstr "Integrated development of agroforestry in 1000 cocoa growing farms to raise production levels"
 
 #: templates/proyecto.html:38
@@ -358,10 +311,7 @@ msgid "Componente 2:"
 msgstr "Component 2:"
 
 #: templates/proyecto.html:38
-msgid ""
-"Estrategia de comercialización directa y los vínculos con el mercado de "
-"cacao para los agricultores que operan en una empresa social y "
-"medioambientalmente sostenible"
+msgid "Estrategia de comercialización directa y los vínculos con el mercado de cacao para los agricultores que operan en una empresa social y medioambientalmente sostenible"
 msgstr "Direct marketing strategy and market linkages for cocoa farmers operating in a socially and environmentally sustainable environment"
 
 #: templates/proyecto.html:39
@@ -385,11 +335,7 @@ msgid "Área de influencia del Proyecto"
 msgstr "Area of influence of the project"
 
 #: templates/proyecto.html:47
-msgid ""
-"Comprende los municipios de Bonanza, Rosita, Siuna, Prinzapolka y Mulukukú "
-"en la RAAN, y se trabajará con organizaciones que están dentro de la Red "
-"Centroamericana de Productores de Cacao tales como La Campesina en Matiguas, "
-"Matagalpa."
+msgid "Comprende los municipios de Bonanza, Rosita, Siuna, Prinzapolka y Mulukukú en la RAAN, y se trabajará con organizaciones que están dentro de la Red Centroamericana de Productores de Cacao tales como La Campesina en Matiguas, Matagalpa."
 msgstr "It includes the municipalities of Bonanza, Rosita, Siuna Prinzapolka and Mulukukú in RAAN, and work with organizations that are within the Central American Cocoa Producers network such as La Campesina in Matiguas, Matagalpa."
 
 #: templates/proyecto.html:50
@@ -397,16 +343,7 @@ msgid "Beneficiarios"
 msgstr "Beneficiaries"
 
 #: templates/proyecto.html:53
-msgid ""
-"Esta subvención pretende beneficiar a al menos 1.000 agricultores de cacao y "
-"sus dependientes directos (5.000 personas). Además, se beneficiarán "
-"aproximadamente 7.000 productores y sus dependientes directos (35.000 "
-"personas), socios de asociaciones y cooperativas que trabajan con la Red "
-"Centroamericana de Productores de Cacao. Por otro lado, alrededor de 200 "
-"dirigentes o líderes serán formados con capacitaciones avanzadas y más de "
-"1.200 agricultores individuales y organizados participan del desarrollo de "
-"capacidades y de formación de habilidades de mercadeo a nivel "
-"centroamericano. "
+msgid "Esta subvención pretende beneficiar a al menos 1.000 agricultores de cacao y sus dependientes directos (5.000 personas). Además, se beneficiarán aproximadamente 7.000 productores y sus dependientes directos (35.000 personas), socios de asociaciones y cooperativas que trabajan con la Red Centroamericana de Productores de Cacao. Por otro lado, alrededor de 200 dirigentes o líderes serán formados con capacitaciones avanzadas y más de 1.200 agricultores individuales y organizados participan del desarrollo de capacidades y de formación de habilidades de mercadeo a nivel centroamericano."
 msgstr "This grant is intended to benefit at least 1,000 cocoa farmers and their direct dependents (5,000 people). Also, will benefit about 7,000 farmers and their direct dependents (35,000 people), members of associations and cooperatives that work with the Central American Cocoa Producers. In addition, about 200 leaders or leaders will be trained with advanced training and over 1,200 participating farmers and organized individual capacity development and marketing skills training in Central America. "
 
 #: templates/proyecto.html:55
@@ -414,12 +351,7 @@ msgid "Objetivo general"
 msgstr "General Objective"
 
 #: templates/proyecto.html:58
-msgid ""
-"Contribuir en la erradicación de la pobreza a partir del desarrollo integral "
-"de la producción cacaotera y su mercadeo en la Región Autónoma del Atlántico "
-"Norte de Nicaragua, a través del fomento del uso sostenible de los recursos "
-"naturales, el bienestar rural y establecimiento de acuerdos comerciales "
-"sostenible y de promoción al exterior."
+msgid "Contribuir en la erradicación de la pobreza a partir del desarrollo integral de la producción cacaotera y su mercadeo en la Región Autónoma del Atlántico Norte de Nicaragua, a través del fomento del uso sostenible de los recursos naturales, el bienestar rural y establecimiento de acuerdos comerciales sostenible y de promoción al exterior."
 msgstr "To contribute to the eradication of poverty from the development of cocoa production and marketing in the North Atlantic Autonomous Region of Nicaragua, through the promotion of sustainable use of natural resources, rural welfare and sustainable development of trade agreements and promotion abroad."
 
 #: templates/proyecto.html:60
@@ -427,30 +359,15 @@ msgid "Objetivos específicos"
 msgstr "Specific Objectives"
 
 #: templates/proyecto.html:63
-msgid ""
-"a) Apoyar en el mejoramiento de las actividades relacionadas con el manejo "
-"integrado de sistemas agroforestales en fincas cacaoteras, con el fin de "
-"incrementar los niveles de producción entre los indígenas, campesinos y afro-"
-"descendientes de la RAAN de Nicaragua."
+msgid "a) Apoyar en el mejoramiento de las actividades relacionadas con el manejo integrado de sistemas agroforestales en fincas cacaoteras, con el fin de incrementar los niveles de producción entre los indígenas, campesinos y afro-descendientes de la RAAN de Nicaragua."
 msgstr "a) Support the improvement of activities related to the integrated management of cocoa agroforestry systems on farms, in order to increase production levels among indigenous and Afro-descendent peasants of Nicaragua's RAAN."
 
 #: templates/proyecto.html:64
-msgid ""
-"b) Establecer vínculos sostenibles entre los productores con empresas de "
-"chocolate a nivel internacional y con las normas internacionales de comercio "
-"justo, para consolidar acuerdos formales sobre la oferta y venta de "
-"productos y servicios ambientales procedentes de las fincas cacaoteras de la "
-"RAAN de Nicaragua. "
+msgid "b) Establecer vínculos sostenibles entre los productores con empresas de chocolate a nivel internacional y con las normas internacionales de comercio justo, para consolidar acuerdos formales sobre la oferta y venta de productos y servicios ambientales procedentes de las fincas cacaoteras de la RAAN de Nicaragua."
 msgstr "b) Establishing sustainable linkages between producers with chocolate companies internationally and with international standards of fair trade, to strengthen formal agreements on the supply and sale of environmental products and services from the cacao farms RAAN Nicaragua. "
 
 #: templates/proyecto.html:65
-msgid ""
-"c) Fortalecer la gestión social, comercial y ambiental de la Red "
-"Centroamericana de Productores de Cacao, mediante la creación de un "
-"mecanismo eficaz para financiar sus actividades, la certificación y la "
-"comercialización, y para mejorar la capacidad de liderazgo, coordinación y "
-"el intercambio de experiencias entre las organizaciones comunitarias, "
-"cooperativas, productores, entre otros."
+msgid "c) Fortalecer la gestión social, comercial y ambiental de la Red Centroamericana de Productores de Cacao, mediante la creación de un mecanismo eficaz para financiar sus actividades, la certificación y la comercialización, y para mejorar la capacidad de liderazgo, coordinación y el intercambio de experiencias entre las organizaciones comunitarias, cooperativas, productores, entre otros."
 msgstr "c) strengthen social management, trade and environment of the Central American Cocoa Producers, by creating an effective mechanism to finance their activities, certification and marketing, and to improve leadership, coordination and exchange of experiences among community organizations, cooperatives, producers, among others."
 
 #: templates/proyecto.html:80
@@ -824,7 +741,7 @@ msgstr "Ethnic Groups"
 
 #: templates/encuestas/generales.html:222
 #, python-format
-msgid "Datos Generales de las %(numero)s Familias encuestadas"
+msgid "Datos Generales de las Familias encuestadas"
 msgstr "General features of the families surveyed"
 
 #: templates/encuestas/generales.html:224
@@ -848,7 +765,7 @@ msgstr "Percentages"
 #: templates/encuestas/generales.html:246
 #, python-format
 msgid "Distribución de edades en %(numero)s Familias entrevistadas"
-msgstr "Age distribution in% (number) s families interviewed"
+msgstr "Age distribution in %(numero)s families interviewed"
 
 #: templates/encuestas/generales.html:250
 msgid "sexo"
@@ -984,14 +901,11 @@ msgid "Nivel de humedad que maneja en el secado"
 msgstr "Moisture level achieved while drying "
 
 #: templates/estado/niveles.html:103
-msgid ""
-"¿Hay algún centro de acopio de cacao en la comunidad, comarca, zona o "
-"municipio al cual usted entregue su cacao?"
+msgid "¿Hay algún centro de acopio de cacao en la comunidad, comarca, zona o municipio al cual usted entregue su cacao?"
 msgstr "Is there a cocoa collection center in the community, region, area or municipality to which you sell your cocoa?"
 
 #: templates/estado/niveles.html:145
-msgid ""
-"¿Si usted es socio, asociado o miembro de algún centro de acopio de cacao?"
+msgid "¿Si usted es socio, asociado o miembro de algún centro de acopio de cacao?"
 msgstr "If you are a partner or member of a collection center for cacao?"
 
 #: templates/estado/niveles.html:200
@@ -1110,8 +1024,8 @@ msgstr "Annual farm expenditure"
 
 #: templates/estado/plantaciones.html:167
 #, python-format
-msgid "% de Gasto de cacao"
-msgstr "Expenditure% cocoa"
+msgid "de Gasto de cacao"
+msgstr "Expenditure cocoa"
 
 #: templates/estado/plantaciones.html:177
 msgid "Costo de mantenimiento cacao/mz"
@@ -1226,9 +1140,7 @@ msgid "Viven fuera de Comunidad"
 msgstr "Live outside the community"
 
 #: templates/familias/educacion.html:81
-msgid ""
-"Miembros que Alcanzaron la Primaria (primaria completa + secundaria "
-"incompleta + bachiller + universitario)"
+msgid "Miembros que Alcanzaron la Primaria (primaria completa + secundaria incompleta + bachiller + universitario)"
 msgstr "Members who achieved primary education (primary + secondary incomplete + complete + university degree)"
 
 #: templates/familias/educacion.html:94 templates/riesgos/vulnerable.html:32
@@ -1277,9 +1189,7 @@ msgid "Energía Eléctrica"
 msgstr "Electric power"
 
 #: templates/genero/genero.html:38
-msgid ""
-"¿Usted toma la decisión en el manejo y administración de los recursos "
-"económicos de la familia?"
+msgid "¿Usted toma la decisión en el manejo y administración de los recursos económicos de la familia?"
 msgstr "Do you take the decision in the management and administration of the financial resources of the family?"
 
 #: templates/genero/genero.html:77
@@ -1299,9 +1209,7 @@ msgid "¿Usted tiene voto en las decisiones de la organización?"
 msgstr "Do you vote in the decisions of the organization?"
 
 #: templates/genero/genero.html:229
-msgid ""
-"¿Usted está informado sobre las actividades o decisiones de las "
-"organizaciones comunitarias"
+msgid "¿Usted está informado sobre las actividades o decisiones de las organizaciones comunitarias"
 msgstr "Are you informed about the activities and decisions of community organizations?"
 
 #: templates/genero/genero.html:271
@@ -1309,8 +1217,7 @@ msgid "¿Usted comunica sus ideas o puntos de vista en la familia?"
 msgstr "Do you communicate your ideas or views in the family?"
 
 #: templates/genero/genero.html:313
-msgid ""
-"¿Usted comunica sus ideas o puntos de vista en la comunidad y organización?"
+msgid "¿Usted comunica sus ideas o puntos de vista en la comunidad y organización?"
 msgstr "Do you communicate your ideas or views in the community and organization?"
 
 #: templates/genero/genero.html:355

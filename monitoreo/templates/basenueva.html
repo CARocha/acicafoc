@@ -59,7 +59,18 @@
                 <a href="#"><img src="{{STATIC_URL}}img/banderajapon.jpg"></a>
                 <a href="http://web.worldbank.org/WBSITE/EXTERNAL/EXTABOUTUS/ORGANIZATION/CFPEXT/EXTTRUFUN/EXTMAINPRO/EXTJSDF/0,,contentMDK:20961576~menuPK:2803658~pagePK:64168427~piPK:64168435~theSitePK:2663400,00.html"><img src="{{STATIC_URL}}img/japon.jpg"></a>
                 <a href="http://www.bancomundial.org/"><img src="{{STATIC_URL}}img/banco.jpg"></a>
-                
+
+        <form action="/i18n/setlang/" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="/" />
+            <select name="language">
+                {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+                <option value="{{ language.code }}">{{ language.name_local }} ({{ language.code }})</option>
+            {% endfor %}
+            </select>
+                <input type="submit" value="Go" />
+        </form>
             </div>
             <div class="clean"></div>
         </div>
