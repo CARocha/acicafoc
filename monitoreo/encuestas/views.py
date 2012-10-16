@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.template.defaultfilters import slugify
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
@@ -34,6 +34,26 @@ from monitoreo.lugar.models import *
 
 from utils import grafos
 from utils import *
+
+from django.conf import settings
+
+# Translate view
+
+
+def set_lang(request, lang_code):
+    if not lang_code in ['en', 'es']:
+        raise Http404
+
+    next = request.GET.get('next', None)
+    if not next:
+        next = request.META.get('HTTP_REFERER', '/')
+    response = HttpResponseRedirect(next)
+    
+    if hasattr(request, 'session'):
+        request.session['django_language'] = lang_code
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
+
+    return response
 
 # Create your views here.
 
@@ -143,7 +163,7 @@ def inicio(request):
         centinela = 0
     
     shva = request.GET.get('shva', '')
-    if shva and request.session['activo']:
+    if shva :
         shva = 1
         centinela = 1
     
