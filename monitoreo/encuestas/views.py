@@ -294,25 +294,46 @@ def luz(request):
     tabla = []
     total_tiene_luz = 0            
 
+    if request.LANGUAGE_CODE == 'es':
+        print "Espaniol"
+    elif request.LANGUAGE_CODE == 'en':
+        print "tu madre ingles"
+
     for choice in PreguntaEnergia.objects.exclude(id=2):
         query = consulta.filter(energia__pregunta=choice, energia__respuesta=1).distinct()
         resultados = query.count() 
         if choice.pregunta == 1:
-            total_tiene_luz = resultados 
-            fila = [choice.pregunta, 
-                    resultados,
-                    saca_porcentajes(resultados, consulta.count(), False)]
-            tabla.append(fila)
+            total_tiene_luz = resultados
+            if request.LANGUAGE_CODE == 'es': 
+                fila = [choice.pregunta,
+                        resultados,
+                        saca_porcentajes(resultados, consulta.count(), False)]
+                tabla.append(fila)
+            elif request.LANGUAGE_CODE == 'en':
+                fila = [choice.pregunta_en,
+                        resultados,
+                        saca_porcentajes(resultados, consulta.count(), False)]
         else:
-            fila = [choice.pregunta, 
-                    resultados,
-                    saca_porcentajes(resultados, consulta.count(), False)]
-            tabla.append(fila)
-    tabla_cocina = []        
+            if request.LANGUAGE_CODE == 'es': 
+                fila = [choice.pregunta, 
+                        resultados,
+                        saca_porcentajes(resultados, consulta.count(), False)]
+                tabla.append(fila)
+            elif request.LANGUAGE_CODE == 'en':
+                fila = [choice.pregunta_en, 
+                        resultados,
+                        saca_porcentajes(resultados, consulta.count(), False)]
+                tabla.append(fila)
+
+    tabla_cocina = []
     for cocina in TipoCocina.objects.all():
         conteo = consulta.filter(cocina__utiliza=cocina).count()
         porcentaje = round(saca_porcentajes(conteo,consulta.count()))
-        tabla_cocina.append([cocina.nombre,conteo,porcentaje])
+        if request.LANGUAGE_CODE == 'es':
+            tabla_cocina.append([cocina.nombre,conteo,porcentaje])
+        elif request.LANGUAGE_CODE == 'en':
+            tabla_cocina.append([cocina.nombre_en,conteo,porcentaje])
+
         
     return render_to_response('familias/luz.html', 
                               {'tabla':tabla, 'num_familias': consulta.count(),
