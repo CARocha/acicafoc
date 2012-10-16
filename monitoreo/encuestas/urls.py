@@ -25,4 +25,5 @@ urlpatterns = patterns('monitoreo.encuestas.views',
     (r'^mapa/$', 'obtener_lista'),
 #    (r'^ayuda/$',   direct_to_template,{'template': 'acerca.html'}),
     (r'^(?P<vista>\w+)/$', '_get_view'),
+    url(r'^lang/(?P<lang_code>\w+)/$', 'set_lang', name='set_lang'),
 )

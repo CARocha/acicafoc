@@ -53,24 +53,21 @@
 <div class="wrapper">
     <div class="main">
         <div id="header">
-            <div id="logo"></div>
+            <div id="logo">
+                {%if LANGUAGE_CODE == 'es' %}
+                <a href="/"><img src="{{STATIC_URL}}img/logo.jpg"></a>
+                {%endif%}
+                {%if LANGUAGE_CODE == 'en' %}
+                <a href="/"><img src="{{STATIC_URL}}img/logo2.png"></a>
+                {%endif%}
+                
+            </div>
             <div id="cooperantes">
                 <a href="#"><img src="{{STATIC_URL}}img/logoacicafoc.jpg"></a>
                 <a href="#"><img src="{{STATIC_URL}}img/banderajapon.jpg"></a>
                 <a href="http://web.worldbank.org/WBSITE/EXTERNAL/EXTABOUTUS/ORGANIZATION/CFPEXT/EXTTRUFUN/EXTMAINPRO/EXTJSDF/0,,contentMDK:20961576~menuPK:2803658~pagePK:64168427~piPK:64168435~theSitePK:2663400,00.html"><img src="{{STATIC_URL}}img/japon.jpg"></a>
                 <a href="http://www.bancomundial.org/"><img src="{{STATIC_URL}}img/banco.jpg"></a>
 
-        <form action="/i18n/setlang/" method="post">
-            {% csrf_token %}
-            <input name="next" type="hidden" value="/" />
-            <select name="language">
-                {% get_language_info_list for LANGUAGES as languages %}
-            {% for language in languages %}
-                <option value="{{ language.code }}">{{ language.name_local }} ({{ language.code }})</option>
-            {% endfor %}
-            </select>
-                <input type="submit" value="Go" />
-        </form>
             </div>
             <div class="clean"></div>
         </div>
@@ -79,9 +76,24 @@
                 <img id="home" src="{{STATIC_URL}}img/home.png" class="menu_head" />
                 <ul class="menu_body">
                     <li><a href="/"><img src="{{STATIC_URL}}img/homemini.png">{% trans "INICIO" %}</a></li>
+                    {%if request.session.fecha%}
                     <li><a href="/index?shva=1"><img src="{{STATIC_URL}}img/cambiarmini.png">{% trans "CAMBIAR INDICADOR" %} </a></li>
+                    {%endif%}
                     <li><a href="/index/"><img src="{{STATIC_URL}}img/nuevamini.png">{% trans "NUEVA CONSULTA" %}</a></li>
                 </ul>
+            </div>
+            <div class="idioma">
+                <div class="btn-group">
+    
+                {%if LANGUAGE_CODE == 'es' %}
+                <a class='btn btn-warning btn-mini active' href="/lang/es"><img src="{{STATIC_URL}}img/es.png"> Español  </a>
+                <a href="/lang/en" class="btn btn-warning btn-mini "> <img src="{{STATIC_URL}}img/en.png"> English  </a>
+                {%endif%}
+                {%if LANGUAGE_CODE == 'en' %}
+                <a class='btn btn-warning btn-mini' href="/lang/es"><img src="{{STATIC_URL}}img/es.png"> Español  </a>
+                <a href="/lang/en" class="btn btn-warning btn-mini active "> <img src="{{STATIC_URL}}img/en.png"> English  </a>
+                {%endif%}
+                </div>
             </div>
             {%block barra%}{%endblock%}
             <div class="clean"></div>
