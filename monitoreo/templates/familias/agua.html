@@ -133,7 +133,7 @@ $(document).ready(function () {
 <div class="contenido fulltabla">
 
     <div class="subindicador">{% trans "FAMILIA" %} &raquo; {% trans "Agua de consumo" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
- 
+
 <div id="modalidad">
 		<table style="width:100%;">
 			<thead>
@@ -143,13 +143,24 @@ $(document).ready(function () {
 					<th>%</th>
 				</tr>
 			</thead>
-			{% for fila in tabla%}
+        {%if request.LANGUAGE_CODE == 'en'%}
+			{% for fila in tabla2%}
 			<tr>
 				{%for celda in fila%}
 				<td>{{celda}}</td> 
 				{%endfor%}
 			</tr>
 			{%endfor%}
+        {%else%}
+            {% for fila in tabla%}
+            <tr>
+                {%for celda in fila%}
+                <td>{{celda}}</td> 
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        {%endif%}
+
 		</table>
 </div>
 	</div>
@@ -158,6 +169,6 @@ $(document).ready(function () {
         <div class="grafico-title"></div>
         <div id="container"></div>
 </div>
-</div>
+
 
 {% endblock %}

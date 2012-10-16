@@ -84,6 +84,7 @@ var chart;
                 text: ''
             },
             xAxis: {
+                max: 0,
                 categories: [
                     '{% trans "Opciones" %}'
                 ]
@@ -174,7 +175,7 @@ var chart;
             {%for fila in tabla_educacion%}
             <tr>
                 {%for celda in fila %}
-                <td>{{celda}}</td>
+                <td> {{celda}} </td>
                 {%endfor%}
             </tr>
             {%endfor%}

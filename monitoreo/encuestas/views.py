@@ -305,22 +305,25 @@ def agua(request):
     '''Agua'''
     consulta = _queryset_filtrado(request)
     tabla = []
+    tabla2 = []
     total = consulta.aggregate(total=Count('agua__fuente'))
 
     for choice in Fuente.objects.all():
         query = consulta.filter(agua__fuente=choice)
         numero = query.count()
         fila = [choice.nombre, numero,
-                #saca_porcentajes(numero, total['total'], False),
+                saca_porcentajes(numero, consulta.count(), False)
+                ]
+        fila2 = [choice.nombre_en, numero,
                 saca_porcentajes(numero, consulta.count(), False)
                 ]
         tabla.append(fila)
+        tabla2.append(fila2)
 
-    #totales = [total['total'], 100, total['cantidad'], 100]
     totales = [consulta.count(), 100]
     return render_to_response('familias/agua.html', 
-                              #{'tabla':tabla, 'totales':totales},
-                              {'tabla':tabla, 'num_familias': consulta.count()},
+                              {'tabla':tabla, 'num_familias': consulta.count(),
+                               'tabla2': tabla2},
                               context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
 #GRAFICOS
