@@ -2,34 +2,37 @@
 
 from django.db import models
 from monitoreo.encuestas.models import *
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
 # Indicador 11-  Ingreso Familiar. Venta de rubros (periodo de referencia de mayo 2009 a abril 2010)
 
-CHOICE_VENDIO = ((1,"Comunidad"),
-                 (2,"Intermediario"),
-                 (3,"Mercado"),
-                 (4,"Cooperativa"),
-                 (5,'Todos'))
+CHOICE_VENDIO = ((1, _(u"Comunidad")),
+                 (2, _(u"Intermediario")),
+                 (3, _(u"Mercado")),
+                 (4, _(u"Cooperativa")),
+                 (5, _(u"Todos"))
+                 )
 
-CHOICE_MANEJA = ((1,"Hombre"),
-                 (2,"Mujer"),
-                 (3,"Ambos"),
-                 (4,"Hijos/as"),
-                 (5,'Hombre-Hijos'),
-                 (6,'Mujer-Hijos'),
-                 (7,'Todos'))
+CHOICE_MANEJA = ((1, _(u"Hombre")),
+                 (2, _(u"Mujer")),
+                 (3, _(u"Ambos")),
+                 (4, _(u"Hijos/as")),
+                 (5, _(u"Hombre-Hijos")),
+                 (6, _(u"Mujer-Hijos")),
+                 (7, _(u"Todos"))
+                 )
                  
 CHOICE_CATEG = (
-                 (1,"Agroforestales"),
-                 (2,"Forestales"),
-                 (3,"Granos básicos"),
-                 (4,"Ganado mayor"),
-                 (5,"Animales de patio"),
-                 (6,"Hortalizas y frutas"),
-                 (7,"Musaceas"),
-                 (8,"Raíces y tubérculos")
+                 (1, _(u"Agroforestales")),
+                 (2, _(u"Forestales")),
+                 (3, _(u"Granos básicos")),
+                 (4, _(u"Ganado mayor")),
+                 (5, _(u"Animales de patio")),
+                 (6, _(u"Hortalizas y frutas")),
+                 (7, _(u"Musaceas")),
+                 (8, _(u"Raíces y tubérculos"))
                      
                 )
 
@@ -37,6 +40,7 @@ class Rubros(models.Model):
     nombre = models.CharField(max_length=50)
     unidad = models.CharField(max_length=50)
     categoria = models.IntegerField(choices=CHOICE_CATEG, null = True, blank = True)
+    nombre_en = models.CharField(max_length=50, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre

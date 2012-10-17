@@ -9,6 +9,7 @@ from monitoreo.encuestas.models import *
 
 class Causa(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -19,6 +20,7 @@ class Causa(models.Model):
 class Fenomeno(models.Model):
     causa = models.ForeignKey(Causa)
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
     
     def __unicode__(self):
         return '%s - %s' % (self.causa.nombre, self.nombre)
@@ -28,6 +30,7 @@ class Fenomeno(models.Model):
         
 class Graves(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -49,6 +52,7 @@ class Vulnerable(models.Model):
 
 class PreguntaRiesgo(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre

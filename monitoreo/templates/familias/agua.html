@@ -143,23 +143,13 @@ $(document).ready(function () {
 					<th>%</th>
 				</tr>
 			</thead>
-        {%if request.LANGUAGE_CODE == 'en'%}
-			{% for fila in tabla2%}
+			{% for fila in tabla%}
 			<tr>
 				{%for celda in fila%}
 				<td>{{celda}}</td> 
 				{%endfor%}
 			</tr>
 			{%endfor%}
-        {%else%}
-            {% for fila in tabla%}
-            <tr>
-                {%for celda in fila%}
-                <td>{{celda}}</td> 
-                {%endfor%}
-            </tr>
-            {%endfor%}
-        {%endif%}
 
 		</table>
 </div>

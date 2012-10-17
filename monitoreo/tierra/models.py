@@ -9,6 +9,7 @@ from monitoreo.encuestas.models import *
 
 class Uso(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre

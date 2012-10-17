@@ -2,6 +2,7 @@
 from django.db import models
 from monitoreo.lugar.models import *
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
 
 class Recolector(models.Model):
     nombre = models.CharField(max_length=200)
@@ -25,30 +26,33 @@ class Etnico(models.Model):
         return self.nombre
 
 CHOICE_SEXO = (
-                    (1, 'Hombre'),
-                    (2, 'Mujer')
+                    (1, _(u'Hombre')),
+                    (2, _(u'Mujer'))
               )
               
 CHOICE_OPCION = (
-                    (1, 'Si'),
-                    (2, 'No'),
-                    (3,'No utilizar')
+                    (1, _(u'Si')),
+                    (2, _(u'No')),
+                    (3, _(u'No utilizar'))
               )
               
 CHOICE_ETNICO = (
-                    (1, 'Miskito'),
-                    (2, 'Mayagna'),
-                    (3, 'Mestizo'),
-                    (4, 'Afrodescendiente')
+                    (1, _(u'Miskito')),
+                    (2, _(u'Mayagna')),
+                    (3, _(u'Mestizo')),
+                    (4, _(u'Afrodescendiente'))
               )
               
-CHOICE_MANEJA = ((1,"Hombre"),
-                 (2,"Mujer"),
-                 (3,"Ambos"),
-                 (4,"Hijos/as"),
-                 (5,'Hombre-Hijos'),
-                 (6,'Mujer-Hijos'),
-                 (7,'Todos'))
+CHOICE_MANEJA = (
+                 (1, _(u"Hombre")),
+                 (2, _(u"Mujer")),
+                 (3, _(u"Ambos")),
+                 (4, _(u"Hijos/as")),
+                 (5, _(u"Hombre-Hijos")),
+                 (6, _(u"Mujer-Hijos")),
+                 (7, _(u"Todos"))
+
+                )
 
 class Encuesta(models.Model):
     ''' Modelo de encuesta principal

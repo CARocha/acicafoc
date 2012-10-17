@@ -15,14 +15,17 @@ CHOICE_AMBIENTE = ((1,"1"),
                    
 class Casa(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
         
     class Meta:
         verbose_name_plural = "Tipos de casa"
+        
 class Piso(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -32,6 +35,7 @@ class Piso(models.Model):
 
 class Techo(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -70,6 +74,7 @@ class DetalleCasa(models.Model):
 
 class Equipos(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -80,6 +85,8 @@ class Equipos(models.Model):
 
 class Infraestructuras(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
+
     def __unicode__(self):
         return self.nombre
 
@@ -113,6 +120,7 @@ class Infraestructura(models.Model):
 
 class NombreHerramienta(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -136,6 +144,7 @@ class Herramientas(models.Model):
 
 class NombreTransporte(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre

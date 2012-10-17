@@ -9,6 +9,7 @@ from monitoreo.encuestas.models import *
 
 class Textura(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -18,6 +19,7 @@ class Textura(models.Model):
 
 class Profundidad(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -29,6 +31,7 @@ class Profundidad(models.Model):
 # ya que contendra las opciones Alta, Media y Baja
 class Densidad(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -38,6 +41,7 @@ class Densidad(models.Model):
 
 class Pendiente(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -47,6 +51,7 @@ class Pendiente(models.Model):
 
 class Drenaje(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -83,6 +88,7 @@ class Suelo(models.Model):
 
 class Preparar(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -92,6 +98,7 @@ class Preparar(models.Model):
 
 class Traccion(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -101,6 +108,7 @@ class Traccion(models.Model):
 
 class Fertilizacion(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -110,6 +118,7 @@ class Fertilizacion(models.Model):
 
 class Conservacion(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre

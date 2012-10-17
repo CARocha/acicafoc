@@ -8,6 +8,7 @@ from monitoreo.encuestas.models import *
 class Cultivos(models.Model):
     nombre = models.CharField(max_length=50)
     unidad = models.CharField(max_length=50)
+    nombre_en = models.CharField(max_length=50, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre

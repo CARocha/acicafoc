@@ -9,6 +9,7 @@ from monitoreo.encuestas.models import *
 
 class Fuentes(models.Model):
     nombre = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -18,6 +19,7 @@ class Fuentes(models.Model):
 
 class TipoTrabajo(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
