@@ -882,6 +882,13 @@ list-style-position: outside; }
     margin-bottom:10px;
 }
 
+.adjunto_list a{
+    color: #486e4a;
+}
+.adjunto_list a:hover{
+    color: #BE3837
+};
+
 /*buttons*/
 
 .clearfix:after{clear:both;}
