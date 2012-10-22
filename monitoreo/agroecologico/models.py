@@ -2,6 +2,7 @@
 
 from django.db import models
 from monitoreo.encuestas.models import *
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
@@ -10,6 +11,7 @@ from monitoreo.encuestas.models import *
 class ManejoAgro(models.Model):
     nombre = models.CharField(max_length=50)
     unidad = models.CharField(max_length=50)
+    nombre_en = models.CharField(max_length=50, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -17,10 +19,11 @@ class ManejoAgro(models.Model):
     class Meta:
         verbose_name_plural = "Uso opciones de manejo agroecologico"
 
-CHOICE_NIVEL_CONOCIMIENTO = ((1,'Nada'),
-                             (2,'Poco'),
-                             (3,'Algo'),
-                             (4,'Bastante'))
+CHOICE_NIVEL_CONOCIMIENTO = ((1, _(u'Nada')),
+                             (2, _(u'Poco')),
+                             (3, _(u'Algo')),
+                             (4, _(u'Bastante'))
+                            )
 
 class OpcionesManejo(models.Model):
     ''' opciones de manejo agroecologico

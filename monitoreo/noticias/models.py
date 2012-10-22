@@ -20,7 +20,8 @@ class CategoriaNoticia(models.Model):
     '''Modelo que representa la categorias de las noticias'''
     nombre = models.CharField('Título', max_length=250, unique=True, blank=True, null=True)
     slug = models.SlugField(max_length=250, unique=True, help_text='unico Valor', editable=False)
-
+    nombre_en = models.CharField(max_length=250, null=True, blank=True)
+    
     def __unicode__(self):
         return self.nombre
 

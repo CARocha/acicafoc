@@ -2,17 +2,19 @@
 
 from django.db import models
 from monitoreo.encuestas.models import *
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
 # Indicador 1: Familia
 
-CHOICE_EDUCACION = ((1,'Hombre mas de 18 años'),
-                    (2,'Mujeres mas de 18 años'),
-                    (3,'Hombre de 7 a 18 años'),
-                    (4,'Mujeres de 7 a 18 años'),
-                    (5,'Niños menos de 6 años'),
-                    (6,'Niñas menos de 6 años'))
+CHOICE_EDUCACION = ((1, _(u'Hombre mas de 18 años')),
+                    (2, _(u'Mujeres mas de 18 años')),
+                    (3, _(u'Hombre de 7 a 18 años')),
+                    (4, _(u'Mujeres de 7 a 18 años')),
+                    (5, _(u'Niños menos de 6 años')),
+                    (6, _(u'Niñas menos de 6 años'))
+                    )
 
 class Educacion(models.Model):
     ''' 1.1 - composicion y educacion
@@ -37,6 +39,7 @@ class Educacion(models.Model):
 
 class PreguntaEnergia(models.Model):
     pregunta = models.CharField(max_length=200)
+    pregunta_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.pregunta
@@ -56,6 +59,7 @@ class Energia(models.Model):
         
 class TipoCocina(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -73,6 +77,7 @@ class Cocina(models.Model):
 
 class Fuente(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre

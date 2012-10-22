@@ -292,27 +292,43 @@ def luz(request):
     '''Tabla de acceso a energia electrica'''
     consulta = _queryset_filtrado(request)
     tabla = []
-    total_tiene_luz = 0            
+    total_tiene_luz = 0
 
     for choice in PreguntaEnergia.objects.exclude(id=2):
         query = consulta.filter(energia__pregunta=choice, energia__respuesta=1).distinct()
         resultados = query.count() 
         if choice.pregunta == 1:
-            total_tiene_luz = resultados 
-            fila = [choice.pregunta, 
-                    resultados,
-                    saca_porcentajes(resultados, consulta.count(), False)]
-            tabla.append(fila)
+            total_tiene_luz = resultados
+            if request.LANGUAGE_CODE == 'es': 
+                fila = [choice.pregunta,
+                        resultados,
+                        saca_porcentajes(resultados, consulta.count(), False)]
+                tabla.append(fila)
+            elif request.LANGUAGE_CODE == 'en':
+                fila = [choice.pregunta_en,
+                        resultados,
+                        saca_porcentajes(resultados, consulta.count(), False)]
         else:
-            fila = [choice.pregunta, 
-                    resultados,
-                    saca_porcentajes(resultados, consulta.count(), False)]
-            tabla.append(fila)
-    tabla_cocina = []        
+            if request.LANGUAGE_CODE == 'es': 
+                fila = [choice.pregunta, 
+                        resultados,
+                        saca_porcentajes(resultados, consulta.count(), False)]
+                tabla.append(fila)
+            elif request.LANGUAGE_CODE == 'en':
+                fila = [choice.pregunta_en, 
+                        resultados,
+                        saca_porcentajes(resultados, consulta.count(), False)]
+                tabla.append(fila)
+
+    tabla_cocina = []
     for cocina in TipoCocina.objects.all():
         conteo = consulta.filter(cocina__utiliza=cocina).count()
         porcentaje = round(saca_porcentajes(conteo,consulta.count()))
-        tabla_cocina.append([cocina.nombre,conteo,porcentaje])
+        if request.LANGUAGE_CODE == 'es':
+            tabla_cocina.append([cocina.nombre,conteo,porcentaje])
+        elif request.LANGUAGE_CODE == 'en':
+            tabla_cocina.append([cocina.nombre_en,conteo,porcentaje])
+
         
     return render_to_response('familias/luz.html', 
                               {'tabla':tabla, 'num_familias': consulta.count(),
@@ -325,21 +341,26 @@ def agua(request):
     '''Agua'''
     consulta = _queryset_filtrado(request)
     tabla = []
+    tabla2 = []
     total = consulta.aggregate(total=Count('agua__fuente'))
 
     for choice in Fuente.objects.all():
         query = consulta.filter(agua__fuente=choice)
         numero = query.count()
-        fila = [choice.nombre, numero,
-                #saca_porcentajes(numero, total['total'], False),
-                saca_porcentajes(numero, consulta.count(), False)
-                ]
+        if request.LANGUAGE_CODE == 'es':
+            fila = [choice.nombre, numero,
+                    saca_porcentajes(numero, consulta.count(), False)
+                    ]
+        elif request.LANGUAGE_CODE == 'en':
+            fila = [choice.nombre_en, numero,
+                    saca_porcentajes(numero, consulta.count(), False)
+                    ]
+        
         tabla.append(fila)
 
-    #totales = [total['total'], 100, total['cantidad'], 100]
+
     totales = [consulta.count(), 100]
     return render_to_response('familias/agua.html', 
-                              #{'tabla':tabla, 'totales':totales},
                               {'tabla':tabla, 'num_familias': consulta.count()},
                               context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
@@ -355,14 +376,20 @@ def organizacion_grafos(request, tipo):
     if tipo == 'beneficio':
         for opcion in BeneficiosObtenido.objects.all():
             data.append(consulta.filter(organizaciongremial__beneficio=opcion).count())
-            legends.append(opcion.nombre)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion.nombre)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
         return grafos.make_graph(data, legends, 
                 'Beneficios obtenidos siendo socio/a de la cooperativa, la asociación o empresa', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'miembro':
         for opcion in SerMiembro.objects.all():
             data.append(consulta.filter(organizaciongremial__beneficio=opcion).count())
-            legends.append(opcion.nombre)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion.nombre)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
         return grafos.make_graph(data, legends, 
                 'Porque soy o quiero ser miembro de la junta directiva o las comisiones', return_json = True,
                 type = grafos.PIE_CHART_2D)
@@ -376,21 +403,30 @@ def organizacion_grafos(request, tipo):
     elif tipo == 'beneficiorganizado':
         for opcion in BeneficioOrgComunitaria.objects.all():
             data.append(consulta.filter(organizacioncomunitaria__cual_beneficio=opcion).count())
-            legends.append(opcion.nombre)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion.nombre)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
         return grafos.make_graph(data, legends, 
                 '¿Cuáles son los beneficios de estar organizado', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'norganizado':
         for opcion in NoOrganizado.objects.all():
             data.append(consulta.filter(organizacioncomunitaria__no_organizado=opcion).count())
-            legends.append(opcion.nombre)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion.nombre)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
         return grafos.make_graph(data, legends, 
                 '¿Porqué no esta organizado?', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'comunitario':
         for opcion in OrgComunitarias.objects.all():
             data.append(consulta.filter(organizacioncomunitaria__cual_organizacion=opcion).count())
-            legends.append(opcion.nombre)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion.nombre)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
         return grafos.make_graph(data, legends, 
                 '¿A cual organizacion comunitaria pertenece', return_json = True,
                 type = grafos.PIE_CHART_2D)
@@ -406,7 +442,10 @@ def agua_grafos_disponibilidad(request, tipo):
     tipo = get_object_or_404(Fuente, id = int(tipo)) 
     for opcion in Disponibilidad.objects.all():
         data.append(consulta.filter(agua__disponible=opcion, agua__fuente = tipo).count())
-        legends.append(opcion.nombre)
+        if request.LANGUAGE_CODE == 'es':
+            legends.append(opcion.nombre)
+        elif request.LANGUAGE_CODE == 'en':
+            legends.append(opcion.nombre_en)
     titulo = 'Disponibilidad del agua en %s' % tipo.nombre 
     return grafos.make_graph(data, legends, 
             titulo, return_json = True,
@@ -546,21 +585,30 @@ def grafos_bienes(request, tipo):
     if tipo == 'tipocasa':
         for opcion in Casa.objects.all():
             data.append(consulta.filter(tipocasa__tipo=opcion).count())
-            legends.append(opcion.nombre)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion.nombre)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
         return grafos.make_graph(data, legends, 
                 'Tipos de casas', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'tipopiso': 
         for opcion in Piso.objects.all():
             data.append(consulta.filter(tipocasa__piso=opcion).count())
-            legends.append(opcion.nombre)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion.nombre)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
         return grafos.make_graph(data, legends, 
                 'Tipo de pisos', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'tipotecho':
         for opcion in Techo.objects.all():
             data.append(consulta.filter(tipocasa__techo=opcion).count())
-            legends.append(opcion.nombre)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion.nombre)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
         return grafos.make_graph(data, legends, 
                 'Tipos de Techos', return_json = True,
                 type = grafos.PIE_CHART_2D)
@@ -604,7 +652,10 @@ def gremial(request):
     por_ninguno = saca_porcentajes(ninguno,num_familias)
     
     for i in OrgGremiales.objects.exclude(id=5):
-        key = slugify(i.nombre).replace('-', '_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(i.nombre).replace('-', '_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(i.nombre_en).replace('-', '_')
         query = a.filter(organizaciongremial__socio = i)
         frecuencia = query.aggregate(frecuencia=Count('organizaciongremial__socio'))['frecuencia']     
         porcentaje = saca_porcentajes(frecuencia,num_familias)
@@ -718,7 +769,10 @@ def fincas(request):
     totales['promedio_manzana'] = round(totales['manzanas'] / consulta.count(),2)
 
     for uso in Uso.objects.exclude(id=1):
-        key = slugify(uso.nombre).replace('-', '_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(uso.nombre).replace('-', '_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(uso.nombre_en).replace('-', '_')
         query = consulta.filter(usotierra__tierra = uso)
         numero = query.count()
         porcentaje_num = saca_porcentajes(numero, num_familias)
@@ -783,7 +837,10 @@ def arboles(request):
 
     
     for activ in Actividad.objects.all():
-        key = slugify(activ.nombre).replace('-', '_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(activ.nombre).replace('-', '_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(activ.nombre_en).replace('-', '_')
         query = a.filter(reforestacion__reforestacion = activ)
         numero = query.count()
         porcentaje_num = saca_porcentajes(numero, num_familias)
@@ -837,11 +894,26 @@ def animales(request):
         except:
             animal_familia = 0
         animal_familia = "%.2f" % animal_familia
-        tabla.append([animal.nombre, numero, porcentaje_num,
+        if request.LANGUAGE_CODE == 'es':
+            tabla.append([animal.nombre, numero, porcentaje_num,
                       animales['cantidad'], animal_familia])
+        elif request.LANGUAGE_CODE == 'en':
+            tabla.append([animal.nombre_en, numero, porcentaje_num,
+                      animales['cantidad'], animal_familia])
+
         try:
-            tabla_produccion.append([animal.nombre, animales['cantidad'], 
+            if request.LANGUAGE_CODE == 'es':
+                tabla_produccion.append([animal.nombre, animales['cantidad'], 
                                  producto.nombre, producto.unidad,
+                                 animales['total_produccion'],
+                                 animales['consumo'], 
+                                 animales['venta_libre'], 
+                                 animales['venta_organizada'],
+                                 total
+                                 ])
+            elif request.LANGUAGE_CODE == 'en':
+                tabla_produccion.append([animal.nombre_en, animales['cantidad'], 
+                                 producto.nombre_en, producto.unidad,
                                  animales['total_produccion'],
                                  animales['consumo'], 
                                  animales['venta_libre'], 
@@ -870,7 +942,10 @@ def cultivos(request):
     #**********calculosdelasvariables*****
     tabla = {} 
     for i in Cultivos.objects.all():
-        key = slugify(i.nombre).replace('-', '_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(i.nombre).replace('-', '_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(i.nombre_en).replace('-', '_')
         key2 = slugify(i.unidad).replace('-', '_')
         query = a.filter(cultivosfinca__cultivos = i)
         #totales = query.aggregate(total=Sum('cultivosfinca__total'))['total']
@@ -894,7 +969,10 @@ def opcionesmanejo(request):
     tabla = {}
     
     for k in ManejoAgro.objects.all():
-        key = slugify(k.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(k.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(k.nombre_en).replace('-','_')
         query = a.filter(opcionesmanejo__uso = k)
         frecuencia = query.count()
         nada = query.filter(opcionesmanejo__uso=k,
@@ -915,7 +993,10 @@ def opcionesmanejo(request):
                       'por_bastante':por_bastante}
     tabla_escala = {}                 
     for u in ManejoAgro.objects.all():
-        key = slugify(u.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(u.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(u.nombre_en).replace('-','_')
         query = a.filter(opcionesmanejo__uso = u)
         frecuencia = query.count()
         menor_escala = query.filter(opcionesmanejo__uso=u,
@@ -958,7 +1039,10 @@ def suelos(request):
     
     #caracteristicas del terrenos
     for k in Textura.objects.all():
-        key = slugify(k.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(k.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(k.nombre_en).replace('-','_')
         query = a.filter(suelo__textura = k)
         frecuencia = query.count()
         textura = query.filter(suelo__textura=k).aggregate(textura=Count('suelo__textura'))['textura']
@@ -969,7 +1053,10 @@ def suelos(request):
     tabla_profundidad = {}
     
     for u in Profundidad.objects.all():
-        key = slugify(u.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(u.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(u.nombre_en).replace('-','_')
         query = a.filter(suelo__profundidad = u)
         frecuencia = query.count()
         profundidad = query.filter(suelo__profundidad=u).aggregate(profundidad=Count('suelo__profundidad'))['profundidad']
@@ -980,7 +1067,10 @@ def suelos(request):
     tabla_lombrices = {}
     
     for j in Densidad.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(suelo__lombrices = j)
         frecuencia = query.count()
         lombrices = query.filter(suelo__lombrices=j).aggregate(lombrices=Count('suelo__lombrices'))['lombrices']
@@ -991,7 +1081,10 @@ def suelos(request):
     tabla_densidad = {}
     
     for j in Densidad.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(suelo__densidad = j)
         frecuencia = query.count()
         densidad = query.filter(suelo__densidad=j).aggregate(densidad=Count('suelo__densidad'))['densidad']
@@ -1002,7 +1095,10 @@ def suelos(request):
     tabla_pendiente = {}
     
     for j in Pendiente.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(suelo__densidad = j)
         frecuencia = query.count()
         pendiente = query.filter(suelo__pendiente=j).aggregate(pendiente=Count('suelo__pendiente'))['pendiente']
@@ -1013,7 +1109,10 @@ def suelos(request):
     tabla_drenaje = {}
     
     for j in Drenaje.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(suelo__drenaje = j)
         frecuencia = query.count()
         drenaje = query.filter(suelo__drenaje=j).aggregate(drenaje=Count('suelo__drenaje'))['drenaje']
@@ -1024,7 +1123,10 @@ def suelos(request):
     tabla_materia = {}
     
     for j in Densidad.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(suelo__materia = j)
         frecuencia = query.count()
         materia = query.filter(suelo__materia=j).aggregate(materia=Count('suelo__materia'))['materia']
@@ -1050,7 +1152,10 @@ def manejosuelo(request):
     #Terrenos
     tabla_terreno = {}
     for j in Preparar.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(manejosuelo__preparan = j)
         frecuencia = query.count()
         preparan = query.filter(manejosuelo__preparan=j).aggregate(preparan=Count('manejosuelo__preparan'))['preparan']
@@ -1060,7 +1165,10 @@ def manejosuelo(request):
     #Tracción
     tabla_traccion = {}
     for j in Traccion.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(manejosuelo__traccion = j)
         frecuencia = query.count()
         traccion = query.filter(manejosuelo__traccion=j).aggregate(traccion=Count('manejosuelo__traccion'))['traccion']
@@ -1070,7 +1178,10 @@ def manejosuelo(request):
     #Fertilización
     tabla_fertilizacion = {}
     for j in Fertilizacion.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(manejosuelo__fertilizacion = j)
         frecuencia = query.count()
         fertilizacion = query.filter(manejosuelo__fertilizacion=j).aggregate(fertilizacion=Count('manejosuelo__fertilizacion'))['fertilizacion']
@@ -1081,7 +1192,10 @@ def manejosuelo(request):
     #Tipo obra de conservación del suelo
     tabla_obra = {}
     for j in Conservacion.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(manejosuelo__obra = j)
         frecuencia = query.count()
         obra = query.filter(manejosuelo__obra=j).aggregate(obra=Count('manejosuelo__obra'))['obra']
@@ -1103,7 +1217,10 @@ def total_ingreso(request, numero):
     #*******calculos de las variables ingreso************
     tabla = {}
     for i in Rubros.objects.filter(categoria=numero):
-        key = slugify(i.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(i.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(i.nombre_en).replace('-','_')
         key2 = slugify(i.unidad).replace('-','_')
         query = a.filter(ingresofamiliar__rubro = i)
         numero = query.count()
@@ -1204,7 +1321,10 @@ def ingresos(request):
     #********* calculos de las variables de otros ingresos******
     matriz = {}
     for j in Fuentes.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         consulta = a.filter(otrosingresos__fuente = j)
         frecuencia = consulta.count()
         meses = consulta.aggregate(meses=Sum('otrosingresos__meses'))['meses']
@@ -1249,7 +1369,10 @@ def equipos(request):
     totales['porciento_cantidad'] = 100
     
     for i in Equipos.objects.all():
-        key = slugify(i.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(i.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(i.nombre_en).replace('-','_')
         query = a.filter(propiedades__equipo = i)
         frecuencia = query.count()
         por_equipo = saca_porcentajes(frecuencia, num_familia)
@@ -1268,7 +1391,10 @@ def equipos(request):
     totales_infra['por_cantidad_infra'] = 100
        
     for j in Infraestructuras.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(infraestructura__infraestructura = j)
         frecuencia = query.count()
         por_frecuencia = saca_porcentajes(frecuencia, num_familia)
@@ -1288,7 +1414,10 @@ def equipos(request):
     totales_herramientas['porciento_herra'] = 100
     
     for k in NombreHerramienta.objects.all():
-        key = slugify(k.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(k.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(k.nombre_en).replace('-','_')
         query = a.filter(herramientas__herramienta = k)
         frecuencia = query.count()
         por_frecuencia = saca_porcentajes(frecuencia, num_familia)
@@ -1307,7 +1436,10 @@ def equipos(request):
     totales_transporte['porciento_trans'] = 100
     
     for m in NombreTransporte.objects.all():
-        key = slugify(m.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(m.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(m.nombre_en).replace('-','_')
         query = a.filter(transporte__transporte = m)
         frecuencia = query.count()
         por_frecuencia = saca_porcentajes(frecuencia, num_familia)
@@ -1330,7 +1462,10 @@ def alimentos(request,numero):
     tabla = {}
     
     for u in Alimentos.objects.filter(categoria=numero):
-        key = slugify(u.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(u.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(u.nombre_en).replace('-','_')
         query = a.filter(seguridad__alimento = u)
         frecuencia = query.count()
         producen = query.filter(seguridad__alimento=u,seguridad__producen=1).aggregate(producen=Count('seguridad__producen'))['producen']
@@ -1401,7 +1536,10 @@ def graves(request,numero):
     for x in Graves.objects.all():
         fenomeno = a.filter(vulnerable__motivo__id=numero, vulnerable__respuesta=x).count()
         porcentaje = round(saca_porcentajes(fenomeno,suma),2)
-        lista.append([x.nombre,fenomeno,porcentaje])        
+        if request.LANGUAGE_CODE == 'es':
+            lista.append([x.nombre,fenomeno,porcentaje]) 
+        elif request.LANGUAGE_CODE == 'en':
+            lista.append([x.nombre_en,fenomeno,porcentaje])            
     return lista
     
 def suma_graves(request,numero):
@@ -1480,7 +1618,10 @@ def mitigariesgos(request):
     #******************************************
     tabla = {}
     for j in PreguntaRiesgo.objects.all():
-        key = slugify(j.nombre).replace('-','_')
+        if request.LANGUAGE_CODE == 'es':
+            key = slugify(j.nombre).replace('-','_')
+        elif request.LANGUAGE_CODE == 'en':
+            key = slugify(j.nombre_en).replace('-','_')
         query = a.filter(riesgos__pregunta = j)
         mitigacion = query.filter(riesgos__pregunta=j, riesgos__respuesta=1).aggregate(mitigacion=Count('riesgos__pregunta'))['mitigacion']
         por_mitigacion = saca_porcentajes(mitigacion, num_familia)
@@ -1681,7 +1822,10 @@ def tecnicas(request):
     for datos in Practicas.objects.all():
         conteo = a.filter(viveropractica__practica=datos,viveropractica__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_vivero[datos.nombre] = (conteo,int(porcentaje))
+        if request.LANGUAGE_CODE == 'es':
+            lista_vivero[datos.nombre] = (conteo,int(porcentaje))
+        elif request.LANGUAGE_CODE == 'en':
+            lista_vivero[datos.nombre_en] = (conteo,int(porcentaje))
     dicc1 = sorted(lista_vivero.items(), key=lambda x: x[1], reverse=True)
     #---------------------------------------------------------------------------
     
@@ -1689,7 +1833,10 @@ def tecnicas(request):
     for datos in PracticaEtapa.objects.all():
         conteo = a.filter(practicafertilizacion__practica=datos,practicafertilizacion__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_fertilizacion[datos.nombre] = (conteo,int(porcentaje))
+        if request.LANGUAGE_CODE == 'es':
+            lista_fertilizacion[datos.nombre] = (conteo,int(porcentaje))
+        elif request.LANGUAGE_CODE == 'en':
+            lista_fertilizacion[datos.nombre_en] = (conteo,int(porcentaje))
     dicc2 = sorted(lista_fertilizacion.items(), key=lambda x: x[1], reverse=True)
     #---------------------------------------------------------------------------
     
@@ -1697,7 +1844,10 @@ def tecnicas(request):
     for datos in PracticaFitosanitaria.objects.all():
         conteo = a.filter(practicamanejofitosanitario__practica=datos,practicamanejofitosanitario__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_fitosanitaria[datos.nombre] = (conteo,int(porcentaje))
+        if request.LANGUAGE_CODE == 'es':
+            lista_fitosanitaria[datos.nombre] = (conteo,int(porcentaje))
+        elif request.LANGUAGE_CODE == 'en':
+            lista_fitosanitaria[datos.nombre_en] = (conteo,int(porcentaje))
     dicc3 = sorted(lista_fitosanitaria.items(), key=lambda x: x[1], reverse=True)
     #---------------------------------------------------------------------------
     
@@ -1705,7 +1855,10 @@ def tecnicas(request):
     for datos in PracticaProductivo.objects.all():
         conteo = a.filter(practicamanejoproductivo__practica=datos,practicamanejoproductivo__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_productivo[datos.nombre] = (conteo,int(porcentaje))
+        if request.LANGUAGE_CODE == 'es':
+            lista_productivo[datos.nombre] = (conteo,int(porcentaje))
+        elif request.LANGUAGE_CODE == 'en':
+            lista_productivo[datos.nombre_en] = (conteo,int(porcentaje))
     dicc4 = sorted(lista_productivo.items(), key=lambda x: x[1], reverse=True)
     #---------------------------------------------------------------------------
     
@@ -1713,7 +1866,10 @@ def tecnicas(request):
     for datos in PracticaGenetico.objects.all():
         conteo = a.filter(practicamejoramientogenetico__practica=datos,practicamejoramientogenetico__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_generico[datos.nombre] = (conteo,int(porcentaje))
+        if request.LANGUAGE_CODE == 'es':
+            lista_generico[datos.nombre] = (conteo,int(porcentaje))
+        elif request.LANGUAGE_CODE == 'en':
+            lista_generico[datos.nombre_en] = (conteo,int(porcentaje))
     dicc5 = sorted(lista_generico.items(), key=lambda x: x[1], reverse=True)
     #--------------------------------------------------------------------------
     
@@ -1721,7 +1877,10 @@ def tecnicas(request):
     for datos in PracticaPostcosecha.objects.all():
         conteo = a.filter(practicamanejopostcosecha__practica=datos,practicamanejopostcosecha__respuesta=1).count()
         porcentaje = saca_porcentajes(conteo,num_familia)
-        lista_postcosecha[datos.nombre] = (conteo,int(porcentaje))
+        if request.LANGUAGE_CODE == 'es':
+            lista_postcosecha[datos.nombre] = (conteo,int(porcentaje))
+        elif request.LANGUAGE_CODE == 'en':
+            lista_postcosecha[datos.nombre_en] = (conteo,int(porcentaje))
     dicc6 = sorted(lista_postcosecha.items(), key=lambda x: x[1], reverse=True)
 
     return render_to_response('estado/practicas.html', RequestContext(request, locals()))
@@ -1782,24 +1941,43 @@ def comercializacion(request):
             ingreso = round(suma_autoconsumo + suma_venta) * precio
         except:
             ingreso = 0
-        lista_producto[comer.nombre] = (comer.unidad,conteo,
+        if request.LANGUAGE_CODE == 'es':
+            lista_producto[comer.nombre] = (comer.unidad,conteo,
+                                                 porcentaje,suma_autoconsumo,
+                                                 suma_venta,precio,ingreso)
+        elif request.LANGUAGE_CODE == 'en':
+            lista_producto[comer.nombre_en] = (comer.unidad,conteo,
                                                  porcentaje,suma_autoconsumo,
                                                  suma_venta,precio,ingreso)
     #graficos de ventas a quien vende
     lista_vende = {}
     for producto in productos:
-        lista_vende[producto.nombre] = {}
+        if request.LANGUAGE_CODE == 'es':
+            lista_vende[producto.nombre] = {}
+        elif request.LANGUAGE_CODE == 'en':
+            lista_vende[producto.nombre_en] = {}
         for quien in AquienVende.objects.all():
-            lista_vende[producto.nombre][quien.nombre] = a.filter(comercializacion__producto=producto,
+            if request.LANGUAGE_CODE == 'es':
+                lista_vende[producto.nombre][quien.nombre] = a.filter(comercializacion__producto=producto,
+                                                                   comercializacion__aquien_vende=quien).count()
+            elif request.LANGUAGE_CODE == 'en':
+                lista_vende[producto.nombre_en][quien.nombre] = a.filter(comercializacion__producto=producto,
                                                                    comercializacion__aquien_vende=quien).count()
     #print lista_vende
     
     #graficos de donde lo vende    
     lista_donde = {}
     for producto in productos:
-        lista_donde[producto.nombre] = {}
+        if request.LANGUAGE_CODE == 'es':
+            lista_donde[producto.nombre] = {}
+        elif request.LANGUAGE_CODE == 'en':
+            lista_donde[producto.nombre_en] = {}
         for donde in DondeVende.objects.all():
-            lista_donde[producto.nombre][donde.nombre] = a.filter(comercializacion__producto=producto,
+            if request.LANGUAGE_CODE == 'es':
+                lista_donde[producto.nombre][donde.nombre] = a.filter(comercializacion__producto=producto,
+                                                                   comercializacion__donde=donde).count()
+            elif request.LANGUAGE_CODE == 'en':
+                lista_donde[producto.nombre_en][donde.nombre] = a.filter(comercializacion__producto=producto,
                                                                    comercializacion__donde=donde).count()
     #print lista_donde 
     
@@ -1807,15 +1985,28 @@ def comercializacion(request):
     #capacitaciones
     dicc2 = {}
     for tecnica in Tecnica.objects.all():
-        dicc2[tecnica.nombre] = {}
+        if request.LANGUAGE_CODE == 'es':
+            dicc2[tecnica.nombre] = {}
+        elif request.LANGUAGE_CODE == 'en':
+            dicc2[tecnica.nombre_en] = {}
         for familia in Familia.objects.all():
-            dicc2[tecnica.nombre][familia.nombre] = conteo = a.filter(capacitaciontecnica__capacitacion=tecnica,capacitaciontecnica__respuesta=familia).count()            
+            if request.LANGUAGE_CODE == 'es':
+                dicc2[tecnica.nombre][familia.nombre] = conteo = a.filter(capacitaciontecnica__capacitacion=tecnica,capacitaciontecnica__respuesta=familia).count()
+            elif request.LANGUAGE_CODE == 'en':
+                dicc2[tecnica.nombre_en][familia.nombre] = conteo = a.filter(capacitaciontecnica__capacitacion=tecnica,capacitaciontecnica__respuesta=familia).count()
+
             
     dicc1 = {}
     for tecnica in Social.objects.all():
-        dicc1[tecnica.nombre] = {}
+        if request.LANGUAGE_CODE == 'es':
+            dicc1[tecnica.nombre] = {}
+        elif request.LANGUAGE_CODE == 'en':
+            dicc1[tecnica.nombre_en] = {}
         for familia in Familia.objects.all():
-            dicc1[tecnica.nombre][familia.nombre] = conteo = a.filter(capacitacionsocial__capacitacion=tecnica,capacitacionsocial__respuesta=familia).count()
+            if request.LANGUAGE_CODE == 'es':
+                dicc1[tecnica.nombre][familia.nombre] = conteo = a.filter(capacitacionsocial__capacitacion=tecnica,capacitacionsocial__respuesta=familia).count()
+            elif request.LANGUAGE_CODE == 'en':
+                dicc1[tecnica.nombre_en][familia.nombre] = conteo = a.filter(capacitacionsocial__capacitacion=tecnica,capacitacionsocial__respuesta=familia).count()
             
                                                          
     return render_to_response('comercializacion/comercio.html', RequestContext(request, locals()))    
@@ -1832,13 +2023,19 @@ def generos(request):
     for i in ActividadHogar.objects.all():
         conteo = a.filter(participacion__principal=i, sexo=2).count()
         porcentaje = round(saca_porcentajes(conteo,mujer),2)
-        lista_hogar[i.nombre]= (conteo,porcentaje)
+        if request.LANGUAGE_CODE == 'es':
+            lista_hogar[i.nombre]= (conteo,porcentaje)
+        elif request.LANGUAGE_CODE == 'en':
+            lista_hogar[i.nombre_en]= (conteo,porcentaje)
         
     lista_finca = {}
     for b in ActividadFinca.objects.all():
         conteo = a.filter(sexo=2, participacion__actividad_finca=b).count()
         porcentaje = round(saca_porcentajes(conteo,mujer),2)
-        lista_finca[b.nombre]= (conteo,porcentaje)
+        if request.LANGUAGE_CODE == 'es':
+            lista_finca[b.nombre]= (conteo,porcentaje)
+        elif request.LANGUAGE_CODE == 'en':
+            lista_finca[b.nombre_en]= (conteo,porcentaje)
         
     #numero de mujeres tiene ingreso
     conteo_mujer = a.filter(sexo=2, participacion__ingreso__gt=1).aggregate(conteo_mujer=Count('participacion__ingreso'))['conteo_mujer']
@@ -1880,7 +2077,10 @@ def generos(request):
         conteo = a.filter(mujerorganizacion__tipo_organizacion=c,
                           mujerorganizacion__participa=1, sexo=2).count()
         porcentaje = round(saca_porcentajes(conteo,num_familias),2)
-        grafo_organizacion.append([c.nombre,conteo,porcentaje])
+        if request.LANGUAGE_CODE == 'es':
+            grafo_organizacion.append([c.nombre,conteo,porcentaje])
+        elif request.LANGUAGE_CODE == 'en':
+            grafo_organizacion.append([c.nombre_en,conteo,porcentaje])
         
     grafo_voto = []
     for c in CHOICE_OPCION:

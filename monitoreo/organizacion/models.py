@@ -2,6 +2,7 @@
 
 from django.db import models
 from monitoreo.encuestas.models import *
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
@@ -9,6 +10,7 @@ from monitoreo.encuestas.models import *
 
 class OrgGremiales(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -18,6 +20,7 @@ class OrgGremiales(models.Model):
 
 class BeneficiosObtenido(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -25,13 +28,15 @@ class BeneficiosObtenido(models.Model):
     class Meta:
         verbose_name_plural = "Benificios Obtenidos"
 
-CHOICE_DESDE = ((1,'Menos de 5 años'),
-                (2,'Más de 5 años'),
-                (3, 'No utilizar'))
+CHOICE_DESDE = ((1, _(u'Menos de 5 años')),
+                (2, _(u'Más de 5 años')),
+                (3,  _(u'No utilizar'))
+                )
                 
-CHOICE_MIEMBRO_GREMIAL = ((1,'Junta directiva'),
-                          (2,'No'),
-                          (3,'Comisiones de trabajo'))
+CHOICE_MIEMBRO_GREMIAL = ((1, _(u'Junta directiva')),
+                          (2, _(u'No')),
+                          (3, _(u'Comisiones de trabajo'))
+                          )
 
 
 class OrganizacionGremial(models.Model):
@@ -56,6 +61,7 @@ class OrganizacionGremial(models.Model):
 
 class OrgComunitarias(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -65,6 +71,7 @@ class OrgComunitarias(models.Model):
 
 class BeneficioOrgComunitaria(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -74,6 +81,7 @@ class BeneficioOrgComunitaria(models.Model):
 
 class NombreOrganizacion(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -101,22 +109,24 @@ class OrganizacionComunitaria(models.Model):
 #-------------------------------------------------------------------------------
 #Indicador 3 y 4 son demaciado pequeños para crear un app para ellos
 
-CHOICE_TENENCIA = ((1,"Propia con escritura pública"),
-                   (2,"Propia por herencia"),
-                   (3,"Parcela en tierra comunitaria"),
-                   (4,"Propias con promesa de venta"),
-                   (5,"Propias con titulo de reforma agraria"),
-                   (6,"Arrendada"),
-                   (7,"Sin documento"),
-                   (8,"Escritura posesoria"))
+CHOICE_TENENCIA = ((1, _(u"Propia con escritura pública")),
+                   (2, _(u"Propia por herencia")),
+                   (3, _(u"Parcela en tierra comunitaria")),
+                   (4, _(u"Propias con promesa de venta")),
+                   (5, _(u"Propias con titulo de reforma agraria")),
+                   (6, _(u"Arrendada")),
+                   (7, _(u"Sin documento")),
+                   (8, _(u"Escritura posesoria"))
+                   )
                    
                    
-CHOICE_DUENO = ((1,"Hombre"),
-                (2,"Mujer"),
-                (3,"Mancomunado"),
-                (4,"Parientes"),
-                (5,"Colectivo"),
-                (6,"No hay"))
+CHOICE_DUENO = ((1, _(u"Hombre")),
+                (2, _(u"Mujer")),
+                (3, _(u"Mancomunado")),
+                (4, _(u"Parientes")),
+                (5, _(u"Colectivo")),
+                (6, _(u"No hay"))
+                )
 
 class Tenencia(models.Model):
     ''' Modelo tipo de tenencia de la propiedad

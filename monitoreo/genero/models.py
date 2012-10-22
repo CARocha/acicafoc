@@ -2,25 +2,28 @@
 
 from django.db import models
 from monitoreo.encuestas.models import *
+from django.utils.translation import ugettext_lazy as _
 
 # Indicador 25. Género
 
 class ActividadHogar(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
         
 class ActividadFinca(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
         
 choice_si_no = (
-                    (1,"Si"),
+                    (1, _(u"Si")),
                     (2,"No"),
-                    (3,"Junto con su esposo")
+                    (3, _(u"Junto con su esposo"))
                 )
                 
 class Participacion(models.Model):
@@ -36,6 +39,7 @@ class Participacion(models.Model):
 
 class TipoOrganizacion(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre

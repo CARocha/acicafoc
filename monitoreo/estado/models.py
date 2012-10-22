@@ -2,6 +2,7 @@
 
 from django.db import models
 from monitoreo.encuestas.models import *
+from django.utils.translation import ugettext_lazy as _
 
 class Vivero(models.Model):
     vivero_cacao = models.IntegerField('¿Actualmente tiene vivero de cacao en la finca?', choices=CHOICE_OPCION, null=True, blank=True)
@@ -84,6 +85,7 @@ class Costo(models.Model):
 
 class Practicas(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -98,6 +100,7 @@ class ViveroPractica(models.Model):
 
 class PracticaEtapa(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -112,6 +115,7 @@ class PracticaFertilizacion(models.Model):
         
 class PracticaFitosanitaria(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -126,6 +130,7 @@ class PracticaManejoFitosanitario(models.Model):
 
 class PracticaProductivo(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -140,6 +145,7 @@ class PracticaManejoProductivo(models.Model):
         
 class PracticaGenetico(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -154,6 +160,7 @@ class PracticaMejoramientoGenetico(models.Model):
         
 class PracticaPostcosecha(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -167,16 +174,16 @@ class PracticaManejoPostcosecha(models.Model):
         verbose_name_plural = "Etapa de producción y desarrollo: Prácticas de Manejo postcosecha y beneficiado"
 
 CHOICE_FERMENTACION = (
-                        (1,"Menor de 80%"),
-                        (2,"80%"),
-                        (3,"Más de 80%")
+                        (1, _(u"Menor de 80%")),
+                        (2, "80%"),
+                        (3, _(u"Más de 80%"))
                       )
 
 CHOICE_SECADO = (
                         (1,"6%"),
                         (2,"6.5%"),
                         (3,"7%"),
-                        (4,"Mayor de 7%")
+                        (4, _(u"Mayor de 7%"))
                       )        
 class Niveles(models.Model):
     nivel_fermentacion = models.IntegerField('Nivel de fermentación que maneja y aplica', choices=CHOICE_FERMENTACION, null=True, blank=True)

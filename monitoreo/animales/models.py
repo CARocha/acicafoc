@@ -7,6 +7,7 @@ from monitoreo.encuestas.models import *
 
 class Animales(models.Model):
     nombre = models.CharField(max_length=50)
+    nombre_en = models.CharField(max_length=50, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre
@@ -17,6 +18,7 @@ class Animales(models.Model):
 class ProductoAnimal(models.Model):
     nombre = models.CharField(max_length=100)
     unidad = models.CharField(max_length=100)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return self.nombre

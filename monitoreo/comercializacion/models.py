@@ -8,18 +8,21 @@ from monitoreo.encuestas.models import *
 class Productos(models.Model):
     nombre = models.CharField(max_length=200)
     unidad = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
         
 class AquienVende(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=100, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
         
 class DondeVende(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -38,12 +41,14 @@ class Comercializacion(models.Model):
         
 class Tecnica(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
         
 class Familia(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre
@@ -58,6 +63,7 @@ class CapacitacionTecnica(models.Model):
         
 class Social(models.Model):
     nombre = models.CharField(max_length=200)
+    nombre_en = models.CharField(max_length=200, null=True, blank=True)
     
     def __unicode__(self):
         return self.nombre

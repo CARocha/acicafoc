@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-15 13:40-0600\n"
+"POT-Creation-Date: 2012-10-16 23:28-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,22 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: agroecologico/models.py:22 templates/agroecologico/manejo_agro.html:14
+msgid "Nada"
+msgstr "Nothing"
+
+#: agroecologico/models.py:23 templates/agroecologico/manejo_agro.html:16
+msgid "Poco"
+msgstr "Little"
+
+#: agroecologico/models.py:24 templates/agroecologico/manejo_agro.html:18
+msgid "Algo"
+msgstr "Something"
+
+#: agroecologico/models.py:25 templates/agroecologico/manejo_agro.html:20
+msgid "Bastante"
+msgstr "Sufficient"
 
 #: encuestas/forms.py:11
 msgid "Sexo Dueño"
@@ -29,31 +45,261 @@ msgstr "Beneficiaries"
 msgid "Dueño"
 msgstr "Owner"
 
+#: encuestas/models.py:29 encuestas/models.py:47 ingreso/models.py:18
+#: organizacion/models.py:123 templates/filtros.html:27
+msgid "Hombre"
+msgstr "Man"
+
+#: encuestas/models.py:30 encuestas/models.py:48 ingreso/models.py:19
+#: organizacion/models.py:124 templates/filtros.html:27
+msgid "Mujer"
+msgstr "Woman"
+
+#: encuestas/models.py:34 genero/models.py:24
+msgid "Si"
+msgstr "Yes"
+
+#: encuestas/models.py:35 organizacion/models.py:37
+msgid "No"
+msgstr "No"
+
+#: encuestas/models.py:36 organizacion/models.py:33
+msgid "No utilizar"
+msgstr "No use"
+
+#: encuestas/models.py:40 templates/filtros.html:24
+msgid "Miskito"
+msgstr "Miskito"
+
+#: encuestas/models.py:41 templates/filtros.html:24
+msgid "Mayagna"
+msgstr "Mayangna"
+
+#: encuestas/models.py:42 templates/filtros.html:24
+msgid "Mestizo"
+msgstr "Mixed"
+
+#: encuestas/models.py:43 templates/filtros.html:24
+msgid "Afrodescendiente"
+msgstr "Of African Origin"
+
+#: encuestas/models.py:49 ingreso/models.py:20
+msgid "Ambos"
+msgstr "Both"
+
+#: encuestas/models.py:50 ingreso/models.py:21
+msgid "Hijos/as"
+msgstr "Son"
+
+#: encuestas/models.py:51 ingreso/models.py:22
+msgid "Hombre-Hijos"
+msgstr "Men - son"
+
+#: encuestas/models.py:52 ingreso/models.py:23
+msgid "Mujer-Hijos"
+msgstr "Women-children"
+
+#: encuestas/models.py:53 ingreso/models.py:15 ingreso/models.py:24
+#: templates/encuestas/inicio.html:18 templates/encuestas/inicio.html.py:32
+#: templates/encuestas/inicio.html:47 templates/encuestas/inicio.html.py:54
+#: templates/encuestas/inicio.html:75 templates/encuestas/inicio.html.py:95
+msgid "Todos"
+msgstr "All"
+
+#: estado/models.py:177
+msgid "Menor de 80%"
+msgstr "Less than 80%"
+
+#: estado/models.py:179
+msgid "Más de 80%"
+msgstr "More than 80%"
+
+#: estado/models.py:186
+msgid "Mayor de 7%"
+msgstr "major of 7%"
+
+#: familias/models.py:11
+msgid "Hombre mas de 18 años"
+msgstr "Men more than 18 years old"
+
+#: familias/models.py:12
+msgid "Mujeres mas de 18 años"
+msgstr "Women more than 18 years old"
+
+#: familias/models.py:13
+msgid "Hombre de 7 a 18 años"
+msgstr "boys"
+
+#: familias/models.py:14
+msgid "Mujeres de 7 a 18 años"
+msgstr "girls"
+
+#: familias/models.py:15
+msgid "Niños menos de 6 años"
+msgstr "Children under 6 years"
+
+#: familias/models.py:16
+msgid "Niñas menos de 6 años"
+msgstr "Girls under age 6"
+
+#: genero/models.py:26
+msgid "Junto con su esposo"
+msgstr "Together with her husband"
+
+#: ingreso/models.py:11 templates/filtros.html:16
+#: templates/encuestas/inicio.html:45 templates/encuestas/inicio.html.py:46
+msgid "Comunidad"
+msgstr "Community"
+
+#: ingreso/models.py:12
+msgid "Intermediario"
+msgstr "intermediary"
+
+#: ingreso/models.py:13
+msgid "Mercado"
+msgstr "Market"
+
+#: ingreso/models.py:14
+msgid "Cooperativa"
+msgstr "Cooperativa"
+
+#: ingreso/models.py:28 templates/ingresos/ingreso.html:245
+msgid "Agroforestales"
+msgstr "Agroforestry"
+
+#: ingreso/models.py:29 templates/ingresos/ingreso.html:280
+msgid "Forestales"
+msgstr "Forest"
+
+#: ingreso/models.py:30 templates/ingresos/ingreso.html:315
+msgid "Granos básicos"
+msgstr "Basic grains"
+
+#: ingreso/models.py:31 templates/ingresos/ingreso.html:350
+msgid "Ganado mayor"
+msgstr "Livestock"
+
+#: ingreso/models.py:32 templates/ingresos/ingreso.html:385
+msgid "Animales de patio"
+msgstr "Animals patio"
+
+#: ingreso/models.py:33 templates/ingresos/ingreso.html:420
+msgid "Hortalizas y frutas"
+msgstr "Vegetables and fruits"
+
+#: ingreso/models.py:34 templates/ingresos/ingreso.html:455
+msgid "Musaceas"
+msgstr "Musaceas"
+
+#: ingreso/models.py:35 templates/ingresos/ingreso.html:490
+msgid "Raíces y tubérculos"
+msgstr "Roots and tubers"
+
+#: organizacion/models.py:31
+msgid "Menos de 5 años"
+msgstr "Less than 5 years"
+
+#: organizacion/models.py:32
+msgid "Más de 5 años"
+msgstr "More than 5 years "
+
+#: organizacion/models.py:36
+msgid "Junta directiva"
+msgstr "Board of Directors"
+
+#: organizacion/models.py:38
+msgid "Comisiones de trabajo"
+msgstr "Working Committees"
+
+#: organizacion/models.py:112
+msgid "Propia con escritura pública"
+msgstr "Deed itself with"
+
+#: organizacion/models.py:113
+msgid "Propia por herencia"
+msgstr "Own by inheritance"
+
+#: organizacion/models.py:114
+msgid "Parcela en tierra comunitaria"
+msgstr "Plot for community land"
+
+#: organizacion/models.py:115
+msgid "Propias con promesa de venta"
+msgstr "Own with a promise of sale"
+
+#: organizacion/models.py:116
+msgid "Propias con titulo de reforma agraria"
+msgstr "Titled own land reform"
+
+#: organizacion/models.py:117
+msgid "Arrendada"
+msgstr "leased"
+
+#: organizacion/models.py:118
+msgid "Sin documento"
+msgstr "Not Document"
+
+#: organizacion/models.py:119
+msgid "Escritura posesoria"
+msgstr "writing possessory"
+
+#: organizacion/models.py:125 templates/filtros.html:27
+msgid "Mancomunado"
+msgstr "Shared"
+
+#: organizacion/models.py:126 templates/filtros.html:27
+msgid "Parientes"
+msgstr "Kins"
+
+#: organizacion/models.py:127 templates/filtros.html:27
+msgid "Colectivo"
+msgstr "Collective"
+
+#: organizacion/models.py:128 templates/filtros.html:27
+msgid "No hay"
+msgstr "None"
+
+#: seguridad/models.py:12
+msgid "Carbohidrátos"
+msgstr ""
+
+#: seguridad/models.py:13
+msgid "Grasas"
+msgstr ""
+
+#: seguridad/models.py:14
+msgid "Minerales/Vitaminas"
+msgstr ""
+
+#: seguridad/models.py:15
+msgid "Proteinas"
+msgstr ""
+
 #: templates/basenueva.html:14
 msgid "Sistema de Monitoreo ACICAFOC"
 msgstr "ACICAFOC monitoring system"
 
-#: templates/basenueva.html:81
+#: templates/basenueva.html:78
 msgid "INICIO"
 msgstr "Home"
 
-#: templates/basenueva.html:82
+#: templates/basenueva.html:80
 msgid "CAMBIAR INDICADOR"
 msgstr "Change indicator"
 
-#: templates/basenueva.html:83
+#: templates/basenueva.html:82
 msgid "NUEVA CONSULTA"
 msgstr "New Search"
 
-#: templates/basenueva.html:95
+#: templates/basenueva.html:107
 msgid "Sistema de Monitoreo"
 msgstr "Monitoring System"
 
-#: templates/basenueva.html:96
+#: templates/basenueva.html:108
 msgid "Desarrollado en Nicaragua"
 msgstr "Developed in Nicaragua"
 
-#: templates/basenueva.html:96
+#: templates/basenueva.html:108
 msgid "bajo plataforma"
 msgstr "with platform"
 
@@ -85,11 +331,6 @@ msgstr "Organization"
 msgid "Municipio"
 msgstr "Municipality"
 
-#: templates/filtros.html:16 templates/encuestas/inicio.html:45
-#: templates/encuestas/inicio.html.py:46
-msgid "Comunidad"
-msgstr "Community"
-
 #: templates/filtros.html:18
 msgid "Socio:"
 msgstr "Partner"
@@ -110,49 +351,9 @@ msgstr "More than 5 "
 msgid "Grupo étnico"
 msgstr "Ethnic group"
 
-#: templates/filtros.html:24
-msgid "Miskito"
-msgstr "Miskito"
-
-#: templates/filtros.html:24
-msgid "Mayagna"
-msgstr "Mayangna"
-
-#: templates/filtros.html:24
-msgid "Mestizo"
-msgstr "Mixed"
-
-#: templates/filtros.html:24
-msgid "Afrodescendiente"
-msgstr "Of African Origin"
-
 #: templates/filtros.html:27
 msgid "Tipo Dueño:"
 msgstr "Owner Type:"
-
-#: templates/filtros.html:27
-msgid "Hombre"
-msgstr "Man"
-
-#: templates/filtros.html:27
-msgid "Mujer"
-msgstr "Woman"
-
-#: templates/filtros.html:27
-msgid "Mancomunado"
-msgstr "Shared"
-
-#: templates/filtros.html:27
-msgid "Parientes"
-msgstr "Kins"
-
-#: templates/filtros.html:27
-msgid "Colectivo"
-msgstr "Collective"
-
-#: templates/filtros.html:27
-msgid "No hay"
-msgstr "None"
 
 #: templates/index.html:36
 msgid "Hombres:"
@@ -314,7 +515,7 @@ msgstr "Project advances"
 msgid "Conoce la actualidad de las actividades realizadas por el proyecto."
 msgstr "Find out about current activities of the project"
 
-#: templates/nav_familia.html:3 templates/familias/educacion.html:156
+#: templates/nav_familia.html:3 templates/familias/educacion.html:157
 msgid "Educación"
 msgstr "Education"
 
@@ -577,22 +778,6 @@ msgstr "Level of knowledge"
 #: templates/agroecologico/manejo_agro.html:45
 msgid "uso de manejo agro."
 msgstr "use of agronomic practices"
-
-#: templates/agroecologico/manejo_agro.html:14
-msgid "Nada"
-msgstr "Nothing"
-
-#: templates/agroecologico/manejo_agro.html:16
-msgid "Poco"
-msgstr "Little"
-
-#: templates/agroecologico/manejo_agro.html:18
-msgid "Algo"
-msgstr "Something"
-
-#: templates/agroecologico/manejo_agro.html:20
-msgid "Bastante"
-msgstr "Sufficient"
 
 #: templates/agroecologico/manejo_agro.html:41
 msgid "Ha experimentado"
@@ -962,12 +1147,6 @@ msgstr "Group"
 msgid "Porcentaje (%)"
 msgstr "Percentage (%)"
 
-#: templates/encuestas/inicio.html:18 templates/encuestas/inicio.html.py:32
-#: templates/encuestas/inicio.html:47 templates/encuestas/inicio.html.py:54
-#: templates/encuestas/inicio.html:75 templates/encuestas/inicio.html.py:95
-msgid "Todos"
-msgstr "All"
-
 #: templates/encuestas/inicio.html:19 templates/encuestas/inicio.html.py:33
 #: templates/encuestas/inicio.html:48 templates/encuestas/inicio.html.py:55
 #: templates/encuestas/inicio.html:76 templates/encuestas/inicio.html.py:96
@@ -1178,7 +1357,6 @@ msgid "Gasto anual finca"
 msgstr "Annual farm expenditure"
 
 #: templates/estado/plantaciones.html:167
-#, fuzzy, python-format
 msgid "% de Gasto de cacao"
 msgstr "Expenditure cocoa"
 
@@ -1198,7 +1376,7 @@ msgstr "nursery"
 #: templates/estado/practicas.html:150 templates/estado/practicas.html:214
 #: templates/estado/practicas.html:278 templates/estado/practicas.html:342
 #: templates/familias/agua.html:23 templates/familias/educacion.html:23
-#: templates/familias/educacion.html:88 templates/ingresos/ingreso.html:47
+#: templates/familias/educacion.html:89 templates/ingresos/ingreso.html:47
 #: templates/ingresos/ingreso.html:115 templates/reforestacion/fincas.html:74
 #: templates/riesgos/mitigacion.html:23 templates/seguridad/seguridad.html:412
 msgid "Opciones"
@@ -1280,7 +1458,7 @@ msgstr "Drinking water"
 msgid "Frecuencias"
 msgstr "Frequency"
 
-#: templates/familias/agua.html:135 templates/familias/educacion.html:156
+#: templates/familias/agua.html:135 templates/familias/educacion.html:157
 #: templates/familias/luz.html:22
 msgid "FAMILIA"
 msgstr "FAMILY"
@@ -1301,7 +1479,7 @@ msgstr ""
 "Members who achieved primary education (primary + secondary incomplete + "
 "complete + university degree)"
 
-#: templates/familias/educacion.html:94 templates/riesgos/vulnerable.html:32
+#: templates/familias/educacion.html:95 templates/riesgos/vulnerable.html:32
 #: templates/riesgos/vulnerable.html:148 templates/riesgos/vulnerable.html:265
 #: templates/seguridad/seguridad.html:42
 #: templates/seguridad/seguridad.html:141
@@ -1310,35 +1488,35 @@ msgstr ""
 msgid "Porcentajes (%)"
 msgstr "Percentages (%)"
 
-#: templates/familias/educacion.html:163
+#: templates/familias/educacion.html:164
 msgid "Número total"
 msgstr "Total"
 
-#: templates/familias/educacion.html:164
+#: templates/familias/educacion.html:165
 msgid "No sabe leer (%)"
 msgstr "Can not read (%)"
 
-#: templates/familias/educacion.html:165
+#: templates/familias/educacion.html:166
 msgid "Primaria incompleta (%)"
 msgstr "Incomplete primary (%)"
 
-#: templates/familias/educacion.html:166
+#: templates/familias/educacion.html:167
 msgid "Primaria completa (%)"
 msgstr "Complete primary (%)"
 
-#: templates/familias/educacion.html:167
+#: templates/familias/educacion.html:168
 msgid "Secundaria incompleta (%)"
 msgstr "Incomplete secondary (%)"
 
-#: templates/familias/educacion.html:168
+#: templates/familias/educacion.html:169
 msgid "Bachiller (%)"
 msgstr "High School graduate (%)"
 
-#: templates/familias/educacion.html:169
+#: templates/familias/educacion.html:170
 msgid "Universitario (%)"
 msgstr "University (%)"
 
-#: templates/familias/educacion.html:170
+#: templates/familias/educacion.html:171
 msgid "Vive fuera de la comunidad (%)"
 msgstr "Lives outside the community (%)"
 
@@ -1498,10 +1676,6 @@ msgstr "INCOME"
 msgid "Los Ingresos familiares"
 msgstr "Family income"
 
-#: templates/ingresos/ingreso.html:245
-msgid "Agroforestales"
-msgstr "Agroforestry"
-
 #: templates/ingresos/ingreso.html:248 templates/ingresos/ingreso.html:283
 #: templates/ingresos/ingreso.html:318 templates/ingresos/ingreso.html:353
 #: templates/ingresos/ingreso.html:388 templates/ingresos/ingreso.html:423
@@ -1543,34 +1717,6 @@ msgstr "Proceeds from sale"
 #: templates/ingresos/ingreso.html:479 templates/ingresos/ingreso.html:514
 msgid "TOTAL VENTA RUBROS"
 msgstr "TOTAL SALE ITEMS"
-
-#: templates/ingresos/ingreso.html:280
-msgid "Forestales"
-msgstr "Forest"
-
-#: templates/ingresos/ingreso.html:315
-msgid "Granos básicos"
-msgstr "Basic grains"
-
-#: templates/ingresos/ingreso.html:350
-msgid "Ganado mayor"
-msgstr "Livestock"
-
-#: templates/ingresos/ingreso.html:385
-msgid "Animales de patio"
-msgstr "Animals patio"
-
-#: templates/ingresos/ingreso.html:420
-msgid "Hortalizas y frutas"
-msgstr "Vegetables and fruits"
-
-#: templates/ingresos/ingreso.html:455
-msgid "Musaceas"
-msgstr "Musaceas"
-
-#: templates/ingresos/ingreso.html:490
-msgid "Raíces y tubérculos"
-msgstr "Roots and tubers"
 
 #: templates/ingresos/ingreso.html:525
 msgid "Ingreso agropecuario:"
