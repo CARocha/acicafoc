@@ -200,7 +200,13 @@
                 </div>
 
                 <div class="clean"></div>            
-                            <input type="submit" value="" class="consultar"/> 
+                {%if LANGUAGE_CODE == 'es' %}
+                <input type="submit" value="CONSULTAR" class="btn btn-danger consultar"/> 
+                {%endif%}
+                {%if LANGUAGE_CODE == 'en' %}
+               <input type="submit" value="SEARCH" class="btn btn-danger consultar"/> 
+                {%endif%}
+                            
             </div>        
             </form>
         </div>
