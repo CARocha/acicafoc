@@ -369,10 +369,15 @@ var chart;
                 },
                 {
                     name: '{% trans "Invierno" %}',
-                    data: [{{proteinas.carne_de_res.por_invierno}},{{proteinas.huevos.por_invierno}},
+                    data: [{%if LANGUAGE_CODE == 'es' %} {{proteinas.carne_de_res.por_invierno}},{{proteinas.huevos.por_invierno}},
                            {{proteinas.carne_de_cerdo.por_invierno}},{{proteinas.soya.por_invierno}},
                            {{proteinas.pollo.por_invierno}},{{proteinas.leche.por_invierno}},
-                           {{proteinas.frijol.por_invierno}},
+                           {{proteinas.frijol.por_invierno}},{%endif%}
+                           {%if LANGUAGE_CODE == 'en' %}
+                            {{proteinas.beef.por_invierno}},{{proteinas.eggs.por_invierno}},
+                           {{proteinas.pork.por_invierno}},{{proteinas.soybeans.por_invierno}},
+                           {{proteinas.chicken.por_invierno}},{{proteinas.milk.por_invierno}},
+                           {{proteinas.beans.por_invierno}},{%endif%}
                           ],
                    dataLabels: {
                         enabled: true,
