@@ -1517,7 +1517,7 @@ def seguridad_alimentaria(request):
         if v['producen'] > 0:
             prot += 1      
     lista.append({'Carbohidrato':carbo,'Grasa':gra,'Minerales/Vitamina':mine,'Proteinas':prot}) 
-                                 
+                           
     return render_to_response('seguridad/seguridad.html',locals(),
                                context_instance=RequestContext(request))
 #-------------------------------------------------------------------------------
