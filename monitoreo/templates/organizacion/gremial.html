@@ -53,7 +53,14 @@ $(document).ready(function () {
 
 <div class="contenido mediatabla">
  
-<div class="subindicador">{% trans "Es socio/a de organización Gremial" %} <a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div class="subindicador">{% trans "Es socio/a de organización Gremial" %} 
+    {%if LANGUAGE_CODE == 'es' %}
+        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Exportar</a>
+    {%endif%}
+    {%if LANGUAGE_CODE == 'en' %}
+        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Export</a>
+    {%endif%}
+    </div>
 
 <div id="modalidad">
     <table style="width:100%;">

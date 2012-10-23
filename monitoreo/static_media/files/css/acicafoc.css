@@ -225,15 +225,12 @@ ul, li{margin:0; padding:0; list-style:none;}
 .exportar{
     display:block;
     float:right;
-    width:90px;
-    height:27px;
-    background:url(../img/exportar.jpg) no-repeat;
-    background-position:top;
-}
-.exportar:hover{
-    background-position:bottom;
 }
 
+.exportar img{
+	float:left;
+	margin-right:7px;
+}
 #filtroslaterales{
     float:right;
     width:120px;
@@ -327,16 +324,13 @@ ul, li{margin:0; padding:0; list-style:none;}
 	width: 160px;
 }
 .consultar{
-
-	background: url(../img/consultar-boton.png) no-repeat;
 	width: 185px;
-	height: 29px;
-	border: none;
+	font-weight:bold;
 	margin-top: 10px;
-	margin-bottom: 5px;
+	margin-bottom: 10px !important;
 }
 input[type='submit'].consultar:hover{
-	background-position: 0 -30px;
+
 }
 #selectos{
 	background-color: #91a83c;	
@@ -397,7 +391,7 @@ input[type='submit'].consultar:hover{
 
 #contenedor_igual{
     float:left;
-    width:1000px;
+    width:920px;
     height:32px;
     margin-top:21px;
 }

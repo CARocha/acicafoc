@@ -398,7 +398,14 @@ $(document).ready(function() {
 {% include "filtros.html" %}
 <div class="contenido fulltabla">
 <div id="tablatab1" class="escondete">
-    <div class="subindicador">{% trans "GÉNERO" %} &raquo; {% trans "Participación de la mujer en las actividades del hogar" %}<a href="#" class="exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"></a></div>
+    <div class="subindicador">{% trans "GÉNERO" %} &raquo; {% trans "Participación de la mujer en las actividades del hogar" %}
+    {%if LANGUAGE_CODE == 'es' %}
+        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Exportar</a>
+    {%endif%}
+    {%if LANGUAGE_CODE == 'en' %}
+        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Export</a>
+    {%endif%}
+    </div>
     <div id="modalidad">
     <table style="width:100%;">
             <thead>

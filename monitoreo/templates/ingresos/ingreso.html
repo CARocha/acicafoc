@@ -238,7 +238,14 @@ function Grafo10(){
        <div id="grafo"  style="width:500px; overflow-y:auto"></div>
     </div>
  <div class="contenido" style="width:460px">
-<div class="subindicador">{% trans "INGRESO" %}  &raquo; {% trans "Los Ingresos familiares" %} <a class="exportar guardarXLS" href="#" onclick="exportarXLS('modalidad'); return false;"></a></div>
+<div class="subindicador">{% trans "INGRESO" %}  &raquo; {% trans "Los Ingresos familiares" %} 
+    {%if LANGUAGE_CODE == 'es' %}
+        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Exportar</a>
+    {%endif%}
+    {%if LANGUAGE_CODE == 'en' %}
+        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Export</a>
+    {%endif%}
+    </div>
 
 <div id="modalidad">
     <table style="width:100%" id="sortTableExample">
@@ -525,7 +532,16 @@ function Grafo10(){
         <th>{% trans "Ingreso agropecuario:" %} {{respuesta.ingreso|intcomma}}</th>
     </table>
 </div>
-    <br><div class="subindicador">{% trans "INGRESO" %}  &raquo; {% trans "Los Otros Ingresos familiares" %} <a href="#" class="exportar"></a></div><br>
+    <br><div class="subindicador">{% trans "INGRESO" %}  &raquo; {% trans "Los Otros Ingresos familiares" %} 
+        {%if LANGUAGE_CODE == 'es' %}
+        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad2'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Exportar</a>
+    {%endif%}
+    {%if LANGUAGE_CODE == 'en' %}
+        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad2'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Export</a>
+    {%endif%}
+    </div>
+    <br>
+    <div id="modalidad2">
     <table style="width:100%;" id="sortTableExample">
         <caption></caption>
         <thead>
@@ -556,6 +572,7 @@ function Grafo10(){
             <th>{{respuesta.ingreso_otro|intcomma}}</th>
         </tr>
     </table style="width:100%;">
+</div>
     <br>
 <div class="subindicador">{% trans "INGRESO " %} &raquo; {% trans "Ingreso Bruto por familia" %}</div>
     <table>
