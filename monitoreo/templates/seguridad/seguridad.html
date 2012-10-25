@@ -87,13 +87,17 @@
                 },
                 {
                     name: '{% trans "Invierno" %}',
-                    data: [{{carbohidrato.platano.por_invierno}},{{carbohidrato.avena.por_invierno}},
+                    data: [{%if LANGUAGE_CODE == 'es' %} {{carbohidrato.platano.por_invierno}},{{carbohidrato.avena.por_invierno}},
                            {{carbohidrato.miel.por_invierno}},{{carbohidrato.guineo.por_invierno}},
                            {{carbohidrato.malanga.por_invierno}},{{carbohidrato.azucar.por_invierno}},
                            {{carbohidrato.sorgo.por_invierno}},{{carbohidrato.papa.por_invierno}},
                            {{carbohidrato.quequisque.por_invierno}},{{carbohidrato.yuca.por_invierno}},
                            {{carbohidrato.maiz.por_invierno}},{{carbohidrato.millon.por_invierno}},
-                           {{carbohidrato.arroz.por_invierno}}],
+                           {{carbohidrato.arroz.por_invierno}},{%endif%}
+                           {%if LANGUAGE_CODE == 'en' %}
+
+                           {%endif%}
+                           ],
                    dataLabels: {
                         enabled: true,
                         rotation: 0,
@@ -162,8 +166,12 @@ var chart;
             series: [
                 {
                     name: '{% trans "Verano" %}',
-                    data: [{{grasa.queso.por_consumen}},{{grasa.aceite.por_consumen}},
-                           {{grasa.cuajada.por_consumen}},{{grasa.crema.por_consumen}},
+                    data: [{%if LANGUAGE_CODE == 'es' %} {{grasa.queso.por_consumen}},{{grasa.aceite.por_consumen}},
+                           {{grasa.cuajada.por_consumen}},{{grasa.crema.por_consumen}},{%endif%}
+                           {%if LANGUAGE_CODE == 'en' %}
+                           {{grasa.cheese.por_consumen}},{{grasa.oil.por_consumen}},
+                           {{grasa.fresh_cheese.por_consumen}},{{grasa.cream.por_consumen}},
+                            {%endif%}
                           ],
                    dataLabels: {
                         enabled: true,
@@ -182,8 +190,11 @@ var chart;
                 },
                 {
                     name: '{% trans "Invierno" %}',
-                    data: [{{grasa.queso.por_invierno}},{{grasa.aceite.por_invierno}},
-                           {{grasa.cuajada.por_invierno}},{{grasa.crema.por_invierno}},
+                    data: [{%if LANGUAGE_CODE == 'es' %} {{grasa.queso.por_invierno}},{{grasa.aceite.por_invierno}},
+                           {{grasa.cuajada.por_invierno}},{{grasa.crema.por_invierno}},{%endif%}
+                           {%if LANGUAGE_CODE == 'en' %}
+                           {{grasa.cheese.por_invierno}},{{grasa.oil.por_invierno}},
+                           {{grasa.fresh_cheese.por_invierno}},{{grasa.cream.por_invierno}},{%endif%}
                           ],
                    dataLabels: {
                         enabled: true,
@@ -253,8 +264,11 @@ var chart;
             series: [
                 {
                     name: '{% trans "Verano" %}',
-                    data: [{{minerales.cafe.por_consumen}},{{minerales.frutas.por_consumen}},
-                           {{minerales.verdura.por_consumen}},
+                    data: [{%if LANGUAGE_CODE == 'es' %}{{minerales.cafe.por_consumen}},{{minerales.frutas.por_consumen}},
+                           {{minerales.verdura.por_consumen}},{%endif%}
+                           {%if LANGUAGE_CODE == 'en' %}
+                           {{minerales.coffee.por_consumen}},{{minerales.fruits.por_consumen}},
+                           {{minerales.vegetables.por_consumen}},{%endif%}
                           ],
                    dataLabels: {
                         enabled: true,
@@ -273,8 +287,11 @@ var chart;
                 },
                 {
                     name: '{% trans "Invierno" %}',
-                    data: [{{minerales.cafe.por_invierno}},{{minerales.frutas.por_invierno}},
-                           {{minerales.verdura.por_invierno}},
+                    data: [{%if LANGUAGE_CODE == 'es' %} {{minerales.cafe.por_invierno}},{{minerales.frutas.por_invierno}},
+                           {{minerales.verdura.por_invierno}},{%endif%}
+                           {%if LANGUAGE_CODE == 'en' %}
+                           {{minerales.coffee.por_invierno}},{{minerales.fruits.por_invierno}},
+                           {{minerales.vegetables.por_invierno}},{%endif%}
                           ],
                    dataLabels: {
                         enabled: true,
@@ -347,10 +364,15 @@ var chart;
             series: [
                 {
                     name: '{% trans "Verano" %}',
-                    data: [{{proteinas.carne_de_res.por_consumen}},{{proteinas.huevos.por_consumen}},
+                    data: [{%if LANGUAGE_CODE == 'es' %} {{proteinas.carne_de_res.por_consumen}},{{proteinas.huevos.por_consumen}},
                            {{proteinas.carne_de_cerdo.por_consumen}},{{proteinas.soya.por_consumen}},
                            {{proteinas.pollo.por_consumen}},{{proteinas.leche.por_consumen}},
-                           {{proteinas.frijol.por_consumen}},
+                           {{proteinas.frijol.por_consumen}},{%endif%}
+                           {%if LANGUAGE_CODE == 'en' %}
+                           {{proteinas.beef.por_consumen}},{{proteinas.eggs.por_consumen}},
+                           {{proteinas.pork.por_consumen}},{{proteinas.soybeans.por_consumen}},
+                           {{proteinas.chicken.por_consumen}},{{proteinas.milk.por_consumen}},
+                           {{proteinas.beans.por_consumen}},{%endif%}
                           ],
                    dataLabels: {
                         enabled: true,
