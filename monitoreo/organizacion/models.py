@@ -109,23 +109,42 @@ class OrganizacionComunitaria(models.Model):
 #-------------------------------------------------------------------------------
 #Indicador 3 y 4 son demaciado pequeños para crear un app para ellos
 
-CHOICE_TENENCIA = ((1, _(u"Propia con escritura pública")),
-                   (2, _(u"Propia por herencia")),
-                   (3, _(u"Parcela en tierra comunitaria")),
-                   (4, _(u"Propias con promesa de venta")),
-                   (5, _(u"Propias con titulo de reforma agraria")),
-                   (6, _(u"Arrendada")),
-                   (7, _(u"Sin documento")),
-                   (8, _(u"Escritura posesoria"))
+CHOICE_TENENCIA = ((1, (u"Propia con escritura pública")),
+                   (2, (u"Propia por herencia")),
+                   (3, (u"Parcela en tierra comunitaria")),
+                   (4, (u"Propias con promesa de venta")),
+                   (5, (u"Propias con titulo de reforma agraria")),
+                   (6, (u"Arrendada")),
+                   (7, (u"Sin documento")),
+                   (8, (u"Escritura posesoria"))
                    )
+
+CHOICE_TENENCIA_EN = ((1, (u"Deed itself with")),
+                   (2, (u"Own by inheritance")),
+                   (3, (u"Plot for community land")),
+                   (4, (u"Own with a promise of sale")),
+                   (5, (u"Titled own land reform")),
+                   (6, (u"leased")),
+                   (7, (u"Not Document")),
+                   (8, (u"writing possessory"))
+                   )
+
                    
                    
-CHOICE_DUENO = ((1, _(u"Hombre")),
-                (2, _(u"Mujer")),
-                (3, _(u"Mancomunado")),
-                (4, _(u"Parientes")),
-                (5, _(u"Colectivo")),
-                (6, _(u"No hay"))
+CHOICE_DUENO = ((1, (u"Hombre")),
+                (2, (u"Mujer")),
+                (3, (u"Mancomunado")),
+                (4, (u"Parientes")),
+                (5, (u"Colectivo")),
+                (6, (u"No hay"))
+                )
+
+CHOICE_DUENO_EN = ((1, (u"Men")),
+                    (2, (u"Women")),
+                    (3, (u"Shared")),
+                    (4, (u"Kins")),
+                    (5, (u"Collective")),
+                    (6, (u"None"))
                 )
 
 class Tenencia(models.Model):

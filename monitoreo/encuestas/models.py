@@ -26,14 +26,20 @@ class Etnico(models.Model):
         return self.nombre
 
 CHOICE_SEXO = (
-                    (1, _(u'Hombre')),
-                    (2, _(u'Mujer'))
+                    (1, (u'Hombre')),
+                    (2, (u'Mujer'))
               )
               
 CHOICE_OPCION = (
-                    (1, _(u'Si')),
-                    (2, _(u'No')),
-                    (3, _(u'No utilizar'))
+                    (1, (u'Si')),
+                    (2, (u'No')),
+                    (3, (u'No utilizar'))
+              )
+
+CHOICE_OPCION_EN = (
+                    (1, (u'Yes')),
+                    (2, (u'No')),
+                    (3, (u'No answer'))
               )
               
 CHOICE_ETNICO = (
@@ -44,13 +50,13 @@ CHOICE_ETNICO = (
               )
               
 CHOICE_MANEJA = (
-                 (1, _(u"Hombre")),
-                 (2, _(u"Mujer")),
-                 (3, _(u"Ambos")),
-                 (4, _(u"Hijos/as")),
-                 (5, _(u"Hombre-Hijos")),
-                 (6, _(u"Mujer-Hijos")),
-                 (7, _(u"Todos"))
+                 (1, (u"Hombre")),
+                 (2, (u"Mujer")),
+                 (3, (u"Ambos")),
+                 (4, (u"Hijos/as")),
+                 (5, (u"Hombre-Hijos")),
+                 (6, (u"Mujer-Hijos")),
+                 (7, (u"Todos"))
 
                 )
 

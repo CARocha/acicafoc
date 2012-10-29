@@ -380,8 +380,13 @@ def organizacion_grafos(request, tipo):
                 legends.append(opcion.nombre)
             elif request.LANGUAGE_CODE == 'en':
                 legends.append(opcion.nombre_en)
-        return grafos.make_graph(data, legends, 
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends, 
                 'Beneficios obtenidos siendo socio/a de la cooperativa, la asociación o empresa', return_json = True,
+                type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends, 
+                'Benefits derived as a partner / a of the cooperative, partnership or company', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'miembro':
         for opcion in SerMiembro.objects.all():
@@ -407,8 +412,13 @@ def organizacion_grafos(request, tipo):
                 legends.append(opcion.nombre)
             elif request.LANGUAGE_CODE == 'en':
                 legends.append(opcion.nombre_en)
-        return grafos.make_graph(data, legends, 
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends, 
                 '¿Cuáles son los beneficios de estar organizado', return_json = True,
+                type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends, 
+                'What are the benefits of being organized?', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'norganizado':
         for opcion in NoOrganizado.objects.all():
@@ -427,8 +437,13 @@ def organizacion_grafos(request, tipo):
                 legends.append(opcion.nombre)
             elif request.LANGUAGE_CODE == 'en':
                 legends.append(opcion.nombre_en)
-        return grafos.make_graph(data, legends, 
-                '¿A cual organizacion comunitaria pertenece', return_json = True,
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends, 
+                '¿A cual organizacion comunitaria pertenece?', return_json = True,
+                type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends, 
+                'A community organization which belongs?', return_json = True,
                 type = grafos.PIE_CHART_2D)
     else:
         raise Http404
@@ -459,11 +474,19 @@ def fincas_grafos(request, tipo):
     data = [] 
     legends = []
     if tipo == 'tenencia':
-        for opcion in CHOICE_TENENCIA:
-            data.append(consulta.filter(tenencia__parcela=opcion[0]).count())
-            legends.append(opcion[1])
-        return grafos.make_graph(data, legends, 
+        if request.LANGUAGE_CODE == 'es':
+            for opcion in CHOICE_TENENCIA:
+                data.append(consulta.filter(tenencia__parcela=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends, 
                 'Tenencia de las parcelas', return_json = True,
+                type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            for opcion in CHOICE_TENENCIA_EN:
+                data.append(consulta.filter(tenencia__parcela=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends, 
+                'Tenure of parcels', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'solares':
         for opcion in CHOICE_TENENCIA:
@@ -473,11 +496,19 @@ def fincas_grafos(request, tipo):
                 'Tenencia de los solares', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'propietario':
-        for opcion in CHOICE_DUENO:
-            data.append(consulta.filter(tenencia__dueno=opcion[0]).count())
-            legends.append(opcion[1])
-        return grafos.make_graph(data, legends, 
+        if request.LANGUAGE_CODE == 'es':
+            for opcion in CHOICE_DUENO:
+                data.append(consulta.filter(tenencia__dueno=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends, 
                 'Dueño de propiedad', return_json = True,
+                type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            for opcion in CHOICE_DUENO_EN:
+                data.append(consulta.filter(tenencia__dueno=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends, 
+                'Property owner', return_json = True,
                 type = grafos.PIE_CHART_2D)
     else:
         raise Http404 
@@ -490,18 +521,34 @@ def grafo_manejosuelo(request, tipo):
     legends = []
     #-----------------
     if tipo == 'analisis':
-        for opcion in CHOICE_OPCION:
-            data.append(consulta.filter(manejosuelo__analisis=opcion[0]).count())
-            legends.append(opcion[1])
-        return grafos.make_graph(data, legends, 
+        if request.LANGUAGE_CODE == 'es':
+            for opcion in CHOICE_OPCION:
+                data.append(consulta.filter(manejosuelo__analisis=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends, 
                 '¿Realiza análisis de fertilidad del suelo', return_json = True,
                 type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            for opcion in CHOICE_OPCION_EN:
+                data.append(consulta.filter(manejosuelo__analisis=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends, 
+                'Does analysis of soil fertility?', return_json = True,
+                type = grafos.PIE_CHART_2D)
     elif tipo == 'practica':
-        for opcion in CHOICE_OPCION:
-            data.append(consulta.filter(manejosuelo__practica=opcion[0]).count())
-            legends.append(opcion[1])
-        return grafos.make_graph(data, legends,
+        if request.LANGUAGE_CODE == 'es':
+            for opcion in CHOICE_OPCION:
+                data.append(consulta.filter(manejosuelo__practica=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends,
                                  '¿Realiza práctica de conservación de suelo', return_json=True,
+                                 type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            for opcion in CHOICE_OPCION_EN:
+                data.append(consulta.filter(manejosuelo__practica=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends,
+                                 'Does soil conservation practice?', return_json=True,
                                  type = grafos.PIE_CHART_2D)
     else:
         raise Http404
@@ -517,61 +564,116 @@ def grafos_ingreso(request, tipo):
     legends = []
     #-----------------------
     if tipo == 'vendio':
-        for opcion in CHOICE_VENDIO:
-            data.append(consulta.filter(ingresofamiliar__quien_vendio=opcion[0]).count())
-            legends.append(opcion[1])
-        print legends
-        return grafos.make_graph(data, legends,
-                'A quien venden', return_json=True,
-                type=grafos.PIE_CHART_2D)
+        if request.LANGUAGE_CODE == 'es':
+            for opcion in CHOICE_VENDIO:
+                data.append(consulta.filter(ingresofamiliar__quien_vendio=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends,
+                    'A quien venden', return_json=True,
+                    type=grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            for opcion in CHOICE_VENDIO_EN:
+                data.append(consulta.filter(ingresofamiliar__quien_vendio=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends,
+                    'Whos sold?', return_json=True,
+                    type=grafos.PIE_CHART_2D)
     elif tipo == 'maneja':
-        for opcion in CHOICE_MANEJA:
-            data.append(consulta.filter(ingresofamiliar__maneja_negocio=opcion[0]).count())
-            legends.append(opcion[1])
-        return grafos.make_graph(data, legends,
-                'Quien maneja negocio', return_json=True,
-                type=grafos.PIE_CHART_2D)
+        if request.LANGUAGE_CODE == 'es':
+            for opcion in CHOICE_MANEJA:
+                data.append(consulta.filter(ingresofamiliar__maneja_negocio=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends,
+                    'Quien maneja negocio', return_json=True,
+                    type=grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            for opcion in CHOICE_MANEJA_EN:
+                data.append(consulta.filter(ingresofamiliar__maneja_negocio=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends,
+                    'Who handles business', return_json=True,
+                    type=grafos.PIE_CHART_2D)
     elif tipo == 'ingreso':
-        for opcion in CHOICE_MANEJA:
-            data.append(consulta.filter(otrosingresos__tiene_ingreso=opcion[0]).count())
-            legends.append(opcion[1])
-        return grafos.make_graph(data, legends,
-                'Quien tiene los ingresos', return_json=True,
-                type=grafos.PIE_CHART_2D)
+        if request.LANGUAGE_CODE == 'es':
+            for opcion in CHOICE_MANEJA:
+                data.append(consulta.filter(otrosingresos__tiene_ingreso=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends,
+                    'Quien tiene los ingresos', return_json=True,
+                    type=grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            for opcion in CHOICE_MANEJA_EN:
+                data.append(consulta.filter(otrosingresos__tiene_ingreso=opcion[0]).count())
+                legends.append(opcion[1])
+            return grafos.make_graph(data, legends,
+                    'Who has the income', return_json=True,
+                    type=grafos.PIE_CHART_2D)
     elif tipo == 'salario':
         for opcion in TipoTrabajo.objects.all()[:4]:
             data.append(consulta.filter(otrosingresos__fuente__nombre__icontains="Salarios",
                                         otrosingresos__tipo=opcion).count())
-            legends.append(opcion)
-        return grafos.make_graph(data, legends,
-                'Tipos de salarios', return_json=True,
-                type=grafos.PIE_CHART_2D)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends,
+                    'Tipos de salarios', return_json=True,
+                    type=grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends,
+                    'Wage types', return_json=True,
+                    type=grafos.PIE_CHART_2D)
     elif tipo == 'negocio':
         for opcion in TipoTrabajo.objects.all()[4:8]:
             data.append(consulta.filter(otrosingresos__fuente__nombre__icontains="Negocios",
                                         otrosingresos__tipo=opcion).count())
-            legends.append(opcion)
-        return grafos.make_graph(data, legends,
-                'Tipos de Negocios', return_json=True,
-                type=grafos.PIE_CHART_2D)
+            if request.LANGUAGE_CODE == 'es':
+                legends.append(opcion)
+            elif request.LANGUAGE_CODE == 'en':
+                legends.append(opcion.nombre_en)
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends,
+                    'Tipos de Negocios', return_json=True,
+                    type=grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends,
+                    'Types of businnes', return_json=True,
+                    type=grafos.PIE_CHART_2D)
     elif tipo == 'remesa':
         #for opcion in TipoTrabajo.objects.all()[9:9]:
         nacional = consulta.filter(otrosingresos__fuente__nombre__icontains="Remesas").count()
         extran = consulta.filter(otrosingresos__fuente__nombre__icontains="Remesas",
                                     otrosingresos__tipo=9).count()
         data = (nacional,extran)
-        legends = ('Nacional','Extranjero')
-        return grafos.make_graph(data, legends,
+        if request.LANGUAGE_CODE == 'es':
+            legends = ('Nacional','Extranjero')
+            return grafos.make_graph(data, legends,
                 'Tipos de Remesas', return_json=True,
                 type=grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            legends = ('National','Foreign')
+            return grafos.make_graph(data, legends,
+                    'Types of Remittances', return_json=True,
+                    type=grafos.PIE_CHART_2D)
     elif tipo == 'alquiler':
         for opcion in TipoTrabajo.objects.all():
-            data.append(consulta.filter(otrosingresos__fuente__nombre__icontains="Alquiler",
-                                        otrosingresos__tipo=opcion).count())
-            legends.append(opcion)
-        return grafos.make_graph(data, legends,
-                'Tipos de Alquiler', return_json=True,
-                type=grafos.PIE_CHART_2D)
+            dato = consulta.filter(otrosingresos__fuente__nombre__icontains="Alquiler",
+                                        otrosingresos__tipo=opcion).count()
+            if dato >= 1:
+                data.append(dato)
+                if request.LANGUAGE_CODE == 'es':
+                    legends.append(opcion)
+                elif request.LANGUAGE_CODE == 'en':
+                    legends.append(opcion.nombre_en)
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends,
+                    'Tipos de Alquiler', return_json=True,
+                    type=grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends,
+                    'Rent types', return_json=True,
+                    type=grafos.PIE_CHART_2D)
     else:
         raise Http404
         
@@ -590,8 +692,13 @@ def grafos_bienes(request, tipo):
                 legends.append(opcion.nombre)
             elif request.LANGUAGE_CODE == 'en':
                 legends.append(opcion.nombre_en)
-        return grafos.make_graph(data, legends, 
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends, 
                 'Tipos de casas', return_json = True,
+                type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends, 
+                'Types of house', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'tipopiso': 
         for opcion in Piso.objects.all():
@@ -600,9 +707,14 @@ def grafos_bienes(request, tipo):
                 legends.append(opcion.nombre)
             elif request.LANGUAGE_CODE == 'en':
                 legends.append(opcion.nombre_en)
-        return grafos.make_graph(data, legends, 
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends, 
                 'Tipo de pisos', return_json = True,
                 type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+           return grafos.make_graph(data, legends, 
+                'Type of floor', return_json = True,
+                type = grafos.PIE_CHART_2D) 
     elif tipo == 'tipotecho':
         for opcion in Techo.objects.all():
             data.append(consulta.filter(tipocasa__techo=opcion).count())
@@ -610,22 +722,37 @@ def grafos_bienes(request, tipo):
                 legends.append(opcion.nombre)
             elif request.LANGUAGE_CODE == 'en':
                 legends.append(opcion.nombre_en)
-        return grafos.make_graph(data, legends, 
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends, 
                 'Tipos de Techos', return_json = True,
+                type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends, 
+                'Type of ceiling', return_json = True,
                 type = grafos.PIE_CHART_2D)
     elif tipo == 'ambiente':
         for opcion in CHOICE_AMBIENTE:
             data.append(consulta.filter(detallecasa__ambientes=opcion[0]).count())
             legends.append(opcion[1])
-        return grafos.make_graph(data, legends,
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends,
                'Numeros de ambientes', return_json = True,
+               type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends,
+               'Number of rooms', return_json = True,
                type = grafos.PIE_CHART_2D)
     elif tipo == 'letrina':
         for opcion in CHOICE_OPCION[:2]:
             data.append(consulta.filter(detallecasa__letrina=opcion[0]).count())
             legends.append(opcion[1])
-        return grafos.make_graph(data, legends,
+        if request.LANGUAGE_CODE == 'es':
+            return grafos.make_graph(data, legends,
                 'Tiene letrina', return_json = True,
+                type = grafos.PIE_CHART_2D)
+        elif request.LANGUAGE_CODE == 'en':
+            return grafos.make_graph(data, legends,
+                'Have latrine?', return_json = True,
                 type = grafos.PIE_CHART_2D)
 #    elif tipo == 'lavadero':
 #        for opcion in CHOICE_OPCION:

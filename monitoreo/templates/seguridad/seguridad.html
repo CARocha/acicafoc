@@ -63,13 +63,23 @@
             series: [
                 {
                     name: '{% trans "Verano" %}',
-                    data: [{{carbohidrato.platano.por_consumen}},{{carbohidrato.avena.por_consumen}},
+                    data: [{%if LANGUAGE_CODE == 'es' %} {{carbohidrato.platano.por_consumen}},{{carbohidrato.avena.por_consumen}},
                            {{carbohidrato.miel.por_consumen}},{{carbohidrato.guineo.por_consumen}},
                            {{carbohidrato.malanga.por_consumen}},{{carbohidrato.azucar.por_consumen}},
                            {{carbohidrato.sorgo.por_consumen}},{{carbohidrato.papa.por_consumen}},
                            {{carbohidrato.quequisque.por_consumen}},{{carbohidrato.yuca.por_consumen}},
                            {{carbohidrato.maiz.por_consumen}},{{carbohidrato.millon.por_consumen}},
-                           {{carbohidrato.arroz.por_consumen}}],
+                           {{carbohidrato.arroz.por_consumen}},{%endif%}
+                           {%if LANGUAGE_CODE == 'en' %}
+                            {{carbohidrato.banana.por_consumen}},{{carbohidrato.oats.por_consumen}},
+                           {{carbohidrato.honey.por_consumen}},{{carbohidrato.cooking_banana.por_consumen}},
+                           {{carbohidrato.yam.por_consumen}},{{carbohidrato.sugar.por_consumen}},
+                           {{carbohidrato.sorghum.por_consumen}},{{carbohidrato.potato.por_consumen}},
+                           {{carbohidrato.colocasia.por_consumen}},{{carbohidrato.tapioca.por_consumen}},
+                           {{carbohidrato.corn.por_consumen}},{{carbohidrato.millets.por_consumen}},
+                           {{carbohidrato.rice.por_consumen}},
+                           {%endif%}
+                           ],
                    dataLabels: {
                         enabled: true,
                         rotation: 0,
@@ -95,13 +105,13 @@
                            {{carbohidrato.maiz.por_invierno}},{{carbohidrato.millon.por_invierno}},
                            {{carbohidrato.arroz.por_invierno}},{%endif%}
                            {%if LANGUAGE_CODE == 'en' %}
-                            {{carbohidrato.banana.por_invierno}},{{carbohidrato.avena.por_invierno}},
-                           {{carbohidrato.miel.por_invierno}},{{carbohidrato.guineo.por_invierno}},
-                           {{carbohidrato.malanga.por_invierno}},{{carbohidrato.azucar.por_invierno}},
-                           {{carbohidrato.sorgo.por_invierno}},{{carbohidrato.papa.por_invierno}},
-                           {{carbohidrato.quequisque.por_invierno}},{{carbohidrato.yuca.por_invierno}},
-                           {{carbohidrato.maiz.por_invierno}},{{carbohidrato.millon.por_invierno}},
-                           {{carbohidrato.arroz.por_invierno}},
+                            {{carbohidrato.banana.por_invierno}},{{carbohidrato.oats.por_invierno}},
+                           {{carbohidrato.honey.por_invierno}},{{carbohidrato.cooking_banana.por_invierno}},
+                           {{carbohidrato.yam.por_invierno}},{{carbohidrato.sugar.por_invierno}},
+                           {{carbohidrato.sorghum.por_invierno}},{{carbohidrato.potato.por_invierno}},
+                           {{carbohidrato.colocasia.por_invierno}},{{carbohidrato.tapioca.por_invierno}},
+                           {{carbohidrato.corn.por_invierno}},{{carbohidrato.millets.por_invierno}},
+                           {{carbohidrato.rice.por_invierno}},
                            {%endif%}
                            ],
                    dataLabels: {

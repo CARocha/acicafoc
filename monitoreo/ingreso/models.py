@@ -8,20 +8,36 @@ from django.utils.translation import ugettext_lazy as _
 
 # Indicador 11-  Ingreso Familiar. Venta de rubros (periodo de referencia de mayo 2009 a abril 2010)
 
-CHOICE_VENDIO = ((1, _(u'Comunidad')),
-                 (2, _(u'Intermediario')),
-                 (3, _(u'Mercado')),
-                 (4, _(u'Cooperativa')),
-                 (5, _(u'Todos'))
+CHOICE_VENDIO = ((1, (u'Comunidad')),
+                 (2, (u'Intermediario')),
+                 (3, (u'Mercado')),
+                 (4, (u'Cooperativa')),
+                 (5, (u'Todos'))
                  )
 
-CHOICE_MANEJA = ((1, _(u'Hombre')),
-                 (2, _(u'Mujer')),
-                 (3, _(u'Ambos')),
-                 (4, _(u'Hijos/as')),
-                 (5, _(u'Hombre-Hijos')),
-                 (6, _(u'Mujer-Hijos')),
-                 (7, _(u'Todos'))
+CHOICE_VENDIO_EN = ((1, (u'Comunity')),
+                    (2, (u'intermediary')),
+                    (3, (u'Market')),
+                    (4, (u'Cooperativa')),
+                    (5, (u'All'))
+                    )
+
+CHOICE_MANEJA = ((1, (u'Hombre')),
+                 (2, (u'Mujer')),
+                 (3, (u'Ambos')),
+                 (4, (u'Hijos/as')),
+                 (5, (u'Hombre-Hijos')),
+                 (6, (u'Mujer-Hijos')),
+                 (7, (u'Todos'))
+                 )
+
+CHOICE_MANEJA_EN = ((1, (u'Men')),
+                    (2, (u'Woman')),
+                    (3, (u'Both')),
+                    (4, (u'Children/s')),
+                    (5, (u'Men-Son')),
+                    (6, (u'Women-Son')),
+                    (7, (u'All'))
                  )
                  
 CHOICE_CATEG = (
