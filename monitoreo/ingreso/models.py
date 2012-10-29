@@ -8,31 +8,31 @@ from django.utils.translation import ugettext_lazy as _
 
 # Indicador 11-  Ingreso Familiar. Venta de rubros (periodo de referencia de mayo 2009 a abril 2010)
 
-CHOICE_VENDIO = ((1, _(u"Comunidad")),
-                 (2, _(u"Intermediario")),
-                 (3, _(u"Mercado")),
-                 (4, _(u"Cooperativa")),
-                 (5, _(u"Todos"))
+CHOICE_VENDIO = ((1, _(u'Comunidad')),
+                 (2, _(u'Intermediario')),
+                 (3, _(u'Mercado')),
+                 (4, _(u'Cooperativa')),
+                 (5, _(u'Todos'))
                  )
 
-CHOICE_MANEJA = ((1, _(u"Hombre")),
-                 (2, _(u"Mujer")),
-                 (3, _(u"Ambos")),
-                 (4, _(u"Hijos/as")),
-                 (5, _(u"Hombre-Hijos")),
-                 (6, _(u"Mujer-Hijos")),
-                 (7, _(u"Todos"))
+CHOICE_MANEJA = ((1, _(u'Hombre')),
+                 (2, _(u'Mujer')),
+                 (3, _(u'Ambos')),
+                 (4, _(u'Hijos/as')),
+                 (5, _(u'Hombre-Hijos')),
+                 (6, _(u'Mujer-Hijos')),
+                 (7, _(u'Todos'))
                  )
                  
 CHOICE_CATEG = (
-                 (1, _(u"Agroforestales")),
-                 (2, _(u"Forestales")),
-                 (3, _(u"Granos básicos")),
-                 (4, _(u"Ganado mayor")),
-                 (5, _(u"Animales de patio")),
-                 (6, _(u"Hortalizas y frutas")),
-                 (7, _(u"Musaceas")),
-                 (8, _(u"Raíces y tubérculos"))
+                 (1, _(u'Agroforestales')),
+                 (2, _(u'Forestales')),
+                 (3, _(u'Granos básicos')),
+                 (4, _(u'Ganado mayor')),
+                 (5, _(u'Animales de patio')),
+                 (6, _(u'Hortalizas y frutas')),
+                 (7, _(u'Musaceas')),
+                 (8, _(u'Raíces y tubérculos'))
                      
                 )
 

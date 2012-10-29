@@ -520,6 +520,7 @@ def grafos_ingreso(request, tipo):
         for opcion in CHOICE_VENDIO:
             data.append(consulta.filter(ingresofamiliar__quien_vendio=opcion[0]).count())
             legends.append(opcion[1])
+        print legends
         return grafos.make_graph(data, legends,
                 'A quien venden', return_json=True,
                 type=grafos.PIE_CHART_2D)
