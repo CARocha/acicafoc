@@ -22,8 +22,17 @@ def departamentos():
     foo = Encuesta.objects.all().order_by('comunidad__municipio__departamento__nombre').distinct().values_list('comunidad__municipio__departamento__id', flat=True)
     return Departamento.objects.filter(id__in=foo)
 
+def get_anios():
+    choices = []
+    years = []
+    for en in Encuesta.objects.all().order_by('year'):
+        years.append(en.fecha.year)
+    for year in list(set(years)):
+        choices.append((year, year))
+    return choices
+
 class MonitoreoForm(forms.Form):
-    fecha = forms.MultipleChoiceField(choices=ANOS_CHOICES)
+    fecha = forms.MultipleChoiceField(choices=get_anios())
     departamento = forms.ModelMultipleChoiceField(queryset=departamentos(), required=False, label=u'Departamentos')
     organizacion = forms.ModelMultipleChoiceField(queryset=OrganizacionOCB.objects.all().order_by('nombre'), required=False, label=u'Organización')
     municipio = forms.ModelMultipleChoiceField(queryset=Municipio.objects.all().order_by('nombre'), required=False)
