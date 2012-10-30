@@ -2062,9 +2062,18 @@ def comercializacion(request):
     for comer in productos:
         conteo = a.filter(comercializacion__producto=comer).count()
         porcentaje = round(saca_porcentajes(conteo,num_familia),2)
-        suma_autoconsumo = a.filter(comercializacion__producto=comer).aggregate(suma_autoconsumo=Sum('comercializacion__autoconsumo'))['suma_autoconsumo']
-        suma_venta = a.filter(comercializacion__producto=comer).aggregate(suma_venta=Sum('comercializacion__venta'))['suma_venta']
-        precio = round(a.filter(comercializacion__producto=comer).aggregate(precio=Avg('comercializacion__precio'))['precio'],2)
+        try:
+            suma_autoconsumo = round(a.filter(comercializacion__producto=comer).aggregate(suma_autoconsumo=Sum('comercializacion__autoconsumo'))['suma_autoconsumo'])
+        except:
+            suma_autoconsumo = 0
+        try:
+            suma_venta = round(a.filter(comercializacion__producto=comer).aggregate(suma_venta=Sum('comercializacion__venta'))['suma_venta'])
+        except:
+            suma_venta = 0
+        try:
+            precio = round(a.filter(comercializacion__producto=comer).aggregate(precio=Avg('comercializacion__precio'))['precio'])
+        except:
+            precio = 0
         try:
             ingreso = round((suma_autoconsumo + suma_venta) * precio,2)
         except:
