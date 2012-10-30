@@ -140,8 +140,9 @@ $(document).ready(function () {
                     <tr>
                         <td>{{key}}</td>
                         {%for i in value%}
-                            <td>{{i}}</td>
+                            <td>{{i|floatformat:2}}</td>
                         {%endfor%}
+                    </tr>
                    {%endfor%}
                 </tbody>
         </table>
