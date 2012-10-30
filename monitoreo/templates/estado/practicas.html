@@ -530,33 +530,33 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab4" class="escondete">
-<div class="subindicador">{% trans "Prácticas de manejo productivo" %}
-    {%if LANGUAGE_CODE == 'es' %}
-        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad3'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Exportar</a>
-    {%endif%}
-    {%if LANGUAGE_CODE == 'en' %}
-        <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad3'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Export</a>
-    {%endif%}
-    </div>
-    <table id="modadlidad3" style="width:100%;">
-            <thead>
-                <tr>
-                    <th>{% trans "Prácticas" %}</th>
-                    <th>{% trans "Frecuencia" %}</th>
-                    <th>{% trans "porcentajes(%)" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {%for key, value in dicc4 %}
-                <tr>
-                    <td>{{key}}</td>
-                    {%for i in value%}
-                        <td>{{i|floatformat}}</td>
-                    {%endfor%}
-               {%endfor%}
-            </tbody>
-    </table>
-</div>
+    <div class="subindicador">{% trans "Prácticas de manejo productivo" %}
+        {%if LANGUAGE_CODE == 'es' %}
+            <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad3'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Exportar</a>
+        {%endif%}
+        {%if LANGUAGE_CODE == 'en' %}
+            <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad3'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Export</a>
+        {%endif%}
+        </div>
+        <table id="modadlidad3" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>{% trans "Prácticas" %}</th>
+                        <th>{% trans "Frecuencia" %}</th>
+                        <th>{% trans "porcentajes(%)" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for key, value in dicc4 %}
+                    <tr>
+                        <td>{{key}}</td>
+                        {%for i in value%}
+                            <td>{{i|floatformat}}</td>
+                        {%endfor%}
+                   {%endfor%}
+                </tbody>
+        </table>
+    
     <div class="contenedor">
         <div class="grafico-title"></div>
         <div id="container3"></div>
@@ -597,7 +597,7 @@ $(document).ready(function () {
     </div>
 </div>
 <div id="tablatab6" class="escondete">
-<div class="subindicador">{% trans "Prácticas de manejo postcosecha y beneficiado" %
+<div class="subindicador">{% trans "Prácticas de manejo postcosecha y beneficiado" %}
     {%if LANGUAGE_CODE == 'es' %}
         <a href="#" class="btn btn-mini exportar guardarXLS" onclick="exportarXLS('modalidad5'); return false;"><img src="{{STATIC_URL}}img/excel.png"> Exportar</a>
     {%endif%}
