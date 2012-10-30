@@ -2064,9 +2064,9 @@ def comercializacion(request):
         porcentaje = round(saca_porcentajes(conteo,num_familia),2)
         suma_autoconsumo = a.filter(comercializacion__producto=comer).aggregate(suma_autoconsumo=Sum('comercializacion__autoconsumo'))['suma_autoconsumo']
         suma_venta = a.filter(comercializacion__producto=comer).aggregate(suma_venta=Sum('comercializacion__venta'))['suma_venta']
-        precio = a.filter(comercializacion__producto=comer).aggregate(precio=Avg('comercializacion__precio'))['precio']
+        precio = round(a.filter(comercializacion__producto=comer).aggregate(precio=Avg('comercializacion__precio'))['precio'],2)
         try:
-            ingreso = round(suma_autoconsumo + suma_venta) * precio
+            ingreso = round((suma_autoconsumo + suma_venta) * precio,2)
         except:
             ingreso = 0
         if request.LANGUAGE_CODE == 'es':
