@@ -14,4 +14,4 @@ local_settings.py
 .*config.py
 *.sublime-project
 *.sublime-workspace
-
+monitoreo/static_media/uploads/

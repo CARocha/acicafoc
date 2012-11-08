@@ -234,10 +234,15 @@ def generales(request):
     grafo_munis = grafos.make_graph(valores_m, leyenda_m, 'Municipios Encuestados', return_json=False ,type=grafos.PIE_CHART_2D)
             
     #salidas de grupos etnicos
+    sumaetnico = 0
+    for etnico in CHOICE_ETNICO:
+        conteo = Encuesta.objects.filter(grupo=etnico[0]).count()
+        sumaetnico += conteo
+
     grupo = []
     for etnico in CHOICE_ETNICO:
         conteo = Encuesta.objects.filter(grupo=etnico[0]).count()
-        porcentaje = round(saca_porcentajes(conteo,numero))
+        porcentaje = round(saca_porcentajes(conteo,sumaetnico),2)
         grupo.append([etnico[1],conteo,porcentaje])
 
     return render_to_response('encuestas/generales.html', locals(),
