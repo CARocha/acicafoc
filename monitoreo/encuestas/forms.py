@@ -41,3 +41,6 @@ class MonitoreoForm(forms.Form):
     grupo = forms.MultipleChoiceField(choices = CHOICE_ETNICO, required=False)
     sexo = forms.ChoiceField(choices = CHOICE_SEXO,label = _('Sexo beneficiario'), required=False)
     dueno = forms.ChoiceField(label = _('Dueño'), choices = CHOICE_DUENO_F , required=False, initial=u"Dueño")
+
+class MapaForm(forms.Form):
+    fecha1 = forms.ChoiceField(choices=get_anios(), label = _('fecha'))

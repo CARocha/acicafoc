@@ -110,6 +110,12 @@ $(window).load(function() {
                     </div>
                     <div class="clean"></div>
                     <div id="titulomapa">{% trans "Mapa Geografico de encuestados" %}</div>
+                    <div class="consulta_mapa">
+                        <form  action="." method="POST">{% csrf_token %}
+                            {{form1.fecha1}}
+                            <input type="submit" name="yearactual" value="Refresh">
+                        </form>
+                    </div>
                     <div id="mapaindex">
                         <div id="map_canvas"></div>
                     </div>

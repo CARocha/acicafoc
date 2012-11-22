@@ -16,6 +16,16 @@ body{
 	margin: 0;
 	padding: 0;
 }
+
+.consulta_mapa {
+    width: 148px;
+    position:absolute;
+    left:450px;
+    z-index: 4;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.5);
+}
+
 img{
 	border: none;
 }

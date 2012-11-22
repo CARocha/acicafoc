@@ -64,6 +64,25 @@ def _get_view(request, vista):
         raise ViewDoesNotExist("Tried %s in module %s Error: View not defined in VALID_VIEWS." % (vista, 'encuestas.views'))
         
 #-------------------------------------------------------------------------------
+def _queryset_filtrado_mapa(request):
+    '''metodo para obtener el queryset de encuesta 
+    segun los filtros del formulario que son pasados
+    por la variable de sesion'''
+    #anio = int(request.session['fecha'])
+    #diccionario de parametros del queryset
+    params = {}
+    if 'fecha1' in request.session:
+        params['year'] = request.session['fecha1']
+
+    unvalid_keys = []
+    for key in params:
+        if not params[key]:
+            unvalid_keys.append(key)
+    
+    for key in unvalid_keys:
+        del params[key]
+    
+    return Encuesta.objects.filter(**params)
         
 def _queryset_filtrado(request):
     '''metodo para obtener el queryset de encuesta 
@@ -134,20 +153,6 @@ def inicio(request):
             request.session['organizacion'] = form.cleaned_data['organizacion']
             request.session['municipio'] = form.cleaned_data['municipio']
             request.session['comunidad'] = form.cleaned_data['comunidad']            
-#            request.session['organizacion'] = form.cleaned_data['organizacion']
-#            request.session['fecha'] = form.cleaned_data['fecha']
-#            request.session['departamento'] = form.cleaned_data['departamento']
-#            try:
-#                municipio = Municipio.objects.get(id=int(form.cleaned_data['municipio'])) 
-#            except:
-#                municipio = None
-#            try:
-#                comunidad = Comunidad.objects.get(id=int(form.cleaned_data['comunidad']))                
-#            except:
-#                comunidad = None
-
-#            request.session['municipio'] = municipio 
-#            request.session['comunidad'] = comunidad
             request.session['grupo'] = form.cleaned_data['grupo']
             request.session['sexo'] = form.cleaned_data['sexo']
             request.session['duenio'] = form.cleaned_data['dueno']
@@ -156,7 +161,7 @@ def inicio(request):
             request.session['activo'] = True
             centinela = 1
         else:
-            centinela = 0            
+            centinela = 0         
     else:
         form = MonitoreoForm()
         mensaje = "Existen alguno errores"
@@ -174,7 +179,12 @@ def inicio(request):
 #-------------------------------------------------------------------------------
 def index(request):
     familias = Encuesta.objects.all().count()
-    #organizacion = OrganizacionesOCB.objects.all().count()  
+    if request.method == 'POST':
+        form1 = MapaForm(request.POST)
+        if form1.is_valid():
+            request.session['fecha1'] = form1.cleaned_data['fecha1']   
+    else:
+        form1 = MapaForm() 
 
     return direct_to_template(request, 'index.html', locals())        
 
@@ -2253,10 +2263,12 @@ def generos(request):
     
 #-------------------------------------------------------------------------------    
 #Los puntos en el mapa
-def obtener_lista(request):    
+def obtener_lista(request):
+    b = _queryset_filtrado_mapa(request)   
     lista = []    
     data = {}
-    for obj in Encuesta.objects.all():        
+    
+    for obj in b:        
         key = 'hombres' if obj.sexo == 1 else 'mujeres'
         name = obj.comunidad.municipio.nombre
         try:                
