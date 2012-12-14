@@ -23,13 +23,10 @@ def departamentos():
     return Departamento.objects.filter(id__in=foo)
 
 def get_anios():
-    choices = []
     years = []
-    for en in Encuesta.objects.all().order_by('year'):
-        years.append(en.fecha.year)
-    for year in list(set(years)):
-        choices.append((year, year))
-    return choices
+    for en in Encuesta.objects.order_by('year').values_list('year', flat=True):
+        years.append((en, en))
+    return list(set(years))
 
 class MonitoreoForm(forms.Form):
     fecha = forms.MultipleChoiceField(choices=get_anios())
