@@ -2407,7 +2407,7 @@ def get_munis(request):
     org_ids = request.GET.get('org_ids', '')
     if org_ids:
         lista = org_ids.split(',')    
-        municipios = [encuesta.municipio for encuesta in Encuesta.objects.filter(organizacion__id__in=lista)]
+        municipios = [encuesta.municipio for encuesta in Encuesta.objects.filter(beneficiario__id__in=lista)]
         #crear los keys en el dicc para evitar KeyError
         for municipio in municipios:
             dicc[municipio.departamento.nombre] = []
