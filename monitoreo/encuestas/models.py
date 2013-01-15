@@ -88,5 +88,10 @@ class Encuesta(models.Model):
     def __unicode__(self):
         return self.entrevistado
 
+    def organizaciones(self):
+        return ', '.join([group.nombre for group in self.beneficiario.all()])
+    
+    
+
     class Meta:
         verbose_name_plural = "Encuesta Linea base"

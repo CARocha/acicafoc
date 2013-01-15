@@ -395,7 +395,7 @@ class EncuestaAdmin(admin.ModelAdmin):
                NivelesInline,ComercializacionInline,CapacitacionTecnicaInline,
                CapacitacionSocialInline,ParticipacionInline,MujerOrganizacionInline
               ]
-    list_display = ('entrevistado',)
+    list_display = ('entrevistado','organizaciones',)
     list_filter = ['municipio']
     search_fields = ['entrevistado']
     date_hierarchy = 'fecha'
