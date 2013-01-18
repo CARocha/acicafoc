@@ -1915,7 +1915,10 @@ def plantaciones(request):
         lista_organico = (o_conteo,o_frecuencia,o_produccion_total,
                           o_promedio,o_porcentaje)
     
-    productividad = round(lista_total[2] / planta_produccion[2],2)
+    try:
+        productividad = round(lista_total[2] / planta_produccion[2],2)
+    except:
+        productividad = 0
     
     #costos de la produccion
     costo_area = []
