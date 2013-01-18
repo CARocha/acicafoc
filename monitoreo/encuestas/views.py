@@ -1836,13 +1836,22 @@ def plantaciones(request):
         frecuencia = round(saca_porcentajes(conteo,num_familia))
         #areas
         area_total = a.aggregate(area_total=Sum('plantadesarrollomas__area_sembrada'))['area_total']
-        promedio_area = round(area_total / conteo)
+        try:
+            promedio_area = round(area_total / conteo)
+        except:
+            promedio_area = 0
         #numero de plantas
         total_planta = a.aggregate(total_planta=Sum('plantadesarrollomas__plantas_finca'))['total_planta']
-        promedio_planta = round(total_planta / conteo)
+        try:
+            promedio_planta = round(total_planta / conteo)
+        except:
+            promedio_planta = 0
         #numero de plantas injertadas
         n_injertada = a.aggregate(n_injertada=Sum('plantadesarrollomas__planta_injerto'))['n_injertada']
-        promedio_injerto = round(n_injertada / conteo)
+        try:
+            promedio_injerto = round(n_injertada / conteo)
+        except:
+            promedio_injerto = 0
         planta_mas = (conteo,frecuencia,area_total,promedio_area,total_planta,
                         promedio_planta,n_injertada,promedio_injerto)
                         
@@ -1853,13 +1862,22 @@ def plantaciones(request):
         frecuencia = round(saca_porcentajes(conteo,num_familia))
         #areas
         area_total = a.aggregate(area_total=Sum('plantaproduccion__area_sembrada'))['area_total']
-        promedio_area = round(area_total / conteo)
+        try:
+            promedio_area = round(area_total / conteo)
+        except:
+            promedio_area = 0
         #numero de plantas
         total_planta = a.aggregate(total_planta=Sum('plantaproduccion__plantas_finca'))['total_planta']
-        promedio_planta = round(total_planta / conteo)
+        try:
+            promedio_planta = round(total_planta / conteo)
+        except:
+            promedio_planta = 0
         #numero de plantas injertadas
         n_injertada = a.aggregate(n_injertada=Sum('plantaproduccion__planta_injerto'))['n_injertada']
-        promedio_injerto = round(n_injertada / conteo)
+        try:
+            promedio_injerto = round(n_injertada / conteo)
+        except:
+            promedio_injerto = 0
         planta_produccion = (conteo,frecuencia,area_total,promedio_area,total_planta,
                         promedio_planta,n_injertada,promedio_injerto)
                         
@@ -1905,7 +1923,7 @@ def plantaciones(request):
         f_promedio = round(f_produccion_total / f_conteo)
         f_porcentaje = round(saca_porcentajes(f_produccion_total,produccion_total))
         lista_fermentado = (f_conteo,f_frecuencia,f_produccion_total,
-                            s_promedio,f_porcentaje)
+                            f_promedio,f_porcentaje)
         #organico
         o_conteo = a.aggregate(o_conteo=Count('plantaproduccion__organico'))['o_conteo']
         o_frecuencia= round(saca_porcentajes(o_conteo,num_familia))
