@@ -35,8 +35,8 @@ class OpcionesManejo(models.Model):
     volumen = models.FloatField('¿Qué área, número o volumen')
     encuesta = models.ForeignKey(Encuesta)
     
-    def __unicode__(self):
-        return u'%s' % self.uso.nombre
+#    def __unicode__(self):
+#        return u'%s' % self.uso.nombre
     
     class Meta:
         verbose_name_plural = "9-Opciones de manejo agroecologico"
