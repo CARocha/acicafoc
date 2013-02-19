@@ -93,6 +93,11 @@ def _queryset_filtrado(request):
     params = {}
     if 'fecha' in request.session:
         params['year__in'] = request.session['fecha']
+
+    if 'repetido' in request.session:
+        params['repetido'] = request.session['repetido']
+        print "///////"
+        print params['repetido']
         
     if request.session['departamento']:
         if not request.session['municipio']:
@@ -104,18 +109,6 @@ def _queryset_filtrado(request):
             else:
                 params['municipio__in'] = request.session['municipio']
             
-#    if request.session['organizacion']:
-#        params['organizacion__in'] = request.session['organizacion']
-
-#        if 'departamento' in request.session:
-#            #incluye municipio y comunidad
-#            if request.session['municipio']:                
-#                if 'comunidad' in request.session and request.session['comunidad'] != None:
-#                    params['comunidad'] = request.session['comunidad']                    
-#                else:
-#                    params['comunidad__municipio'] = request.session['municipio']                                        
-#            else:
-#                params['comunidad__municipio__departamento'] = request.session['departamento']
 
     if 'sexo' in  request.session:
         params['sexo'] = request.session['sexo']

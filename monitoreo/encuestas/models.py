@@ -76,6 +76,7 @@ class Encuesta(models.Model):
     sexo = models.IntegerField(choices=CHOICE_SEXO)
     beneficiario = models.ManyToManyField(OrganizacionOCB, verbose_name="Beneficiario/a de que OCB(organización comunitaria)", null=True, blank=True)
     grupo = models.IntegerField(choices=CHOICE_ETNICO, null=True, blank=True)
+    repetido = models.BooleanField('Encuestado repetido', blank=True)
     usuario = models.ForeignKey(User)
     
     #campo oculto

@@ -30,6 +30,7 @@ def get_anios():
 
 class MonitoreoForm(forms.Form):
     fecha = forms.MultipleChoiceField(choices=get_anios())
+    repetido = forms.BooleanField(required=False, label='Encuestados repetidos')
     departamento = forms.ModelMultipleChoiceField(queryset=departamentos(), required=False, label=u'Departamentos')
     organizacion = forms.ModelMultipleChoiceField(queryset=OrganizacionOCB.objects.all().order_by('nombre'), required=False, label=u'Organización')
     municipio = forms.ModelMultipleChoiceField(queryset=Municipio.objects.all().order_by('nombre'), required=False)
