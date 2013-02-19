@@ -1897,14 +1897,20 @@ def plantaciones(request):
         conteo = a.aggregate(conteo=Count('plantaproduccion__total'))['conteo']
         frecuencia= round(saca_porcentajes(conteo,num_familia))
         produccion_total = a.aggregate(produccion_total=Sum('plantaproduccion__total'))['produccion_total']
-        promedio = round(produccion_total / conteo)
+        try:
+            promedio = round(produccion_total / conteo)
+        except:
+            pass
         porcentaje = round(saca_porcentajes(produccion_total,produccion_total))
         lista_total = (conteo,frecuencia,produccion_total,promedio,porcentaje)
         #sin fermentacion
         s_conteo = a.aggregate(s_conteo=Count('plantaproduccion__sin_fermentar'))['s_conteo']
         s_frecuencia= round(saca_porcentajes(s_conteo,num_familia))
         s_produccion_total = a.aggregate(produccion_total=Sum('plantaproduccion__sin_fermentar'))['produccion_total']
-        s_promedio = round(s_produccion_total / s_conteo)
+        try:
+            s_promedio = round(s_produccion_total / s_conteo)
+        except:
+            pass
         s_porcentaje = round(saca_porcentajes(s_produccion_total,produccion_total))
         lista_sin_fermentar = (s_conteo,s_frecuencia,s_produccion_total,s_promedio,
                                s_porcentaje)               
@@ -1912,7 +1918,10 @@ def plantaciones(request):
         f_conteo = a.aggregate(f_conteo=Count('plantaproduccion__fermentado'))['f_conteo']
         f_frecuencia= round(saca_porcentajes(f_conteo,num_familia))
         f_produccion_total = a.aggregate(produccion_total=Sum('plantaproduccion__fermentado'))['produccion_total']
-        f_promedio = round(f_produccion_total / f_conteo)
+        try:
+            f_promedio = round(f_produccion_total / f_conteo)
+        except:
+            pass
         f_porcentaje = round(saca_porcentajes(f_produccion_total,produccion_total))
         lista_fermentado = (f_conteo,f_frecuencia,f_produccion_total,
                             f_promedio,f_porcentaje)
@@ -1920,7 +1929,10 @@ def plantaciones(request):
         o_conteo = a.aggregate(o_conteo=Count('plantaproduccion__organico'))['o_conteo']
         o_frecuencia= round(saca_porcentajes(o_conteo,num_familia))
         o_produccion_total = a.aggregate(produccion_total=Sum('plantaproduccion__organico'))['produccion_total']
-        o_promedio = round(o_produccion_total / o_conteo)
+        try:
+            o_promedio = round(o_produccion_total / o_conteo)
+        except:
+            pass
         o_porcentaje = round(saca_porcentajes(o_produccion_total,produccion_total))
         lista_organico = (o_conteo,o_frecuencia,o_produccion_total,
                           o_promedio,o_porcentaje)
