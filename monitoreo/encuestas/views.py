@@ -1950,7 +1950,10 @@ def plantaciones(request):
         if coso.mantenimiento_area > 0:
             conteo_area = a.aggregate(conteo_area=Count('costo__mantenimiento_area'))['conteo_area']
         total_area = a.aggregate(total_area=Sum('costo__mantenimiento_area'))['total_area']
-        promedio_area = round(total_area / conteo_area)
+        try:
+            promedio_area = round(total_area / conteo_area)
+        except:
+            promedio_area = 0
         costo_area = (conteo_area,total_area,promedio_area)
         if coso.mantenimiento_finca > 0:
             conteo_finca = a.aggregate(conteo_finca=Count('costo__mantenimiento_finca'))['conteo_finca']
