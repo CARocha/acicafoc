@@ -93,11 +93,6 @@ def _queryset_filtrado(request):
     params = {}
     if 'fecha' in request.session:
         params['year__in'] = request.session['fecha']
-
-    if 'repetido' in request.session:
-        params['repetido'] = request.session['repetido']
-        print "///////"
-        print params['repetido']
         
     if request.session['departamento']:
         if not request.session['municipio']:
@@ -130,7 +125,10 @@ def _queryset_filtrado(request):
     for key in unvalid_keys:
         del params[key]
     
-    return Encuesta.objects.filter(**params)
+    if request.session['repetido'] == '1':
+        return Encuesta.objects.filter(**params).filter(repetido=True)
+    else:
+        return Encuesta.objects.filter(**params)
 
 #-------------------------------------------------------------------------------
 
@@ -142,6 +140,7 @@ def inicio(request):
         form = MonitoreoForm(request.POST)
         if form.is_valid():
             request.session['fecha'] = form.cleaned_data['fecha']
+            request.session['repetido'] = form.cleaned_data['repetido']
             request.session['departamento'] = form.cleaned_data['departamento']
             request.session['organizacion'] = form.cleaned_data['organizacion']
             request.session['municipio'] = form.cleaned_data['municipio']

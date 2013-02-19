@@ -18,6 +18,11 @@ CHOICE_ETNICO = (
                     (4, 'Afrodescendiente')
               )
 
+CHOICE_REPETIDOS = (
+            ('', u'Repetidos'),
+            (1, 'Si')
+    )
+
 def departamentos():   
     foo = Encuesta.objects.all().order_by('comunidad__municipio__departamento__nombre').distinct().values_list('comunidad__municipio__departamento__id', flat=True)
     return Departamento.objects.filter(id__in=foo)
@@ -30,7 +35,7 @@ def get_anios():
 
 class MonitoreoForm(forms.Form):
     fecha = forms.MultipleChoiceField(choices=get_anios())
-    repetido = forms.BooleanField(required=False, label='Encuestados repetidos')
+    repetido = forms.ChoiceField(choices = CHOICE_REPETIDOS,required=False)
     departamento = forms.ModelMultipleChoiceField(queryset=departamentos(), required=False, label=u'Departamentos')
     organizacion = forms.ModelMultipleChoiceField(queryset=OrganizacionOCB.objects.all().order_by('nombre'), required=False, label=u'Organización')
     municipio = forms.ModelMultipleChoiceField(queryset=Municipio.objects.all().order_by('nombre'), required=False)
