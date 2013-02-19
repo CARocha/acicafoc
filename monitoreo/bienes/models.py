@@ -112,8 +112,8 @@ class Infraestructura(models.Model):
     cantidad_infra = models.IntegerField('Cantidad', null=True, blank=True)
     encuesta = models.ForeignKey(Encuesta)
     
-    def __unicode__(self):
-        return u'%s' % self.infraestructura.nombre
+    #def __unicode__(self):
+    #    return u'%s' % self.infraestructura.nombre
     
     class Meta:
         verbose_name_plural = "Infraestructura"
