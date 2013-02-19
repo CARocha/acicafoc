@@ -1949,11 +1949,20 @@ def plantaciones(request):
             promedio_finca = 0
         costo_finca = (conteo_finca,total_finca,promedio_finca)
 
-    porcentaje_cacao = round(saca_porcentajes(costo_area[1],costo_finca[1]),2)
+    try:
+        porcentaje_cacao = round(saca_porcentajes(costo_area[1],costo_finca[1]),2)
+    except:
+        porcentaje_cacao = 0
     #costo de mantenimiento cacao/mz
-    mantenimiento_cacao = round(costo_area[1] / (planta_menos[2] + planta_mas[2] + planta_produccion[2]),4)
+    try:
+        mantenimiento_cacao = round(costo_area[1] / (planta_menos[2] + planta_mas[2] + planta_produccion[2]),4)
+    except:
+        mantenimiento_cacao = 0
     #costo de mantenimiento qq
-    mantenimiento_qq = round(costo_area[1] / lista_total[2],2)
+    try:
+        mantenimiento_qq = round(costo_area[1] / lista_total[2],2)
+    except:
+        mantenimiento_qq = 0
                 
                                 
     return render_to_response('estado/plantaciones.html',{'vivero':vivero,
