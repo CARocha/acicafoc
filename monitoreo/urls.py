@@ -18,10 +18,10 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'monitoreo.encuestas.views.index'),
-    url(r'^', include('noticias.urls')),
     url(r'^', include('monitoreo.encuestas.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^xls/$', 'monitoreo.utils.save_as_xls'),
+    url(r'^', include('noticias.urls')),
 
 )
 
