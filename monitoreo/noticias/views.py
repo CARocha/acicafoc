@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response, get_object_or_404, get_list_or_
 from django.views.generic.simple import direct_to_template
 from django.core.exceptions import ViewDoesNotExist
 
-from noticias.models import *
+from monitoreo.noticias.models import *
 
 def noticia_detalle(request,slug):
     '''Muestra el detalle de la noticia'''
