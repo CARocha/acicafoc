@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 from django.conf import settings
 from models import Noticia
 
-urlpatterns = patterns('noticias.views',
+urlpatterns = patterns('monitoreo.noticias.views',
     #(r'^rss/$', NoticiasFeed()),
     #(r'^noticias/binacional/feed/$', NoticiasBinacionalFeed()),
     (r'^noticias/$', 'noticia_lista'),
